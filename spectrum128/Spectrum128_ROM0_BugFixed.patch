@@ -1,0 +1,40 @@
+diff --git b/spectrum128/Spectrum128_ROM0_BugFixed.s a/spectrum128/Spectrum128_ROM0_BugFixed.s
+index d3b6411..8718b5b 100644
+--- b/spectrum128/Spectrum128_ROM0_BugFixed.s
++++ a/spectrum128/Spectrum128_ROM0_BugFixed.s
+@@ -18519,24 +18519,24 @@ L3FFF:  .byte 0x01         //
+ # |  ROM    |   File    |    File    |  Variables   |  Variables  |
+ # +---------+-----------+------------+--------------+-------------+--
+ # ^         ^           ^            ^              ^             ^
+-# 0x0000   0x4000       0x5800        0x5B00          0x5C00         0x5CB6 = CHANS
++# 0x0000  0x4000      0x5800       0x5B00         0x5C00        0x5CB6 = CHANS
+ #
+ #
+-#  --+----------+---+---------+-----------+---+------------+--+---+--
++#  --+----------+----+---------+-----------+----+------------+--+----+--
+ #    | Channel  |0x80|  BASIC  | Variables |0x80| Edit Line  |NL|0x80|
+-#    |   Info   |   | Program |   Area    |   | or Command |  |   |
+-#  --+----------+---+---------+-----------+---+------------+--+---+--
+-#    ^              ^         ^               ^                   ^
+-#  CHANS           PROG      VARS           E_LINE              WORKSP
++#    |   Info   |    | Program |   Area    |    | or Command |  |    |
++#  --+----------+----+---------+-----------+----+------------+--+----+--
++#    ^               ^         ^                ^                    ^
++#  CHANS            PROG      VARS            E_LINE               WORKSP
+ #
+ #
+ #                             ------>         <-------  <------
+-#  --+-------+--+------------+-------+-------+---------+-------+-+---+------+
++#  --+-------+--+------------+-------+-------+---------+-------+-+----+------+
+ #    | INPUT |NL| Temporary  | Calc. | Spare | Machine | GOSUB |?|0x3E| UDGs |
+-#    | data  |  | Work Space | Stack |       |  Stack  | Stack | |   |      |
+-#  --+-------+--+------------+-------+-------+---------+-------+-+---+------+
+-#    ^                       ^       ^       ^                   ^   ^      ^
+-#  WORKSP                  STKBOT  STKEND   SP               RAMTOP UDG  P_RAMT
++#    | data  |  | Work Space | Stack |       |  Stack  | Stack | |    |      |
++#  --+-------+--+------------+-------+-------+---------+-------+-+----+------+
++#    ^                       ^       ^       ^                   ^    ^      ^
++#  WORKSP                  STKBOT  STKEND   SP               RAMTOP  UDG  P_RAMT
+ 
+ 
+ # ==========
