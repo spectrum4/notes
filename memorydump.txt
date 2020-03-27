@@ -1,0 +1,235 @@
+STACK
+=====
+  0007ffe0 00 00 00 00 00 00 00 00 cc 00 08 00 00 00 00 00 08 00 00 00 00 00 00 00 30 08 c5 30 00 00 00 00
+
+MBREQ
+=====
+  00080b40 a0 00 00 00 00 00 00 80 03 80 04 00 08 00 00 00 08 00 00 80 80 07 00 00 b0 04 00 00 04 80 04 00
+  00080b60 08 00 00 00 08 00 00 80 80 07 00 00 b0 04 00 00 09 80 04 00 08 00 00 00 08 00 00 80 00 00 00 00
+  00080b80 00 00 00 00 05 80 04 00 04 00 00 00 04 00 00 80 20 00 00 00 06 80 04 00 04 00 00 00 04 00 00 80
+  00080ba0 00 00 00 00 01 00 04 00 08 00 00 00 08 00 00 80 00 00 33 3e 00 a0 8c 00 08 00 04 00 04 00 00 00
+  00080bc0 04 00 00 80 00 1e 00 00 05 00 01 00 08 00 00 00 08 00 00 80 00 00 00 00 00 00 00 3c 00 00 00 00
+
+SYSVARS
+=======
+  000c5f40 00 50 00 00 40 00 10 00 00 38 38 38 00 00 0b 00 00 00 0a 00 0a 00 00 00 00 00 00 00 00 00 00 00
+  000c5f60 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  000c5f80 00 a3 0f 10 00 00 00 00 a0 ff ff 0f 00 00 00 00 e0 07 08 00 00 00 00 00 80 a4 0f 10 00 00 00 00
+  000c5fa0 20 a4 0f 10 00 00 00 00 00 00 00 00 00 00 00 00 80 a4 0f 10 00 00 00 00 7f a4 0f 10 00 00 00 00
+  000c5fc0 81 a4 0f 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 83 a4 0f 10 00 00 00 00
+  000c5fe0 83 a4 0f 10 00 00 00 00 83 a4 0f 10 00 00 00 00 ff ff ff 3b 00 00 00 00 ff ff ff 3b 00 00 00 00
+  000c6000 60 fd ff 3b 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  000c6020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  000c6040 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  000c6060 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+  COL:            00
+  WIDTH:          50
+  TVPARS:         00
+  REPDEL:         00
+  RASP:           40
+  PIP:            00
+  FLAGS:          10
+  FLAGS2:         00
+  TV_FLAG:        00
+  BORDCR:         38
+  ATTR_P:         38
+  MASK_P:         38
+  ERR_NR:         00
+  DF_SZ:          00
+  BAUD:           000b
+  SERFL:          0000
+  RNFIRST:        000a
+  RNSTEP:         000a
+  STRMS:          0000000000000000000000000000000000000000000000000000000000000000000000000000
+  COORDS:         0000
+  COORDS_Y:       0000
+  SFNEXT:         00000000100fa300
+  SFSPACE:        000000000fffffa0
+  CHARS:          00000000000807e0
+  VARS:           00000000100fa480
+  CHANS:          00000000100fa420
+  CURCHL:         0000000000000000
+  PROG:           00000000100fa480
+  DATADD:         00000000100fa47f
+  E_LINE:         00000000100fa481
+  CH_ADD:         0000000000000000
+  X_PTR:          0000000000000000
+  WORKSP:         00000000100fa483
+  STKBOT:         00000000100fa483
+  STKEND:         00000000100fa483
+  RAMTOP:         000000003bffffff
+  P_RAMT:         000000003bffffff
+  UDG:            000000003bfffd60
+  ERR_SP:         0000000000000000
+
+MEMORY LAYOUT
+=============
+  0
+    <----- stack
+  00080000 machine code
+           data
+           font
+           screen
+  000c5f40 sysvars
+           end of dedicated ARM RAM
+           start of shared ARM/GPU RAM
+           framebuffer
+
+$ ./build.sh | grep -v 0x | sed -n 's/^.*00000000\([0-9a-f][0-9a-f]*\).* \([^ ]*\)$/\1 \2/p' | while read addr symb; do printf "%#x: $symb\n" "$((0x${addr} - 0x3800c0))"; done | sort -u
+
+0x80000: _start
+0x800d4: new
+0x8020c: error_1
+0x80230: cls
+0x80248: cls_lower
+0x80274: cl_line
+0x8032c: cl_addr
+0x8033c: cl_all
+0x80360: cl_chan
+0x80378: chan_open
+0x803a8: chan_flag
+0x803dc: indexer
+0x80410: init_framebuffer
+0x80460: paint_border
+0x804dc: paint_rectangle
+0x804f8: fill_rectangle
+0x80500: fill_line
+0x80520: paint_window
+0x80548: paint_string
+0x80588: paint_char
+0x80594: paint_line
+0x805c4: paint_copyright
+0x80600: uart_newline
+0x80620: R1_09F4
+0x80630: R1_0F81
+0x80640: R1_10A8
+0x80650: R1_15C4
+0x80660: R1_5B2F
+0x80670: R1_5B34
+0x80680: R1_1634
+0x806b8: R1_1642
+0x806c8: R1_164D
+0x806d8: TEMPS
+0x806e8: poke_address
+0x80894: clear_screen
+0x808dc: display_zx_screen
+0x80914: display_memory
+0x809d4: hex_x0
+0x80a0c: msg_copyright
+0x80a2b: msg_hex_header
+0x80a98: R0_059E
+0x80aa6: R0_059E_END
+0x80aa8: R0_0589
+0x80b08: R0_0589_END
+0x80b08: R1_162D
+0x80b40: mbreq
+0x80bb0: framebuffer
+0x80bc4: pitch
+0x80bd4: arm_base
+0x80bd8: arm_size
+0x80be0: R1_3D00
+0x80be0: chars
+0x80be0: mbreq_end
+0x817e0: ZX_SCREEN
+0xb5b30: uart_init
+0xb5c9c: uart_send
+0xb5cdc: uart_getc
+0xb5d2c: uart_puts
+0xb5d84: uart_hex
+0xb5e00: wait_cycles
+0xb5e3c: mbox_call
+0xc5f40: COL
+0xc5f40: __bss_start
+0xc5f40: __bss_start__
+0xc5f40: _edata
+0xc5f40: sysvars
+0xc5f41: WIDTH
+0xc5f42: TVPARS
+0xc5f43: REPDEL
+0xc5f44: RASP
+0xc5f45: PIP
+0xc5f46: FLAGS
+0xc5f47: FLAGS2
+0xc5f48: TV_FLAG
+0xc5f49: BORDCR
+0xc5f4a: ATTR_P
+0xc5f4b: MASK_P
+0xc5f4c: ERR_NR
+0xc5f4d: DF_SZ
+0xc5f4e: BAUD
+0xc5f50: SERFL
+0xc5f52: RNFIRST
+0xc5f54: RNSTEP
+0xc5f56: STRMS
+0xc5f7c: COORDS
+0xc5f7e: COORDS_Y
+0xc5f80: SFNEXT
+0xc5f88: SFSPACE
+0xc5f90: CHARS
+0xc5f98: VARS
+0xc5fa0: CHANS
+0xc5fa8: CURCHL
+0xc5fb0: PROG
+0xc5fb8: DATADD
+0xc5fc0: E_LINE
+0xc5fc8: CH_ADD
+0xc5fd0: X_PTR
+0xc5fd8: WORKSP
+0xc5fe0: STKBOT
+0xc5fe8: STKEND
+0xc5ff0: RAMTOP
+0xc5ff8: P_RAMT
+0xc6000: UDG
+0xc6008: ERR_SP
+0xc6010: display_file
+0xc6010: sysvars_end
+0xf8a10: attributes_file
+0xf8a10: display_file_end
+0xfa360: attributes_file_end
+0xfa360: ram_disk
+0x100fa360: heap
+0x200fa360: mbox
+0x200fa3f0: __bss_end__
+0x200fa3f0: __end__
+0x200fa3f0: _bss_end__
+0x200fa3f0: _end
+
+
+
+
+RAMDISK
+=======
+  100fa3c0 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55
+  100fa3e0 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55
+  100fa400 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55
+
+HEAP
+====
+  100fa420 e0 06 40 00 00 00 00 00 00 07 40 00 00 00 00 00 4b 00 00 00 00 00 00 00 e0 06 40 00 00 00 00 00
+  100fa440 10 07 40 00 00 00 00 00 53 00 00 00 00 00 00 00 f0 06 40 00 00 00 00 00 10 07 40 00 00 00 00 00
+  100fa460 52 00 00 00 00 00 00 00 30 07 40 00 00 00 00 00 20 07 40 00 00 00 00 00 50 00 00 00 00 00 00 50
+
+UDG
+===
+  3bfffd60 00 00 00 00 f0 0f f8 1f 1c 38 0c 30 0c 30 0c 30 fc 3f fc 3f 0c 30 0c 30 0c 30 0c 30 00 00 00 00
+  3bfffd80 00 00 00 00 f0 3f f8 3f 1c 30 1c 30 f8 3f f8 3f 1c 30 0c 30 0c 30 1c 30 f8 3f f0 3f 00 00 00 00
+  3bfffda0 00 00 00 00 f0 0f f8 1f 1c 38 0c 30 00 30 00 30 00 30 00 30 0c 30 1c 38 f8 1f f0 0f 00 00 00 00
+  3bfffdc0 00 00 00 00 c0 3f e0 3f 70 30 38 30 1c 30 0c 30 0c 30 1c 30 38 30 70 30 e0 3f c0 3f 00 00 00 00
+  3bfffde0 00 00 00 00 fc 3f fc 3f 00 30 00 30 f0 3f f0 3f 00 30 00 30 00 30 00 30 fc 3f fc 3f 00 00 00 00
+  3bfffe00 00 00 00 00 fc 3f fc 3f 00 30 00 30 f0 3f f0 3f 00 30 00 30 00 30 00 30 00 30 00 30 00 00 00 00
+  3bfffe20 00 00 00 00 f0 0f f8 1f 1c 38 0c 30 00 30 00 30 fc 30 fc 30 0c 30 1c 38 f8 1f f0 0f 00 00 00 00
+  3bfffe40 00 00 00 00 0c 30 0c 30 0c 30 0c 30 fc 3f fc 3f 0c 30 0c 30 0c 30 0c 30 0c 30 0c 30 00 00 00 00
+  3bfffe60 00 00 00 00 fc 0f fc 0f c0 00 c0 00 c0 00 c0 00 c0 00 c0 00 c0 00 c0 00 fc 0f fc 0f 00 00 00 00
+  3bfffe80 00 00 00 00 0c 00 0c 00 0c 00 0c 00 0c 00 0c 00 0c 30 0c 30 0c 30 1c 38 f8 1f f0 0f 00 00 00 00
+  3bfffea0 00 00 00 00 30 30 70 30 e0 30 c0 31 80 3f 80 3f c0 31 e0 30 70 30 38 30 1c 30 0c 30 00 00 00 00
+  3bfffec0 00 00 00 00 00 30 00 30 00 30 00 30 00 30 00 30 00 30 00 30 00 30 00 30 fc 3f fc 3f 00 00 00 00
+  3bfffee0 00 00 00 00 0c 30 1c 38 3c 3c 7c 3e ec 37 cc 33 8c 31 0c 30 0c 30 0c 30 0c 30 0c 30 00 00 00 00
+  3bffff00 00 00 00 00 0c 30 0c 38 0c 3c 0c 3e 0c 37 8c 33 cc 31 ec 30 7c 30 3c 30 1c 30 0c 30 00 00 00 00
+  3bffff20 00 00 00 00 f0 0f f8 1f 1c 38 0c 30 0c 30 0c 30 0c 30 0c 30 0c 30 1c 38 f8 1f f0 0f 00 00 00 00
+  3bffff40 00 00 00 00 f0 3f f8 3f 1c 30 0c 30 0c 30 1c 30 f8 3f f0 3f 00 30 00 30 00 30 00 30 00 00 00 00
+  3bffff60 00 00 00 00 f0 0f f8 1f 1c 38 0c 30 0c 30 0c 30 0c 33 8c 33 cc 31 fc 38 f8 1f fc 0f 1c 00 00 00
+  3bffff80 00 00 00 00 f0 3f f8 3f 1c 30 0c 30 0c 30 1c 30 f8 3f f0 3f 70 30 38 30 1c 30 0c 30 00 00 00 00
+  3bffffa0 00 00 00 00 f8 0f f8 1f 00 38 00 38 f0 1f f8 0f 1c 00 0c 00 0c 30 1c 38 f8 1f f0 0f 00 00 00 00
+  3bffffc0 00 00 00 00 fc ff fc ff 00 03 00 03 00 03 00 03 00 03 00 03 00 03 00 03 00 03 00 03 00 00 00 00
+  3bffffe0 00 00 00 00 0c 30 0c 30 0c 30 0c 30 0c 30 0c 30 0c 30 0c 30 0c 30 1c 38 f8 1f f0 0f 00 00 00 00
