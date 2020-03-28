@@ -18394,7 +18394,7 @@ L3FFF:  .byte 0x01         //
 # KSTATE   0x5C00   8   IY-0x3A   Used in reading the keyboard.
 # LASTK    0x5C08   1   IY-0x32   Stores newly pressed key.
 # // REPDEL   0x5C09   1   IY-0x31   Time (in 50ths of a second) that a key must be held down before it repeats. This starts off at 35.
-# REPPER   0x5C0A   1   IY-0x30   Delay (in 50ths of a second) between successive repeats of a key held down - initially 5.
+# // REPPER   0x5C0A   1   IY-0x30   Delay (in 50ths of a second) between successive repeats of a key held down - initially 5.
 # DEFADD   0x5C0B   2   IY-0x2F   Address of arguments of user defined function (if one is being evaluated), otherwise 0.
 # K_DATA   0x5C0D   1   IY-0x2D   Stores second byte of colour controls entered from keyboard.
 # TVDATA   0x5C0E   2   IY-0x2C   Stores bytes of colour, AT and TAB controls going to TV.
