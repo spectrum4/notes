@@ -1,7 +1,7 @@
 
 
 | Code | Encoding | Meaning (when set by CMP)                             | Meaning (when set by FCMP)                                | Condition flags    |
-| ---- | -------- | -------------------------------------------------==-- | --------------------------------------------------------- | ------------------ |
+| ---- | -------- | ----------------------------------------------------- | --------------------------------------------------------- | ------------------ |
 | `EQ` | `0b0000` | Equal to.                                             | Equal to.                                                 | `Z == 1`           |
 | `NE` | `0b0001` | Not equal to.                                         | Unordered, or not equal to.                               | `Z == 0`           |
 | `CS` | `0b0010` | Carry set (identical to `HS`).                        | Greater than, equal to, or unordered (identical to `HS`). | `C == 1`           |
