@@ -13,10 +13,10 @@
 | `VS` | `0b0110` | Signed overflow.                                      | Unordered. (At least one argument was `NaN`).             | `V==1`           |
 | `VC` | `0b0111` | No signed overflow.                                   | Not unordered. (No argument was `NaN`).                   | `V==0`           |
 | `HI` | `0b1000` | Greater than (unsigned).                              | Greater than or unordered.                                | `C==1 && Z==0`   |
-| `LS` | `0b1001` | Less than or equal to (unsigned).                     | Less than or equal to.                                    | `C==0 || Z==1`   |
+| `LS` | `0b1001` | Less than or equal to (unsigned).                     | Less than or equal to.                                    | `C==0 \|\| Z==1` |
 | `GE` | `0b1010` | Greater than or equal to (signed).                    | Greater than or equal to.                                 | `N==V`           |
 | `LT` | `0b1011` | Less than (signed).                                   | Less than or unordered.                                   | `N!=V`           |
 | `GT` | `0b1100` | Greater than (signed).                                | Greater than.                                             | `Z==0 && N==V`   |
-| `LE` | `0b1101` | Less than or equal to (signed).                       | Less than, equal to or unordered.                         | `Z==1 || N!=V`   |
+| `LE` | `0b1101` | Less than or equal to (signed).                       | Less than, equal to or unordered.                         | `Z==1 \|\| N!=V` |
 | `AL` | `0b1110` | Always executed. Default.                             | Always executed.                                          | Any              |
 | `NV` | `0b1111` | Always executed.                                      | Always executed.                                          | Any              |
