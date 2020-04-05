@@ -4028,26 +4028,26 @@ L0D65:  XOR     (HL)            //
 #         RES     0,(IY+0x30)      // update FLAGS2  - signal main screen is clear.
 #
 #         CALL    L0D94           // routine CL-CHAN makes channel 'K' 'normal'.
-
-        LD      A,0xFE           // select system channel 'S'
-        CALL    L1601           // routine CHAN-OPEN opens it
-        CALL    L0D4D           // routine TEMPS picks up permanent values.
-        LD      B,0x18           // There are 24 lines.
-        CALL    L0E44           // routine CL-LINE clears 24 text lines
-                                // (and sets BC to 0x1821)
-
-        LD      HL,(0x5C51)      // fetch CURCHL make HL address current
-                                // channel 'S'
-        LD      DE,L09F4        // address: PRINT-OUT
-        LD      (HL),E          // is made
-        INC     HL              // the normal
-        LD      (HL),D          // output address.
-
-        LD      (IY+0x52),0x01    // set SCR_CT - scroll count is set to default.
-                                // Note. BC already contains 0x1821.
-        LD      BC,0x1821        // reset column and line to 0,0
-                                // and continue into CL-SET, below, exiting
-                                // via PO-STORE (for upper screen).
+#
+#         LD      A,0xFE           // select system channel 'S'
+#         CALL    L1601           // routine CHAN-OPEN opens it
+#         CALL    L0D4D           // routine TEMPS picks up permanent values.
+#         LD      B,0x18           // There are 24 lines.
+#         CALL    L0E44           // routine CL-LINE clears 24 text lines
+#                                 // (and sets BC to 0x1821)
+#
+#         LD      HL,(0x5C51)      // fetch CURCHL make HL address current
+#                                 // channel 'S'
+#         LD      DE,L09F4        // address: PRINT-OUT
+#         LD      (HL),E          // is made
+#         INC     HL              // the normal
+#         LD      (HL),D          // output address.
+#
+#         LD      (IY+0x52),0x01    // set SCR_CT - scroll count is set to default.
+#                                 // Note. BC already contains 0x1821.
+#         LD      BC,0x1821        // reset column and line to 0,0
+#                                 // and continue into CL-SET, below, exiting
+#                                 // via PO-STORE (for upper screen).
 
 # ---------------------------
 # Set line and column numbers
