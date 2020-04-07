@@ -18390,7 +18390,7 @@ L3FFF:  DEFB $01         ;
 ; KSTATE   $5C00   8   IY-$3A   Used in reading the keyboard.
 ; LASTK    $5C08   1   IY-$32   Stores newly pressed key.
 # ; REPDEL   $5C09   1   IY-$31   Time (in 50ths of a second) that a key must be held down before it repeats. This starts off at 35.
-; REPPER   $5C0A   1   IY-$30   Delay (in 50ths of a second) between successive repeats of a key held down - initially 5.
+# ; REPPER   $5C0A   1   IY-$30   Delay (in 50ths of a second) between successive repeats of a key held down - initially 5.
 ; DEFADD   $5C0B   2   IY-$2F   Address of arguments of user defined function (if one is being evaluated), otherwise 0.
 ; K_DATA   $5C0D   1   IY-$2D   Stores second byte of colour controls entered from keyboard.
 ; TVDATA   $5C0E   2   IY-$2C   Stores bytes of colour, AT and TAB controls going to TV.

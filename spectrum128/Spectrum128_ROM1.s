@@ -4260,24 +4260,24 @@ L0E88:  LD      A,H             // fetch H to A - 0x48, 0x50, or 0x58.
 # of the start of a screen character line which is supplied in B.
 
 #// CL-ADDR
-L0E9B:  LD      A,0x18           // reverse the line number
-        SUB     B               // to range 0x00 - 0x17.
-        LD      D,A             // save line in D for later.
-        RRCA                    // multiply
-        RRCA                    // by
-        RRCA                    // thirty-two.
-
-        AND     0xE0             // mask off low bits to make
-        LD      L,A             // L a multiple of 32.
-
-        LD      A,D             // bring back the line to A.
-
-        AND     0x18             // now 0x00, 0x08 or 0x10.
-
-        OR      0x40             // add the base address of screen.
-
-        LD      H,A             // HL now has the correct address.
-        RET                     // return.
+# L0E9B:  LD      A,0x18           // reverse the line number
+#         SUB     B               // to range 0x00 - 0x17.
+#         LD      D,A             // save line in D for later.
+#         RRCA                    // multiply
+#         RRCA                    // by
+#         RRCA                    // thirty-two.
+#
+#         AND     0xE0             // mask off low bits to make
+#         LD      L,A             // L a multiple of 32.
+#
+#         LD      A,D             // bring back the line to A.
+#
+#         AND     0x18             // now 0x00, 0x08 or 0x10.
+#
+#         OR      0x40             // add the base address of screen.
+#
+#         LD      H,A             // HL now has the correct address.
+#         RET                     // return.
 
 # -------------------
 # Handle COPY command
