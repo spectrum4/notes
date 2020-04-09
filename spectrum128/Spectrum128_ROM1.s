@@ -3968,27 +3968,27 @@ L0D65:  XOR     (HL)            //
 #         CALL    L0E44           // routine CL-LINE clears lower part
 #                                 // and sets permanent attributes.
 #
-        LD      HL,0x5AC0        // fetch attribute address leftmost cell,
-                                // second line up.
-        LD      A,(0x5C8D)       // fetch permanent attribute from ATTR_P.
-        DEC     B               // decrement lower screen display file size
-        JR      L0D8E           // forward to CLS-3 ->
-
-# ---
-
-#// CLS-1
-L0D87:  LD      C,0x20           // set counter to 32 characters per line
-
-#// CLS-2
-L0D89:  DEC     HL              // decrease attribute address.
-        LD      (HL),A          // and place attributes in next line up.
-        DEC     C               // decrease 32 counter.
-        JR      NZ,L0D89        // loop back to CLS-2 until all 32 done.
-
-#// CLS-3
-L0D8E:  DJNZ    L0D87           // decrease B counter and back to CLS-1
-                                // if not zero.
-
+#         LD      HL,0x5AC0        // fetch attribute address leftmost cell,
+#                               // second line up.
+#         LD      A,(0x5C8D)       // fetch permanent attribute from ATTR_P.
+#         DEC     B               // decrement lower screen display file size
+#         JR      L0D8E           // forward to CLS-3 ->
+#
+# // ---
+#
+# //; CLS-1
+# L0D87:  LD      C,0x20           // set counter to 32 characters per line
+#
+# //; CLS-2
+# L0D89:  DEC     HL              // decrease attribute address.
+#         LD      (HL),A          // and place attributes in next line up.
+#         DEC     C               // decrease 32 counter.
+#         JR      NZ,L0D89        // loop back to CLS-2 until all 32 done.
+#
+# //; CLS-3
+# L0D8E:  DJNZ    L0D87           // decrease B counter and back to CLS-1
+#                                 // if not zero.
+#
         LD      (IY+0x31),0x02    // set DF_SZ lower screen to 2
 
 # This entry point is called from CL-ALL below to
