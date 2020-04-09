@@ -1,0 +1,16 @@
+cmp 0, 0
+cmp 11111111, 11111111
+cmp 22222222, 22222222
+cmp 33333333, 33333333
+cmp 44444444, 44444444
+cmp 55555555, 55555555
+cmp 66666666, 66666666
+cmp 77777777, 77777777
+cmp 88888888, 88888888
+cmp 99999999, 99999999
+cmp aaaaaaaa, aaaaaaaa
+cmp bbbbbbbb, bbbbbbbb
+cmp cccccccc, cccccccc
+cmp dddddddd, dddddddd
+cmp eeeeeeee, eeeeeeee
+cmp ffffffff, ffffffff
