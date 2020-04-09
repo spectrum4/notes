@@ -3985,7 +3985,7 @@ L0D65:  XOR     (HL)            ;
 # L0D8E:  DJNZ    L0D87           ; decrease B counter and back to CLS-1
 #                                 ; if not zero.
 #
-        LD      (IY+$31),$02    ; set DF_SZ lower screen to 2
+#         LD      (IY+$31),$02    ; set DF_SZ lower screen to 2
 
 ; This entry point is called from CL-ALL below to
 ; reset the system channel input and output addresses to normal.
@@ -3993,23 +3993,23 @@ L0D65:  XOR     (HL)            ;
 ;; CL-CHAN
 # L0D94:  LD      A,$FD           ; select system channel 'K'
 #         CALL    L1601           ; routine CHAN-OPEN opens it.
-        LD      HL,($5C51)      ; fetch CURCHL to HL to address current channel
-        LD      DE,L09F4        ; set address to PRINT-OUT for first pass.
-        AND     A               ; clear carry for first pass.
-
-;; CL-CHAN-A
-L0DA0:  LD      (HL),E          ; insert output address first pass.
-        INC     HL              ; or input address on second pass.
-        LD      (HL),D          ;
-        INC     HL              ;
-        LD      DE,L10A8        ; fetch address KEY-INPUT for second pass
-        CCF                     ; complement carry flag - will set on pass 1.
-
-        JR      C,L0DA0         ; back to CL-CHAN-A if first pass else done.
-
-        LD      BC,$1721        ; line 23 for lower screen
-        JR      L0DD9           ; exit via CL-SET to set column
-                                ; for lower display
+#         LD      HL,($5C51)      ; fetch CURCHL to HL to address current channel
+#         LD      DE,L09F4        ; set address to PRINT-OUT for first pass.
+#         AND     A               ; clear carry for first pass.
+#
+# ;; CL-CHAN-A
+# L0DA0:  LD      (HL),E          ; insert output address first pass.
+#         INC     HL              ; or input address on second pass.
+#         LD      (HL),D          ;
+#         INC     HL              ;
+#         LD      DE,L10A8        ; fetch address KEY-INPUT for second pass
+#         CCF                     ; complement carry flag - will set on pass 1.
+#
+#         JR      C,L0DA0         ; back to CL-CHAN-A if first pass else done.
+#
+#         LD      BC,$1721        ; line 23 for lower screen
+#         JR      L0DD9           ; exit via CL-SET to set column
+#                                 ; for lower display
 
 ; ---------------------------
 ; Clearing whole display area
