@@ -1,3 +1,4 @@
+
 | Code | Encoding | Meaning (when set by CMP)                             | Meaning (when set by FCMP)                                | Condition flags    |
 | ---- | -------- | -------------------------------------------------==-- | --------------------------------------------------------- | ------------------ |
 | `EQ` | `0b0000` | Equal to.                                             | Equal to.                                                 | `Z == 1`           |
