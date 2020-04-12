@@ -1738,54 +1738,54 @@ L046C:  DEFW L048C        ; Error report 'a'.
 ; New Error Message Table
 ; -----------------------
 
-L048C:  DEFM "MERGE erro"                  ; Report 'a'.
-        DEFB 'r'+$80
-L0497:  DEFM "Wrong file typ"              ; Report 'b'.
-        DEFB 'e'+$80
-L04A6:  DEFM "CODE erro"                   ; Report 'c'.
-        DEFB 'r'+$80
-L04B0:  DEFM "Too many bracket"            ; Report 'd'.
-        DEFB 's'+$80
-L04C1:  DEFM "File already exist"          ; Report 'e'.
-        DEFB 's'+$80
-L04D4:  DEFM "Invalid nam"                 ; Report 'f'.
-        DEFB 'e'+$80
-L04E0:  DEFM "File does not exis"          ; Report 'g' & 'h'.
-        DEFB 't'+$80
-L04F3:  DEFM "Invalid devic"               ; Report 'i'.
-        DEFB 'e'+$80
-L0501:  DEFM "Invalid baud rat"            ; Report 'j'.
-        DEFB 'e'+$80
-L0512:  DEFM "Invalid note nam"            ; Report 'k'.
-        DEFB 'e'+$80
-L0523:  DEFM "Number too bi"               ; Report 'l'.
-        DEFB 'g'+$80
-L0531:  DEFM "Note out of rang"            ; Report 'm'.
-        DEFB 'e'+$80
-L0542:  DEFM "Out of rang"                 ; Report 'n'.
-        DEFB 'e'+$80
-L054E:  DEFM "Too many tied note"          ; Report 'o'.
-        DEFB 's'+$80
-L0561:  DEFB $7F                           ; '(c)'.
-        DEFM " 1986 Sinclair Research Lt"  ; Copyright. [There should have been an error report "p Bad parameterr" here as there was in the Spanish 128,
-        DEFB 'd'+$80                       ; or the error code byte at $232F (ROM 0) should have been $19 for "Q Parameter error"]
+# L048C:  DEFM "MERGE erro"                  ; Report 'a'.
+#         DEFB 'r'+$80
+# L0497:  DEFM "Wrong file typ"              ; Report 'b'.
+#         DEFB 'e'+$80
+# L04A6:  DEFM "CODE erro"                   ; Report 'c'.
+#         DEFB 'r'+$80
+# L04B0:  DEFM "Too many bracket"            ; Report 'd'.
+#         DEFB 's'+$80
+# L04C1:  DEFM "File already exist"          ; Report 'e'.
+#         DEFB 's'+$80
+# L04D4:  DEFM "Invalid nam"                 ; Report 'f'.
+#         DEFB 'e'+$80
+# L04E0:  DEFM "File does not exis"          ; Report 'g' & 'h'.
+#         DEFB 't'+$80
+# L04F3:  DEFM "Invalid devic"               ; Report 'i'.
+#         DEFB 'e'+$80
+# L0501:  DEFM "Invalid baud rat"            ; Report 'j'.
+#         DEFB 'e'+$80
+# L0512:  DEFM "Invalid note nam"            ; Report 'k'.
+#         DEFB 'e'+$80
+# L0523:  DEFM "Number too bi"               ; Report 'l'.
+#         DEFB 'g'+$80
+# L0531:  DEFM "Note out of rang"            ; Report 'm'.
+#         DEFB 'e'+$80
+# L0542:  DEFM "Out of rang"                 ; Report 'n'.
+#         DEFB 'e'+$80
+# L054E:  DEFM "Too many tied note"          ; Report 'o'.
+#         DEFB 's'+$80
+# L0561:  DEFB $7F                           ; '(c)'.
+#         DEFM " 1986 Sinclair Research Lt"  ; Copyright. [There should have been an error report "p Bad parameterr" here as there was in the Spanish 128,
+#         DEFB 'd'+$80                       ; or the error code byte at $232F (ROM 0) should have been $19 for "Q Parameter error"]
 
 ; -------------
 ; Print Message
 ; -------------
 ; Print a message which is terminated by having bit 7 set, pointed at by DE.
 
-L057D:  LD   A,(DE)       ; Fetch next byte.
-        AND  $7F          ; Mask off top bit.
-        PUSH DE           ; Save address of current message byte.
-        RST  10H          ; Print character.
-        POP  DE           ; Restore message byte pointer.
-        LD   A,(DE)       ;
-        INC  DE           ;
-        ADD  A,A          ; Carry flag will be set if byte is $FF.
-        JR   NC,L057D     ; Else print next character.
-
-        RET               ;
+# L057D:  LD   A,(DE)       ; Fetch next byte.
+#         AND  $7F          ; Mask off top bit.
+#         PUSH DE           ; Save address of current message byte.
+#         RST  10H          ; Print character.
+#         POP  DE           ; Restore message byte pointer.
+#         LD   A,(DE)       ;
+#         INC  DE           ;
+#         ADD  A,A          ; Carry flag will be set if byte is $FF.
+#         JR   NC,L057D     ; Else print next character.
+#
+#         RET               ;
 
 ; ================================
 ; INITIALISATION ROUTINES - PART 3
