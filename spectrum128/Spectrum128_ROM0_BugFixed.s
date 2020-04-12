@@ -712,7 +712,7 @@ CHAR_SET    EQU 0x3D00
 
 #         ORG 0x0000
 
-L0000:  DI                // Ensure interrupts are disabled.
+# L0000:  DI                // Ensure interrupts are disabled.
 #         LD   BC,0x692B     //
 
 # L0004:  DEC  BC           // Delay about 0.2s to allow screen switching mechanism to settle.
