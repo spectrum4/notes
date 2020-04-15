@@ -3915,32 +3915,32 @@ L0D2D:  CALL    L0E00           ; routine CL-SCROLL scrolls B lines
 ; to the temporary ones.
 
 ;; TEMPS
-L0D4D:  XOR     A               ; clear the accumulator
-        LD      HL,($5C8D)      ; fetch L=ATTR_P and H=MASK_P
-        BIT     0,(IY+$02)      ; test TV_FLAG  - is lower screen in use ?
-        JR      Z,L0D5B         ; skip to TEMPS-1 if not
-
-        LD      H,A             ; set H, MASK P, to 00000000.
-        LD      L,(IY+$0E)      ; fetch BORDCR to L which is used for lower
-                                ; screen.
-
-;; TEMPS-1
-L0D5B:  LD      ($5C8F),HL      ; transfer values to ATTR_T and MASK_T
-
-; for the print flag the permanent values are odd bits, temporary even bits.
-
-        LD      HL,$5C91        ; address P_FLAG.
-        JR      NZ,L0D65        ; skip to TEMPS-2 if lower screen using A=0.
-
-        LD      A,(HL)          ; else pick up flag bits.
-        RRCA                    ; rotate permanent bits to temporary bits.
-
-;; TEMPS-2
-L0D65:  XOR     (HL)            ;
-        AND     $55             ; BIN 01010101
-        XOR     (HL)            ; permanent now as original
-        LD      (HL),A          ; apply permanent bits to temporary bits.
-        RET                     ; and return.
+# L0D4D:  XOR     A               ; clear the accumulator
+#         LD      HL,($5C8D)      ; fetch L=ATTR_P and H=MASK_P
+#         BIT     0,(IY+$02)      ; test TV_FLAG  - is lower screen in use ?
+#         JR      Z,L0D5B         ; skip to TEMPS-1 if not
+#
+#         LD      H,A             ; set H, MASK P, to 00000000.
+#         LD      L,(IY+$0E)      ; fetch BORDCR to L which is used for lower
+#                                 ; screen.
+#
+# ;; TEMPS-1
+# L0D5B:  LD      ($5C8F),HL      ; transfer values to ATTR_T and MASK_T
+#
+# ; for the print flag the permanent values are odd bits, temporary even bits.
+#
+#         LD      HL,$5C91        ; address P_FLAG.
+#         JR      NZ,L0D65        ; skip to TEMPS-2 if lower screen using A=0.
+#
+#         LD      A,(HL)          ; else pick up flag bits.
+#         RRCA                    ; rotate permanent bits to temporary bits.
+#
+# ;; TEMPS-2
+# L0D65:  XOR     (HL)            ;
+#         AND     $55             ; BIN 01010101
+#         XOR     (HL)            ; permanent now as original
+#         LD      (HL),A          ; apply permanent bits to temporary bits.
+#         RET                     ; and return.
 
 ; ------------------
 ; Handle CLS command
@@ -4052,35 +4052,35 @@ L0D65:  XOR     (HL)            ;
 ; address for screens or printer based on the line/column for screens
 ; or the column for printer.
 
-;; CL-SET
-L0DD9:  LD      HL,$5B00        ; the base address of printer buffer
-        BIT     1,(IY+$01)      ; test FLAGS  - is printer in use ?
-        JR      NZ,L0DF4        ; forward to CL-SET-2 if so.
-
-        LD      A,B             ; transfer line to A.
-        BIT     0,(IY+$02)      ; test TV_FLAG  - lower screen in use ?
-        JR      Z,L0DEE         ; skip to CL-SET-1 if handling upper part
-
-        ADD     A,(IY+$31)      ; add DF_SZ for lower screen
-        SUB     $18             ; and adjust.
-
-;; CL-SET-1
-L0DEE:  PUSH    BC              ; save the line/column.
-        LD      B,A             ; transfer line to B
-                                ; (adjusted if lower screen)
-
-        CALL    L0E9B           ; routine CL-ADDR calculates address at left
-                                ; of screen.
-        POP     BC              ; restore the line/column.
-
-;; CL-SET-2
-L0DF4:  LD      A,$21           ; the column $1-$21 is reversed
-        SUB     C               ; to range $00 - $20
-        LD      E,A             ; now transfer to DE
-        LD      D,$00           ; prepare for addition
-        ADD     HL,DE           ; and add to base address
-        JP      L0ADC           ; exit via PO-STORE to update relevant
-                                ; system variables.
+# ;; CL-SET
+# L0DD9:  LD      HL,$5B00        ; the base address of printer buffer
+#         BIT     1,(IY+$01)      ; test FLAGS  - is printer in use ?
+#         JR      NZ,L0DF4        ; forward to CL-SET-2 if so.
+#
+#         LD      A,B             ; transfer line to A.
+#         BIT     0,(IY+$02)      ; test TV_FLAG  - lower screen in use ?
+#         JR      Z,L0DEE         ; skip to CL-SET-1 if handling upper part
+#
+#         ADD     A,(IY+$31)      ; add DF_SZ for lower screen
+#         SUB     $18             ; and adjust.
+#
+# ;; CL-SET-1
+# L0DEE:  PUSH    BC              ; save the line/column.
+#         LD      B,A             ; transfer line to B
+#                                 ; (adjusted if lower screen)
+#
+#         CALL    L0E9B           ; routine CL-ADDR calculates address at left
+#                                 ; of screen.
+#         POP     BC              ; restore the line/column.
+#
+# ;; CL-SET-2
+# L0DF4:  LD      A,$21           ; the column $1-$21 is reversed
+#         SUB     C               ; to range $00 - $20
+#         LD      E,A             ; now transfer to DE
+#         LD      D,$00           ; prepare for addition
+#         ADD     HL,DE           ; and add to base address
+#         JP      L0ADC           ; exit via PO-STORE to update relevant
+#                                 ; system variables.
 ; ----------------
 ; Handle scrolling
 ; ----------------
@@ -6051,27 +6051,27 @@ L15F7:  LD      E,(HL)          ; put the low byte in E.
 #
 #         DEFB    $00             ; end marker.
 
-; --------------
-; Channel K flag
-; --------------
-; routine to set flags for lower screen/keyboard channel.
+# ; --------------
+# ; Channel K flag
+# ; --------------
+# ; routine to set flags for lower screen/keyboard channel.
 
-;; CHAN-K
+# ;; CHAN-K
 # L1634:  SET     0,(IY+$02)      ; update TV_FLAG  - signal lower screen in use
 #         RES     5,(IY+$01)      ; update FLAGS    - signal no new key
 #         SET     4,(IY+$30)      ; update FLAGS2   - signal K channel in use
-        JR      L1646           ; forward to CHAN-S-1 for indirect exit
+#         JR      L1646           ; forward to CHAN-S-1 for indirect exit
 
 ; --------------
 ; Channel S flag
 ; --------------
 ; routine to set flags for upper screen channel.
 
-;; CHAN-S
-L1642:  RES     0,(IY+$02)      ; TV_FLAG  - signal main screen in use
+# ;; CHAN-S
+# L1642:  RES     0,(IY+$02)      ; TV_FLAG  - signal main screen in use
 
-;; CHAN-S-1
-L1646:  RES     1,(IY+$01)      ; update FLAGS  - signal printer not in use
+# ;; CHAN-S-1
+# L1646:  RES     1,(IY+$01)      ; update FLAGS  - signal printer not in use
         JP      L0D4D           ; jump back to TEMPS and exit via that
                                 ; routine after setting temporary attributes.
 ; --------------
@@ -6082,8 +6082,8 @@ L1646:  RES     1,(IY+$01)      ; update FLAGS  - signal printer not in use
 ; This status remains in force until reset by the routine above.
 
 ;; CHAN-P
-L164D:  SET     1,(IY+$01)      ; update FLAGS  - signal printer in use
-        RET                     ; return
+# L164D:  SET     1,(IY+$01)      ; update FLAGS  - signal printer in use
+#         RET                     ; return
 
 ; -----------------------
 ; Just one space required
