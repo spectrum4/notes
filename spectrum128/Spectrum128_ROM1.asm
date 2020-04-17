@@ -85,7 +85,7 @@ L0000:  DI                      ; disable interrupts.
 ; This restart is used 21 times.
 
 ;; PRINT-A
-L0010:  JP      L15F2           ; jump forward to continue at PRINT-A-2.
+# L0010:  JP      L15F2           ; jump forward to continue at PRINT-A-2.
 
 ; ---
 

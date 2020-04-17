@@ -1742,54 +1742,54 @@ L046C:  .word L048C        // Error report 'a'.
 # New Error Message Table
 # -----------------------
 
-L048C:  .ascii "MERGE erro"                  // Report 'a'.
-        .byte 'r'+0x80
-L0497:  .ascii "Wrong file typ"              // Report 'b'.
-        .byte 'e'+0x80
-L04A6:  .ascii "CODE erro"                   // Report 'c'.
-        .byte 'r'+0x80
-L04B0:  .ascii "Too many bracket"            // Report 'd'.
-        .byte 's'+0x80
-L04C1:  .ascii "File already exist"          // Report 'e'.
-        .byte 's'+0x80
-L04D4:  .ascii "Invalid nam"                 // Report 'f'.
-        .byte 'e'+0x80
-L04E0:  .ascii "File does not exis"          // Report 'g' & 'h'.
-        .byte 't'+0x80
-L04F3:  .ascii "Invalid devic"               // Report 'i'.
-        .byte 'e'+0x80
-L0501:  .ascii "Invalid baud rat"            // Report 'j'.
-        .byte 'e'+0x80
-L0512:  .ascii "Invalid note nam"            // Report 'k'.
-        .byte 'e'+0x80
-L0523:  .ascii "Number too bi"               // Report 'l'.
-        .byte 'g'+0x80
-L0531:  .ascii "Note out of rang"            // Report 'm'.
-        .byte 'e'+0x80
-L0542:  .ascii "Out of rang"                 // Report 'n'.
-        .byte 'e'+0x80
-L054E:  .ascii "Too many tied note"          // Report 'o'.
-        .byte 's'+0x80
-L0561:  .byte 0x7F                           // '(c)'.
-        .ascii " 1986 Sinclair Research Lt"  // Copyright. [There should have been an error report "p Bad parameterr" here as there was in the Spanish 128,
-        .byte 'd'+0x80                       // or the error code byte at 0x232F (ROM 0) should have been 0x19 for "Q Parameter error"]
+# L048C:  .ascii "MERGE erro"                  // Report 'a'.
+#         .byte 'r'+0x80
+# L0497:  .ascii "Wrong file typ"              // Report 'b'.
+#         .byte 'e'+0x80
+# L04A6:  .ascii "CODE erro"                   // Report 'c'.
+#         .byte 'r'+0x80
+# L04B0:  .ascii "Too many bracket"            // Report 'd'.
+#         .byte 's'+0x80
+# L04C1:  .ascii "File already exist"          // Report 'e'.
+#         .byte 's'+0x80
+# L04D4:  .ascii "Invalid nam"                 // Report 'f'.
+#         .byte 'e'+0x80
+# L04E0:  .ascii "File does not exis"          // Report 'g' & 'h'.
+#         .byte 't'+0x80
+# L04F3:  .ascii "Invalid devic"               // Report 'i'.
+#         .byte 'e'+0x80
+# L0501:  .ascii "Invalid baud rat"            // Report 'j'.
+#         .byte 'e'+0x80
+# L0512:  .ascii "Invalid note nam"            // Report 'k'.
+#         .byte 'e'+0x80
+# L0523:  .ascii "Number too bi"               // Report 'l'.
+#         .byte 'g'+0x80
+# L0531:  .ascii "Note out of rang"            // Report 'm'.
+#         .byte 'e'+0x80
+# L0542:  .ascii "Out of rang"                 // Report 'n'.
+#         .byte 'e'+0x80
+# L054E:  .ascii "Too many tied note"          // Report 'o'.
+#         .byte 's'+0x80
+# L0561:  .byte 0x7F                           // '(c)'.
+#         .ascii " 1986 Sinclair Research Lt"  // Copyright. [There should have been an error report "p Bad parameterr" here as there was in the Spanish 128,
+#         .byte 'd'+0x80                       // or the error code byte at 0x232F (ROM 0) should have been 0x19 for "Q Parameter error"]
 
 # -------------
 # Print Message
 # -------------
 # Print a message which is terminated by having bit 7 set, pointed at by DE.
 
-L057D:  LD   A,(DE)       // Fetch next byte.
-        AND  0x7F          // Mask off top bit.
-        PUSH DE           // Save address of current message byte.
-        RST  10H          // Print character.
-        POP  DE           // Restore message byte pointer.
-        LD   A,(DE)       //
-        INC  DE           //
-        ADD  A,A          // Carry flag will be set if byte is 0xFF.
-        JR   NC,L057D     // Else print next character.
-
-        RET               //
+# L057D:  LD   A,(DE)       // Fetch next byte.
+#         AND  0x7F          // Mask off top bit.
+#         PUSH DE           // Save address of current message byte.
+#         RST  10H          // Print character.
+#         POP  DE           // Restore message byte pointer.
+#         LD   A,(DE)       //
+#         INC  DE           //
+#         ADD  A,A          // Carry flag will be set if byte is 0xFF.
+#         JR   NC,L057D     // Else print next character.
+#
+#         RET               //
 
 # ================================
 # INITIALISATION ROUTINES - PART 3
