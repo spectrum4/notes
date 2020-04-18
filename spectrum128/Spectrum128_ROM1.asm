@@ -2996,8 +2996,8 @@ L09C0:  DEFB    '.'+$80
 ; output will definitely be to the lower screen.
 
 ;; PRINT-OUT
-L09F4:  CALL    L0B03           ; routine PO-FETCH fetches print position
-                                ; to HL register pair.
+# L09F4:  CALL    L0B03           ; routine PO-FETCH fetches print position
+#                                 ; to HL register pair.
         CP      $20             ; is character a space or higher ?
         JP      NC,L0AD9        ; jump forward to PO-ABLE if so.
 
@@ -3322,26 +3322,26 @@ L0AFC:  LD      (IY+$45),C      ; P_POSN column position printer
 ; to the printer buffer could corrupt a 256-byte section of memory.
 
 ;; PO-FETCH
-L0B03:  BIT     1,(IY+$01)      ; test FLAGS  - Is printer in use
-        JR      NZ,L0B1D        ; to PO-F-PR if so
-
-                                ; assume upper screen
-        LD      BC,($5C88)      ; S_POSN
-        LD      HL,($5C84)      ; DF_CC display file address
-        BIT     0,(IY+$02)      ; TV_FLAG  - Lower screen in use ?
-        RET     Z               ; return if upper screen
-
-                                ; ah well, was lower screen
-        LD      BC,($5C8A)      ; SPOSNL
-        LD      HL,($5C86)      ; DFCCL
-        RET                     ; return
-
-; ---
-
-;; PO-F-PR
-L0B1D:  LD      C,(IY+$45)      ; P_POSN column only
-        LD      HL,($5C80)      ; PR_CC printer buffer address
-        RET                     ; return
+# L0B03:  BIT     1,(IY+$01)      ; test FLAGS  - Is printer in use
+#         JR      NZ,L0B1D        ; to PO-F-PR if so
+#
+#                                 ; assume upper screen
+#         LD      BC,($5C88)      ; S_POSN
+#         LD      HL,($5C84)      ; DF_CC display file address
+#         BIT     0,(IY+$02)      ; TV_FLAG  - Lower screen in use ?
+#         RET     Z               ; return if upper screen
+#
+#                                 ; ah well, was lower screen
+#         LD      BC,($5C8A)      ; SPOSNL
+#         LD      HL,($5C86)      ; DFCCL
+#         RET                     ; return
+#
+# ; ---
+#
+# ;; PO-F-PR
+# L0B1D:  LD      C,(IY+$45)      ; P_POSN column only
+#         LD      HL,($5C80)      ; PR_CC printer buffer address
+#         RET                     ; return
 
 ; -------------------
 ; Print any character
