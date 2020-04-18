@@ -712,7 +712,7 @@ CHAR_SET    EQU 0x3D00
 
 #         ORG 0x0000
 
-L0000:  DI                // Ensure interrupts are disabled.
+# L0000:  DI                // Ensure interrupts are disabled.
 #         LD   BC,0x692B     //
 
 # L0004:  DEC  BC           // Delay about 0.2s to allow screen switching mechanism to settle.
@@ -789,17 +789,17 @@ L0000:  DI                // Ensure interrupts are disabled.
 # - Execute the ROM switching code held in RAM to return to ROM 0.
 # - Return to address 0x0048 (ROM 0).
 
-L0038:  PUSH HL           // Save HL register pair.
-        LD   HL,L0048     // Return address of 0x0048 (ROM 0).
-        PUSH HL           //
-        LD   HL,SWAP      // 0x5B00. Address of swap ROM routine held in RAM at 0x5B00.
-        PUSH HL           //
-        LD   HL,L0038     // Maskable interrupt routine address 0x0038 (ROM 0).
-        PUSH HL           //
-        JP   SWAP         // 0x5B00. Switch to other ROM (ROM 1) via routine held in RAM at 0x5B00.
-
-L0048:  POP  HL           // Restore the HL register pair.
-        RET               // End of interrupt routine.
+# L0038:  PUSH HL           // Save HL register pair.
+#         LD   HL,L0048     // Return address of 0x0048 (ROM 0).
+#         PUSH HL           //
+#         LD   HL,SWAP      // 0x5B00. Address of swap ROM routine held in RAM at 0x5B00.
+#         PUSH HL           //
+#         LD   HL,L0038     // Maskable interrupt routine address 0x0038 (ROM 0).
+#         PUSH HL           //
+#         JP   SWAP         // 0x5B00. Switch to other ROM (ROM 1) via routine held in RAM at 0x5B00.
+#
+# L0048:  POP  HL           // Restore the HL register pair.
+#         RET               // End of interrupt routine.
 
 
 # ===============================
@@ -917,14 +917,14 @@ L004A:  LD   BC,0x7FFD     //
 # executes the routine pointed to by system variable TARGET.
 
 #ONERR
-L0088:  DI                // Ensure interrupts are disabled whilst paging.
-        LD   A,(BANK_M)   // 0x5B5C. Fetch current paging configuration.
-        AND  0xEF          // Select ROM 0.
-        LD   (BANK_M),A   // 0x5B5C. Save the new configuration
-        LD   BC,0x7FFD     //
-        OUT  (C),A        // Switch to ROM 0.
-        EI                //
-        JP   L00C3        // Jump to 0x00C3 (ROM 0) to continue.
+# L0088:  DI                // Ensure interrupts are disabled whilst paging.
+#         LD   A,(BANK_M)   // 0x5B5C. Fetch current paging configuration.
+#         AND  0xEF          // Select ROM 0.
+#         LD   (BANK_M),A   // 0x5B5C. Save the new configuration
+#         LD   BC,0x7FFD     //
+#         OUT  (C),A        // Switch to ROM 0.
+#         EI                //
+#         JP   L00C3        // Jump to 0x00C3 (ROM 0) to continue.
 
 # -------------------------
 # 'P' Channel Input Routine (copied to 0x5B2F)
