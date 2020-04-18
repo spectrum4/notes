@@ -3272,47 +3272,47 @@ L0AD0:  LD      A,0x20           // space character.
 
         RET                     // return
 
-# ----------------------
-# Printable character(s)
-# ----------------------
-# This routine prints printable characters and continues into
-# the position store routine
+# // ----------------------
+# // Printable character(s)
+# // ----------------------
+# // This routine prints printable characters and continues into
+# // the position store routine
+#
+# //; PO-ABLE
+# L0AD9:  CALL    L0B24           // routine PO-ANY
+#                                 // and continue into position store routine.
 
-#// PO-ABLE
-L0AD9:  CALL    L0B24           // routine PO-ANY
-                                // and continue into position store routine.
-
-# -------------------------------------
-# Store line, column, and pixel address
-# -------------------------------------
-# This routine updates the system variables associated with
-# The main screen, lower screen/input buffer or ZX printer.
-
-#// PO-STORE
-L0ADC:  BIT     1,(IY+0x01)      // test FLAGS  - Is printer in use ?
-        JR      NZ,L0AFC        // to PO-ST-PR if so
-
-        BIT     0,(IY+0x02)      // TV_FLAG  - Lower screen in use ?
-        JR      NZ,L0AF0        // to PO-ST-E if so
-
-        LD      (0x5C88),BC      // S_POSN line/column upper screen
-        LD      (0x5C84),HL      // DF_CC  display file address
-        RET                     //
-
-# ---
-
-#// PO-ST-E
-L0AF0:  LD      (0x5C8A),BC      // SPOSNL line/column lower screen
-        LD      (0x5C82),BC      // ECHO_E line/column input buffer
-        LD      (0x5C86),HL      // DFCCL  lower screen memory address
-        RET                     //
-
-# ---
-
-#// PO-ST-PR
-L0AFC:  LD      (IY+0x45),C      // P_POSN column position printer
-        LD      (0x5C80),HL      // PR_CC  full printer buffer memory address
-        RET                     //
+# // -------------------------------------
+# // Store line, column, and pixel address
+# // -------------------------------------
+# // This routine updates the system variables associated with
+# // The main screen, lower screen/input buffer or ZX printer.
+#
+# //; PO-STORE
+# L0ADC:  BIT     1,(IY+0x01)      // test FLAGS  - Is printer in use ?
+#         JR      NZ,L0AFC        // to PO-ST-PR if so
+#
+#         BIT     0,(IY+0x02)      // TV_FLAG  - Lower screen in use ?
+#         JR      NZ,L0AF0        // to PO-ST-E if so
+#
+#         LD      (0x5C88),BC      // S_POSN line/column upper screen
+#         LD      (0x5C84),HL      // DF_CC  display file address
+#         RET                     //
+#
+# // ---
+#
+# //; PO-ST-E
+# L0AF0:  LD      (0x5C8A),BC      // SPOSNL line/column lower screen
+#         LD      (0x5C82),BC      // ECHO_E line/column input buffer
+#         LD      (0x5C86),HL      // DFCCL  lower screen memory address
+#         RET                     //
+#
+# // ---
+#
+# //; PO-ST-PR
+# L0AFC:  LD      (IY+0x45),C      // P_POSN column position printer
+#         LD      (0x5C80),HL      // PR_CC  full printer buffer memory address
+#         RET                     //
 
 # -------------------------
 # Fetch position parameters
