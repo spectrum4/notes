@@ -3,7 +3,8 @@
 cd "$(dirname "${0}")"
 
 for file in Spectrum128_ROM{0_BugFixed,1}; do
-
+  cat "${file}.asm" | sed 's/  *$//' > "${file}.asm.new"
+  mv "${file}.asm.new" "${file}.asm"
   {
     echo '################################'
     echo '# Created with convert.sh script'
