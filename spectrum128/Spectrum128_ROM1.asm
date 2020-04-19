@@ -2998,28 +2998,28 @@ L09C0:  DEFB    '.'+$80
 ;; PRINT-OUT
 # L09F4:  CALL    L0B03           ; routine PO-FETCH fetches print position
 #                                 ; to HL register pair.
-        CP      $20             ; is character a space or higher ?
-        JP      NC,L0AD9        ; jump forward to PO-ABLE if so.
-
-        CP      $06             ; is character in range 00-05 ?
-        JR      C,L0A69         ; to PO-QUEST to print '?' if so.
-
-        CP      $18             ; is character in range 24d - 31d ?
-        JR      NC,L0A69        ; to PO-QUEST to also print '?' if so.
-
-        LD      HL,L0A11 - 6    ; address 0A0B - the base address of control
-                                ; character table - where zero would be.
-        LD      E,A             ; control character 06 - 23d
-        LD      D,$00           ; is transferred to DE.
-
-        ADD     HL,DE           ; index into table.
-
-        LD      E,(HL)          ; fetch the offset to routine.
-        ADD     HL,DE           ; add to make HL the address.
-        PUSH    HL              ; push the address.
-        JP      L0B03           ; to PO-FETCH, as the screen/printer position
-                                ; has been disturbed, and indirectly to
-                                ; routine on stack.
+#         CP      $20             ; is character a space or higher ?
+#         JP      NC,L0AD9        ; jump forward to PO-ABLE if so.
+#
+#         CP      $06             ; is character in range 00-05 ?
+#         JR      C,L0A69         ; to PO-QUEST to print '?' if so.
+#
+#         CP      $18             ; is character in range 24d - 31d ?
+#         JR      NC,L0A69        ; to PO-QUEST to also print '?' if so.
+#
+#         LD      HL,L0A11 - 6    ; address 0A0B - the base address of control
+#                                 ; character table - where zero would be.
+#         LD      E,A             ; control character 06 - 23d
+#         LD      D,$00           ; is transferred to DE.
+#
+#         ADD     HL,DE           ; index into table.
+#
+#         LD      E,(HL)          ; fetch the offset to routine.
+#         ADD     HL,DE           ; add to make HL the address.
+#         PUSH    HL              ; push the address.
+#         JP      L0B03           ; to PO-FETCH, as the screen/printer position
+#                                 ; has been disturbed, and indirectly to
+#                                 ; routine on stack.
 
 ; -----------------------
 ; Control character table
@@ -3028,25 +3028,25 @@ L09C0:  DEFB    '.'+$80
 ; is indexed to provide an offset to the handling routine that
 ; follows the table.
 
-;; ctlchrtab
-L0A11:  DEFB    L0A5F - $       ; 06d offset $4E to Address: PO-COMMA
-        DEFB    L0A69 - $       ; 07d offset $57 to Address: PO-QUEST
-        DEFB    L0A23 - $       ; 08d offset $10 to Address: PO-BACK-1
-        DEFB    L0A3D - $       ; 09d offset $29 to Address: PO-RIGHT
-        DEFB    L0A69 - $       ; 10d offset $54 to Address: PO-QUEST
-        DEFB    L0A69 - $       ; 11d offset $53 to Address: PO-QUEST
-        DEFB    L0A69 - $       ; 12d offset $52 to Address: PO-QUEST
-        DEFB    L0A4F - $       ; 13d offset $37 to Address: PO-ENTER
-        DEFB    L0A69 - $       ; 14d offset $50 to Address: PO-QUEST
-        DEFB    L0A69 - $       ; 15d offset $4F to Address: PO-QUEST
-        DEFB    L0A7A - $       ; 16d offset $5F to Address: PO-1-OPER
-        DEFB    L0A7A - $       ; 17d offset $5E to Address: PO-1-OPER
-        DEFB    L0A7A - $       ; 18d offset $5D to Address: PO-1-OPER
-        DEFB    L0A7A - $       ; 19d offset $5C to Address: PO-1-OPER
-        DEFB    L0A7A - $       ; 20d offset $5B to Address: PO-1-OPER
-        DEFB    L0A7A - $       ; 21d offset $5A to Address: PO-1-OPER
-        DEFB    L0A75 - $       ; 22d offset $54 to Address: PO-2-OPER
-        DEFB    L0A75 - $       ; 23d offset $53 to Address: PO-2-OPER
+# ;; ctlchrtab
+# L0A11:  DEFB    L0A5F - $       ; 06d offset $4E to Address: PO-COMMA
+#         DEFB    L0A69 - $       ; 07d offset $57 to Address: PO-QUEST
+#         DEFB    L0A23 - $       ; 08d offset $10 to Address: PO-BACK-1
+#         DEFB    L0A3D - $       ; 09d offset $29 to Address: PO-RIGHT
+#         DEFB    L0A69 - $       ; 10d offset $54 to Address: PO-QUEST
+#         DEFB    L0A69 - $       ; 11d offset $53 to Address: PO-QUEST
+#         DEFB    L0A69 - $       ; 12d offset $52 to Address: PO-QUEST
+#         DEFB    L0A4F - $       ; 13d offset $37 to Address: PO-ENTER
+#         DEFB    L0A69 - $       ; 14d offset $50 to Address: PO-QUEST
+#         DEFB    L0A69 - $       ; 15d offset $4F to Address: PO-QUEST
+#         DEFB    L0A7A - $       ; 16d offset $5F to Address: PO-1-OPER
+#         DEFB    L0A7A - $       ; 17d offset $5E to Address: PO-1-OPER
+#         DEFB    L0A7A - $       ; 18d offset $5D to Address: PO-1-OPER
+#         DEFB    L0A7A - $       ; 19d offset $5C to Address: PO-1-OPER
+#         DEFB    L0A7A - $       ; 20d offset $5B to Address: PO-1-OPER
+#         DEFB    L0A7A - $       ; 21d offset $5A to Address: PO-1-OPER
+#         DEFB    L0A75 - $       ; 22d offset $54 to Address: PO-2-OPER
+#         DEFB    L0A75 - $       ; 23d offset $53 to Address: PO-2-OPER
 
 
 ; -------------------
@@ -3056,32 +3056,32 @@ L0A11:  DEFB    L0A5F - $       ; 06d offset $4E to Address: PO-COMMA
 ; For ZX printer backspace up to first column but not beyond.
 
 ;; PO-BACK-1
-L0A23:  INC     C               ; move left one column.
-        LD      A,$22           ; value $21 is leftmost column.
-        CP      C               ; have we passed ?
-        JR      NZ,L0A3A        ; to PO-BACK-3 if not and store new position.
-
-        BIT     1,(IY+$01)      ; test FLAGS  - is printer in use ?
-        JR      NZ,L0A38        ; to PO-BACK-2 if so, as we are unable to
-                                ; backspace from the leftmost position.
-
-
-        INC     B               ; move up one screen line
-        LD      C,$02           ; the rightmost column position.
-        LD      A,$18           ; Note. This should be $19
-                                ; credit. Dr. Frank O'Hara, 1982
-
-        CP      B               ; has position moved past top of screen ?
-        JR      NZ,L0A3A        ; to PO-BACK-3 if not and store new position.
-
-        DEC     B               ; else back to $18.
-
-;; PO-BACK-2
-L0A38:  LD      C,$21           ; the leftmost column position.
-
-;; PO-BACK-3
-L0A3A:  JP      L0DD9           ; to CL-SET and PO-STORE to save new
-                                ; position in system variables.
+# L0A23:  INC     C               ; move left one column.
+#         LD      A,$22           ; value $21 is leftmost column.
+#         CP      C               ; have we passed ?
+#         JR      NZ,L0A3A        ; to PO-BACK-3 if not and store new position.
+#
+#         BIT     1,(IY+$01)      ; test FLAGS  - is printer in use ?
+#         JR      NZ,L0A38        ; to PO-BACK-2 if so, as we are unable to
+#                                 ; backspace from the leftmost position.
+#
+#
+#         INC     B               ; move up one screen line
+#         LD      C,$02           ; the rightmost column position.
+#         LD      A,$18           ; Note. This should be $19
+#                                 ; credit. Dr. Frank O'Hara, 1982
+#
+#         CP      B               ; has position moved past top of screen ?
+#         JR      NZ,L0A3A        ; to PO-BACK-3 if not and store new position.
+#
+#         DEC     B               ; else back to $18.
+#
+# ;; PO-BACK-2
+# L0A38:  LD      C,$21           ; the leftmost column position.
+#
+# ;; PO-BACK-3
+# L0A3A:  JP      L0DD9           ; to CL-SET and PO-STORE to save new
+#                                 ; position in system variables.
 
 ; --------------------
 ; Cursor right routine
