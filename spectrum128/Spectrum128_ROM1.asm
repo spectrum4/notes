@@ -3350,15 +3350,15 @@ L0AFC:  LD      (IY+$45),C      ; P_POSN column position printer
 ; It is only called from PO-ABLE which continues into PO-STORE
 
 ;; PO-ANY
-L0B24:  CP      $80             ; ASCII ?
-        JR      C,L0B65         ; to PO-CHAR is so.
-
-        CP      $90             ; test if a block graphic character.
-        JR      NC,L0B52        ; to PO-T&UDG to print tokens and udg's
-
-; The 16 2*2 mosaic characters 128-143 decimal are formed from
-; bits 0-3 of the character.
-
+# L0B24:  CP      $80             ; ASCII ?
+#         JR      C,L0B65         ; to PO-CHAR is so.
+#
+#         CP      $90             ; test if a block graphic character.
+#         JR      NC,L0B52        ; to PO-T&UDG to print tokens and udg's
+#
+# ; The 16 2*2 mosaic characters 128-143 decimal are formed from
+# ; bits 0-3 of the character.
+#
         LD      B,A             ; save character
         CALL    L0B38           ; routine PO-GR-1 to construct top half
                                 ; then bottom half.
