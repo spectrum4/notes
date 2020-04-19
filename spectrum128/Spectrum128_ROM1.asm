@@ -2984,18 +2984,18 @@ L09C0:  DEFB    '.'+$80
         DEFB    ' '+$80
 
 
-;**************************************************
-;** Part 5. SCREEN AND PRINTER HANDLING ROUTINES **
-;**************************************************
-
-; ---------------------
-; General PRINT routine
-; ---------------------
-; This is the routine most often used by the RST 10 restart although the
-; subroutine is on two occasions called directly when it is known that
-; output will definitely be to the lower screen.
-
-;; PRINT-OUT
+# ;**************************************************
+# ;** Part 5. SCREEN AND PRINTER HANDLING ROUTINES **
+# ;**************************************************
+#
+# ; ---------------------
+# ; General PRINT routine
+# ; ---------------------
+# ; This is the routine most often used by the RST 10 restart although the
+# ; subroutine is on two occasions called directly when it is known that
+# ; output will definitely be to the lower screen.
+#
+# ;; PRINT-OUT
 # L09F4:  CALL    L0B03           ; routine PO-FETCH fetches print position
 #                                 ; to HL register pair.
 #         CP      $20             ; is character a space or higher ?
@@ -3020,14 +3020,14 @@ L09C0:  DEFB    '.'+$80
 #         JP      L0B03           ; to PO-FETCH, as the screen/printer position
 #                                 ; has been disturbed, and indirectly to
 #                                 ; routine on stack.
-
-; -----------------------
-; Control character table
-; -----------------------
-; For control characters in the range 6 - 23d the following table
-; is indexed to provide an offset to the handling routine that
-; follows the table.
-
+#
+# ; -----------------------
+# ; Control character table
+# ; -----------------------
+# ; For control characters in the range 6 - 23d the following table
+# ; is indexed to provide an offset to the handling routine that
+# ; follows the table.
+#
 # ;; ctlchrtab
 # L0A11:  DEFB    L0A5F - $       ; 06d offset $4E to Address: PO-COMMA
 #         DEFB    L0A69 - $       ; 07d offset $57 to Address: PO-QUEST
@@ -3047,15 +3047,15 @@ L09C0:  DEFB    '.'+$80
 #         DEFB    L0A7A - $       ; 21d offset $5A to Address: PO-1-OPER
 #         DEFB    L0A75 - $       ; 22d offset $54 to Address: PO-2-OPER
 #         DEFB    L0A75 - $       ; 23d offset $53 to Address: PO-2-OPER
-
-
-; -------------------
-; Cursor left routine
-; -------------------
-; Backspace and up a line if that action is from the left of screen.
-; For ZX printer backspace up to first column but not beyond.
-
-;; PO-BACK-1
+#
+#
+# ; -------------------
+# ; Cursor left routine
+# ; -------------------
+# ; Backspace and up a line if that action is from the left of screen.
+# ; For ZX printer backspace up to first column but not beyond.
+#
+# ;; PO-BACK-1
 # L0A23:  INC     C               ; move left one column.
 #         LD      A,$22           ; value $21 is leftmost column.
 #         CP      C               ; have we passed ?
@@ -3082,33 +3082,33 @@ L09C0:  DEFB    '.'+$80
 # ;; PO-BACK-3
 # L0A3A:  JP      L0DD9           ; to CL-SET and PO-STORE to save new
 #                                 ; position in system variables.
-
-; --------------------
-; Cursor right routine
-; --------------------
-; This moves the print position to the right leaving a trail in the
-; current background colour.
-; "However the programmer has failed to store the new print position
-;  so CHR$ 9 will only work if the next print position is at a newly
-;  defined place.
-;   e.g. PRINT PAPER 2; CHR$ 9; AT 4,0;
-;  does work but is not very helpful"
-; - Dr. Ian Logan, Understanding Your Spectrum, 1982.
-
-;; PO-RIGHT
-L0A3D:  LD      A,($5C91)       ; fetch P_FLAG value
-        PUSH    AF              ; and save it on stack.
-
-        LD      (IY+$57),$01    ; temporarily set P_FLAG 'OVER 1'.
-        LD      A,$20           ; prepare a space.
-        CALL    L0B65           ; routine PO-CHAR to print it.
-                                ; Note. could be PO-ABLE which would update
-                                ; the column position.
-
-        POP     AF              ; restore the permanent flag.
-        LD      ($5C91),A       ; and restore system variable P_FLAG
-
-        RET                     ; return without updating column position
+#
+# ; --------------------
+# ; Cursor right routine
+# ; --------------------
+# ; This moves the print position to the right leaving a trail in the
+# ; current background colour.
+# ; "However the programmer has failed to store the new print position
+# ;  so CHR$ 9 will only work if the next print position is at a newly
+# ;  defined place.
+# ;   e.g. PRINT PAPER 2; CHR$ 9; AT 4,0;
+# ;  does work but is not very helpful"
+# ; - Dr. Ian Logan, Understanding Your Spectrum, 1982.
+#
+# ;; PO-RIGHT
+# L0A3D:  LD      A,($5C91)       ; fetch P_FLAG value
+#         PUSH    AF              ; and save it on stack.
+#
+#         LD      (IY+$57),$01    ; temporarily set P_FLAG 'OVER 1'.
+#         LD      A,$20           ; prepare a space.
+#         CALL    L0B65           ; routine PO-CHAR to print it.
+#                                 ; Note. could be PO-ABLE which would update
+#                                 ; the column position.
+#
+#         POP     AF              ; restore the permanent flag.
+#         LD      ($5C91),A       ; and restore system variable P_FLAG
+#
+#         RET                     ; return without updating column position
 
 ; -----------------------
 ; Perform carriage return
