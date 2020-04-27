@@ -3,17 +3,31 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"net/http"
+	"os"
 	"strings"
 )
 
 func main() {
-	resp, err := http.Get("http://mdfs.net/Software/Spectrum/ROMImages/48k.rom")
+	for _, file := range []string{
+		"../zxspectrum_roms/Spectrum48K_ROM.bin",
+		"../zxspectrum_roms/Spectrum48K_ROM_BugFixed_J.G.Harston.bin",
+	} {
+		fmt.Println("")
+		fmt.Println(file)
+		fmt.Println(strings.Repeat("=", len(file)))
+		fmt.Println("")
+		show(file)
+	}
+}
+
+func show(file string) {
+	reader, err := os.Open(file)
 	if err != nil {
 		panic(err)
 	}
-	defer resp.Body.Close()
-	data, err := ioutil.ReadAll(resp.Body)
+	// reader := resp.Body
+	defer reader.Close()
+	data, err := ioutil.ReadAll(reader)
 	if err != nil {
 		panic(err)
 	}
