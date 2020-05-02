@@ -18470,37 +18470,37 @@ L3FFF:  DEFB $01         ;
 ; SEED     $5C76   2   IY+$3C   The seed for RND. Set by RANDOMIZE.
 ; FRAMES   $5C78   3   IY+$3E   3 byte (least significant byte first), frame counter incremented every 20ms.
 # ; UDG      $5C7B   2   IY+$41   Address of first user-defined graphic. Can be changed to save space by having fewer
-;                               user-defined characters.
+# ;                               user-defined characters.
 # ; COORDS   $5C7D   1   IY+$43   X-coordinate of last point plotted.
 # ;          $5C7E   1   IY+$44   Y-coordinate of last point plotted.
-; P_POSN   $5C7F   1   IY+$45   33-column number of printer position.
-; PR_CC    $5C80   2   IY+$46   Full address of next position for LPRINT to print at (in ZX Printer buffer).
-;                               Legal values $5B00 - $5B1F. [Not used in 128K mode]
-; ECHO_E   $5C82   2   IY+$48   33-column number and 24-line number (in lower half) of end of input buffer.
-; DF_CC    $5C84   2   IY+$4A   Address in display file of PRINT position.
-; DF_CCL   $5C86   2   IY+$4C   Like DF CC for lower part of screen.
-; S_POSN   $5C88   1   IY+$4E   33-column number for PRINT position.
-;          $5C89   1   IY+$4F   24-line number for PRINT position.
-; SPOSNL   $5C8A   2   IY+$50   Like S_POSN for lower part.
-; SCR_CT   $5C8C   1   IY+$52   Counts scrolls - it is always 1 more than the number of scrolls that will be done before
-;                               stopping with 'scroll?'.
+# ; P_POSN   $5C7F   1   IY+$45   33-column number of printer position.
+# ; PR_CC    $5C80   2   IY+$46   Full address of next position for LPRINT to print at (in ZX Printer buffer).
+# ;                               Legal values $5B00 - $5B1F. [Not used in 128K mode]
+# ; ECHO_E   $5C82   2   IY+$48   33-column number and 24-line number (in lower half) of end of input buffer.
+# ; DF_CC    $5C84   2   IY+$4A   Address in display file of PRINT position.
+# ; DF_CCL   $5C86   2   IY+$4C   Like DF CC for lower part of screen.
+# ; S_POSN   $5C88   1   IY+$4E   33-column number for PRINT position.
+# ;          $5C89   1   IY+$4F   24-line number for PRINT position.
+# ; SPOSNL   $5C8A   2   IY+$50   Like S_POSN for lower part.
+# ; SCR_CT   $5C8C   1   IY+$52   Counts scrolls - it is always 1 more than the number of scrolls that will be done before
+# ;                               stopping with 'scroll?'.
 # ; ATTR_P   $5C8D   1   IY+$53   Permanent current colours, etc, as set up by colour statements.
 # ; MASK_P   $5C8E   1   IY+$54   Used for transparent colours, etc. Any bit that is 1 shows that the corresponding attribute
-;                               bit is taken not from ATTR_P, but from what is already on the screen.
-; ATTR_T   $5C8F   1   IY+$55   Temporary current colours (as set up by colour items).
-; MASK_T   $5C90   1   IY+$56   Like MASK_P, but temporary.
-; P_FLAG   $5C91   1   IY+$57   Flags:
-;                                 Bit 0: 1=OVER 1, 0=OVER 0.
-;                                 Bit 1: Not used (always 0).
-;                                 Bit 2: 1=INVERSE 1, 0=INVERSE 0.
-;                                 Bit 3: Not used (always 0).
-;                                 Bit 4: 1=Using INK 9.
-;                                 Bit 5: Not used (always 0).
-;                                 Bit 6: 1=Using PAPER 9.
-;                                 Bit 7: Not used (always 0).
-; MEMBOT   $5C92  30   IY+$58   Calculator's memory area - used to store numbers that cannot conveniently be put on the
-;                               calculator stack.
-;          $5CB0   2   IY+$76   Not used on standard Spectrum. [Used by ZX Interface 1 Edition 2 for printer WIDTH]
+# ;                               bit is taken not from ATTR_P, but from what is already on the screen.
+# ; ATTR_T   $5C8F   1   IY+$55   Temporary current colours (as set up by colour items).
+# ; MASK_T   $5C90   1   IY+$56   Like MASK_P, but temporary.
+# ; P_FLAG   $5C91   1   IY+$57   Flags:
+# ;                                 Bit 0: 1=OVER 1, 0=OVER 0.
+# ;                                 Bit 1: Not used (always 0).
+# ;                                 Bit 2: 1=INVERSE 1, 0=INVERSE 0.
+# ;                                 Bit 3: Not used (always 0).
+# ;                                 Bit 4: 1=Using INK 9.
+# ;                                 Bit 5: Not used (always 0).
+# ;                                 Bit 6: 1=Using PAPER 9.
+# ;                                 Bit 7: Not used (always 0).
+# ; MEMBOT   $5C92  30   IY+$58   Calculator's memory area - used to store numbers that cannot conveniently be put on the
+# ;                               calculator stack.
+# ;          $5CB0   2   IY+$76   Not used on standard Spectrum. [Used by ZX Interface 1 Edition 2 for printer WIDTH]
 # ; RAMTOP   $5CB2   2   IY+$78   Address of last byte of BASIC system area.
 # ; P_RAMT   $5CB4   2   IY+$7A   Address of last byte of physical RAM.
 

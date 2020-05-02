@@ -18474,37 +18474,37 @@ L3FFF:  .byte 0x01         //
 # SEED     0x5C76   2   IY+0x3C   The seed for RND. Set by RANDOMIZE.
 # FRAMES   0x5C78   3   IY+0x3E   3 byte (least significant byte first), frame counter incremented every 20ms.
 # // UDG      0x5C7B   2   IY+0x41   Address of first user-defined graphic. Can be changed to save space by having fewer
-#                               user-defined characters.
+# //                               user-defined characters.
 # // COORDS   0x5C7D   1   IY+0x43   X-coordinate of last point plotted.
 # //          0x5C7E   1   IY+0x44   Y-coordinate of last point plotted.
-# P_POSN   0x5C7F   1   IY+0x45   33-column number of printer position.
-# PR_CC    0x5C80   2   IY+0x46   Full address of next position for LPRINT to print at (in ZX Printer buffer).
-#                               Legal values 0x5B00 - 0x5B1F. [Not used in 128K mode]
-# ECHO_E   0x5C82   2   IY+0x48   33-column number and 24-line number (in lower half) of end of input buffer.
-# DF_CC    0x5C84   2   IY+0x4A   Address in display file of PRINT position.
-# DF_CCL   0x5C86   2   IY+0x4C   Like DF CC for lower part of screen.
-# S_POSN   0x5C88   1   IY+0x4E   33-column number for PRINT position.
-#          0x5C89   1   IY+0x4F   24-line number for PRINT position.
-# SPOSNL   0x5C8A   2   IY+0x50   Like S_POSN for lower part.
-# SCR_CT   0x5C8C   1   IY+0x52   Counts scrolls - it is always 1 more than the number of scrolls that will be done before
-#                               stopping with 'scroll?'.
+# // P_POSN   0x5C7F   1   IY+0x45   33-column number of printer position.
+# // PR_CC    0x5C80   2   IY+0x46   Full address of next position for LPRINT to print at (in ZX Printer buffer).
+# //                               Legal values 0x5B00 - 0x5B1F. [Not used in 128K mode]
+# // ECHO_E   0x5C82   2   IY+0x48   33-column number and 24-line number (in lower half) of end of input buffer.
+# // DF_CC    0x5C84   2   IY+0x4A   Address in display file of PRINT position.
+# // DF_CCL   0x5C86   2   IY+0x4C   Like DF CC for lower part of screen.
+# // S_POSN   0x5C88   1   IY+0x4E   33-column number for PRINT position.
+# //          0x5C89   1   IY+0x4F   24-line number for PRINT position.
+# // SPOSNL   0x5C8A   2   IY+0x50   Like S_POSN for lower part.
+# // SCR_CT   0x5C8C   1   IY+0x52   Counts scrolls - it is always 1 more than the number of scrolls that will be done before
+# //                               stopping with 'scroll?'.
 # // ATTR_P   0x5C8D   1   IY+0x53   Permanent current colours, etc, as set up by colour statements.
 # // MASK_P   0x5C8E   1   IY+0x54   Used for transparent colours, etc. Any bit that is 1 shows that the corresponding attribute
-#                               bit is taken not from ATTR_P, but from what is already on the screen.
-# ATTR_T   0x5C8F   1   IY+0x55   Temporary current colours (as set up by colour items).
-# MASK_T   0x5C90   1   IY+0x56   Like MASK_P, but temporary.
-# P_FLAG   0x5C91   1   IY+0x57   Flags:
-#                                 Bit 0: 1=OVER 1, 0=OVER 0.
-#                                 Bit 1: Not used (always 0).
-#                                 Bit 2: 1=INVERSE 1, 0=INVERSE 0.
-#                                 Bit 3: Not used (always 0).
-#                                 Bit 4: 1=Using INK 9.
-#                                 Bit 5: Not used (always 0).
-#                                 Bit 6: 1=Using PAPER 9.
-#                                 Bit 7: Not used (always 0).
-# MEMBOT   0x5C92  30   IY+0x58   Calculator's memory area - used to store numbers that cannot conveniently be put on the
-#                               calculator stack.
-#          0x5CB0   2   IY+0x76   Not used on standard Spectrum. [Used by ZX Interface 1 Edition 2 for printer WIDTH]
+# //                               bit is taken not from ATTR_P, but from what is already on the screen.
+# // ATTR_T   0x5C8F   1   IY+0x55   Temporary current colours (as set up by colour items).
+# // MASK_T   0x5C90   1   IY+0x56   Like MASK_P, but temporary.
+# // P_FLAG   0x5C91   1   IY+0x57   Flags:
+# //                                 Bit 0: 1=OVER 1, 0=OVER 0.
+# //                                 Bit 1: Not used (always 0).
+# //                                 Bit 2: 1=INVERSE 1, 0=INVERSE 0.
+# //                                 Bit 3: Not used (always 0).
+# //                                 Bit 4: 1=Using INK 9.
+# //                                 Bit 5: Not used (always 0).
+# //                                 Bit 6: 1=Using PAPER 9.
+# //                                 Bit 7: Not used (always 0).
+# // MEMBOT   0x5C92  30   IY+0x58   Calculator's memory area - used to store numbers that cannot conveniently be put on the
+# //                               calculator stack.
+# //          0x5CB0   2   IY+0x76   Not used on standard Spectrum. [Used by ZX Interface 1 Edition 2 for printer WIDTH]
 # // RAMTOP   0x5CB2   2   IY+0x78   Address of last byte of BASIC system area.
 # // P_RAMT   0x5CB4   2   IY+0x7A   Address of last byte of physical RAM.
 
