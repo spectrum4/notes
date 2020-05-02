@@ -3110,20 +3110,20 @@ L09C0:  DEFB    '.'+$80
 #
 #         RET                     ; return without updating column position
 
-; -----------------------
-; Perform carriage return
-; -----------------------
-; A carriage return is 'printed' to screen or printer buffer.
-
-;; PO-ENTER
-L0A4F:  BIT     1,(IY+$01)      ; test FLAGS  - is printer in use ?
-        JP      NZ,L0ECD        ; to COPY-BUFF if so, to flush buffer and reset
-                                ; the print position.
-
-        LD      C,$21           ; the leftmost column position.
-        CALL    L0C55           ; routine PO-SCR handles any scrolling required.
-        DEC     B               ; to next screen line.
-        JP      L0DD9           ; jump forward to CL-SET to store new position.
+# ; -----------------------
+# ; Perform carriage return
+# ; -----------------------
+# ; A carriage return is 'printed' to screen or printer buffer.
+#
+# ;; PO-ENTER
+# L0A4F:  BIT     1,(IY+$01)      ; test FLAGS  - is printer in use ?
+#         JP      NZ,L0ECD        ; to COPY-BUFF if so, to flush buffer and reset
+#                                 ; the print position.
+#
+#         LD      C,$21           ; the leftmost column position.
+#         CALL    L0C55           ; routine PO-SCR handles any scrolling required.
+#         DEC     B               ; to next screen line.
+#         JP      L0DD9           ; jump forward to CL-SET to store new position.
 
 # ; -----------
 # ; Print comma
@@ -3140,16 +3140,16 @@ L0A4F:  BIT     1,(IY+$01)      ; test FLAGS  - is printer in use ?
 #         AND     $10             ; will be $00 or $10.
 #         JR      L0AC3           ; forward to PO-FILL
 
-; -------------------
-; Print question mark
-; -------------------
-; This routine prints a question mark which is commonly
-; used to print an unassigned control character in range 0-31d.
-; there are a surprising number yet to be assigned.
-
-;; PO-QUEST
-L0A69:  LD      A,$3F           ; prepare the character '?'.
-        JR      L0AD9           ; forward to PO-ABLE.
+# ; -------------------
+# ; Print question mark
+# ; -------------------
+# ; This routine prints a question mark which is commonly
+# ; used to print an unassigned control character in range 0-31d.
+# ; there are a surprising number yet to be assigned.
+#
+# ;; PO-QUEST
+# L0A69:  LD      A,$3F           ; prepare the character '?'.
+#         JR      L0AD9           ; forward to PO-ABLE.
 
 ; --------------------------------
 ; Control characters with operands
@@ -3310,18 +3310,18 @@ L0AD0:  LD      A,$20           ; space character.
 #         LD      ($5C80),HL      ; PR_CC  full printer buffer memory address
 #         RET                     ;
 
-; -------------------------
-; Fetch position parameters
-; -------------------------
-; This routine fetches the line/column and display file address
-; of the upper and lower screen or, if the printer is in use,
-; the column position and absolute memory address.
-; Note. that PR-CC-hi (23681) is used by this routine and the one above
-; and if, in accordance with the manual (that says this is unused), the
-; location has been used for other purposes, then subsequent output
-; to the printer buffer could corrupt a 256-byte section of memory.
-
-;; PO-FETCH
+# ; -------------------------
+# ; Fetch position parameters
+# ; -------------------------
+# ; This routine fetches the line/column and display file address
+# ; of the upper and lower screen or, if the printer is in use,
+# ; the column position and absolute memory address.
+# ; Note. that PR-CC-hi (23681) is used by this routine and the one above
+# ; and if, in accordance with the manual (that says this is unused), the
+# ; location has been used for other purposes, then subsequent output
+# ; to the printer buffer could corrupt a 256-byte section of memory.
+#
+# ;; PO-FETCH
 # L0B03:  BIT     1,(IY+$01)      ; test FLAGS  - Is printer in use
 #         JR      NZ,L0B1D        ; to PO-F-PR if so
 #
@@ -3343,13 +3343,13 @@ L0AD0:  LD      A,$20           ; space character.
 #         LD      HL,($5C80)      ; PR_CC printer buffer address
 #         RET                     ; return
 
-; -------------------
-; Print any character
-; -------------------
-; This routine is used to print any character in range 32d - 255d
-; It is only called from PO-ABLE which continues into PO-STORE
-
-;; PO-ANY
+# ; -------------------
+# ; Print any character
+# ; -------------------
+# ; This routine is used to print any character in range 32d - 255d
+# ; It is only called from PO-ABLE which continues into PO-STORE
+#
+# ;; PO-ANY
 # L0B24:  CP      $80             ; ASCII ?
 #         JR      C,L0B65         ; to PO-CHAR is so.
 #
@@ -3942,20 +3942,20 @@ L0D2D:  CALL    L0E00           ; routine CL-SCROLL scrolls B lines
 #         LD      (HL),A          ; apply permanent bits to temporary bits.
 #         RET                     ; and return.
 
-; ------------------
-; Handle CLS command
-; ------------------
-; clears the display.
-; if it's difficult to write it should be difficult to read.
-
-;; CLS
+# ; ------------------
+# ; Handle CLS command
+# ; ------------------
+# ; clears the display.
+# ; if it's difficult to write it should be difficult to read.
+#
+# ;; CLS
 # L0D6B:  CALL    L0DAF           ; routine CL-ALL  clears display and
                                 ; resets attributes to permanent.
                                 ; re-attaches it to this computer.
 
 ; this routine called from INPUT, **
 
-;; CLS-LOWER
+# ;; CLS-LOWER
 # L0D6E:  LD      HL,$5C3C        ; address System Variable TV_FLAG.
 #         RES     5,(HL)          ; TV_FLAG - signal do not clear lower screen.
 #         SET     0,(HL)          ; TV_FLAG - signal lower screen in use.
@@ -3987,10 +3987,10 @@ L0D2D:  CALL    L0E00           ; routine CL-SCROLL scrolls B lines
 #
 #         LD      (IY+$31),$02    ; set DF_SZ lower screen to 2
 
-; This entry point is called from CL-ALL below to
-; reset the system channel input and output addresses to normal.
-
-;; CL-CHAN
+# ; This entry point is called from CL-ALL below to
+# ; reset the system channel input and output addresses to normal.
+#
+# ;; CL-CHAN
 # L0D94:  LD      A,$FD           ; select system channel 'K'
 #         CALL    L1601           ; routine CHAN-OPEN opens it.
 #         LD      HL,($5C51)      ; fetch CURCHL to HL to address current channel
@@ -4011,14 +4011,14 @@ L0D2D:  CALL    L0E00           ; routine CL-SCROLL scrolls B lines
 #         JR      L0DD9           ; exit via CL-SET to set column
 #                                 ; for lower display
 
-; ---------------------------
-; Clearing whole display area
-; ---------------------------
-; This subroutine called from CLS, AUTO-LIST and MAIN-3
-; clears 24 lines of the display and resets the relevant system variables
-; and system channels.
-
-;; CL-ALL
+# ; ---------------------------
+# ; Clearing whole display area
+# ; ---------------------------
+# ; This subroutine called from CLS, AUTO-LIST and MAIN-3
+# ; clears 24 lines of the display and resets the relevant system variables
+# ; and system channels.
+#
+# ;; CL-ALL
 # L0DAF:  LD      HL,$0000        ; initialize plot coordinates.
 #         LD      ($5C7D),HL      ; set COORDS to 0,0.
 #         RES     0,(IY+$30)      ; update FLAGS2  - signal main screen is clear.
@@ -4045,13 +4045,13 @@ L0D2D:  CALL    L0E00           ; routine CL-SCROLL scrolls B lines
 #                                 ; and continue into CL-SET, below, exiting
 #                                 ; via PO-STORE (for upper screen).
 
-; ---------------------------
-; Set line and column numbers
-; ---------------------------
-; This important subroutine is used to calculate the character output
-; address for screens or printer based on the line/column for screens
-; or the column for printer.
-
+# ; ---------------------------
+# ; Set line and column numbers
+# ; ---------------------------
+# ; This important subroutine is used to calculate the character output
+# ; address for screens or printer based on the line/column for screens
+# ; or the column for printer.
+#
 # ;; CL-SET
 # L0DD9:  LD      HL,$5B00        ; the base address of printer buffer
 #         BIT     1,(IY+$01)      ; test FLAGS  - is printer in use ?
@@ -4249,13 +4249,13 @@ L0E88:  LD      A,H             ; fetch H to A - $48, $50, or $58.
 
         RET                     ; and return.
 
-; -------------------------------
-; Handle display with line number
-; -------------------------------
-; This subroutine is called from four places to calculate the address
-; of the start of a screen character line which is supplied in B.
-
-;; CL-ADDR
+# ; -------------------------------
+# ; Handle display with line number
+# ; -------------------------------
+# ; This subroutine is called from four places to calculate the address
+# ; of the start of a screen character line which is supplied in B.
+#
+# ;; CL-ADDR
 # L0E9B:  LD      A,$18           ; reverse the line number
 #         SUB     B               ; to range $00 - $17.
 #         LD      D,A             ; save line in D for later.
@@ -5967,17 +5967,17 @@ L15F7:  LD      E,(HL)          ; put the low byte in E.
         EXX                     ; switch back to the main set and
         RET                     ; return.
 
-; ------------
-; Open channel
-; ------------
-; This subroutine is used by the ROM to open a channel 'K', 'S', 'R' or 'P'.
-; This is either for its own use or in response to a user's request, for
-; example, when '#' is encountered with output - PRINT, LIST etc.
-; or with input - INPUT, INKEY$ etc.
-; it is entered with a system stream $FD - $FF, or a user stream $00 - $0F
-; in the accumulator.
-
-;; CHAN-OPEN
+# ; ------------
+# ; Open channel
+# ; ------------
+# ; This subroutine is used by the ROM to open a channel 'K', 'S', 'R' or 'P'.
+# ; This is either for its own use or in response to a user's request, for
+# ; example, when '#' is encountered with output - PRINT, LIST etc.
+# ; or with input - INPUT, INKEY$ etc.
+# ; it is entered with a system stream $FD - $FF, or a user stream $00 - $0F
+# ; in the accumulator.
+#
+# ;; CHAN-OPEN
 # L1601:  ADD     A,A             ; double the stream ($FF will become $FE etc.)
 #         ADD     A,$16           ; add the offset to stream 0 from $5C00
 #         LD      L,A             ; result to L
@@ -6003,13 +6003,13 @@ L15F7:  LD      E,(HL)          ; put the low byte in E.
 #         ADD     HL,DE           ; and add the offset to address the channel.
 #                                 ; and continue to set flags.
 
-; -----------------
-; Set channel flags
-; -----------------
-; This subroutine is used from ED-EDIT, str$ and read-in to reset the
-; current channel when it has been temporarily altered.
-
-;; CHAN-FLAG
+# ; -----------------
+# ; Set channel flags
+# ; -----------------
+# ; This subroutine is used from ED-EDIT, str$ and read-in to reset the
+# ; current channel when it has been temporarily altered.
+#
+# ;; CHAN-FLAG
 # L1615:  LD      ($5C51),HL      ; set CURCHL system variable to the
 #                                 ; address in HL
 #         RES     4,(IY+$30)      ; update FLAGS2  - signal K channel not in use.
@@ -6037,14 +6037,14 @@ L15F7:  LD      E,(HL)          ; put the low byte in E.
 ; Footnote. calling any location that holds JP (HL) is the equivalent to
 ; a pseudo Z80 instruction CALL (HL). The ROM uses the instruction above.
 
-; --------------------------
-; Channel code look-up table
-; --------------------------
-; This table is used by the routine above to find one of the three
-; flag setting routines below it.
-; A zero end-marker is required as channel 'R' is not present.
-
-;; chn-cd-lu
+# ; --------------------------
+# ; Channel code look-up table
+# ; --------------------------
+# ; This table is used by the routine above to find one of the three
+# ; flag setting routines below it.
+# ; A zero end-marker is required as channel 'R' is not present.
+#
+# ;; chn-cd-lu
 # L162D:  DEFB    'K', L1634-$-1  ; offset $06 to CHAN-K
 #         DEFB    'S', L1642-$-1  ; offset $12 to CHAN-S
 #         DEFB    'P', L164D-$-1  ; offset $1B to CHAN-P
@@ -6055,18 +6055,18 @@ L15F7:  LD      E,(HL)          ; put the low byte in E.
 # ; Channel K flag
 # ; --------------
 # ; routine to set flags for lower screen/keyboard channel.
-
+#
 # ;; CHAN-K
 # L1634:  SET     0,(IY+$02)      ; update TV_FLAG  - signal lower screen in use
 #         RES     5,(IY+$01)      ; update FLAGS    - signal no new key
 #         SET     4,(IY+$30)      ; update FLAGS2   - signal K channel in use
 #         JR      L1646           ; forward to CHAN-S-1 for indirect exit
 
-; --------------
-; Channel S flag
-; --------------
-; routine to set flags for upper screen channel.
-
+# ; --------------
+# ; Channel S flag
+# ; --------------
+# ; routine to set flags for upper screen channel.
+#
 # ;; CHAN-S
 # L1642:  RES     0,(IY+$02)      ; TV_FLAG  - signal main screen in use
 
@@ -6074,14 +6074,14 @@ L15F7:  LD      E,(HL)          ; put the low byte in E.
 # L1646:  RES     1,(IY+$01)      ; update FLAGS  - signal printer not in use
         JP      L0D4D           ; jump back to TEMPS and exit via that
                                 ; routine after setting temporary attributes.
-; --------------
-; Channel P flag
-; --------------
-; This routine sets a flag so that subsequent print related commands
-; print to printer or update the relevant system variables.
-; This status remains in force until reset by the routine above.
-
-;; CHAN-P
+# ; --------------
+# ; Channel P flag
+# ; --------------
+# ; This routine sets a flag so that subsequent print related commands
+# ; print to printer or update the relevant system variables.
+# ; This status remains in force until reset by the routine above.
+#
+# ;; CHAN-P
 # L164D:  SET     1,(IY+$01)      ; update FLAGS  - signal printer in use
 #         RET                     ; return
 
@@ -6288,17 +6288,17 @@ L16C5:  LD      HL,($5C63)      ; fetch STKBOT value
 L16D4:  LD      DE,($5C59)      ; fetch start of edit line from E_LINE.
         JP      L19E5           ; jump forward to RECLAIM-1.
 
-; --------------------------
-; The Table INDEXING routine
-; --------------------------
-; This routine is used to search two-byte hash tables for a character
-; held in C, returning the address of the following offset byte.
-; if it is known that the character is in the table e.g. for priorities,
-; then the table requires no zero end-marker. If this is not known at the
-; outset then a zero end-marker is required and carry is set to signal
-; success.
-
-;; INDEXER-1
+# ; --------------------------
+# ; The Table INDEXING routine
+# ; --------------------------
+# ; This routine is used to search two-byte hash tables for a character
+# ; held in C, returning the address of the following offset byte.
+# ; if it is known that the character is in the table e.g. for priorities,
+# ; then the table requires no zero end-marker. If this is not known at the
+# ; outset then a zero end-marker is required and carry is set to signal
+# ; success.
+#
+# ;; INDEXER-1
 # L16DB:  INC     HL              ; address the next pair of values.
 #
 # ; -> The Entry Point.
