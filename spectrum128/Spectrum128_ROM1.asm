@@ -3125,20 +3125,20 @@ L0A4F:  BIT     1,(IY+$01)      ; test FLAGS  - is printer in use ?
         DEC     B               ; to next screen line.
         JP      L0DD9           ; jump forward to CL-SET to store new position.
 
-; -----------
-; Print comma
-; -----------
-; The comma control character. The 32 column screen has two 16 character
-; tabstops.  The routine is only reached via the control character table.
-
-;; PO-COMMA
-L0A5F:  CALL    L0B03           ; routine PO-FETCH - seems unnecessary.
-
-        LD      A,C             ; the column position. $21-$01
-        DEC     A               ; move right. $20-$00
-        DEC     A               ; and again   $1F-$00 or $FF if trailing
-        AND     $10             ; will be $00 or $10.
-        JR      L0AC3           ; forward to PO-FILL
+# ; -----------
+# ; Print comma
+# ; -----------
+# ; The comma control character. The 32 column screen has two 16 character
+# ; tabstops.  The routine is only reached via the control character table.
+#
+# ;; PO-COMMA
+# L0A5F:  CALL    L0B03           ; routine PO-FETCH - seems unnecessary.
+#
+#         LD      A,C             ; the column position. $21-$01
+#         DEC     A               ; move right. $20-$00
+#         DEC     A               ; and again   $1F-$00 or $FF if trailing
+#         AND     $10             ; will be $00 or $10.
+#         JR      L0AC3           ; forward to PO-FILL
 
 ; -------------------
 ; Print question mark
@@ -3248,16 +3248,16 @@ L0AC2:  LD      A,H             ; transfer parameter to A
                                 ; High byte of TAB parameter.
 
 
-;; PO-FILL
-L0AC3:  CALL    L0B03           ; routine PO-FETCH, HL-addr, BC=line/column.
-                                ; column 1 (right), $21 (left)
-        ADD     A,C             ; add operand to current column
-        DEC     A               ; range 0 - 31+
-        AND     $1F             ; make range 0 - 31d
-        RET     Z               ; return if result zero
-
-        LD      D,A             ; Counter to D
-        SET     0,(IY+$01)      ; update FLAGS  - signal suppress leading space.
+# ;; PO-FILL
+# L0AC3:  CALL    L0B03           ; routine PO-FETCH, HL-addr, BC=line/column.
+#                                 ; column 1 (right), $21 (left)
+#         ADD     A,C             ; add operand to current column
+#         DEC     A               ; range 0 - 31+
+#         AND     $1F             ; make range 0 - 31d
+#         RET     Z               ; return if result zero
+#
+#         LD      D,A             ; Counter to D
+#         SET     0,(IY+$01)      ; update FLAGS  - signal suppress leading space.
 
 ;; PO-SPACE
 L0AD0:  LD      A,$20           ; space character.
