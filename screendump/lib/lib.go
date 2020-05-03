@@ -1,11 +1,14 @@
 package lib
 
 import (
-	"image"
 	"image/color"
 )
 
-func Render(display [213840]byte, img *image.NRGBA) {
+type ImageSetter interface {
+	Set(x, y int, c color.Color)
+}
+
+func Render(display [213840]byte, img ImageSetter) {
 	for i := uint(0); i < 207360; i++ {
 		y := 128 + 16*((i/216)%20) + (i/(216*20))%16 + 320*(i/(216*20*16))
 		p := display[i]
