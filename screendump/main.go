@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"image"
-	"image/color"
 	"image/png"
 	"io/ioutil"
 	"log"
@@ -56,51 +55,8 @@ func main() {
 		}
 	}
 
-	red := color.NRGBA{
-		R: 0xcc,
-		G: 0,
-		B: 0,
-		A: 0xff,
-	}
-	palette := []color.Color{
-		color.RGBA{0x00, 0x00, 0x00, 0xff}, color.RGBA{0x00, 0x00, 0xcc, 0xff},
-		color.RGBA{0x00, 0xcc, 0x00, 0xff}, color.RGBA{0x00, 0xcc, 0xcc, 0xff},
-		color.RGBA{0xcc, 0x00, 0x00, 0xff}, color.RGBA{0xcc, 0x00, 0xcc, 0xff},
-		color.RGBA{0xcc, 0xcc, 0x00, 0xff}, color.RGBA{0xcc, 0xcc, 0xcc, 0xff},
-		color.RGBA{0x00, 0x00, 0x00, 0xff}, color.RGBA{0x00, 0x00, 0xff, 0xff},
-		color.RGBA{0x00, 0xff, 0x00, 0xff}, color.RGBA{0x00, 0xff, 0xff, 0xff},
-		color.RGBA{0xff, 0x00, 0x00, 0xff}, color.RGBA{0xff, 0x00, 0xff, 0xff},
-		color.RGBA{0xff, 0xff, 0x00, 0xff}, color.RGBA{0xff, 0xff, 0xff, 0xff},
-	}
-	img := image.NewPaletted(image.Rect(0, 0, 1920, 1200), palette)
-	for x := 0; x < 96; x++ {
-		for y := 0; y < 1200; y++ {
-			img.Set(x, y, red)
-		}
-	}
-	for x := 1824; x < 1920; x++ {
-		for y := 0; y < 1200; y++ {
-			img.Set(x, y, red)
-		}
-	}
-	for x := 0; x < 1920; x++ {
-		for y := 0; y < 128; y++ {
-			img.Set(x, y, red)
-		}
-	}
-	for x := 0; x < 1920; x++ {
-		for y := 1088; y < 1200; y++ {
-			img.Set(x, y, red)
-		}
-	}
-
-	lib.Render(display, img)
-	small := image.NewNRGBA(image.Rect(0, 0, 1920/2, 1200/2))
-	for i := 0; i < 1920/2; i++ {
-		for j := 0; j < 1200/2; j++ {
-			small.Set(i, j, img.At(i*2, j*2))
-		}
-	}
+	img := lib.Render(display)
+	small := lib.Shrink(img)
 
 	create("image.png", img)
 	create("small.png", small)
