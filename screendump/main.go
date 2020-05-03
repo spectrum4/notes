@@ -85,20 +85,15 @@ func main() {
 	}
 
 	lib.Render(display, img)
-
-	f, err := os.Create("image.png")
-	if err != nil {
-		log.Fatal(err)
+	small := image.NewNRGBA(image.Rect(0, 0, 1920/2, 1200/2))
+	for i := 0; i < 1920/2; i++ {
+		for j := 0; j < 1200/2; j++ {
+			small.Set(i, j, img.At(i*2, j*2))
+		}
 	}
 
-	if err := png.Encode(f, img); err != nil {
-		f.Close()
-		log.Fatal(err)
-	}
-
-	if err := f.Close(); err != nil {
-		log.Fatal(err)
-	}
+	create("image.png", img)
+	create("small.png", small)
 
 	g, err := os.Create("../screen.s")
 	if err != nil {
@@ -116,6 +111,22 @@ func main() {
 			fmt.Fprintf(g, "%02x", display[i+(7-j)])
 		}
 		fmt.Fprintln(g, "")
+	}
+}
+
+func create(filename string, im *image.NRGBA) {
+	f, err := os.Create(filename)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if err := png.Encode(f, im); err != nil {
+		f.Close()
+		log.Fatal(err)
+	}
+
+	if err := f.Close(); err != nil {
+		log.Fatal(err)
 	}
 }
 
