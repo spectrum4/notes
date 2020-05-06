@@ -3359,41 +3359,41 @@ L0AD0:  LD      A,$20           ; space character.
 # ; The 16 2*2 mosaic characters 128-143 decimal are formed from
 # ; bits 0-3 of the character.
 #
-        LD      B,A             ; save character
-        CALL    L0B38           ; routine PO-GR-1 to construct top half
-                                ; then bottom half.
-        CALL    L0B03           ; routine PO-FETCH fetches print position.
-        LD      DE,$5C92        ; MEM-0 is location of 8 bytes of character
-        JR      L0B7F           ; to PR-ALL to print to screen or printer
-
-; ---
-
-;; PO-GR-1
-L0B38:  LD      HL,$5C92        ; address MEM-0 - a temporary buffer in
-                                ; systems variables which is normally used
-                                ; by the calculator.
-        CALL    L0B3E           ; routine PO-GR-2 to construct top half
-                                ; and continue into routine to construct
-                                ; bottom half.
-
-;; PO-GR-2
-L0B3E:  RR      B               ; rotate bit 0/2 to carry
-        SBC     A,A             ; result $00 or $FF
-        AND     $0F             ; mask off right hand side
-        LD      C,A             ; store part in C
-        RR      B               ; rotate bit 1/3 of original chr to carry
-        SBC     A,A             ; result $00 or $FF
-        AND     $F0             ; mask off left hand side
-        OR      C               ; combine with stored pattern
-        LD      C,$04           ; four bytes for top/bottom half
-
-;; PO-GR-3
-L0B4C:  LD      (HL),A          ; store bit patterns in temporary buffer
-        INC     HL              ; next address
-        DEC     C               ; jump back to
-        JR      NZ,L0B4C        ; to PO-GR-3 until byte is stored 4 times
-
-        RET                     ; return
+#         LD      B,A             ; save character
+#         CALL    L0B38           ; routine PO-GR-1 to construct top half
+#                                 ; then bottom half.
+#         CALL    L0B03           ; routine PO-FETCH fetches print position.
+#         LD      DE,$5C92        ; MEM-0 is location of 8 bytes of character
+#         JR      L0B7F           ; to PR-ALL to print to screen or printer
+#
+# ; ---
+#
+# ;; PO-GR-1
+# L0B38:  LD      HL,$5C92        ; address MEM-0 - a temporary buffer in
+#                                 ; systems variables which is normally used
+#                                 ; by the calculator.
+#         CALL    L0B3E           ; routine PO-GR-2 to construct top half
+#                                 ; and continue into routine to construct
+#                                 ; bottom half.
+#
+# ;; PO-GR-2
+# L0B3E:  RR      B               ; rotate bit 0/2 to carry
+#         SBC     A,A             ; result $00 or $FF
+#         AND     $0F             ; mask off right hand side
+#         LD      C,A             ; store part in C
+#         RR      B               ; rotate bit 1/3 of original chr to carry
+#         SBC     A,A             ; result $00 or $FF
+#         AND     $F0             ; mask off left hand side
+#         OR      C               ; combine with stored pattern
+#         LD      C,$04           ; four bytes for top/bottom half
+#
+# ;; PO-GR-3
+# L0B4C:  LD      (HL),A          ; store bit patterns in temporary buffer
+#         INC     HL              ; next address
+#         DEC     C               ; jump back to
+#         JR      NZ,L0B4C        ; to PO-GR-3 until byte is stored 4 times
+#
+#         RET                     ; return
 
 ; ---
 
