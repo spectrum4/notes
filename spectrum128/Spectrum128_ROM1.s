@@ -3495,24 +3495,24 @@ L0AD0:  LD      A,0x20           // space character.
 #         RRA                     // bit 2 is INVERSE
 #         SBC     A,A             // will be FF for INVERSE 1 else zero
 #         LD      C,A             // transfer INVERSE mask to C
-        LD      A,0x08           // prepare to count 8 bytes
-        AND     A               // clear carry to signal screen
-        BIT     1,(IY+0x01)      // test FLAGS  - is printer in use ?
-        JR      Z,L0BB6         // to PR-ALL-3 if screen
-
-        SET     1,(IY+0x30)      // update FLAGS2  - signal printer buffer has
-                                // been used.
-        SCF                     // set carry flag to signal printer.
-
-#// PR-ALL-3
-L0BB6:  EX      DE,HL           // now HL=source, DE=destination
-
-#// PR-ALL-4
-L0BB7:  EX      AF,AF'          // save printer/screen flag
-        LD      A,(DE)          // fetch existing destination byte
-        AND     B               // consider OVER
-        XOR     (HL)            // now XOR with source
-        XOR     C               // now with INVERSE MASK
+#         LD      A,0x08           // prepare to count 8 bytes
+#         AND     A               // clear carry to signal screen
+#         BIT     1,(IY+0x01)      // test FLAGS  - is printer in use ?
+#         JR      Z,L0BB6         // to PR-ALL-3 if screen
+#
+#         SET     1,(IY+0x30)      // update FLAGS2  - signal printer buffer has
+#                                 // been used.
+#         SCF                     // set carry flag to signal printer.
+#
+# //; PR-ALL-3
+# L0BB6:  EX      DE,HL           // now HL=source, DE=destination
+#
+# //; PR-ALL-4
+# L0BB7:  EX      AF,AF'          // save printer/screen flag
+#         LD      A,(DE)          // fetch existing destination byte
+#         AND     B               // consider OVER
+#         XOR     (HL)            // now XOR with source
+#         XOR     C               // now with INVERSE MASK
         LD      (DE),A          // update screen/printer
         EX      AF,AF'          // restore flag
         JR      C,L0BD3         // to PR-ALL-6 - printer address update
