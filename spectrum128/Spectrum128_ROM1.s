@@ -3483,18 +3483,18 @@ L0AD0:  LD      A,0x20           // space character.
 #         POP     DE              // restore source
 #         PUSH    BC              // save line/column
 #         PUSH    HL              // and destination
-        LD      A,(0x5C91)       // fetch P_FLAG to accumulator
-        LD      B,0xFF           // prepare OVER mask in B.
-        RRA                     // bit 0 set if OVER 1
-        JR      C,L0BA4         // to PR-ALL-2
-
-        INC     B               // set OVER mask to 0
-
-#// PR-ALL-2
-L0BA4:  RRA                     // skip bit 1 of P_FLAG
-        RRA                     // bit 2 is INVERSE
-        SBC     A,A             // will be FF for INVERSE 1 else zero
-        LD      C,A             // transfer INVERSE mask to C
+#         LD      A,(0x5C91)       // fetch P_FLAG to accumulator
+#         LD      B,0xFF           // prepare OVER mask in B.
+#         RRA                     // bit 0 set if OVER 1
+#         JR      C,L0BA4         // to PR-ALL-2
+#
+#         INC     B               // set OVER mask to 0
+#
+# //; PR-ALL-2
+# L0BA4:  RRA                     // skip bit 1 of P_FLAG
+#         RRA                     // bit 2 is INVERSE
+#         SBC     A,A             // will be FF for INVERSE 1 else zero
+#         LD      C,A             // transfer INVERSE mask to C
         LD      A,0x08           // prepare to count 8 bytes
         AND     A               // clear carry to signal screen
         BIT     1,(IY+0x01)      // test FLAGS  - is printer in use ?
