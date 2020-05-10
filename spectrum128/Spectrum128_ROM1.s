@@ -19156,7 +19156,7 @@ L3BA7:  SUB     0xA5             // Check as per original ROM
 
         JP      0x0B56           // Rejoin original ROM routine
 
-L3BAF:  BIT     4,(IY+0x01)      // FLAGS3 - Bit 4=1 if in 128K mode
+L3BAF:  BIT     4,(IY+0x01)      // FLAGS - Bit 4=1 if in 128K mode
         JR      Z,L3BA7         // Rejoin code for when in 48K mode
 
 # In 128K mode here
