@@ -3113,7 +3113,7 @@ L09C0:  .byte    '.'+0x80
 #         LD      (0x5C91),A       // and restore system variable P_FLAG
 #
 #         RET                     // return without updating column position
-
+#
 # // -----------------------
 # // Perform carriage return
 # // -----------------------
@@ -3128,7 +3128,7 @@ L09C0:  .byte    '.'+0x80
 #         CALL    L0C55           // routine PO-SCR handles any scrolling required.
 #         DEC     B               // to next screen line.
 #         JP      L0DD9           // jump forward to CL-SET to store new position.
-
+#
 # // -----------
 # // Print comma
 # // -----------
@@ -3143,7 +3143,7 @@ L09C0:  .byte    '.'+0x80
 #         DEC     A               // and again   0x1F-0x00 or 0xFF if trailing
 #         AND     0x10             // will be 0x00 or 0x10.
 #         JR      L0AC3           // forward to PO-FILL
-
+#
 # // -------------------
 # // Print question mark
 # // -------------------
@@ -3281,7 +3281,7 @@ L0AD0:  LD      A,0x20           // space character.
 # //; PO-ABLE
 # L0AD9:  CALL    L0B24           // routine PO-ANY
 #                                 // and continue into position store routine.
-
+#
 # // -------------------------------------
 # // Store line, column, and pixel address
 # // -------------------------------------
@@ -3313,7 +3313,7 @@ L0AD0:  LD      A,0x20           // space character.
 # L0AFC:  LD      (IY+0x45),C      // P_POSN column position printer
 #         LD      (0x5C80),HL      // PR_CC  full printer buffer memory address
 #         RET                     //
-
+#
 # // -------------------------
 # // Fetch position parameters
 # // -------------------------
@@ -3346,7 +3346,7 @@ L0AD0:  LD      A,0x20           // space character.
 # L0B1D:  LD      C,(IY+0x45)      // P_POSN column only
 #         LD      HL,(0x5C80)      // PR_CC printer buffer address
 #         RET                     // return
-
+#
 # // -------------------
 # // Print any character
 # // -------------------
@@ -3398,91 +3398,91 @@ L0AD0:  LD      A,0x20           // space character.
 #         JR      NZ,L0B4C        // to PO-GR-3 until byte is stored 4 times
 #
 #         RET                     // return
-
-# ---
-
-# Tokens and User defined graphics are now separated.
-
-#// PO-T&UDG
-L0B52:  JP      L3B9F           //Spectrum 128 patch
-        NOP
-
-L0B56:  ADD     A,0x15           // add 21d to restore to 0 - 20
-        PUSH    BC              // save current print position
-        LD      BC,(0x5C7B)      // fetch UDG to address bit patterns
-        JR      L0B6A           // to PO-CHAR-2 - common code to lay down
-                                // a bit patterned character
-
-# ---
-
-#// PO-T
-L0B5F:  CALL    L0C10           // routine PO-TOKENS prints tokens
-        JP      L0B03           // exit via a JUMP to PO-FETCH as this routine
-                                // must continue into PO-STORE.
-                                // A JR instruction could be used.
-
-# This point is used to print ASCII characters  32d - 127d.
-
-#// PO-CHAR
-L0B65:  PUSH    BC              // save print position
-        LD      BC,(0x5C36)      // address CHARS
-
-# This common code is used to transfer the character bytes to memory.
-
-#// PO-CHAR-2
-L0B6A:  EX      DE,HL           // transfer destination address to DE
-        LD      HL,0x5C3B        // point to FLAGS
-        RES     0,(HL)          // allow for leading space
-        CP      0x20             // is it a space ?
-        JR      NZ,L0B76        // to PO-CHAR-3 if not
-
-        SET     0,(HL)          // signal no leading space to FLAGS
-
-#// PO-CHAR-3
-L0B76:  LD      H,0x00           // set high byte to 0
-        LD      L,A             // character to A
-                                // 0-21 UDG or 32-127 ASCII.
-        ADD     HL,HL           // multiply
-        ADD     HL,HL           // by
-        ADD     HL,HL           // eight
-        ADD     HL,BC           // HL now points to first byte of character
-        POP     BC              // the source address CHARS or UDG
-        EX      DE,HL           // character address to DE
-
-# --------------------
-# Print all characters
-# --------------------
-# This entry point entered from above to print ASCII and UDGs
-# but also from earlier to print mosaic characters.
-# HL=destination
-# DE=character source
-# BC=line/column
-
-#// PR-ALL
-L0B7F:  LD      A,C             // column to A
-        DEC     A               // move right
-        LD      A,0x21           // pre-load with leftmost position
-        JR      NZ,L0B93        // but if not zero to PR-ALL-1
-
-        DEC     B               // down one line
-        LD      C,A             // load C with 0x21
-        BIT     1,(IY+0x01)      // test FLAGS  - Is printer in use
-        JR      Z,L0B93         // to PR-ALL-1 if not
-
-        PUSH    DE              // save source address
-        CALL    L0ECD           // routine COPY-BUFF outputs line to printer
-        POP     DE              // restore character source address
-        LD      A,C             // the new column number (0x21) to C
-
-#// PR-ALL-1
-L0B93:  CP      C               // this test is really for screen - new line ?
-        PUSH    DE              // save source
-
-        CALL    Z,L0C55         // routine PO-SCR considers scrolling
-
-        POP     DE              // restore source
-        PUSH    BC              // save line/column
-        PUSH    HL              // and destination
+#
+# // ---
+#
+# // Tokens and User defined graphics are now separated.
+#
+# //; PO-T&UDG
+# L0B52:  JP      L3B9F           //Spectrum 128 patch
+#         NOP
+#
+# L0B56:  ADD     A,0x15           // add 21d to restore to 0 - 20
+#         PUSH    BC              // save current print position
+#         LD      BC,(0x5C7B)      // fetch UDG to address bit patterns
+#         JR      L0B6A           // to PO-CHAR-2 - common code to lay down
+#                                 // a bit patterned character
+#
+# // ---
+#
+# //; PO-T
+# L0B5F:  CALL    L0C10           // routine PO-TOKENS prints tokens
+#         JP      L0B03           // exit via a JUMP to PO-FETCH as this routine
+#                                 // must continue into PO-STORE.
+#                                 // A JR instruction could be used.
+#
+# // This point is used to print ASCII characters  32d - 127d.
+#
+# //; PO-CHAR
+# L0B65:  PUSH    BC              // save print position
+#         LD      BC,(0x5C36)      // address CHARS
+#
+# // This common code is used to transfer the character bytes to memory.
+#
+# //; PO-CHAR-2
+# L0B6A:  EX      DE,HL           // transfer destination address to DE
+#         LD      HL,0x5C3B        // point to FLAGS
+#         RES     0,(HL)          // allow for leading space
+#         CP      0x20             // is it a space ?
+#         JR      NZ,L0B76        // to PO-CHAR-3 if not
+#
+#         SET     0,(HL)          // signal no leading space to FLAGS
+#
+# //; PO-CHAR-3
+# L0B76:  LD      H,0x00           // set high byte to 0
+#         LD      L,A             // character to A
+#                                 // 0-21 UDG or 32-127 ASCII.
+#         ADD     HL,HL           // multiply
+#         ADD     HL,HL           // by
+#         ADD     HL,HL           // eight
+#         ADD     HL,BC           // HL now points to first byte of character
+#         POP     BC              // the source address CHARS or UDG
+#         EX      DE,HL           // character address to DE
+#
+# // --------------------
+# // Print all characters
+# // --------------------
+# // This entry point entered from above to print ASCII and UDGs
+# // but also from earlier to print mosaic characters.
+# // HL=destination
+# // DE=character source
+# // BC=line/column
+#
+# //; PR-ALL
+# L0B7F:  LD      A,C             // column to A
+#         DEC     A               // move right
+#         LD      A,0x21           // pre-load with leftmost position
+#         JR      NZ,L0B93        // but if not zero to PR-ALL-1
+#
+#         DEC     B               // down one line
+#         LD      C,A             // load C with 0x21
+#         BIT     1,(IY+0x01)      // test FLAGS  - Is printer in use
+#         JR      Z,L0B93         // to PR-ALL-1 if not
+#
+#         PUSH    DE              // save source address
+#         CALL    L0ECD           // routine COPY-BUFF outputs line to printer
+#         POP     DE              // restore character source address
+#         LD      A,C             // the new column number (0x21) to C
+#
+# //; PR-ALL-1
+# L0B93:  CP      C               // this test is really for screen - new line ?
+#         PUSH    DE              // save source
+#
+#         CALL    Z,L0C55         // routine PO-SCR considers scrolling
+#
+#         POP     DE              // restore source
+#         PUSH    BC              // save line/column
+#         PUSH    HL              // and destination
         LD      A,(0x5C91)       // fetch P_FLAG to accumulator
         LD      B,0xFF           // prepare OVER mask in B.
         RRA                     // bit 0 set if OVER 1
