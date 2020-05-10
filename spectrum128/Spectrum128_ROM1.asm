@@ -3509,17 +3509,17 @@ L0AD0:  LD      A,$20           ; space character.
 #         AND     B               ; consider OVER
 #         XOR     (HL)            ; now XOR with source
 #         XOR     C               ; now with INVERSE MASK
-        LD      (DE),A          ; update screen/printer
-        EX      AF,AF'          ; restore flag
-        JR      C,L0BD3         ; to PR-ALL-6 - printer address update
-
-        INC     D               ; gives next pixel line down screen
-
-;; PR-ALL-5
-L0BC1:  INC     HL              ; address next character byte
-        DEC     A               ; the byte count is decremented
-        JR      NZ,L0BB7        ; back to PR-ALL-4 for all 8 bytes
-
+#         LD      (DE),A          ; update screen/printer
+#         EX      AF,AF'          ; restore flag
+#         JR      C,L0BD3         ; to PR-ALL-6 - printer address update
+#
+#         INC     D               ; gives next pixel line down screen
+#
+# ;; PR-ALL-5
+# L0BC1:  INC     HL              ; address next character byte
+#         DEC     A               ; the byte count is decremented
+#         JR      NZ,L0BB7        ; back to PR-ALL-4 for all 8 bytes
+#
         EX      DE,HL           ; destination to HL
         DEC     H               ; bring back to last updated screen position
         BIT     1,(IY+$01)      ; test FLAGS  - is printer in use ?
