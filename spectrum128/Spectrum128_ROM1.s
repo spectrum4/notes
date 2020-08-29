@@ -3155,30 +3155,30 @@ L09C0:  .byte    '.'+0x80
 # L0A69:  LD      A,0x3F           // prepare the character '?'.
 #         JR      L0AD9           // forward to PO-ABLE.
 
-# --------------------------------
-# Control characters with operands
-# --------------------------------
-# Certain control characters are followed by 1 or 2 operands.
-# The entry points from control character table are PO-2-OPER and PO-1-OPER.
-# The routines alter the output address of the current channel so that
-# subsequent RST 0x10 instructions take the appropriate action
-# before finally resetting the output address back to PRINT-OUT.
+# // --------------------------------
+# // Control characters with operands
+# // --------------------------------
+# // Certain control characters are followed by 1 or 2 operands.
+# // The entry points from control character table are PO-2-OPER and PO-1-OPER.
+# // The routines alter the output address of the current channel so that
+# // subsequent RST 0x10 instructions take the appropriate action
+# // before finally resetting the output address back to PRINT-OUT.
+#
+# //; PO-TV-2
+# L0A6D:  LD      DE,L0A87        // address: PO-CONT will be next output routine
+#         LD      (0x5C0F),A       // store first operand in TVDATA-hi
+#         JR      L0A80           // forward to PO-CHANGE >>
+#
+# // ---
 
-#// PO-TV-2
-L0A6D:  LD      DE,L0A87        // address: PO-CONT will be next output routine
-        LD      (0x5C0F),A       // store first operand in TVDATA-hi
-        JR      L0A80           // forward to PO-CHANGE >>
+# // -> This initial entry point deals with two operands - AT or TAB.
+#
+# //; PO-2-OPER
+# L0A75:  LD      DE,L0A6D        // address: PO-TV-2 will be next output routine
+#         JR      L0A7D           // forward to PO-TV-1
 
-# ---
-
-# -> This initial entry point deals with two operands - AT or TAB.
-
-#// PO-2-OPER
-L0A75:  LD      DE,L0A6D        // address: PO-TV-2 will be next output routine
-        JR      L0A7D           // forward to PO-TV-1
-
-# ---
-
+# // ---
+#
 # -> This initial entry point deals with one operand INK to OVER.
 
 #// PO-1-OPER
