@@ -18393,7 +18393,7 @@ L3FFF:  DEFB $01         ;
 # ; REPPER   $5C0A   1   IY-$30   Delay (in 50ths of a second) between successive repeats of a key held down - initially 5.
 ; DEFADD   $5C0B   2   IY-$2F   Address of arguments of user defined function (if one is being evaluated), otherwise 0.
 ; K_DATA   $5C0D   1   IY-$2D   Stores second byte of colour controls entered from keyboard.
-; TVDATA   $5C0E   2   IY-$2C   Stores bytes of colour, AT and TAB controls going to TV.
+# ; TVDATA   $5C0E   2   IY-$2C   Stores bytes of colour, AT and TAB controls going to TV.
 # ; STRMS    $5C10  38   IY-$2A   Addresses of channels attached to streams.
 # ; CHARS    $5C36   2   IY-$04   256 less than address of character set, which starts with ' ' and carries on to '(c)'.
 # ; RASP     $5C38   1   IY-$02   Length of warning buzz.
