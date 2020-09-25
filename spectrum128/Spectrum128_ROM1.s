@@ -3179,20 +3179,20 @@ L09C0:  .byte    '.'+0x80
 
 # // ---
 #
-# -> This initial entry point deals with one operand INK to OVER.
+# // -> This initial entry point deals with one operand INK to OVER.
 
-#// PO-1-OPER
-L0A7A:  LD      DE,L0A87                    // address: PO-CONT will be next output routine
+# //; PO-1-OPER
+# L0A7A:  LD      DE,L0A87                  // address: PO-CONT will be next output routine
 
-#// PO-TV-1
-L0A7D:  LD      (0x5C0E),A                  // store control code in TVDATA-lo
+# //; PO-TV-1
+# L0A7D:  LD      (0x5C0E),A                // store control code in TVDATA-lo
 
-#// PO-CHANGE
-L0A80:  LD      HL,(0x5C51)                 // use CURCHL to find current output channel.
-        LD      (HL),E                      // make it
-        INC     HL                          // the supplied
-        LD      (HL),D                      // address from DE.
-        RET                                 // return.
+# //; PO-CHANGE
+# L0A80:  LD      HL,(0x5C51)               // use CURCHL to find current output channel.
+#         LD      (HL),E                    // make it
+#         INC     HL                        // the supplied
+#         LD      (HL),D                    // address from DE.
+#         RET                               // return.
 
 # ---
 
