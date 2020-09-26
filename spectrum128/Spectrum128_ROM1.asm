@@ -3190,39 +3190,39 @@ L09C0:  DEFB    '.'+$80
 #         LD      (HL),D          ; address from DE.
 #         RET                     ; return.
 
-; ---
+# ; ---
 
-;; PO-CONT
-L0A87:  LD      DE,L09F4        ; Address: PRINT-OUT
-        CALL    L0A80           ; routine PO-CHANGE to restore normal channel.
-        LD      HL,($5C0E)      ; TVDATA gives control code and possible
-                                ; subsequent character
-        LD      D,A             ; save current character
-        LD      A,L             ; the stored control code
-        CP      $16             ; was it INK to OVER (1 operand) ?
-        JP      C,L2211         ; to CO-TEMP-5
-
-        JR      NZ,L0AC2        ; to PO-TAB if not 22d i.e. 23d TAB.
-
-                                ; else must have been 22d AT.
-        LD      B,H             ; line to H   (0-23d)
-        LD      C,D             ; column to C (0-31d)
-        LD      A,$1F           ; the value 31d
-        SUB     C               ; reverse the column number.
-        JR      C,L0AAC         ; to PO-AT-ERR if C was greater than 31d.
-
-        ADD     A,$02           ; transform to system range $02-$21
-        LD      C,A             ; and place in column register.
-
-        BIT     1,(IY+$01)      ; test FLAGS  - is printer in use ?
-        JR      NZ,L0ABF        ; to PO-AT-SET as line can be ignored.
-
-        LD      A,$16           ; 22 decimal
-        SUB     B               ; subtract line number to reverse
-                                ; 0 - 22 becomes 22 - 0.
-
+# ;; PO-CONT
+# L0A87:  LD      DE,L09F4        ; Address: PRINT-OUT
+#         CALL    L0A80           ; routine PO-CHANGE to restore normal channel.
+#         LD      HL,($5C0E)      ; TVDATA gives control code and possible
+#                                 ; subsequent character
+#         LD      D,A             ; save current character
+#         LD      A,L             ; the stored control code
+#         CP      $16             ; was it INK to OVER (1 operand) ?
+#         JP      C,L2211         ; to CO-TEMP-5
+#
+#         JR      NZ,L0AC2        ; to PO-TAB if not 22d i.e. 23d TAB.
+#
+#                                 ; else must have been 22d AT.
+#         LD      B,H             ; line to B   (0-23d)
+#         LD      C,D             ; column to C (0-31d)
+#         LD      A,$1F           ; the value 31d
+#         SUB     C               ; reverse the column number.
+#         JR      C,L0AAC         ; to PO-AT-ERR if C was greater than 31d.
+#
+#         ADD     A,$02           ; transform to system range $02-$21
+#         LD      C,A             ; and place in column register.
+#
+#         BIT     1,(IY+$01)      ; test FLAGS  - is printer in use ?
+#         JR      NZ,L0ABF        ; to PO-AT-SET as line can be ignored.
+#
+#         LD      A,$16           ; 22 decimal
+#         SUB     B               ; subtract line number to reverse
+#                                 ; 0 - 22 becomes 22 - 0.
+#
 ;; PO-AT-ERR
-L0AAC:  JP      C,L1E9F         ; to REPORT-B if higher than 22 decimal
+L0AAC:  JP      C,L1E9F         ; to REPORT-Bb if higher than 22 decimal
                                 ; Integer out of range.
 
         INC     A               ; adjust for system range $01-$17
@@ -3248,25 +3248,38 @@ L0AC2:  LD      A,H             ; transfer parameter to A
                                 ; High byte of TAB parameter.
 
 
+# ; ---------------------------------
+# ; Print spaces until reach column A
+# ; ---------------------------------
+# ;
+# ; If at column A or at end of line and A=0, return. Otherwise set flag to
+# ; suppress leading space, and print spaces until reach col A either on
+# ; current line, or on following line if already past col A on current line.
+# ;
 # ;; PO-FILL
 # L0AC3:  CALL    L0B03           ; routine PO-FETCH, HL-addr, BC=line/column.
 #                                 ; column 1 (right), $21 (left)
-#         ADD     A,C             ; add operand to current column
-#         DEC     A               ; range 0 - 31+
-#         AND     $1F             ; make range 0 - 31d
+#                                 ; C = 33 - curx
+#         ADD     A,C             ; A = 33 + newx - curx
+#         DEC     A               ; A = 32 + newx - curx
+#         AND     $1F             ; if (curx <= newx) { A = newx - curx }
 #         RET     Z               ; return if result zero
 #
 #         LD      D,A             ; Counter to D
 #         SET     0,(IY+$01)      ; update FLAGS  - signal suppress leading space.
-
-;; PO-SPACE
-L0AD0:  LD      A,$20           ; space character.
-        CALL    L0C3B           ; routine PO-SAVE prints the character
-                                ; using alternate set (normal output routine)
-        DEC     D               ; decrement counter.
-        JR      NZ,L0AD0        ; to PO-SPACE until done
-
-        RET                     ; return
+#
+# ; ---------------------------------
+# ; Print D space characters (D >= 1)
+# ; ---------------------------------
+#
+# ;; PO-SPACE
+# L0AD0:  LD      A,$20           ; space character.
+#         CALL    L0C3B           ; routine PO-SAVE prints the character
+#                                 ; using alternate set (normal output routine)
+#         DEC     D               ; decrement counter.
+#         JR      NZ,L0AD0        ; to PO-SPACE until done
+#
+#         RET                     ; return
 
 # ; ----------------------
 # ; Printable character(s)
@@ -9117,7 +9130,7 @@ L1E67:  CALL    L1E99           ; routine FIND-INT2 puts operand in BC
         LD      D,$00           ; set statement to 0 - first.
         LD      A,H             ; compare high byte only
         CP      $F0             ; to $F0 i.e. 61439 in full.
-        JR      NC,L1E9F        ; forward to REPORT-B if above.
+        JR      NC,L1E9F        ; forward to REPORT-Bb if above.
 
 ; This call entry point is used to update the system variables e.g. by RETURN.
 
@@ -9159,7 +9172,7 @@ L1E80:  CALL    L1E85           ; routine TWO-PARAM fetches values
 
 ;; TWO-PARAM
 L1E85:  CALL    L2DD5           ; routine FP-TO-A
-        JR      C,L1E9F         ; forward to REPORT-B if overflow occurred
+        JR      C,L1E9F         ; forward to REPORT-Bb if overflow occurred
 
         JR      Z,L1E8E         ; forward to TWO-P-1 if positive
 
