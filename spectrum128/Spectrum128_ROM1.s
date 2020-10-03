@@ -341,190 +341,190 @@ L0090:  SCF                               // set the carry flag
         RET                               // return with carry set.
 
 
-# ------------------
-# THE 'TOKEN TABLES'
-# ------------------
-# The tokenized characters 134d (RND) to 255d (COPY) are expanded using
-# this table. The last byte of a token is inverted to denote the end of
-# the word. The first is an inverted step-over byte.
-
-#// TKN-TABLE
-L0095:  .byte    '?'+0x80
-        .ascii    "RN"
-        .byte    'D'+0x80
-        .ascii    "INKEY"
-        .byte    '$'+0x80
-        .byte    'P','I'+0x80
-        .byte    'F','N'+0x80
-        .ascii    "POIN"
-        .byte    'T'+0x80
-        .ascii    "SCREEN"
-        .byte    '$'+0x80
-        .ascii    "ATT"
-        .byte    'R'+0x80
-        .byte    'A','T'+0x80
-        .ascii    "TA"
-        .byte    'B'+0x80
-        .ascii    "VAL"
-        .byte    '$'+0x80
-        .ascii    "COD"
-        .byte    'E'+0x80
-        .ascii    "VA"
-        .byte    'L'+0x80
-        .ascii    "LE"
-        .byte    'N'+0x80
-        .ascii    "SI"
-        .byte    'N'+0x80
-        .ascii    "CO"
-        .byte    'S'+0x80
-        .ascii    "TA"
-        .byte    'N'+0x80
-        .ascii    "AS"
-        .byte    'N'+0x80
-        .ascii    "AC"
-        .byte    'S'+0x80
-        .ascii    "AT"
-        .byte    'N'+0x80
-        .byte    'L','N'+0x80
-        .ascii    "EX"
-        .byte    'P'+0x80
-        .ascii    "IN"
-        .byte    'T'+0x80
-        .ascii    "SQ"
-        .byte    'R'+0x80
-        .ascii    "SG"
-        .byte    'N'+0x80
-        .ascii    "AB"
-        .byte    'S'+0x80
-        .ascii    "PEE"
-        .byte    'K'+0x80
-        .byte    'I','N'+0x80
-        .ascii    "US"
-        .byte    'R'+0x80
-        .ascii    "STR"
-        .byte    '$'+0x80
-        .ascii    "CHR"
-        .byte    '$'+0x80
-        .ascii    "NO"
-        .byte    'T'+0x80
-        .ascii    "BI"
-        .byte    'N'+0x80
-
-# The previous 32 function-type words are printed without a leading space
-# The following have a leading space if they begin with a letter
-
-        .byte    'O','R'+0x80
-        .ascii    "AN"
-        .byte    'D'+0x80
-        .byte    0x3C,'='+0x80            // <=
-        .byte    0x3E,'='+0x80            // >=
-        .byte    0x3C,0x3E+0x80           // <>
-        .ascii    "LIN"
-        .byte    'E'+0x80
-        .ascii    "THE"
-        .byte    'N'+0x80
-        .byte    'T','O'+0x80
-        .ascii    "STE"
-        .byte    'P'+0x80
-        .ascii    "DEF F"
-        .byte    'N'+0x80
-        .ascii    "CA"
-        .byte    'T'+0x80
-        .ascii    "FORMA"
-        .byte    'T'+0x80
-        .ascii    "MOV"
-        .byte    'E'+0x80
-        .ascii    "ERAS"
-        .byte    'E'+0x80
-        .ascii    "OPEN "
-        .byte    '#'+0x80
-        .ascii    "CLOSE "
-        .byte    '#'+0x80
-        .ascii    "MERG"
-        .byte    'E'+0x80
-        .ascii    "VERIF"
-        .byte    'Y'+0x80
-        .ascii    "BEE"
-        .byte    'P'+0x80
-        .ascii    "CIRCL"
-        .byte    'E'+0x80
-        .ascii    "IN"
-        .byte    'K'+0x80
-        .ascii    "PAPE"
-        .byte    'R'+0x80
-        .ascii    "FLAS"
-        .byte    'H'+0x80
-        .ascii    "BRIGH"
-        .byte    'T'+0x80
-        .ascii    "INVERS"
-        .byte    'E'+0x80
-        .ascii    "OVE"
-        .byte    'R'+0x80
-        .ascii    "OU"
-        .byte    'T'+0x80
-        .ascii    "LPRIN"
-        .byte    'T'+0x80
-        .ascii    "LLIS"
-        .byte    'T'+0x80
-        .ascii    "STO"
-        .byte    'P'+0x80
-        .ascii    "REA"
-        .byte    'D'+0x80
-        .ascii    "DAT"
-        .byte    'A'+0x80
-        .ascii    "RESTOR"
-        .byte    'E'+0x80
-        .ascii    "NE"
-        .byte    'W'+0x80
-        .ascii    "BORDE"
-        .byte    'R'+0x80
-        .ascii    "CONTINU"
-        .byte    'E'+0x80
-        .ascii    "DI"
-        .byte    'M'+0x80
-        .ascii    "RE"
-        .byte    'M'+0x80
-        .ascii    "FO"
-        .byte    'R'+0x80
-        .ascii    "GO T"
-        .byte    'O'+0x80
-        .ascii    "GO SU"
-        .byte    'B'+0x80
-        .ascii    "INPU"
-        .byte    'T'+0x80
-        .ascii    "LOA"
-        .byte    'D'+0x80
-        .ascii    "LIS"
-        .byte    'T'+0x80
-        .ascii    "LE"
-        .byte    'T'+0x80
-        .ascii    "PAUS"
-        .byte    'E'+0x80
-        .ascii    "NEX"
-        .byte    'T'+0x80
-        .ascii    "POK"
-        .byte    'E'+0x80
-        .ascii    "PRIN"
-        .byte    'T'+0x80
-        .ascii    "PLO"
-        .byte    'T'+0x80
-        .ascii    "RU"
-        .byte    'N'+0x80
-        .ascii    "SAV"
-        .byte    'E'+0x80
-        .ascii    "RANDOMIZ"
-        .byte    'E'+0x80
-        .byte    'I','F'+0x80
-        .ascii    "CL"
-        .byte    'S'+0x80
-        .ascii    "DRA"
-        .byte    'W'+0x80
-        .ascii    "CLEA"
-        .byte    'R'+0x80
-        .ascii    "RETUR"
-        .byte    'N'+0x80
-        .ascii    "COP"
-        .byte    'Y'+0x80
+# // ------------------
+# // THE 'TOKEN TABLES'
+# // ------------------
+# // The tokenized characters 134d (RND) to 255d (COPY) are expanded using
+# // this table. The last byte of a token is inverted to denote the end of
+# // the word. The first is an inverted step-over byte.
+#
+# //; TKN-TABLE
+# L0095:  .byte    '?'+0x80
+#         .ascii    "RN"
+#         .byte    'D'+0x80
+#         .ascii    "INKEY"
+#         .byte    '$'+0x80
+#         .byte    'P','I'+0x80
+#         .byte    'F','N'+0x80
+#         .ascii    "POIN"
+#         .byte    'T'+0x80
+#         .ascii    "SCREEN"
+#         .byte    '$'+0x80
+#         .ascii    "ATT"
+#         .byte    'R'+0x80
+#         .byte    'A','T'+0x80
+#         .ascii    "TA"
+#         .byte    'B'+0x80
+#         .ascii    "VAL"
+#         .byte    '$'+0x80
+#         .ascii    "COD"
+#         .byte    'E'+0x80
+#         .ascii    "VA"
+#         .byte    'L'+0x80
+#         .ascii    "LE"
+#         .byte    'N'+0x80
+#         .ascii    "SI"
+#         .byte    'N'+0x80
+#         .ascii    "CO"
+#         .byte    'S'+0x80
+#         .ascii    "TA"
+#         .byte    'N'+0x80
+#         .ascii    "AS"
+#         .byte    'N'+0x80
+#         .ascii    "AC"
+#         .byte    'S'+0x80
+#         .ascii    "AT"
+#         .byte    'N'+0x80
+#         .byte    'L','N'+0x80
+#         .ascii    "EX"
+#         .byte    'P'+0x80
+#         .ascii    "IN"
+#         .byte    'T'+0x80
+#         .ascii    "SQ"
+#         .byte    'R'+0x80
+#         .ascii    "SG"
+#         .byte    'N'+0x80
+#         .ascii    "AB"
+#         .byte    'S'+0x80
+#         .ascii    "PEE"
+#         .byte    'K'+0x80
+#         .byte    'I','N'+0x80
+#         .ascii    "US"
+#         .byte    'R'+0x80
+#         .ascii    "STR"
+#         .byte    '$'+0x80
+#         .ascii    "CHR"
+#         .byte    '$'+0x80
+#         .ascii    "NO"
+#         .byte    'T'+0x80
+#         .ascii    "BI"
+#         .byte    'N'+0x80
+#
+# // The previous 32 function-type words are printed without a leading space
+# // The following have a leading space if they begin with a letter
+#
+#         .byte    'O','R'+0x80
+#         .ascii    "AN"
+#         .byte    'D'+0x80
+#         .byte    0x3C,'='+0x80          // <=
+#         .byte    0x3E,'='+0x80          // >=
+#         .byte    0x3C,0x3E+0x80         // <>
+#         .ascii    "LIN"
+#         .byte    'E'+0x80
+#         .ascii    "THE"
+#         .byte    'N'+0x80
+#         .byte    'T','O'+0x80
+#         .ascii    "STE"
+#         .byte    'P'+0x80
+#         .ascii    "DEF F"
+#         .byte    'N'+0x80
+#         .ascii    "CA"
+#         .byte    'T'+0x80
+#         .ascii    "FORMA"
+#         .byte    'T'+0x80
+#         .ascii    "MOV"
+#         .byte    'E'+0x80
+#         .ascii    "ERAS"
+#         .byte    'E'+0x80
+#         .ascii    "OPEN "
+#         .byte    '#'+0x80
+#         .ascii    "CLOSE "
+#         .byte    '#'+0x80
+#         .ascii    "MERG"
+#         .byte    'E'+0x80
+#         .ascii    "VERIF"
+#         .byte    'Y'+0x80
+#         .ascii    "BEE"
+#         .byte    'P'+0x80
+#         .ascii    "CIRCL"
+#         .byte    'E'+0x80
+#         .ascii    "IN"
+#         .byte    'K'+0x80
+#         .ascii    "PAPE"
+#         .byte    'R'+0x80
+#         .ascii    "FLAS"
+#         .byte    'H'+0x80
+#         .ascii    "BRIGH"
+#         .byte    'T'+0x80
+#         .ascii    "INVERS"
+#         .byte    'E'+0x80
+#         .ascii    "OVE"
+#         .byte    'R'+0x80
+#         .ascii    "OU"
+#         .byte    'T'+0x80
+#         .ascii    "LPRIN"
+#         .byte    'T'+0x80
+#         .ascii    "LLIS"
+#         .byte    'T'+0x80
+#         .ascii    "STO"
+#         .byte    'P'+0x80
+#         .ascii    "REA"
+#         .byte    'D'+0x80
+#         .ascii    "DAT"
+#         .byte    'A'+0x80
+#         .ascii    "RESTOR"
+#         .byte    'E'+0x80
+#         .ascii    "NE"
+#         .byte    'W'+0x80
+#         .ascii    "BORDE"
+#         .byte    'R'+0x80
+#         .ascii    "CONTINU"
+#         .byte    'E'+0x80
+#         .ascii    "DI"
+#         .byte    'M'+0x80
+#         .ascii    "RE"
+#         .byte    'M'+0x80
+#         .ascii    "FO"
+#         .byte    'R'+0x80
+#         .ascii    "GO T"
+#         .byte    'O'+0x80
+#         .ascii    "GO SU"
+#         .byte    'B'+0x80
+#         .ascii    "INPU"
+#         .byte    'T'+0x80
+#         .ascii    "LOA"
+#         .byte    'D'+0x80
+#         .ascii    "LIS"
+#         .byte    'T'+0x80
+#         .ascii    "LE"
+#         .byte    'T'+0x80
+#         .ascii    "PAUS"
+#         .byte    'E'+0x80
+#         .ascii    "NEX"
+#         .byte    'T'+0x80
+#         .ascii    "POK"
+#         .byte    'E'+0x80
+#         .ascii    "PRIN"
+#         .byte    'T'+0x80
+#         .ascii    "PLO"
+#         .byte    'T'+0x80
+#         .ascii    "RU"
+#         .byte    'N'+0x80
+#         .ascii    "SAV"
+#         .byte    'E'+0x80
+#         .ascii    "RANDOMIZ"
+#         .byte    'E'+0x80
+#         .byte    'I','F'+0x80
+#         .ascii    "CL"
+#         .byte    'S'+0x80
+#         .ascii    "DRA"
+#         .byte    'W'+0x80
+#         .ascii    "CLEA"
+#         .byte    'R'+0x80
+#         .ascii    "RETUR"
+#         .byte    'N'+0x80
+#         .ascii    "COP"
+#         .byte    'Y'+0x80
 
 # ----------------
 # THE 'KEY' TABLES
@@ -3626,14 +3626,14 @@ L0C0A:  PUSH    HL                        // put hi-byte zero on stack to suppre
 
 # This entry point prints the BASIC keywords, '<>' etc. from alt set
 
-#// PO-TOKENS
-L0C10:  LD      DE,L0095                  // address: TKN-TABLE
-        PUSH    AF                        // save the token number to control
-                                          // trailing spaces - see later *
-
-#// PO-TABLE
-L0C14:  CALL    L0C41                     // routine PO-SEARCH will set carry for
-                                          // all messages and function words.
+# //; PO-TOKENS
+# L0C10:  LD      DE,L0095                // address: TKN-TABLE
+#         PUSH    AF                      // save the token number to control
+#                                         // trailing spaces - see later *
+#
+# //; PO-TABLE
+# L0C14:  CALL    L0C41                   // routine PO-SEARCH will set carry for
+#                                         // all messages and function words.
 L0C17:  JR      C,L0C22                   // forward to PO-EACH if not a command,
                                           // '<>' etc.
 
@@ -3686,34 +3686,34 @@ L0C3B:  PUSH    DE                        // save DE as CALL-SUB doesn't.
         POP     DE                        // restore initial DE.
         RET                               // return.
 
-# ------------
-# Table search
-# ------------
-# This subroutine searches a message or the token table for the
-# message number held in A. DE holds the address of the table.
-
-#// PO-SEARCH
-L0C41:  PUSH    AF                        // save the message/token number
-        EX      DE,HL                     // transfer DE to HL
-        INC     A                         // adjust for initial step-over byte
-
-#// PO-STEP
-L0C44:  BIT     7,(HL)                    // is character inverted ?
-        INC     HL                        // address next
-        JR      Z,L0C44                   // back to PO-STEP if not inverted.
-
-        DEC     A                         // decrease counter
-        JR      NZ,L0C44                  // back to PO-STEP if not zero
-
-        EX      DE,HL                     // transfer address to DE
-        POP     AF                        // restore message/token number
-        CP      0x20                      // return with carry set
-        RET     C                         // for all messages and function tokens
-
-        LD      A,(DE)                    // test first character of token
-        SUB     0x41                      // and return with carry set
-        RET                               // if it is less that 'A'
-                                          // i.e. '<>', '<=', '>='
+# // ------------
+# // Table search
+# // ------------
+# // This subroutine searches a message or the token table for the
+# // message number held in A. DE holds the address of the table.
+#
+# //; PO-SEARCH
+# L0C41:  PUSH    AF                      // save the message/token number
+#         EX      DE,HL                   // transfer DE to HL
+#         INC     A                       // adjust for initial step-over byte
+#
+# //; PO-STEP
+# L0C44:  BIT     7,(HL)                  // is character inverted ?
+#         INC     HL                      // address next
+#         JR      Z,L0C44                 // back to PO-STEP if not inverted.
+#
+#         DEC     A                       // decrease counter
+#         JR      NZ,L0C44                // back to PO-STEP if not zero
+#
+#         EX      DE,HL                   // transfer address to DE
+#         POP     AF                      // restore message/token number
+#         CP      0x20                    // return with carry set
+#         RET     C                       // for all messages and function tokens
+#
+#         LD      A,(DE)                  // test first character of token
+#         SUB     0x41                    // and return with carry set
+#         RET                             // if it is less that 'A'
+#                                         // i.e. '<>', '<=', '>='
 
 # ---------------
 # Test for scroll
