@@ -337,190 +337,190 @@ L0090:  SCF                     ; set the carry flag
         RET                     ; return with carry set.
 
 
-; ------------------
-; THE 'TOKEN TABLES'
-; ------------------
-; The tokenized characters 134d (RND) to 255d (COPY) are expanded using
-; this table. The last byte of a token is inverted to denote the end of
-; the word. The first is an inverted step-over byte.
-
-;; TKN-TABLE
-L0095:  DEFB    '?'+$80
-        DEFM    "RN"
-        DEFB    'D'+$80
-        DEFM    "INKEY"
-        DEFB    '$'+$80
-        DEFB    'P','I'+$80
-        DEFB    'F','N'+$80
-        DEFM    "POIN"
-        DEFB    'T'+$80
-        DEFM    "SCREEN"
-        DEFB    '$'+$80
-        DEFM    "ATT"
-        DEFB    'R'+$80
-        DEFB    'A','T'+$80
-        DEFM    "TA"
-        DEFB    'B'+$80
-        DEFM    "VAL"
-        DEFB    '$'+$80
-        DEFM    "COD"
-        DEFB    'E'+$80
-        DEFM    "VA"
-        DEFB    'L'+$80
-        DEFM    "LE"
-        DEFB    'N'+$80
-        DEFM    "SI"
-        DEFB    'N'+$80
-        DEFM    "CO"
-        DEFB    'S'+$80
-        DEFM    "TA"
-        DEFB    'N'+$80
-        DEFM    "AS"
-        DEFB    'N'+$80
-        DEFM    "AC"
-        DEFB    'S'+$80
-        DEFM    "AT"
-        DEFB    'N'+$80
-        DEFB    'L','N'+$80
-        DEFM    "EX"
-        DEFB    'P'+$80
-        DEFM    "IN"
-        DEFB    'T'+$80
-        DEFM    "SQ"
-        DEFB    'R'+$80
-        DEFM    "SG"
-        DEFB    'N'+$80
-        DEFM    "AB"
-        DEFB    'S'+$80
-        DEFM    "PEE"
-        DEFB    'K'+$80
-        DEFB    'I','N'+$80
-        DEFM    "US"
-        DEFB    'R'+$80
-        DEFM    "STR"
-        DEFB    '$'+$80
-        DEFM    "CHR"
-        DEFB    '$'+$80
-        DEFM    "NO"
-        DEFB    'T'+$80
-        DEFM    "BI"
-        DEFB    'N'+$80
-
-; The previous 32 function-type words are printed without a leading space
-; The following have a leading space if they begin with a letter
-
-        DEFB    'O','R'+$80
-        DEFM    "AN"
-        DEFB    'D'+$80
-        DEFB    $3C,'='+$80             ; <=
-        DEFB    $3E,'='+$80             ; >=
-        DEFB    $3C,$3E+$80             ; <>
-        DEFM    "LIN"
-        DEFB    'E'+$80
-        DEFM    "THE"
-        DEFB    'N'+$80
-        DEFB    'T','O'+$80
-        DEFM    "STE"
-        DEFB    'P'+$80
-        DEFM    "DEF F"
-        DEFB    'N'+$80
-        DEFM    "CA"
-        DEFB    'T'+$80
-        DEFM    "FORMA"
-        DEFB    'T'+$80
-        DEFM    "MOV"
-        DEFB    'E'+$80
-        DEFM    "ERAS"
-        DEFB    'E'+$80
-        DEFM    "OPEN "
-        DEFB    '#'+$80
-        DEFM    "CLOSE "
-        DEFB    '#'+$80
-        DEFM    "MERG"
-        DEFB    'E'+$80
-        DEFM    "VERIF"
-        DEFB    'Y'+$80
-        DEFM    "BEE"
-        DEFB    'P'+$80
-        DEFM    "CIRCL"
-        DEFB    'E'+$80
-        DEFM    "IN"
-        DEFB    'K'+$80
-        DEFM    "PAPE"
-        DEFB    'R'+$80
-        DEFM    "FLAS"
-        DEFB    'H'+$80
-        DEFM    "BRIGH"
-        DEFB    'T'+$80
-        DEFM    "INVERS"
-        DEFB    'E'+$80
-        DEFM    "OVE"
-        DEFB    'R'+$80
-        DEFM    "OU"
-        DEFB    'T'+$80
-        DEFM    "LPRIN"
-        DEFB    'T'+$80
-        DEFM    "LLIS"
-        DEFB    'T'+$80
-        DEFM    "STO"
-        DEFB    'P'+$80
-        DEFM    "REA"
-        DEFB    'D'+$80
-        DEFM    "DAT"
-        DEFB    'A'+$80
-        DEFM    "RESTOR"
-        DEFB    'E'+$80
-        DEFM    "NE"
-        DEFB    'W'+$80
-        DEFM    "BORDE"
-        DEFB    'R'+$80
-        DEFM    "CONTINU"
-        DEFB    'E'+$80
-        DEFM    "DI"
-        DEFB    'M'+$80
-        DEFM    "RE"
-        DEFB    'M'+$80
-        DEFM    "FO"
-        DEFB    'R'+$80
-        DEFM    "GO T"
-        DEFB    'O'+$80
-        DEFM    "GO SU"
-        DEFB    'B'+$80
-        DEFM    "INPU"
-        DEFB    'T'+$80
-        DEFM    "LOA"
-        DEFB    'D'+$80
-        DEFM    "LIS"
-        DEFB    'T'+$80
-        DEFM    "LE"
-        DEFB    'T'+$80
-        DEFM    "PAUS"
-        DEFB    'E'+$80
-        DEFM    "NEX"
-        DEFB    'T'+$80
-        DEFM    "POK"
-        DEFB    'E'+$80
-        DEFM    "PRIN"
-        DEFB    'T'+$80
-        DEFM    "PLO"
-        DEFB    'T'+$80
-        DEFM    "RU"
-        DEFB    'N'+$80
-        DEFM    "SAV"
-        DEFB    'E'+$80
-        DEFM    "RANDOMIZ"
-        DEFB    'E'+$80
-        DEFB    'I','F'+$80
-        DEFM    "CL"
-        DEFB    'S'+$80
-        DEFM    "DRA"
-        DEFB    'W'+$80
-        DEFM    "CLEA"
-        DEFB    'R'+$80
-        DEFM    "RETUR"
-        DEFB    'N'+$80
-        DEFM    "COP"
-        DEFB    'Y'+$80
+# ; ------------------
+# ; THE 'TOKEN TABLES'
+# ; ------------------
+# ; The tokenized characters 134d (RND) to 255d (COPY) are expanded using
+# ; this table. The last byte of a token is inverted to denote the end of
+# ; the word. The first is an inverted step-over byte.
+#
+# ;; TKN-TABLE
+# L0095:  DEFB    '?'+$80
+#         DEFM    "RN"
+#         DEFB    'D'+$80
+#         DEFM    "INKEY"
+#         DEFB    '$'+$80
+#         DEFB    'P','I'+$80
+#         DEFB    'F','N'+$80
+#         DEFM    "POIN"
+#         DEFB    'T'+$80
+#         DEFM    "SCREEN"
+#         DEFB    '$'+$80
+#         DEFM    "ATT"
+#         DEFB    'R'+$80
+#         DEFB    'A','T'+$80
+#         DEFM    "TA"
+#         DEFB    'B'+$80
+#         DEFM    "VAL"
+#         DEFB    '$'+$80
+#         DEFM    "COD"
+#         DEFB    'E'+$80
+#         DEFM    "VA"
+#         DEFB    'L'+$80
+#         DEFM    "LE"
+#         DEFB    'N'+$80
+#         DEFM    "SI"
+#         DEFB    'N'+$80
+#         DEFM    "CO"
+#         DEFB    'S'+$80
+#         DEFM    "TA"
+#         DEFB    'N'+$80
+#         DEFM    "AS"
+#         DEFB    'N'+$80
+#         DEFM    "AC"
+#         DEFB    'S'+$80
+#         DEFM    "AT"
+#         DEFB    'N'+$80
+#         DEFB    'L','N'+$80
+#         DEFM    "EX"
+#         DEFB    'P'+$80
+#         DEFM    "IN"
+#         DEFB    'T'+$80
+#         DEFM    "SQ"
+#         DEFB    'R'+$80
+#         DEFM    "SG"
+#         DEFB    'N'+$80
+#         DEFM    "AB"
+#         DEFB    'S'+$80
+#         DEFM    "PEE"
+#         DEFB    'K'+$80
+#         DEFB    'I','N'+$80
+#         DEFM    "US"
+#         DEFB    'R'+$80
+#         DEFM    "STR"
+#         DEFB    '$'+$80
+#         DEFM    "CHR"
+#         DEFB    '$'+$80
+#         DEFM    "NO"
+#         DEFB    'T'+$80
+#         DEFM    "BI"
+#         DEFB    'N'+$80
+#
+# ; The previous 32 function-type words are printed without a leading space
+# ; The following have a leading space if they begin with a letter
+#
+#         DEFB    'O','R'+$80
+#         DEFM    "AN"
+#         DEFB    'D'+$80
+#         DEFB    $3C,'='+$80             ; <=
+#         DEFB    $3E,'='+$80             ; >=
+#         DEFB    $3C,$3E+$80             ; <>
+#         DEFM    "LIN"
+#         DEFB    'E'+$80
+#         DEFM    "THE"
+#         DEFB    'N'+$80
+#         DEFB    'T','O'+$80
+#         DEFM    "STE"
+#         DEFB    'P'+$80
+#         DEFM    "DEF F"
+#         DEFB    'N'+$80
+#         DEFM    "CA"
+#         DEFB    'T'+$80
+#         DEFM    "FORMA"
+#         DEFB    'T'+$80
+#         DEFM    "MOV"
+#         DEFB    'E'+$80
+#         DEFM    "ERAS"
+#         DEFB    'E'+$80
+#         DEFM    "OPEN "
+#         DEFB    '#'+$80
+#         DEFM    "CLOSE "
+#         DEFB    '#'+$80
+#         DEFM    "MERG"
+#         DEFB    'E'+$80
+#         DEFM    "VERIF"
+#         DEFB    'Y'+$80
+#         DEFM    "BEE"
+#         DEFB    'P'+$80
+#         DEFM    "CIRCL"
+#         DEFB    'E'+$80
+#         DEFM    "IN"
+#         DEFB    'K'+$80
+#         DEFM    "PAPE"
+#         DEFB    'R'+$80
+#         DEFM    "FLAS"
+#         DEFB    'H'+$80
+#         DEFM    "BRIGH"
+#         DEFB    'T'+$80
+#         DEFM    "INVERS"
+#         DEFB    'E'+$80
+#         DEFM    "OVE"
+#         DEFB    'R'+$80
+#         DEFM    "OU"
+#         DEFB    'T'+$80
+#         DEFM    "LPRIN"
+#         DEFB    'T'+$80
+#         DEFM    "LLIS"
+#         DEFB    'T'+$80
+#         DEFM    "STO"
+#         DEFB    'P'+$80
+#         DEFM    "REA"
+#         DEFB    'D'+$80
+#         DEFM    "DAT"
+#         DEFB    'A'+$80
+#         DEFM    "RESTOR"
+#         DEFB    'E'+$80
+#         DEFM    "NE"
+#         DEFB    'W'+$80
+#         DEFM    "BORDE"
+#         DEFB    'R'+$80
+#         DEFM    "CONTINU"
+#         DEFB    'E'+$80
+#         DEFM    "DI"
+#         DEFB    'M'+$80
+#         DEFM    "RE"
+#         DEFB    'M'+$80
+#         DEFM    "FO"
+#         DEFB    'R'+$80
+#         DEFM    "GO T"
+#         DEFB    'O'+$80
+#         DEFM    "GO SU"
+#         DEFB    'B'+$80
+#         DEFM    "INPU"
+#         DEFB    'T'+$80
+#         DEFM    "LOA"
+#         DEFB    'D'+$80
+#         DEFM    "LIS"
+#         DEFB    'T'+$80
+#         DEFM    "LE"
+#         DEFB    'T'+$80
+#         DEFM    "PAUS"
+#         DEFB    'E'+$80
+#         DEFM    "NEX"
+#         DEFB    'T'+$80
+#         DEFM    "POK"
+#         DEFB    'E'+$80
+#         DEFM    "PRIN"
+#         DEFB    'T'+$80
+#         DEFM    "PLO"
+#         DEFB    'T'+$80
+#         DEFM    "RU"
+#         DEFB    'N'+$80
+#         DEFM    "SAV"
+#         DEFB    'E'+$80
+#         DEFM    "RANDOMIZ"
+#         DEFB    'E'+$80
+#         DEFB    'I','F'+$80
+#         DEFM    "CL"
+#         DEFB    'S'+$80
+#         DEFM    "DRA"
+#         DEFB    'W'+$80
+#         DEFM    "CLEA"
+#         DEFB    'R'+$80
+#         DEFM    "RETUR"
+#         DEFB    'N'+$80
+#         DEFM    "COP"
+#         DEFB    'Y'+$80
 
 ; ----------------
 ; THE 'KEY' TABLES
@@ -3622,14 +3622,14 @@ L0C0A:  PUSH    HL              ; put hi-byte zero on stack to suppress
 
 ; This entry point prints the BASIC keywords, '<>' etc. from alt set
 
-;; PO-TOKENS
-L0C10:  LD      DE,L0095        ; address: TKN-TABLE
-        PUSH    AF              ; save the token number to control
-                                ; trailing spaces - see later *
-
-;; PO-TABLE
-L0C14:  CALL    L0C41           ; routine PO-SEARCH will set carry for
-                                ; all messages and function words.
+# ;; PO-TOKENS
+# L0C10:  LD      DE,L0095        ; address: TKN-TABLE
+#         PUSH    AF              ; save the token number to control
+#                                 ; trailing spaces - see later *
+#
+# ;; PO-TABLE
+# L0C14:  CALL    L0C41           ; routine PO-SEARCH will set carry for
+#                                 ; all messages and function words.
 L0C17:  JR      C,L0C22         ; forward to PO-EACH if not a command,
                                 ; '<>' etc.
 
@@ -3682,34 +3682,34 @@ L0C3B:  PUSH    DE              ; save DE as CALL-SUB doesn't.
         POP     DE              ; restore initial DE.
         RET                     ; return.
 
-; ------------
-; Table search
-; ------------
-; This subroutine searches a message or the token table for the
-; message number held in A. DE holds the address of the table.
-
-;; PO-SEARCH
-L0C41:  PUSH    AF              ; save the message/token number
-        EX      DE,HL           ; transfer DE to HL
-        INC     A               ; adjust for initial step-over byte
-
-;; PO-STEP
-L0C44:  BIT     7,(HL)          ; is character inverted ?
-        INC     HL              ; address next
-        JR      Z,L0C44         ; back to PO-STEP if not inverted.
-
-        DEC     A               ; decrease counter
-        JR      NZ,L0C44        ; back to PO-STEP if not zero
-
-        EX      DE,HL           ; transfer address to DE
-        POP     AF              ; restore message/token number
-        CP      $20             ; return with carry set
-        RET     C               ; for all messages and function tokens
-
-        LD      A,(DE)          ; test first character of token
-        SUB     $41             ; and return with carry set
-        RET                     ; if it is less that 'A'
-                                ; i.e. '<>', '<=', '>='
+# ; ------------
+# ; Table search
+# ; ------------
+# ; This subroutine searches a message or the token table for the
+# ; message number held in A. DE holds the address of the table.
+#
+# ;; PO-SEARCH
+# L0C41:  PUSH    AF              ; save the message/token number
+#         EX      DE,HL           ; transfer DE to HL
+#         INC     A               ; adjust for initial step-over byte
+#
+# ;; PO-STEP
+# L0C44:  BIT     7,(HL)          ; is character inverted ?
+#         INC     HL              ; address next
+#         JR      Z,L0C44         ; back to PO-STEP if not inverted.
+#
+#         DEC     A               ; decrease counter
+#         JR      NZ,L0C44        ; back to PO-STEP if not zero
+#
+#         EX      DE,HL           ; transfer address to DE
+#         POP     AF              ; restore message/token number
+#         CP      $20             ; return with carry set
+#         RET     C               ; for all messages and function tokens
+#
+#         LD      A,(DE)          ; test first character of token
+#         SUB     $41             ; and return with carry set
+#         RET                     ; if it is less that 'A'
+#                                 ; i.e. '<>', '<=', '>='
 
 ; ---------------
 ; Test for scroll
