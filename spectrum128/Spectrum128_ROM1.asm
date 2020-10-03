@@ -3630,15 +3630,15 @@ L0C0A:  PUSH    HL              ; put hi-byte zero on stack to suppress
 # ;; PO-TABLE
 # L0C14:  CALL    L0C41           ; routine PO-SEARCH will set carry for
 #                                 ; all messages and function words.
-L0C17:  JR      C,L0C22         ; forward to PO-EACH if not a command,
-                                ; '<>' etc.
-
-        LD      A,$20           ; prepare leading space
-        BIT     0,(IY+$01)      ; test FLAGS  - leading space if not set
-        CALL    Z,L0C3B         ; routine PO-SAVE to print a space
-                                ; without disturbing registers
-
-;; PO-EACH
+# L0C17:  JR      C,L0C22         ; forward to PO-EACH if not a command,
+#                                 ; '<>' etc.
+#
+#         LD      A,$20           ; prepare leading space
+#         BIT     0,(IY+$01)      ; test FLAGS  - leading space if not set
+#         CALL    Z,L0C3B         ; routine PO-SAVE to print a space
+#                                 ; without disturbing registers
+#
+# ;; PO-EACH
 L0C22:  LD      A,(DE)          ; fetch character
         AND     $7F             ; remove any inverted bit
         CALL    L0C3B           ; routine PO-SAVE to print using alternate
