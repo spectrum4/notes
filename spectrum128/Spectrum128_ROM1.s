@@ -3562,23 +3562,23 @@ L0BD3:  EX      AF,AF'                    // save the flag
         EX      AF,AF'                    // fetch the flag
         JR      L0BC1                     // back to PR-ALL-5
 
-# -------------
-# Set attribute
-# -------------
-# This routine is entered with the HL register holding the last screen
-# address to be updated by PRINT or PLOT.
-# The Spectrum screen arrangement leads to the L register holding
-# the correct value for the attribute file and it is only necessary
-# to manipulate H to form the correct colour attribute address.
-
-#// PO-ATTR
-L0BDB:  LD       A,H                      // fetch high byte 0x40 - 0x57
-        RRCA                              // shift
-        RRCA                              // bits 3 and 4
-        RRCA                              // to right.
-        AND     0x03                      // range is now 0 - 2
-        OR      0x58                      // form correct high byte for third of screen
-        LD      H,A                       // HL is now correct
+# // -------------
+# // Set attribute
+# // -------------
+# // This routine is entered with the HL register holding the last screen
+# // address to be updated by PRINT or PLOT.
+# // The Spectrum screen arrangement leads to the L register holding
+# // the correct value for the attribute file and it is only necessary
+# // to manipulate H to form the correct colour attribute address.
+#
+# //; PO-ATTR
+# L0BDB:  LD       A,H                    // fetch high byte 0x40 - 0x57
+#         RRCA                            // shift
+#         RRCA                            // bits 3 and 4
+#         RRCA                            // to right.
+#         AND     0x03                    // range is now 0 - 2
+#         OR      0x58                    // form correct high byte for third of screen
+#         LD      H,A                     // HL is now correct
         LD      DE,(0x5C8F)               // make D hold ATTR_T, E hold MASK-T
         LD      A,(HL)                    // fetch existing attribute
         XOR     E                         // apply masks
