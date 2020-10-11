@@ -3643,49 +3643,49 @@ L0C0A:  PUSH    HL                        // put hi-byte zero on stack to suppre
 #                                         // without disturbing registers
 #
 # //; PO-EACH
-L0C22:  LD      A,(DE)                    // fetch character
-        AND     0x7F                      // remove any inverted bit
-        CALL    L0C3B                     // routine PO-SAVE to print using alternate
-                                          // set of registers.
-        LD      A,(DE)                    // re-fetch character.
-        INC     DE                        // address next
-        ADD     A,A                       // was character inverted ?
-                                          // (this also doubles character)
-        JR      NC,L0C22                  // back to PO-EACH if not
-
-        POP     DE                        // * re-fetch trailing space flag to D (was A)
-        CP      0x48                      // was last character '$' (0x24*2)
-        JR      Z,L0C35                   // forward to PO-TR-SP to consider trailing
-                                          // space if so.
-
-        CP      0x82                      // was it < 'A' i.e. '#','>','=' from tokens
-                                          // or ' ','.' (from tape) or '?' from scroll
-        RET     C                         // no trailing space
-
-#// PO-TR-SP
-L0C35:  LD      A,D                       // the trailing space flag (zero if an error msg)
-        CP      0x03                      // test against RND, INKEY$ and PI
-                                          // which have no parameters and
-        RET     C                         // therefore no trailing space so return.
-
-        LD      A,0x20                    // else continue and print a trailing space.
-
-# -------------------------
-# Handle recursive printing
-# -------------------------
-# This routine which is part of PRINT-OUT allows RST 0x10 to be
-# used recursively to print tokens and the spaces associated with them.
-
-#// PO-SAVE
-L0C3B:  PUSH    DE                        // save DE as CALL-SUB doesn't.
-        EXX                               // switch in main set
-
-        RST     10H                       // PRINT-A prints using this alternate set.
-
-        EXX                               // back to this alternate set.
-        POP     DE                        // restore initial DE.
-        RET                               // return.
-
+# L0C22:  LD      A,(DE)                  // fetch character
+#         AND     0x7F                    // remove any inverted bit
+#         CALL    L0C3B                   // routine PO-SAVE to print using alternate
+#                                         // set of registers.
+#         LD      A,(DE)                  // re-fetch character.
+#         INC     DE                      // address next
+#         ADD     A,A                     // was character inverted ?
+#                                         // (this also doubles character)
+#         JR      NC,L0C22                // back to PO-EACH if not
+#
+#         POP     DE                      // * re-fetch trailing space flag to D (was A)
+#         CP      0x48                    // was last character '$' (0x24*2)
+#         JR      Z,L0C35                 // forward to PO-TR-SP to consider trailing
+#                                         // space if so.
+#
+#         CP      0x82                    // was it < 'A' i.e. '#','>','=' from tokens
+#                                         // or ' ','.' (from tape) or '?' from scroll
+#         RET     C                       // no trailing space
+#
+# //; PO-TR-SP
+# L0C35:  LD      A,D                     // the trailing space flag (zero if an error msg)
+#         CP      0x03                    // test against RND, INKEY$ and PI
+#                                         // which have no parameters and
+#         RET     C                       // therefore no trailing space so return.
+#
+#         LD      A,0x20                  // else continue and print a trailing space.
+#
+# // -------------------------
+# // Handle recursive printing
+# // -------------------------
+# // This routine which is part of PRINT-OUT allows RST 0x10 to be
+# // used recursively to print tokens and the spaces associated with them.
+#
+# //; PO-SAVE
+# L0C3B:  PUSH    DE                      // save DE as CALL-SUB doesn't.
+#         EXX                             // switch in main set
+#
+#         RST     10H                     // PRINT-A prints using this alternate set.
+#
+#         EXX                             // back to this alternate set.
+#         POP     DE                      // restore initial DE.
+#         RET                             // return.
+#
 # // ------------
 # // Table search
 # // ------------
