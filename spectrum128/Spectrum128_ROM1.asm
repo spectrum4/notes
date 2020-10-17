@@ -3575,33 +3575,33 @@ L0BD3:  EX      AF,AF'          ; save the flag
 #         AND     $03             ; range is now 0 - 2
 #         OR      $58             ; form correct high byte for third of screen
 #         LD      H,A             ; HL is now correct
-        LD      DE,($5C8F)      ; make D hold ATTR_T, E hold MASK-T
-        LD      A,(HL)          ; fetch existing attribute
-        XOR     E               ; apply masks
-        AND     D               ;
-        XOR     E               ;
-        BIT     6,(IY+$57)      ; test P_FLAG  - is this PAPER 9 ??
-        JR      Z,L0BFA         ; skip to PO-ATTR-1 if not.
-
-        AND     $C7             ; set paper
-        BIT     2,A             ; to contrast with ink
-        JR      NZ,L0BFA        ; skip to PO-ATTR-1
-
-        XOR     $38             ;
-
-;; PO-ATTR-1
-L0BFA:  BIT     4,(IY+$57)      ; test P_FLAG  - Is this INK 9 ??
-        JR      Z,L0C08         ; skip to PO-ATTR-2 if not
-
-        AND     $F8             ; make ink
-        BIT     5,A             ; contrast with paper.
-        JR      NZ,L0C08        ; to PO-ATTR-2
-
-        XOR     $07             ;
-
-;; PO-ATTR-2
-L0C08:  LD      (HL),A          ; save the new attribute.
-        RET                     ; return.
+#         LD      DE,($5C8F)      ; make D hold ATTR_T, E hold MASK-T
+#         LD      A,(HL)          ; fetch existing attribute
+#         XOR     E               ; apply masks
+#         AND     D               ;
+#         XOR     E               ;
+#         BIT     6,(IY+$57)      ; test P_FLAG  - is this PAPER 9 ??
+#         JR      Z,L0BFA         ; skip to PO-ATTR-1 if not.
+#
+#         AND     $C7             ; set paper
+#         BIT     2,A             ; to contrast with ink
+#         JR      NZ,L0BFA        ; skip to PO-ATTR-1
+#
+#         XOR     $38             ;
+#
+# ;; PO-ATTR-1
+# L0BFA:  BIT     4,(IY+$57)      ; test P_FLAG  - Is this INK 9 ??
+#         JR      Z,L0C08         ; skip to PO-ATTR-2 if not
+#
+#         AND     $F8             ; make ink
+#         BIT     5,A             ; contrast with paper.
+#         JR      NZ,L0C08        ; to PO-ATTR-2
+#
+#         XOR     $07             ;
+#
+# ;; PO-ATTR-2
+# L0C08:  LD      (HL),A          ; save the new attribute.
+#         RET                     ; return.
 
 ; ----------------
 ; Message printing
