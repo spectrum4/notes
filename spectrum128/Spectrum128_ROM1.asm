@@ -3533,31 +3533,31 @@ L0AC2:  LD      A,H             ; transfer parameter to A
 #         DEC     A               ; the byte count is decremented
 #         JR      NZ,L0BB7        ; back to PR-ALL-4 for all 8 bytes
 #
-        EX      DE,HL           ; destination to HL
-        DEC     H               ; bring back to last updated screen position
-        BIT     1,(IY+$01)      ; test FLAGS  - is printer in use ?
-        CALL    Z,L0BDB         ; if not, call routine PO-ATTR to update
-                                ; corresponding colour attribute.
-        POP     HL              ; restore original screen/printer position
-        POP     BC              ; and line column
-        DEC     C               ; move column to right
-        INC     HL              ; increase screen/printer position
-        RET                     ; return and continue into PO-STORE
-                                ; within PO-ABLE
-
-; ---
-
-; This branch is used to update the printer position by 32 places
-; Note. The high byte of the address D remains constant (which it should).
-
-;; PR-ALL-6
-L0BD3:  EX      AF,AF'          ; save the flag
-        LD      A,$20           ; load A with 32 decimal
-        ADD     A,E             ; add this to E
-        LD      E,A             ; and store result in E
-        EX      AF,AF'          ; fetch the flag
-        JR      L0BC1           ; back to PR-ALL-5
-
+#         EX      DE,HL           ; destination to HL
+#         DEC     H               ; bring back to last updated screen position
+#         BIT     1,(IY+$01)      ; test FLAGS  - is printer in use ?
+#         CALL    Z,L0BDB         ; if not, call routine PO-ATTR to update
+#                                 ; corresponding colour attribute.
+#         POP     HL              ; restore original screen/printer position
+#         POP     BC              ; and line column
+#         DEC     C               ; move column to right
+#         INC     HL              ; increase screen/printer position
+#         RET                     ; return and continue into PO-STORE
+#                                 ; within PO-ABLE
+#
+# ; ---
+#
+# ; This branch is used to update the printer position by 32 places
+# ; Note. The high byte of the address D remains constant (which it should).
+#
+# ;; PR-ALL-6
+# L0BD3:  EX      AF,AF'          ; save the flag
+#         LD      A,$20           ; load A with 32 decimal
+#         ADD     A,E             ; add this to E
+#         LD      E,A             ; and store result in E
+#         EX      AF,AF'          ; fetch the flag
+#         JR      L0BC1           ; back to PR-ALL-5
+#
 # ; -------------
 # ; Set attribute
 # ; -------------
