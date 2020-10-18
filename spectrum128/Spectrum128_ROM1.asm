@@ -3779,14 +3779,14 @@ L0C86:  RST     08H             ; ERROR-1
                                 ; attributes (BORDCR etc.) being applied.
 #         LD      A,$FD           ; select system channel 'K'
 #         CALL    L1601           ; routine CHAN-OPEN opens it
-        XOR     A               ; clear to address message directly
-        LD      DE,L0CF8        ; make DE address: scrl-mssg
-        CALL    L0C0A           ; routine PO-MSG prints to lower screen
-        SET     5,(IY+$02)      ; set TV_FLAG  - signal lower screen requires
-                                ; clearing
-        LD      HL,$5C3B        ; make HL address FLAGS
-        SET     3,(HL)          ; signal 'L' mode.
-        RES     5,(HL)          ; signal 'no new key'.
+#         XOR     A               ; clear to address message directly
+#         LD      DE,L0CF8        ; make DE address: scrl-mssg
+#         CALL    L0C0A           ; routine PO-MSG prints to lower screen
+#         SET     5,(IY+$02)      ; set TV_FLAG  - signal lower screen requires
+#                                 ; clearing
+#         LD      HL,$5C3B        ; make HL address FLAGS
+#         SET     3,(HL)          ; signal 'L' mode.
+#         RES     5,(HL)          ; signal 'no new key'.
         EXX                     ; switch to main set.
                                 ; as calling chr input from alternative set.
         CALL    L15D4           ; routine WAIT-KEY waits for new key
