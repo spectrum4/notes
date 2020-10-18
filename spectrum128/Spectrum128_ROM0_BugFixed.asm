@@ -18417,7 +18417,7 @@ L3FFF:  DEFB $01         ;
 # ;                                 Bit 6  : 1=Tape Loader option selected (set but never tested). [Always 0 on 48K Spectrum]
 # ;                                 Bit 7  : Not used (always 0).
 # ; ERR_SP   $5C3D   2   IY+$03   Address of item on machine stack to be used as error return.
-; LISTSP   $5C3F   2   IY+$05   Address of return address from automatic listing.
+# ; LIST_SP  $5C3F   2   IY+$05   Address of return address from automatic listing.
 ; MODE     $5C41   1   IY+$07   Specifies cursor type:
 ;                                 $00='L' or 'C'.
 ;                                 $01='E'.
@@ -18445,7 +18445,7 @@ L3FFF:  DEFB $01         ;
 # ; WORKSP   $5C61   2   IY+$27   Address of temporary work space.
 # ; STKBOT   $5C63   2   IY+$29   Address of bottom of calculator stack.
 # ; STKEND   $5C65   2   IY+$2B   Address of start of spare space.
-; BREG     $5C67   1   IY+$2D   Calculator's B register.
+# ; BREG     $5C67   1   IY+$2D   Calculator's B register.
 ; MEM      $5C68   2   IY+$2E   Address of area used for calculator's memory (usually MEMBOT, but not always).
 # ; FLAGS2   $5C6A   1   IY+$30   Flags:
 # ;                                 Bit 0  : 1=Screen requires clearing.

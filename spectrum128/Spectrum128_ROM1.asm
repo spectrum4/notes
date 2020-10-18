@@ -3710,51 +3710,51 @@ L0C0A:  PUSH    HL              ; put hi-byte zero on stack to suppress
 #         SUB     $41             ; and return with carry set
 #         RET                     ; if it is less that 'A'
 #                                 ; i.e. '<>', '<=', '>='
-
-; ---------------
-; Test for scroll
-; ---------------
-; This test routine is called when printing carriage return, when considering
-; PRINT AT and from the general PRINT ALL characters routine to test if
-; scrolling is required, prompting the user if necessary.
-; This is therefore using the alternate set.
-; The B register holds the current line.
-
-;; PO-SCR
-L0C55:  BIT     1,(IY+$01)      ; test FLAGS  - is printer in use ?
-        RET     NZ              ; return immediately if so.
-
-        LD      DE,L0DD9        ; set DE to address: CL-SET
-        PUSH    DE              ; and push for return address.
-        LD      A,B             ; transfer the line to A.
-        BIT     0,(IY+$02)      ; test TV_FLAG  - Lower screen in use ?
-        JP      NZ,L0D02        ; jump forward to PO-SCR-4 if so.
-
-        CP      (IY+$31)        ; greater than DF_SZ display file size ?
-        JR      C,L0C86         ; forward to REPORT-5 if less.
-                                ; 'Out of screen'
-
-        RET     NZ              ; return (via CL-SET) if greater
-
-        BIT     4,(IY+$02)      ; test TV_FLAG  - Automatic listing ?
-        JR      Z,L0C88         ; forward to PO-SCR-2 if not.
-
-        LD      E,(IY+$2D)      ; fetch BREG - the count of scroll lines to E.
-        DEC     E               ; decrease and jump
-        JR      Z,L0CD2         ; to PO-SCR-3 if zero and scrolling required.
-
-        LD      A,$00           ; explicit - select channel zero.
-        CALL    L1601           ; routine CHAN-OPEN opens it.
-
-        LD      SP,($5C3F)      ; set stack pointer to LIST_SP
-
-        RES     4,(IY+$02)      ; reset TV_FLAG  - signal auto listing finished.
-        RET                     ; return ignoring pushed value, CL-SET
-                                ; to MAIN or EDITOR without updating
-                                ; print position                         ->
-
-; ---
-
+#
+# ; ---------------
+# ; Test for scroll
+# ; ---------------
+# ; This test routine is called when printing carriage return, when considering
+# ; PRINT AT and from the general PRINT ALL characters routine to test if
+# ; scrolling is required, prompting the user if necessary.
+# ; This is therefore using the alternate set.
+# ; The B register holds the current line.
+#
+# ;; PO-SCR
+# L0C55:  BIT     1,(IY+$01)      ; test FLAGS  - is printer in use ?
+#         RET     NZ              ; return immediately if so.
+#
+#         LD      DE,L0DD9        ; set DE to address: CL-SET
+#         PUSH    DE              ; and push for return address.
+#         LD      A,B             ; transfer the line to A.
+#         BIT     0,(IY+$02)      ; test TV_FLAG  - Lower screen in use ?
+#         JP      NZ,L0D02        ; jump forward to PO-SCR-4 if so.
+#
+#         CP      (IY+$31)        ; greater than DF_SZ display file size ?
+#         JR      C,L0C86         ; forward to REPORT-5 if less.
+#                                 ; 'Out of screen'
+#
+#         RET     NZ              ; return (via CL-SET) if greater
+#
+#         BIT     4,(IY+$02)      ; test TV_FLAG  - Automatic listing ?
+#         JR      Z,L0C88         ; forward to PO-SCR-2 if not.
+#
+#         LD      E,(IY+$2D)      ; fetch BREG - the count of scroll lines to E.
+#         DEC     E               ; decrease and jump
+#         JR      Z,L0CD2         ; to PO-SCR-3 if zero and scrolling required.
+#
+#         LD      A,$00           ; explicit - select channel zero.
+#         CALL    L1601           ; routine CHAN-OPEN opens it.
+#
+#         LD      SP,($5C3F)      ; set stack pointer to LIST_SP
+#
+#         RES     4,(IY+$02)      ; reset TV_FLAG  - signal auto listing finished.
+#         RET                     ; return ignoring pushed value, CL-SET
+#                                 ; to MAIN or EDITOR without updating
+#                                 ; print position                         ->
+#
+# ; ---
+#
 
 ;; REPORT-5
 L0C86:  RST     08H             ; ERROR-1
