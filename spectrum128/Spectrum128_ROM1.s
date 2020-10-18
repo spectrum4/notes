@@ -3606,26 +3606,26 @@ L0AC2:  LD      A,H                       // transfer parameter to A
 # //; PO-ATTR-2
 # L0C08:  LD      (HL),A                  // save the new attribute.
 #         RET                             // return.
-
-# ----------------
-# Message printing
-# ----------------
-# This entry point is used to print tape, boot-up, scroll? and error messages
-# On entry the DE register points to an initial step-over byte or
-# the inverted end-marker of the previous entry in the table.
-# A contains the message number, often zero to print first message.
-# (HL has nothing important usually P_FLAG)
-
-#// PO-MSG
-L0C0A:  PUSH    HL                        // put hi-byte zero on stack to suppress
-        LD      H,0x00                    // trailing spaces
-        EX      (SP),HL                   // ld h,0; push hl would have done ?.
-        JR      L0C14                     // forward to PO-TABLE.
-
-# ---
-
-# This entry point prints the BASIC keywords, '<>' etc. from alt set
-
+#
+# // ----------------
+# // Message printing
+# // ----------------
+# // This entry point is used to print tape, boot-up, scroll? and error messages
+# // On entry the DE register points to an initial step-over byte or
+# // the inverted end-marker of the previous entry in the table.
+# // A contains the message number, often zero to print first message.
+# // (HL has nothing important usually P_FLAG)
+#
+# //; PO-MSG
+# L0C0A:  PUSH    HL                      // put hi-byte zero on stack to suppress
+#         LD      H,0x00                  // trailing spaces
+#         EX      (SP),HL                 // ld h,0; push hl would have done ?.
+#         JR      L0C14                   // forward to PO-TABLE.
+#
+# // ---
+#
+# // This entry point prints the BASIC keywords, '<>' etc. from alt set
+#
 # //; PO-TOKENS
 # L0C10:  LD      DE,L0095                // address: TKN-TABLE
 #         PUSH    AF                      // save the token number to control
@@ -3764,25 +3764,25 @@ L0C0A:  PUSH    HL                        // put hi-byte zero on stack to suppre
 L0C86:  RST     08H                       // ERROR-1
         .byte    0x04                     // Error Report: Out of screen
 
-# continue here if not an automatic listing.
-
-#// PO-SCR-2
-L0C88:  DEC     (IY+0x52)                 // decrease SCR_CT
-        JR      NZ,L0CD2                  // forward to PO-SCR-3 to scroll display if
-                                          // result not zero.
-
-# now produce prompt.
-
-        LD      A,0x18                    // reset
-        SUB     B                         // the
-        LD      (0x5C8C),A                // SCR_CT scroll count
-        LD      HL,(0x5C8F)               // L=ATTR_T, H=MASK_T
+# // continue here if not an automatic listing.
+#
+# //; PO-SCR-2
+# L0C88:  DEC     (IY+0x52)               // decrease SCR_CT
+#         JR      NZ,L0CD2                // forward to PO-SCR-3 to scroll display if
+#                                         // result not zero.
+#
+# // now produce prompt.
+#
+#         LD      A,0x18                  // reset
+#         SUB     B                       // the
+#         LD      (0x5C8C),A              // SCR_CT scroll count
+#         LD      HL,(0x5C8F)             // L=ATTR_T, H=MASK_T
         PUSH    HL                        // save on stack
-        LD      A,(0x5C91)                // P_FLAG
+#         LD      A,(0x5C91)              // P_FLAG
         PUSH    AF                        // save on stack to prevent lower screen
                                           // attributes (BORDCR etc.) being applied.
-        LD      A,0xFD                    // select system channel 'K'
-        CALL    L1601                     // routine CHAN-OPEN opens it
+#         LD      A,0xFD                  // select system channel 'K'
+#         CALL    L1601                   // routine CHAN-OPEN opens it
         XOR     A                         // clear to address message directly
         LD      DE,L0CF8                  // make DE address: scrl-mssg
         CALL    L0C0A                     // routine PO-MSG prints to lower screen
@@ -3851,16 +3851,16 @@ L0CF0:  LD      (DE),A                    // transfer
 
         POP     BC                        // restore the line/column.
         RET                               // return via CL-SET (was pushed on stack).
-
-# ---
-
-# The message 'scroll?' appears here with last byte inverted.
-
-#// scrl-mssg
-L0CF8:  .byte    0x80                     // initial step-over byte.
-        .ascii    "scroll"
-        .byte    '?'+0x80
-
+#
+# // ---
+#
+# // The message 'scroll?' appears here with last byte inverted.
+#
+# //; scrl-mssg
+# L0CF8:  .byte    0x80                   // initial step-over byte.
+#         .ascii    "scroll"
+#         .byte    '?'+0x80
+#
 #// REPORT-D
 L0D00:  RST     08H                       // ERROR-1
         .byte    0x0C                     // Error Report: BREAK - CONT repeats
