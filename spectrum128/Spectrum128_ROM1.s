@@ -19152,56 +19152,56 @@ L3B80:  BIT     4,(IY+0x01)               // 128K mode?
 L3B9A:  LD      C,0x00                    // Signal no key, i.e. length=0
         JP      L2660                     // S_IK$_STK
 
-# ---------------------
-# PRINT TOKEN/UDG PATCH
-# ---------------------
-
-L3B9F:  CP      0xA3                      // SPECTRUM (T)
-        JR      Z,L3BAF
-
-        CP      0xA4                      // PLAY (U)
-        JR      Z,L3BAF
-
-# In 48K mode here
-
-L3BA7:  SUB     0xA5                      // Check as per original ROM
-        JP      NC,0x0B5F
-
-        JP      0x0B56                    // Rejoin original ROM routine
-
-L3BAF:  BIT     4,(IY+0x01)               // FLAGS - Bit 4=1 if in 128K mode
-        JR      Z,L3BA7                   // Rejoin code for when in 48K mode
-
-# In 128K mode here
-
-        LD      DE,L3BC9
-        PUSH    DE                        // Stack return address
-
-        SUB     0xA3                      // Check whether the SPECTRUM token
-
-        LD      DE,L3BD2                  // SPECTRUM token
-        JR      Z,L3BC3
-
-        LD      DE,L3BDA                  // PLAY token
-
-L3BC3:  LD      A,0x04                    // Signal not RND, INKEY$ or PI so that a trailing space is printed
-        PUSH    AF
-        JP      L0C17                     // Rejoin printing routine PO-TABLE+3
-
-# Return address from above
-
-L3BC9:  SCF                               // Return as if no trailing space
-
-        BIT     1,(IY+0x01)               // Test if printer is in use
-        RET     NZ                        // NZ=printer in use
-
-        JP      0x0B03                    // PO-FETCH - Return via Position Fetch routine
-
-L3BD2:  .ascii    "SPECTRU"               // SPECTRUM token
-        .byte    'M'+0x80
-
-L3BDA:  .ascii    "PLA"                   // PLAY token
-        .byte    'Y'+0x80
+# // ---------------------
+# // PRINT TOKEN/UDG PATCH
+# // ---------------------
+#
+# L3B9F:  CP      0xA3                    // SPECTRUM (T)
+#         JR      Z,L3BAF
+#
+#         CP      0xA4                    // PLAY (U)
+#         JR      Z,L3BAF
+#
+# // In 48K mode here
+#
+# L3BA7:  SUB     0xA5                    // Check as per original ROM
+#         JP      NC,0x0B5F
+#
+#         JP      0x0B56                  // Rejoin original ROM routine
+#
+# L3BAF:  BIT     4,(IY+0x01)             // FLAGS - Bit 4=1 if in 128K mode
+#         JR      Z,L3BA7                 // Rejoin code for when in 48K mode
+#
+# // In 128K mode here
+#
+#         LD      DE,L3BC9
+#         PUSH    DE                      // Stack return address
+#
+#         SUB     0xA3                    // Check whether the SPECTRUM token
+#
+#         LD      DE,L3BD2                // SPECTRUM token
+#         JR      Z,L3BC3
+#
+#         LD      DE,L3BDA                // PLAY token
+#
+# L3BC3:  LD      A,0x04                  // Signal not RND, INKEY$ or PI so that a trailing space is printed
+#         PUSH    AF
+#         JP      L0C17                   // Rejoin printing routine PO-TABLE+3
+#
+# // Return address from above
+#
+# L3BC9:  SCF                             // Return as if no trailing space
+#
+#         BIT     1,(IY+0x01)             // Test if printer is in use
+#         RET     NZ                      // NZ=printer in use
+#
+#         JP      0x0B03                  // PO-FETCH - Return via Position Fetch routine
+#
+# L3BD2:  .ascii    "SPECTRU"             // SPECTRUM token
+#         .byte    'M'+0x80
+#
+# L3BDA:  .ascii    "PLA"                 // PLAY token
+#         .byte    'Y'+0x80
 
 #// KP_SCAN2
 L3BDE:  JP      L3C01                     // This is not called from either ROM. It can be used to scan the keypad.
