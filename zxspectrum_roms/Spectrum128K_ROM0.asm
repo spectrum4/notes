@@ -1205,7 +1205,7 @@ L019D:  LD   HL,CHAR_SET-$0100 ; $3C00. Set HL to where, in theory character zer
 
         LD   A,$38        ; Attribute colour of black ink on white paper.
         LD   ($5C8D),A    ; ATTR_P. Set the permanent attribute colour.
-        LD   ($5C8F),A    ; MASK_P. Set the permanent attribute mask.
+        LD   ($5C8F),A    ; ATTR_T. Set the temporary attribute colour.
         LD   ($5C48),A    ; BORDCR. Set the default border colour.
 
         XOR  A            ;
