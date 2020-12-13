@@ -3562,7 +3562,7 @@ L0BDB:  LD       A,H            ; fetch high byte $40 - $57
         AND     $03             ; range is now 0 - 2
         OR      $58             ; form correct high byte for third of screen
         LD      H,A             ; HL is now correct
-        LD      DE,($5C8F)      ; make D hold ATTR_T, E hold MASK-T
+        LD      DE,($5C8F)      ; make E hold ATTR_T, D hold MASK-T
         LD      A,(HL)          ; fetch existing attribute
         XOR     E               ; apply masks
         AND     D               ;
