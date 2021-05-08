@@ -76,7 +76,7 @@ This is the sequence of steps I intend to follow:
 - [x] Understand how interrupts are configured and work on the ZX Spectrum
 - [x] Get a USB keyboard example working on bare metal
 - [x] Get USB keyboard input working from assembly program
-- [ ] Decide on a toolchain to use (GNU binutils/FASMARM/...)
+- [x] Decide on a toolchain to use (GNU binutils/FASMARM/...)
 - [ ] Understand how interrupts are configured and work on the RPi
 - [ ] Port some initial routines that don't generate or interpret sound
 - [ ] Get sound output working via headphone socket
