@@ -23,3 +23,4 @@
 23. [Microchip - LAN9514 Linux Driver](https://www.microchip.com/SWLibraryWeb/product.aspx?product=SRC-LAN95xx-LINUX)
 24. [Linux smsc95xx.c driver](https://github.com/torvalds/linux/blob/master/drivers/net/usb/smsc95xx.c)
 25. [Linux USB API](https://01.org/linuxgraphics/gfx-docs/drm/driver-api/usb/index.html)
+26. [Ben Eater - How does a USB keyboard work?](https://www.youtube.com/watch?v=wdgULBpRoXk)
