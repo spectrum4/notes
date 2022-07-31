@@ -1825,6 +1825,7 @@ See [USB subfolder](USB/README.md) of this project.
 4. [Robin Mitchell - How to Build a Z80 Computer](https://maker.pro/pic/projects/z80-computer-project-part-1-the-cpu)
 5. [Z80 CPU User Manual UM008011-0816](http://www.zilog.com/force_download.php?filepath=YUhSMGNEb3ZMM2QzZHk1NmFXeHZaeTVqYjIwdlpHOWpjeTk2T0RBdlZVMHdNRGd3TG5Ca1pnPT0=)
 6. [Channels and streams](https://faqwiki.zxnet.co.uk/wiki/Channels_and_streams)
+7. [ZX Art](https://zxart.ee/eng/mainpage/) (not really useful, but pretty cool!)
 
 ## 6.10 AY-3-8910 (spectrum sound chip)
 
