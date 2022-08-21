@@ -52,7 +52,11 @@ func main() {
 		j = uint64(data[i]) + uint64(data[i+1])<<8 + uint64(data[i+2])<<16 + uint64(data[i+3])<<24 + uint64(data[i+4])<<32 + uint64(data[i+5])<<40 + uint64(data[i+6])<<48 + uint64(data[i+7])<<56
 		if j != oldj {
 			if count == 0 {
-				fmt.Printf("0x%016x ", oldj)
+				asHex := fmt.Sprintf("0x%016x ", oldj)
+				if asHex == "0x6a09e667bb67ae85" {
+					fmt.Printf("%v %x%016x %x", asHex, 0, asHex)
+				}
+				fmt.Print(asHex)
 			} else {
 				fmt.Printf("0x6a09e667bb67ae85 0x%016x 0x%016x ", count, oldj)
 			}
