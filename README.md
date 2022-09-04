@@ -1781,6 +1781,7 @@ to try this out with.
 8. [How to handle stripped binaries with GDB](https://reverseengineering.stackexchange.com/questions/1935/how-to-handle-stripped-binaries-with-gdb-no-source-no-symbols-and-gdb-only-sho/1936#1936?newreg=7c1b23ce97724460bfb5e56a508bfb5d)
 9. [ARM Processor Cortex A53 MPCore Product Revision r0 Software Developers Errata Notice](https://documentation-service.arm.com/static/5fa29fddb209f547eebd361d)
 10. [Bare-metal Boot Code for ARMv8-A Processors](https://developer.arm.com/documentation/dai0527/a/)
+11. [ARM Trusted Firmware](https://github.com/ARM-software/arm-trusted-firmware)
 
 ## 6.4 BCM283x Reference
 
