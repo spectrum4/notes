@@ -4,12 +4,12 @@ set -x
 
 cd ~/git/spectrum4
 
-tup -k 2>&1 | grep 'FAIL: co_temp_5_' > x
-test_number_hex="$(cat x | sed -n 's/^FAIL: co_temp_5_\([a-f0-9]*\).*/\1/p' | sort -u)"
-line_number="$((0x${test_number_hex} + 25))"
+tup -k 2>&1 | grep 'FAIL: co_temp_5_paper_ink_' > x
+test_number_hex="$(cat x | sed -n 's/^FAIL: co_temp_5_paper_ink_\([a-f0-9]*\).*/\1/p' | sort -u)"
+line_number="$((0x${test_number_hex} + 208))"
 
 cat src/spectrum128k/tests/test_co_temp_5.sh > y
-sed -n ${line_number}p y | while read attr_t mask_t p_flag a d f attr_t_upd mask_t_upd p_flag_upd a_upd f_upd b_upd c_upd h_upd l_upd; do
+sed -n ${line_number}p y | while read attr_t mask_t p_flag a d f attr_t_upd mask_t_upd p_flag_upd a_upd b_upd c_upd d_upd f_upd; do
   new_a="$(cat x | sed -n s'/.*Register A unchanged from \(0x..\).*/\1/p')"
   if [ -n "${new_a}" ]; then
     a_upd="${new_a}"
@@ -21,6 +21,10 @@ sed -n ${line_number}p y | while read attr_t mask_t p_flag a d f attr_t_upd mask
   new_c="$(cat x | sed -n s'/.*Register C unchanged from \(0x..\).*/\1/p')"
   if [ -n "${new_c}" ]; then
     c_upd="${new_c}"
+  fi
+  new_d="$(cat x | sed -n s'/.*Register D unchanged from \(0x..\).*/\1/p')"
+  if [ -n "${new_d}" ]; then
+    d_upd="${new_d}"
   fi
   new_h="$(cat x | sed -n s'/.*Register H unchanged from \(0x..\).*/\1/p')"
   if [ -n "${new_h}" ]; then
@@ -45,6 +49,10 @@ sed -n ${line_number}p y | while read attr_t mask_t p_flag a d f attr_t_upd mask
   new_c="$(cat x | sed -n s'/.*Register C changed from 0x.. to \(0x..\).*/\1/p')"
   if [ -n "${new_c}" ]; then
     c_upd="${new_c}"
+  fi
+  new_d="$(cat x | sed -n s'/.*Register D changed from 0x.. to \(0x..\).*/\1/p')"
+  if [ -n "${new_d}" ]; then
+    d_upd="${new_d}"
   fi
   new_h="$(cat x | sed -n s'/.*Register H changed from 0x.. to \(0x..\).*/\1/p')"
   if [ -n "${new_h}" ]; then
@@ -82,8 +90,9 @@ sed -n ${line_number}p y | while read attr_t mask_t p_flag a d f attr_t_upd mask
   if [ -n "${new_p_flag}" ]; then
     p_flag_upd="${new_p_flag}"
   fi
-  echo ${attr_t} ${mask_t} ${p_flag} ${a} ${d} ${f} ${attr_t_upd} ${mask_t_upd} ${p_flag_upd} ${a_upd} ${f_upd} ${b_upd} ${c_upd} ${h_upd} ${l_upd} | tr 'ABCDEF' 'abcdef' > z
+  echo ${attr_t} ${mask_t} ${p_flag} ${a} ${d} ${f} ${attr_t_upd} ${mask_t_upd} ${p_flag_upd} ${a_upd} ${b_upd} ${c_upd} ${d_upd} ${f_upd} | tr 'ABCDEF' 'abcdef' > z
 done
+
 
 cat y | sed -n "1,${line_number}p" | sed '$d' > src/spectrum128k/tests/test_co_temp_5.sh
 cat z >> src/spectrum128k/tests/test_co_temp_5.sh
