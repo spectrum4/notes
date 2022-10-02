@@ -25,3 +25,5 @@
 25. [Linux USB API](https://01.org/linuxgraphics/gfx-docs/drm/driver-api/usb/index.html)
 26. [Ben Eater - How does a USB keyboard work?](https://www.youtube.com/watch?v=wdgULBpRoXk)
 27. [Where can I Download USB3 VL805-Q6 Datasheet ?](https://forums.raspberrypi.com/viewtopic.php?t=302700)
+28. [Reverse engineering a USB device with Rust - Harry Gill](https://gill.net.in/posts/reverse-engineering-a-usb-device-with-rust/)
+29. [The Linux-USB Host Side API — The Linux Kernel documentation](https://www.kernel.org/doc/html/v4.10/driver-api/usb.html)
