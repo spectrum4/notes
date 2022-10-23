@@ -1760,6 +1760,9 @@ to try this out with.
 18. [Brian Sidebotham - Raspberry-Pi Bare Metal Tutorial](https://github.com/BrianSidebotham/arm-tutorial-rpi)
 19. [Miro Samek - Building Bare-Metal ARM Systems with GNU](https://www.embedded.com/design/mcus-processors-and-socs/4007119/Building-Bare-Metal-ARM-Systems-with-GNU-Part-1--Getting-Started)
 20. [Andre Richter - Bare Metal Rust Programming on Raspberry Pi 3](https://github.com/rust-embedded/rust-raspi3-tutorial)
+21. [Raspberry Pi PXE Boot – Network booting a Pi 4 without an SD card](https://linuxhit.com/raspberry-pi-pxe-boot-netbooting-a-pi-4-without-an-sd-card/)
+22. [William Lam - Two methods to network boot Raspberry Pi 4](https://williamlam.com/2020/07/two-methods-to-network-boot-raspberry-pi-4.html)
+23. [Writing a “bare metal” operating system for Raspberry Pi 4](https://www.rpi4os.com/)
 
 ## 6.2 RPi Assembly under Linux
 
