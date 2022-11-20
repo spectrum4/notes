@@ -1792,13 +1792,16 @@ to try this out with.
 2. [BCM2836 ARM Peripherals](https://www.raspberrypi.org/documentation/hardware/raspberrypi/bcm2836/QA7_rev3.4.pdf)
 3. [BCM2837 ARM Peripherals](https://github.com/raspberrypi/documentation/files/1888662/BCM2837-ARM-Peripherals.-.Revised.-.V2-1.pdf)
 
+## 6.5 BCM2711 Reference
 
-## 6.5 VideoCore IV
+1. [BCM2711 ARM Peripherals](https://datasheets.raspberrypi.com/bcm2711/bcm2711-peripherals.pdf)
+
+## 6.6 VideoCore IV
 
 1. [Herman Hermitage - Tools and information for the Broadcom VideoCore IV (RaspberryPi)](https://github.com/hermanhermitage/videocoreiv)
 2. [VideoCore® IV 3D - Architecture Reference Guide](https://docs.broadcom.com/docs/12358545)
 
-## 6.6 RPi JTAG
+## 6.7 RPi JTAG
 
 1. [Remote Debugging of Raspberry Pi with JTAG interface](https://wiki.aalto.fi/download/attachments/84747235/rpi_jtag.pdf?version=3&modificationDate=1386972920322&api=v2)
 2. [JTag for Pi 3 - David Welch advice](https://www.raspberrypi.org/forums/viewtopic.php?t=202540)
@@ -1807,11 +1810,11 @@ to try this out with.
 5. [Daniel Krebs - JTAG and bare metal on Raspberry Pi 3](https://github.com/daniel-k/rpi3-aarch64-jtag)
 6. [Mete Balci - Bare Metal Raspberry Pi 3B+: JTAG](https://metebalci.com/blog/bare-metal-raspberry-pi-3b-jtag/)
 
-## 6.7 USB Keyboard
+## 6.8 USB Keyboard
 
 See [USB subfolder](USB/README.md) of this project.
 
-## 6.8 ZX Spectrum
+## 6.9 ZX Spectrum
 
 1. [Sinclair ZX Spectrum - BASIC Programming](http://www.worldofspectrum.org/ZXBasicManual/)
 2. [World of Spectrum - Documentation](https://www.worldofspectrum.org/documentation.html)
@@ -1821,7 +1824,7 @@ See [USB subfolder](USB/README.md) of this project.
 6. [Sergey Kiselev - Building ZX Spectrum Clone - Harlequin](http://www.malinov.com/Home/sergey-s-blog/buildingzxspectrumclone-harlequin-part1)
 7. [Matt Westcott (Gasman) - Channels and streams](https://faqwiki.zxnet.co.uk/wiki/Channels_and_streams)
 
-## 6.9 Z80
+## 6.10 Z80
 
 1. [Steve Ciarcia - Build Your Own Z80 Computer](http://www.pestingers.net/pdfs/other-computers/build-your-own-z80.pdf)
 2. [Z80 Info](http://z80.info/)
@@ -1831,11 +1834,11 @@ See [USB subfolder](USB/README.md) of this project.
 6. [Channels and streams](https://faqwiki.zxnet.co.uk/wiki/Channels_and_streams)
 7. [ZX Art](https://zxart.ee/eng/mainpage/) (not really useful, but pretty cool!)
 
-## 6.10 AY-3-8910 (spectrum sound chip)
+## 6.11 AY-3-8910 (spectrum sound chip)
 
 1. [AY-3-8910 FPGA](https://github.com/FPGA-Code/AS-2518-51_snd/blob/master/ay-3-8910.Vhd)
 
-## 6.11 Miscellaneous
+## 6.12 Miscellaneous
 
 1. [DSD Tech 4 Pin Dupont Cable USB to TTL Serial Converter CP2102
    Drivers](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
