@@ -27,3 +27,37 @@
 27. [Where can I Download USB3 VL805-Q6 Datasheet ?](https://forums.raspberrypi.com/viewtopic.php?t=302700)
 28. [Reverse engineering a USB device with Rust - Harry Gill](https://gill.net.in/posts/reverse-engineering-a-usb-device-with-rust/)
 29. [The Linux-USB Host Side API — The Linux Kernel documentation](https://www.kernel.org/doc/html/v4.10/driver-api/usb.html)
+
+
+```
+https://forums.raspberrypi.com/viewtopic.php?t=255322
+https://wiki.osdev.org/PCI
+https://wiki.osdev.org/PCI_Express
+https://wiki.osdev.org/XHCI
+https://github.com/haiku/haiku/blob/master/src/add-ons/kernel/busses/usb/xhci.cpp
+https://github.com/torvalds/linux/blob/master/drivers/usb/host/xhci.c
+https://github.com/u-boot/u-boot/blob/master/drivers/usb/host/xhci.c
+https://github.com/vianpl/u-boot
+https://forums.raspberrypi.com/viewtopic.php?p=1675084&hilit=pcie#p1675084 <- PCIe enumeration example
+```
+
+
+# PCIe
+
+pcie regs = Address 0xfd500000 (size 0x9310)
+
+matches: arch/arm/boot/dts/bcm2711.dtsi
+
+in low peripheral mode, main peripherals are at 0x00000000fc000000
+suggesting low peripherals + 0x01500000
+
+=> 0x47c000000 + 0x01500000 = 0x47d500000 (for full 35-bit address map)
+
+
+Steps from enumeration example above:
+* set bits 0 and 1 of 32 bit [0xfd509210] (reset controller)
+* sleep for 1 millisecond
+* clear bit 1 of 32 bit [0xfd509210]
+* read back value
+* read 32 bits from [0xfd50406c] (REVISION)
+* Clear and mask interrupts
