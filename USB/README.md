@@ -55,9 +55,15 @@ suggesting low peripherals + 0x01500000
 
 
 Steps from enumeration example above:
-* set bits 0 and 1 of 32 bit [0xfd509210] (reset controller)
+* set bits 0 and 1 of 32 bit register [0xfd509210] (reset controller)
 * sleep for 1 millisecond
-* clear bit 1 of 32 bit [0xfd509210]
+* clear bit 1 of 32 bit register [0xfd509210]
 * read back value
-* read 32 bits from [0xfd50406c] (REVISION)
-* Clear and mask interrupts
+* read 32 bit register [0xfd50406c] (REVISION)
+* write 0xffffffff to 32 bit register [0xfd504314] (clear interrupts)
+* write 0xffffffff to 32 bit register [0xfd504310] (mask interrupts)
+* clear bit 0 of 32 bit register [0xfd509210] (bring controller out of reset)
+* read 32 bit status register [0xfd504068] every 1ms, up to 100ms, until bits 4 and 5 are set
+* report link not ready failure, if bits 4 and 5 are not set, and log value of register
+* report PCIe not in RC mode, if bit 7 is not set, and log value of register
+* log PCIe link is ready
