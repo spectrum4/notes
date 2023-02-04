@@ -67,3 +67,15 @@ Steps from enumeration example above:
 * report link not ready failure, if bits 4 and 5 are not set, and log value of register
 * report PCIe not in RC mode, if bit 7 is not set, and log value of register
 * log PCIe link is ready
+
+
+
+
+PCIe revision: 0x0000000000000304
+PCIe link is ready
+PCIe status register: 0x00000000000000b0
+PCIe loop iterations: 0x000000000000002e
+PCIe class code (initial): 0x0000000020060400
+PCIe class code (updated): 0x0000000020060400
+VID/DID: 0x00000000000014e4/0x0000000000002711
+Header type: 0x0000000000000001
