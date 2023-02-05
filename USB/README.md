@@ -44,9 +44,11 @@ https://forums.raspberrypi.com/viewtopic.php?p=1675084&hilit=pcie#p1675084 <- PC
 
 # PCIe
 
+Linux starting point: https://github.com/torvalds/linux/blob/602fb860945fd6dce7989fcd3727d5fe4282f785/drivers/pci/controller/pcie-brcmstb.c#L865
+
 pcie regs = Address 0xfd500000 (size 0x9310)
 
-matches: arch/arm/boot/dts/bcm2711.dtsi
+matches: https://github.com/torvalds/linux/blob/b23024676a2f135dbde2221481e2f4af616d0445/arch/arm/boot/dts/bcm2711.dtsi#L555-L587
 
 in low peripheral mode, main peripherals are at 0x00000000fc000000
 suggesting low peripherals + 0x01500000
@@ -84,6 +86,44 @@ Header type: 0x0000000000000001
            00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f 10 11 12 13 14 15 16 17 18 19 1a 1b 1c 1d 1e 1f
   fd500000 e4 14 11 27 00 00 10 00 20 00 04 06 00 00 01 00 00 00 00 00 00 00 00 00 00 01 01 00 00 00 00 00
   fd500020 00 f8 00 f8 f1 ff 01 00 00 00 00 00 00 00 00 00 00 00 00 00 48 00 00 00 00 00 00 00 00 01 00 00
+
+Vendor ID: 14e4
+Device ID: 2711
+Command: 0000
+Status: 0010
+Revision ID: 20
+Prog IF: 00
+Subclass: 04
+Class code: 06
+Cache line size: 00
+Latency timer: 00
+Header type: 01
+BIST: 00
+BAR0: 00000000
+BAR1: 00000000
+Primary Bus Number: 00
+Secondary Bus Number: 01
+Subordinate Bus Number: 01
+Secondary Latency Timer: 00
+I/O Base: 00
+I/O Limit: 00
+Secondary Status: 0000
+Memory Base: f800
+Memory Limit: f800
+Prefetchable Memory Base: fff1
+Prefetchable Memory Limit: 0001
+Prefetchable Base Upper 32 bits: 00000000
+Prefetchable Limit Upper 32 bits: 00000000
+I/O Base Upper 16 bits: 0000
+I/O Limit Upper 16 bits: 0000
+Capability Pointer: 48
+Reserved: 000000
+Expansion ROM base address: 00000000
+Interrupt Line: 00
+Interrupt Pin: 01
+Bridge Control: 0000
+
+
   fd500040 00 00 00 00 00 00 00 00 01 ac 13 48 08 20 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
   fd500060 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
   fd500080 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
@@ -137,3 +177,18 @@ Header type: 0x0000000000000001
   fd500680 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
   fd5006a0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 ```
+
+
+
+```
+pcie_bridge_sw_init_set(1)
+shift = m_reg_field_info[RGR1_SW_INIT_1_INIT_SHIFT] = m_reg_field_info[1]
+u32 mask =  m_reg_field_info[RGR1_SW_INIT_1_INIT_MASK] = m_reg_field_info[0]
+wr_fld_rb(m_base + PCIE_RGR1_SW_INIT_1, mask, shift, val); = wr_fld_rb(m_base + m_reg_offsets[RGR1_SW_INIT_1], m_reg_field_info[0], m_reg_field_info[1], 1) = wr_fld_rb(m_base + m_reg_offsets[0], m_reg_field_info[0], m_reg_field_info[1], 1)
+m_reg_offsets[RGR1_SW_INIT_1] = write/readback field (m_base+0x9210, 0x2, 0x1, 1)
+
+
+wr_fld_rb(0xFD509210, 2=mask, 1=shift, 1=value)  =>  set bit 1 of 0Xfd509210
+```
+
+* https://olegkutkov.me/2021/01/07/writing-a-pci-device-driver-for-linux/
