@@ -1,0 +1,2 @@
+00:00.0 PCI bridge: Broadcom Inc. and subsidiaries BCM2711 PCIe Bridge (rev 20)
+00:00.0/00.0 USB controller: VIA Technologies, Inc. VL805 USB 3.0 Host Controller (rev 01)
