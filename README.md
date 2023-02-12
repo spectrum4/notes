@@ -1845,3 +1845,19 @@ See [USB subfolder](USB/README.md) of this project.
 2. [Viewing SSID from macOS](https://stackoverflow.com/questions/4481005/get-wireless-ssid-through-shell-script-on-mac-os-x)
 3. [Enabling WiFi on rpi over serial connection](https://bhattigurjot.wordpress.com/2013/10/26/connect-to-wi-fi-network-through-ubuntu-terminal/)
    Note, run the above as root. May need to also run `sudo rfkill unblock all`.
+
+
+
+## Writing .img to SD card on macOS
+
+```
+diskutil list
+```
+
+Assuming disk2 is the SD card:
+
+```
+diskutil unmountDisk /dev/disk2
+sudo dd bs=1m if=<......>.img of=/dev/rdisk2
+diskutil eject /dev/rdisk2
+```
