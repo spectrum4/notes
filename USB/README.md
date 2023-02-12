@@ -46,6 +46,8 @@ https://forums.raspberrypi.com/viewtopic.php?p=1675084&hilit=pcie#p1675084 <- PC
 
 Linux starting point: https://github.com/torvalds/linux/blob/602fb860945fd6dce7989fcd3727d5fe4282f785/drivers/pci/controller/pcie-brcmstb.c#L865
 
+
+
 pcie regs = Address 0xfd500000 (size 0x9310)
 
 matches: https://github.com/torvalds/linux/blob/b23024676a2f135dbde2221481e2f4af616d0445/arch/arm/boot/dts/bcm2711.dtsi#L555-L587
@@ -69,6 +71,17 @@ Steps from enumeration example above:
 * report link not ready failure, if bits 4 and 5 are not set, and log value of register
 * report PCIe not in RC mode, if bit 7 is not set, and log value of register
 * log PCIe link is ready
+
+
+
+
+Steps from linux kernel:
+* set bit 1 of register [0xfd509210]
+* sleep for 100-200 microseconds
+* clear bit 1 or [0xfd509210]
+* clear bit 27 of [0xfd504204]
+* sleep for 100-200 microseconds
+* set bits 7, 10, 12, 13 and clear bits 20, 21 of [0xfd504008]
 
 
 
