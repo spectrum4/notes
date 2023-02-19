@@ -205,3 +205,11 @@ wr_fld_rb(0xFD509210, 2=mask, 1=shift, 1=value)  =>  set bit 1 of 0Xfd509210
 ```
 
 * https://olegkutkov.me/2021/01/07/writing-a-pci-device-driver-for-linux/
+
+```bash
+docker start -i $(docker ps -q -l)
+git grep -l '\(readl\|writel\)' | grep '\.c$' | while read file; do if ! grep pete "${file}"; then echo "processing ${file}..."; git checkout "${file}"; cat "${file}" | sed 's/readl(/pete_&/g' | sed 's/writel(/pete_&/g' | sed 's/_pete_/_/g' > y; cat y | grep -n pete_ | sed 's/:.*//' | while read line; do cat y | sed "${line}s%pete_[^(]*(%&\"${file}:${line}\", %" > x; mv x y; done; mv y "${file}"; fi; done
+KERNEL=kernel8
+make drivers/pci/controller/pcie-brcmstb.i
+make -j8 Image.gz
+```
