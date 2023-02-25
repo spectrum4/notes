@@ -208,6 +208,7 @@ wr_fld_rb(0xFD509210, 2=mask, 1=shift, 1=value)  =>  set bit 1 of 0Xfd509210
 
 ```bash
 docker start -i $(docker ps -q -l)
+docker start -i rpikernel
 
 git reset --hard HEAD; git clean -fdx
 git grep -l '\(read\|write\)l' | grep '\.c$' | while read file; do if ! grep -q 'pete_\(read\|write\)l' "${file}"; then echo "processing ${file}..."; git checkout "${file}"; cat "${file}" | sed 's/readl(/pete_&/g' | sed 's/writel(/pete_&/g' | sed 's/_pete_readl/_readl/g' | sed 's/_pete_writel/_writel/g' > y; cat y | grep -n 'pete_\(read\|write\)l' | sed 's/:.*//' | while read line; do cat y | sed "${line}s%pete_readl(%&\"${file}:${line}\", %g" | sed "${line}s%pete_writel(%&\"${file}:${line}\", %g" > x; mv x y; done; mv y "${file}"; fi; done
