@@ -212,13 +212,16 @@ docker start -i $(docker ps -q -l)
 git reset --hard HEAD; git clean -fdx
 git grep -l '\(read\|write\)l' | grep '\.c$' | while read file; do if ! grep -q 'pete_\(read\|write\)l' "${file}"; then echo "processing ${file}..."; git checkout "${file}"; cat "${file}" | sed 's/readl(/pete_&/g' | sed 's/writel(/pete_&/g' | sed 's/_pete_readl/_readl/g' | sed 's/_pete_writel/_writel/g' > y; cat y | grep -n 'pete_\(read\|write\)l' | sed 's/:.*//' | while read line; do cat y | sed "${line}s%pete_readl(%&\"${file}:${line}\", %g" | sed "${line}s%pete_writel(%&\"${file}:${line}\", %g" > x; mv x y; done; mv y "${file}"; fi; done
 
-export KERNEL=kernel8
+export KERNEL=kernel8 # examples online didn't export, but I have no idea how it reaches make subprocess if not exported
 make bcm2711_defconfig
 sed -i 's/^\(CONFIG_LOCALVERSION=.*\)"/\1-pmoore"/' .config
 sed -i 's/-pmoore-pmoore/-pmoore/' .config
 sed -i 's/^# CONFIG_WERROR is not set/CONFIG_WERROR=y/' .config
-sed -i 's/^\(CONFIG_LOG_BUF_SHIFT=\).*/\118/' .config
+# sed -i 's/^\(CONFIG_LOG_BUF_SHIFT=\).*/\118/' .config  # (note, this sets the _default_ kernel ring buffer size when an explicit value is not specified in /boot/cmdline.txt - so probably better to just specify in /boot/cmdline.txt instead, and leave the default settings alone)
 make -j8 Image.gz
 
 make drivers/pci/controller/pcie-brcmstb.i
+
+
+/boot/cmdline.txt: log_buf_len=4M (log-buf-len=4M should also work)
 ```
