@@ -217,6 +217,7 @@ make bcm2711_defconfig
 sed -i 's/^\(CONFIG_LOCALVERSION=.*\)"/\1-pmoore"/' .config
 sed -i 's/-pmoore-pmoore/-pmoore/' .config
 sed -i 's/^# CONFIG_WERROR is not set/CONFIG_WERROR=y/' .config
+sed -i 's/^\(CONFIG_LOG_BUF_SHIFT=\).*/\118/' .config
 make -j8 Image.gz
 
 make drivers/pci/controller/pcie-brcmstb.i
