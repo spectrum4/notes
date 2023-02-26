@@ -150,24 +150,35 @@ sleep 100-200 us
 [    1.266507] drivers/pci/controller/pcie-brcmstb.c:1015 Read 32 bits [0xfd50043c]=0x20060400
 [    1.266519] drivers/pci/controller/pcie-brcmstb.c:1018 Write 32 bits [0xfd50043c]=0x20060400 // ensure bits 0-23 are 0x060400 (pcie-pcie bridge)
 
-[    1.266531] drivers/pci/controller/pcie-brcmstb.c:358 Write 32 bits [0xfd501100]=0x1f
-[    1.266543] drivers/pci/controller/pcie-brcmstb.c:360 Read 32 bits [0xfd501100]=0x1f
-[    1.266554] drivers/pci/controller/pcie-brcmstb.c:361 Write 32 bits [0xfd501104]=0x80001100
-[    1.266567] drivers/pci/controller/pcie-brcmstb.c:363 Read 32 bits [0xfd501104]=0x80001100
-[    1.266589] drivers/pci/controller/pcie-brcmstb.c:366 Read 32 bits [0xfd501104]=0x1100
-[    1.266602] drivers/pci/controller/pcie-brcmstb.c:337 Write 32 bits [0xfd501100]=0x100002
-[    1.266614] drivers/pci/controller/pcie-brcmstb.c:339 Read 32 bits [0xfd501100]=0x100002
-[    1.266625] drivers/pci/controller/pcie-brcmstb.c:341 Read 32 bits [0xfd501108]=0x8000803a
+///////////////////////////////////////////////////////////////
+//// Enable SSC (Spread Spectrum Clocking) ////////////////////
+// write SET_ADDR_OFFSET (0x1f) = 0x1100
+[    1.266531] drivers/pci/controller/pcie-brcmstb.c:358 Write 32 bits [0xfd501100]=0x1f // explicit update
+[    1.266543] drivers/pci/controller/pcie-brcmstb.c:360 Read 32 bits [0xfd501100]=0x1f // just read it back - no idea why
+[    1.266554] drivers/pci/controller/pcie-brcmstb.c:361 Write 32 bits [0xfd501104]=0x80001100 // explicit update
+[    1.266567] drivers/pci/controller/pcie-brcmstb.c:363 Read 32 bits [0xfd501104]=0x80001100 // read it back every 10us until bit 31 is clear or 10 attempts failed
+[    1.266589] drivers/pci/controller/pcie-brcmstb.c:366 Read 32 bits [0xfd501104]=0x1100 // bit 31 is now clear
+// read SSC_CNTL_OFFSET (0x2)
+[    1.266602] drivers/pci/controller/pcie-brcmstb.c:337 Write 32 bits [0xfd501100]=0x100002 // explicit update
+[    1.266614] drivers/pci/controller/pcie-brcmstb.c:339 Read 32 bits [0xfd501100]=0x100002 // just read it back - no idea why
+[    1.266625] drivers/pci/controller/pcie-brcmstb.c:341 Read 32 bits [0xfd501108]=0x8000803a // read every 10us until bit 31 is set or 10 attempts failed
+//
+// set bits 14, 15 => 0x8000c03a (although bit 15 was already set)
+//
+// update SSC_CNTL_OFFSET (0x2)
+[    1.266637] drivers/pci/controller/pcie-brcmstb.c:358 Write 32 bits [0xfd501100]=0x2 // explicit update
+[    1.266649] drivers/pci/controller/pcie-brcmstb.c:360 Read 32 bits [0xfd501100]=0x2 // just read it back - no idea why
+[    1.266660] drivers/pci/controller/pcie-brcmstb.c:361 Write 32 bits [0xfd501104]=0x8000c03a // value from above
+[    1.266671] drivers/pci/controller/pcie-brcmstb.c:363 Read 32 bits [0xfd501104]=0x8000c03a // read it back every 10us until bit 31 is clear or 10 attempts failed
+[    1.266695] drivers/pci/controller/pcie-brcmstb.c:366 Read 32 bits [0xfd501104]=0xc03a // bit 31 now clear
+// read SSC_STATUS_OFFSET (0x1)
+[    1.268728] drivers/pci/controller/pcie-brcmstb.c:337 Write 32 bits [0xfd501100]=0x100001 // explicit update
+[    1.268742] drivers/pci/controller/pcie-brcmstb.c:339 Read 32 bits [0xfd501100]=0x100001 // just read if back - no idea why
+[    1.268754] drivers/pci/controller/pcie-brcmstb.c:341 Read 32 bits [0xfd501108]=0x80001c17 // read every 10us until bit 31 is set or 10 attempts failed
+//
+///////////////////////////////////////////////////////////////
 
-[    1.266637] drivers/pci/controller/pcie-brcmstb.c:358 Write 32 bits [0xfd501100]=0x2
-[    1.266649] drivers/pci/controller/pcie-brcmstb.c:360 Read 32 bits [0xfd501100]=0x2
-[    1.266660] drivers/pci/controller/pcie-brcmstb.c:361 Write 32 bits [0xfd501104]=0x8000c03a
-[    1.266671] drivers/pci/controller/pcie-brcmstb.c:363 Read 32 bits [0xfd501104]=0x8000c03a
-[    1.266695] drivers/pci/controller/pcie-brcmstb.c:366 Read 32 bits [0xfd501104]=0xc03a
-[    1.268728] drivers/pci/controller/pcie-brcmstb.c:337 Write 32 bits [0xfd501100]=0x100001
-[    1.268742] drivers/pci/controller/pcie-brcmstb.c:339 Read 32 bits [0xfd501100]=0x100001
-[    1.268754] drivers/pci/controller/pcie-brcmstb.c:341 Read 32 bits [0xfd501108]=0x80001c17
-[    1.268766] drivers/pci/controller/pcie-brcmstb.c:1028 Read 16 bits [0xfd5000be]=0x9012
+[    1.268766] drivers/pci/controller/pcie-brcmstb.c:1028 Read 16 bits [0xfd5000be]=0x9012 // bits 0-3 (0x2) current link speed, bits 4-9 (0x1) negotiated link width (number of lanes?)
 
 [    1.268782] brcm-pcie fd500000.pcie: link up, 5.0 GT/s PCIe x1 (SSC)
 
