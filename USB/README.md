@@ -77,13 +77,15 @@ Steps from enumeration example above:
 
 Steps from linux kernel:
 * set bit 1 of register [0xfd509210] (0xfd500000 + 0x9210)
+* set bit 0 of register [0xfd509210] (0xfd500000 + 0x9210)
 * sleep for 100-200 microseconds
 * clear bit 1 or [0xfd509210]
 * clear bit 27 of [0xfd504204]
 * sleep for 100-200 microseconds
-* set bits 7, 10, 12, 13 and clear bits 20, 21 of [0xfd504008]
+* set bits 12, 13 and clear bits 20, 21 of [0xfd504008]
 
 Steps from dmesg debug logs:
+
 ```
 [    1.210376] brcm-pcie fd500000.pcie: host bridge /scb/pcie@7d500000 ranges:
 [    1.210415] brcm-pcie fd500000.pcie:   No bus range found for /scb/pcie@7d500000, using [bus 00-ff]
@@ -98,31 +100,41 @@ Steps from dmesg debug logs:
 [    1.210822] brcm-pcie fd500000.pcie: pdev->num_resources: 0x3
 [    1.210834] brcm-pcie fd500000.pcie: pdev->driver_override: (null)
 [    1.210846] drivers/pci/controller/pcie-brcmstb.c:735 Read 32 bits [0xfd509210]=0x1
-[    1.210859] drivers/pci/controller/pcie-brcmstb.c:737 Write 32 bits [0xfd509210]=0x3
+[    1.210859] drivers/pci/controller/pcie-brcmstb.c:737 Write 32 bits [0xfd509210]=0x3 // set bit 1
 [    1.210873] drivers/pci/controller/pcie-brcmstb.c:775 Read 32 bits [0xfd509210]=0x3
-[    1.210885] drivers/pci/controller/pcie-brcmstb.c:777 Write 32 bits [0xfd509210]=0x3
+[    1.210885] drivers/pci/controller/pcie-brcmstb.c:777 Write 32 bits [0xfd509210]=0x3 // set bit 0
+sleep 100-200 us
 [    1.211121] drivers/pci/controller/pcie-brcmstb.c:735 Read 32 bits [0xfd509210]=0x3
-[    1.211136] drivers/pci/controller/pcie-brcmstb.c:737 Write 32 bits [0xfd509210]=0x1
+[    1.211136] drivers/pci/controller/pcie-brcmstb.c:737 Write 32 bits [0xfd509210]=0x1 // clear bit 1
 [    1.211147] drivers/pci/controller/pcie-brcmstb.c:890 Read 32 bits [0xfd504204]=0x200000
-[    1.211161] drivers/pci/controller/pcie-brcmstb.c:892 Write 32 bits [0xfd504204]=0x200000
+[    1.211161] drivers/pci/controller/pcie-brcmstb.c:892 Write 32 bits [0xfd504204]=0x200000 // clear bit 27
+sleep 100-200 us
 [    1.211393] drivers/pci/controller/pcie-brcmstb.c:909 Read 32 bits [0xfd504008]=0x0
-[    1.211407] drivers/pci/controller/pcie-brcmstb.c:913 Write 32 bits [0xfd504008]=0x3000
-[    1.211424] drivers/pci/controller/pcie-brcmstb.c:923 Write 32 bits [0xfd504034]=0x11
-[    1.211438] drivers/pci/controller/pcie-brcmstb.c:924 Write 32 bits [0xfd504038]=0x4
+[    1.211407] drivers/pci/controller/pcie-brcmstb.c:913 Write 32 bits [0xfd504008]=0x3000 // set bits 12,13 and clear bits 20,21
+
+[    1.211424] drivers/pci/controller/pcie-brcmstb.c:923 Write 32 bits [0xfd504034]=0x11 // explicitly set RC_BAR2_CONFIG_LO
+[    1.211438] drivers/pci/controller/pcie-brcmstb.c:924 Write 32 bits [0xfd504038]=0x4 // explicitly set RC_BAR2_CONFIG_HI
+
 [    1.211450] drivers/pci/controller/pcie-brcmstb.c:927 Read 32 bits [0xfd504008]=0x3000
-[    1.211462] drivers/pci/controller/pcie-brcmstb.c:938 Write 32 bits [0xfd504008]=0x88003000
+[    1.211462] drivers/pci/controller/pcie-brcmstb.c:938 Write 32 bits [0xfd504008]=0x88003000 // set bits 27-31 to 0b10001
+
 [    1.211474] drivers/pci/controller/pcie-brcmstb.c:953 Read 32 bits [0xfd50402c]=0x0
-[    1.211487] drivers/pci/controller/pcie-brcmstb.c:955 Write 32 bits [0xfd50402c]=0x0
+[    1.211487] drivers/pci/controller/pcie-brcmstb.c:955 Write 32 bits [0xfd50402c]=0x0 // clear bits 0-4
 [    1.211499] drivers/pci/controller/pcie-brcmstb.c:958 Read 32 bits [0xfd50403c]=0x0
-[    1.211510] drivers/pci/controller/pcie-brcmstb.c:960 Write 32 bits [0xfd50403c]=0x0
+[    1.211510] drivers/pci/controller/pcie-brcmstb.c:960 Write 32 bits [0xfd50403c]=0x0 // clear bits 0-4
 [    1.211521] drivers/pci/controller/pcie-brcmstb.c:775 Read 32 bits [0xfd509210]=0x1
-[    1.211533] drivers/pci/controller/pcie-brcmstb.c:777 Write 32 bits [0xfd509210]=0x0
+[    1.211533] drivers/pci/controller/pcie-brcmstb.c:777 Write 32 bits [0xfd509210]=0x0 // clear bit 0
+
+// sleeping a lot here! 5000 microsecond sleep between each attempt - wait for bits 4 and 5 to be set
 [    1.211544] drivers/pci/controller/pcie-brcmstb.c:700 Read 32 bits [0xfd504068]=0x80
 [    1.226475] drivers/pci/controller/pcie-brcmstb.c:700 Read 32 bits [0xfd504068]=0x80
 [    1.242470] drivers/pci/controller/pcie-brcmstb.c:700 Read 32 bits [0xfd504068]=0x80
 [    1.258470] drivers/pci/controller/pcie-brcmstb.c:700 Read 32 bits [0xfd504068]=0x80
 [    1.274469] drivers/pci/controller/pcie-brcmstb.c:700 Read 32 bits [0xfd504068]=0xb0
+
+// check if link is down (this additional mmio read is a consequence of implementation)
 [    1.274484] drivers/pci/controller/pcie-brcmstb.c:700 Read 32 bits [0xfd504068]=0xb0
+
 [    1.274496] drivers/pci/controller/pcie-brcmstb.c:693 Read 32 bits [0xfd504068]=0xb0
 [    1.274510] drivers/pci/controller/pcie-brcmstb.c:434 Write 32 bits [0xfd50400c]=0xc0000000
 [    1.274522] drivers/pci/controller/pcie-brcmstb.c:435 Write 32 bits [0xfd504010]=0x0
