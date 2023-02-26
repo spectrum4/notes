@@ -84,6 +84,7 @@ Steps from linux kernel:
 * set bits 7, 10, 12, 13 and clear bits 20, 21 of [0xfd504008]
 
 Steps from dmesg debug logs:
+```
 [    1.210376] brcm-pcie fd500000.pcie: host bridge /scb/pcie@7d500000 ranges:
 [    1.210415] brcm-pcie fd500000.pcie:   No bus range found for /scb/pcie@7d500000, using [bus 00-ff]
 [    1.210561] brcm-pcie fd500000.pcie:      MEM 0x0600000000..0x063fffffff -> 0x00c0000000
@@ -1078,6 +1079,7 @@ Steps from dmesg debug logs:
 [   65.224612] drivers/pci/controller/pcie-brcmstb.c:524 Write 32 bits [0xfd504508]=0x1
 [   65.240608] drivers/pci/controller/pcie-brcmstb.c:491 Read 32 bits [0xfd504500]=0x1
 [   65.240615] drivers/pci/controller/pcie-brcmstb.c:524 Write 32 bits [0xfd504508]=0x1
+```
 
 
 ```
