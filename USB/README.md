@@ -59,6 +59,7 @@ suggesting low peripherals + 0x01500000
 
 
 Steps from enumeration example above:
+```
 * set bits 0 and 1 of 32 bit register [0xfd509210] (reset controller)
 * sleep for 1 millisecond
 * clear bit 1 of 32 bit register [0xfd509210]
@@ -71,18 +72,70 @@ Steps from enumeration example above:
 * report link not ready failure, if bits 4 and 5 are not set, and log value of register
 * report PCIe not in RC mode, if bit 7 is not set, and log value of register
 * log PCIe link is ready
+* read [0xfd50043c] and change bits 0-23 to 0x060400 (pcie-pcie bridge) if not already set
+* write [0xfd50400c]=0xf8000000 (lower 32 bits - PCI PCIE address)
+* write [0xfd504010]=0x0 (upper 32 bits - PCI PCIE address)
+* write [0xfd504070]=0x03f00000
+* write [0xfd504080]=0x6
+* write [0xfd504084]=0x6
+```
 
 
 
 
 Steps from linux kernel:
-* set bit 1 of register [0xfd509210] (0xfd500000 + 0x9210)
-* set bit 0 of register [0xfd509210] (0xfd500000 + 0x9210)
+```
+* set bit 1 of register [0xfd509210]
+* set bit 0 of register [0xfd509210]
 * sleep for 100-200 microseconds
 * clear bit 1 or [0xfd509210]
+* sleep for 100-200 microseconds
 * clear bit 27 of [0xfd504204]
 * sleep for 100-200 microseconds
 * set bits 12, 13 and clear bits 20, 21 of [0xfd504008]
+* set [0xfd504034]=0x11 (RC_BAR2_CONFIG_LO)
+* set [0xfd504038]=0x4 (RC_VAR2_CONFIG_HI)
+* set bits 27-31 of [0xfd504008] to 0b10001
+* clear bits 0-4 of [0xfd50402c] (disable the PCIe->GISB memory window (RC_BAR1))
+* clear bits 0-4 of [0xfd50403c] (disable the PCIe->SCB memory window (RC_BAR1))
+* clear bit 0 of [0xfd509210]
+* wait for bits 4 and 5 of [0xfd504068] to be set, checking every 5000 us
+* report PCIe not in RC mode, if bit 7 is not set, and error
+* set [0xfd50400c]=0xc0000000 (lower 32 bits of pcie address as seen by pci controller?)
+* set [0xfd504010]=0x0 (upper 32 bits of pcie address as seen by pci controller?)
+* clear bits 30-31, set bits 20-29, clear bits 4-15 of [0xfd504070]
+* update bit 0-7 of [0xfd504080] to 0x06
+* update bit 0-7 of [0xfd504084] to 0x06
+* set bits 10, 11 (already set) of [0xfd5004dc] (priv1 link capability)
+* set bits 0-23 of [0xfd50043c] to 0x060400 (pcie-pcie bridge) - were already set
+* Enable SSC (spread spectrum clocking) steps
+  * set [0xfd501100]=0x1f (SET_ADDR_OFFSET to be written)
+  * read it back ([0xfd501100])
+  * set [0xfd501104]=0x80001100 (value to set, with bit 31 set)
+  * read it back every 10us until bit 31 is clear or 10 attempts fail
+  * set [0xfd501100]=0x100002 (SSC_CNTL_OFFSET to be read)
+  * read it back ([0xfd501100])
+  * SSC_CNTL_OFFSET = read [0xfd501108] every 10us until bit 31 is set or 10 attempts failed
+  * set bits 14, 15 of SSC_CNTL_OFFSET (although bit 15 was already set)
+  * set [0xfd501100]=0x2 (SSC_CNTL_OFFSET to be written)
+  * read it back ([0xfd501100])
+  * write SSC_CNTL_OFFSET to [0xfd501104]
+  * read it back every 10us until bit 31 is clear or 10 attempts fail
+  * set [0xfd501100]=0x100001 (SSC_STATUS_OFFSET to be read)
+  * read it back ([0xfd501100])
+  * SSC_STATUS_OFFSET = read [0xfd501108] every 10us until bit 31 is set or 10 attempts failed
+* read 16 bits of [0xfd5000be]
+* report pcie current link speed (bits 0-3) and negotiated link width (bits 4-9) (number of lanes?) and whether SSC enabled (from SSC_STATUS_OFFSET??)
+* clear bits 2, 3 of [0xfd500188] (PCIe->SCB endian mode for BAR) (although already clear)
+* clear bit 21 and set bit 1 of [0xfd504204] (refclk from RC gated with CLKREQ# input when ASPM L0s,L1 is enabled)
+* get revision from [0xfd50406c]
+* MSI init stuff
+  * set [0xfd504514]=0xffffffff (mask interrupts?)
+  * set [0xfd504508]=0xffffffff (clear interrupts?)
+  * set [0xfd504044]=0xfffffffd (lower 32 bits of msi target address with bit 0 set => msi enable)
+  * set [0xfd504048]=0x0 (upper 32 bits of msi target address)
+  * set [0xfd50404c]=0xffe06540
+```
 
 Steps from dmesg debug logs:
 
@@ -180,21 +233,29 @@ sleep 100-200 us
 
 [    1.268766] drivers/pci/controller/pcie-brcmstb.c:1028 Read 16 bits [0xfd5000be]=0x9012 // bits 0-3 (0x2) current link speed, bits 4-9 (0x1) negotiated link width (number of lanes?)
 
-[    1.268782] brcm-pcie fd500000.pcie: link up, 5.0 GT/s PCIe x1 (SSC)
+[    1.268782] brcm-pcie fd500000.pcie: link up, 5.0 GT/s PCIe x1 (SSC) // "5.0 GT/s" is from current link speed, "x1" is from negotiated link width, "(SSC)" is from SSC setting success
 
 [    1.268795] drivers/pci/controller/pcie-brcmstb.c:1036 Read 32 bits [0xfd500188]=0x0
-[    1.268807] drivers/pci/controller/pcie-brcmstb.c:1039 Write 32 bits [0xfd500188]=0x0
-[    1.268818] drivers/pci/controller/pcie-brcmstb.c:1041 Read 32 bits [0xfd504204]=0x200000
-[    1.268829] drivers/pci/controller/pcie-brcmstb.c:1060 Write 32 bits [0xfd504204]=0x2
-[    1.268840] drivers/pci/controller/pcie-brcmstb.c:1355 Read 32 bits [0xfd50406c]=0x304
-[    1.269055] drivers/pci/controller/pcie-brcmstb.c:627 Write 32 bits [0xfd504514]=0xffffffff
-[    1.269071] drivers/pci/controller/pcie-brcmstb.c:628 Write 32 bits [0xfd504508]=0xffffffff
-[    1.269082] drivers/pci/controller/pcie-brcmstb.c:634 Write 32 bits [0xfd504044]=0xfffffffd
-[    1.269094] drivers/pci/controller/pcie-brcmstb.c:636 Write 32 bits [0xfd504048]=0x0
-[    1.269105] drivers/pci/controller/pcie-brcmstb.c:640 Write 32 bits [0xfd50404c]=0xffe06540
+[    1.268807] drivers/pci/controller/pcie-brcmstb.c:1039 Write 32 bits [0xfd500188]=0x0 // clear bits 2,3 (PCIe->SCB endian mode for BAR)
+[    1.268818] drivers/pci/controller/pcie-brcmstb.c:1041 Read 32 bits [0xfd504204]=0x200000 // debug
+[    1.268829] drivers/pci/controller/pcie-brcmstb.c:1060 Write 32 bits [0xfd504204]=0x2 // clear bit 21, set bit 1; Refclk from RC should be gated with CLKREQ# input when ASPM L0s,L1 is enabled => set CLKREQ_DEBUG_ENABLE field to 1
+
+///////// pcie setup complete, continue with probe stuff
+
+[    1.268840] drivers/pci/controller/pcie-brcmstb.c:1355 Read 32 bits [0xfd50406c]=0x304 // get revision
+
+// maybe init msi here(???)
+
+[    1.269055] drivers/pci/controller/pcie-brcmstb.c:627 Write 32 bits [0xfd504514]=0xffffffff // explicit - mask interrupts?
+[    1.269071] drivers/pci/controller/pcie-brcmstb.c:628 Write 32 bits [0xfd504508]=0xffffffff // explicit - clear interrupts?
+[    1.269082] drivers/pci/controller/pcie-brcmstb.c:634 Write 32 bits [0xfd504044]=0xfffffffd // lower 32 bits of msi target address | 0x01 (=> msi enable)
+[    1.269094] drivers/pci/controller/pcie-brcmstb.c:636 Write 32 bits [0xfd504048]=0x0 // upper 32 bits of msi target address
+[    1.269105] drivers/pci/controller/pcie-brcmstb.c:640 Write 32 bits [0xfd50404c]=0xffe06540 // explicit
+
 [    1.269279] brcm-pcie fd500000.pcie: PCI host bridge to bus 0000:00
 [    1.269297] pci_bus 0000:00: root bus resource [bus 00-ff]
 [    1.269314] pci_bus 0000:00: root bus resource [mem 0x600000000-0x63fffffff] (bus address [0xc0000000-0xffffffff])
+
 [    1.269333] drivers/pci/access.c:93 Read 32 bits [0xfd500000]=0x271114e4
 [    1.269347] drivers/pci/access.c:89 Read 8 bits [0xfd50000e]=0x1
 [    1.269360] drivers/pci/access.c:91 Read 16 bits [0xfd500006]=0x10
@@ -212,7 +273,9 @@ sleep 100-200 us
 [    1.269492] drivers/pci/access.c:93 Read 32 bits [0xfd500184]=0x2800000
 [    1.269501] drivers/pci/access.c:93 Read 32 bits [0xfd500180]=0x2401000b
 [    1.269512] drivers/pci/access.c:93 Read 32 bits [0xfd500240]=0x1001e
+
 [    1.269528] pci 0000:00:00.0: [14e4:2711] type 01 class 0x060400
+
 [    1.269545] drivers/pci/access.c:91 Read 16 bits [0xfd500004]=0x0
 [    1.269555] drivers/pci/access.c:111 Write 16 bits [0xfd500004]=0x400
 [    1.269565] drivers/pci/access.c:91 Read 16 bits [0xfd500004]=0x400
