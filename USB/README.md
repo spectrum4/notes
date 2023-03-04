@@ -88,7 +88,7 @@ Steps from linux kernel:
 * set bit 1 of register [0xfd509210]
 * set bit 0 of register [0xfd509210]
 * sleep for 100-200 microseconds
-* clear bit 1 or [0xfd509210]
+* clear bit 1 of [0xfd509210]
 * sleep for 100-200 microseconds
 * clear bit 27 of [0xfd504204]
 * sleep for 100-200 microseconds
@@ -243,8 +243,6 @@ sleep 100-200 us
 ///////// pcie setup complete, continue with probe stuff
 
 [    1.268840] drivers/pci/controller/pcie-brcmstb.c:1355 Read 32 bits [0xfd50406c]=0x304 // get revision
-
-// maybe init msi here(???)
 
 [    1.269055] drivers/pci/controller/pcie-brcmstb.c:627 Write 32 bits [0xfd504514]=0xffffffff // explicit - mask interrupts?
 [    1.269071] drivers/pci/controller/pcie-brcmstb.c:628 Write 32 bits [0xfd504508]=0xffffffff // explicit - clear interrupts?
