@@ -85,20 +85,20 @@ Steps from enumeration example above:
 
 Steps from linux kernel:
 ```
-* set bit 1 of register [0xfd509210]
-* set bit 0 of register [0xfd509210]
+* set bit 1 (RGR1_SW_INIT_1_INIT_GENERIC_MASK) of register [0xfd509210] (RGR1_SW_INIT_1)
+* set bit 0 (PCIE_RGR1_SW_INIT_1_PERST_MASK) of register [0xfd509210] (RGR1_SW_INIT_1)
 * sleep for 100-200 microseconds
-* clear bit 1 of [0xfd509210]
+* clear bit 1 of [0xfd509210] (RGR1_SW_INIT_1)
 * sleep for 100-200 microseconds
-* clear bit 27 of [0xfd504204]
+* clear bit 27 of [0xfd504204] (PCIE_MISC_HARD_PCIE_HARD_DEBUG)
 * sleep for 100-200 microseconds
-* set bits 12, 13 and clear bits 20, 21 of [0xfd504008]
-* set [0xfd504034]=0x11 (RC_BAR2_CONFIG_LO)
-* set [0xfd504038]=0x4 (RC_VAR2_CONFIG_HI)
-* set bits 27-31 of [0xfd504008] to 0b10001
-* clear bits 0-4 of [0xfd50402c] (disable the PCIe->GISB memory window (RC_BAR1))
-* clear bits 0-4 of [0xfd50403c] (disable the PCIe->SCB memory window (RC_BAR1))
-* clear bit 0 of [0xfd509210]
+* set bits 12, 13 and clear bits 20, 21 of [0xfd504008] (PCIE_MISC_MISC_CTRL)
+* set [0xfd504034]=0x11 (PCIE_MISC_RC_BAR2_CONFIG_LO)
+* set [0xfd504038]=0x4 (PCIE_MISC_RC_BAR2_CONFIG_HI)
+* set bits 27-31 of [0xfd504008] to 0b10001 (PCIE_MISC_MISC_CTRL)
+* clear bits 0-4 of [0xfd50402c] (disable the PCIe->GISB memory window (PCIE_MISC_RC_BAR1_CONFIG_LO))
+* clear bits 0-4 of [0xfd50403c] (disable the PCIe->SCB memory window (PCIE_MISC_RC_BAR3_CONFIG_LO))
+* clear bit 0 of [0xfd509210] (RGR1_SW_INIT_1)
 * wait for bits 4 and 5 of [0xfd504068] to be set, checking every 5000 us
 * report PCIe not in RC mode, if bit 7 is not set, and error
 * set [0xfd50400c]=0xc0000000 (lower 32 bits of pcie address as seen by pci controller?)
