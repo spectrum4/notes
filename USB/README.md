@@ -1274,3 +1274,18 @@ edit /boot/cmdline.txt: add `log_buf_len=64M` (`log-buf-len=64M` should also wor
 dmesg > dmesg.log 2>&1
 scp dmesg.log pmoore@Petes-iMac.local:.  # (for example)
 ```
+
+## Linux call stack
+
+* [brcm_pcie_probe](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/controller/pcie-brcmstb.c#L1250) calls [pci_host_probe](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/controller/pcie-brcmstb.c#L1376)
+* [pci_host_probe](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/probe.c#L3022) calls [pci_scan_root_bus_bridge](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/probe.c#L3027)
+* [pci_scan_root_bus_bridge](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/probe.c#L3116) calls [pci_scan_child_bus](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/probe.c#L3147)
+* [pci_scan_child_bus](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/probe.c#L2967) calls [pci_scan_child_bus_extend](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/probe.c#L2969)
+* [pci_scan_child_bus_extend](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/probe.c#L2826) calls [pci_scan_slot](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/probe.c#L2839)
+* [pci_scan_slot](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/probe.c#L2614) calls [pci_scan_single_device](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/probe.c#L2622)
+* [pci_scan_single_device](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/probe.c#L2533) calls [pci_scan_device](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/probe.c#L2543)
+* [pci_scan_device](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/probe.c#L2373) calls [pci_bus_read_dev_vendor_id](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/probe.c#L2378)
+* [pci_bus_read_dev_vendor_id](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/probe.c#L2350) calls [pci_bus_generic_read_dev_vendor_id](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/probe.c#L2365)
+* [pci_bus_generic_read_dev_vendor_id](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/probe.c#L2333) calls [pci_bus_read_config_dword](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/probe.c#L2336)
+* [pci_bus_read_config_dword](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/access.c#L36) calls [pci_generic_config_read](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/access.c#L44)
+* [pci_generic_config_read](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/access.c#L77) calls [pete_readl](https://github.com/petemoore/linux/blob/3ea9b35bd3eef731a94c48e197d4ea1539f3aae2/drivers/pci/access.c#L93)
