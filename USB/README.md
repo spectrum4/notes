@@ -393,10 +393,19 @@ sleep 100-200 us
 [    1.274417] drivers/pci/access.c:91 Read 16 bits [0xfd5000be]=0x9012
 [    1.274524] drivers/pci/controller/pcie-brcmstb.c:720 Write 32 bits [0xfd509000]=0x100000
 [    1.274563] drivers/pci/access.c:93 Read 32 bits [0xfd508000]=0x34831106
+Vendor ID + DeviceID
+PCI configuration registers
+Header Registers 0x00-0x3f
+Vendor ID: 0x1106
+Device ID: 0x3483
+default: 0x34831106
+=> Offset = 0xfd508000
 [    1.274575] drivers/pci/controller/pcie-brcmstb.c:720 Write 32 bits [0xfd509000]=0x100000
 [    1.274612] drivers/pci/access.c:89 Read 8 bits [0xfd50800e]=0x0
+=> Header Type (HDTYPE) (offset 0x0e)
 [    1.274621] drivers/pci/controller/pcie-brcmstb.c:720 Write 32 bits [0xfd509000]=0x100000
 [    1.274658] drivers/pci/access.c:91 Read 16 bits [0xfd508006]=0x10
+=> "PCI Status" (default: 0x10)
 [    1.274668] drivers/pci/controller/pcie-brcmstb.c:720 Write 32 bits [0xfd509000]=0x100000
 [    1.274705] drivers/pci/access.c:89 Read 8 bits [0xfd508034]=0x80
 [    1.274714] drivers/pci/controller/pcie-brcmstb.c:720 Write 32 bits [0xfd509000]=0x100000
@@ -411,10 +420,13 @@ sleep 100-200 us
 [    1.274933] drivers/pci/access.c:93 Read 32 bits [0xfd5080c8]=0x8001
 [    1.274953] drivers/pci/controller/pcie-brcmstb.c:720 Write 32 bits [0xfd509000]=0x100000
 [    1.274991] drivers/pci/access.c:93 Read 32 bits [0xfd508008]=0xc033001
+=> Revision ID + Class Code (default 0x0c033001
 [    1.275000] drivers/pci/controller/pcie-brcmstb.c:720 Write 32 bits [0xfd509000]=0x100000
 [    1.275037] drivers/pci/access.c:93 Read 32 bits [0xfd508100]=0x10001
 [    1.275045] drivers/pci/controller/pcie-brcmstb.c:720 Write 32 bits [0xfd509000]=0x100000
 [    1.275082] drivers/pci/access.c:93 Read 32 bits [0xfd508000]=0x34831106
+Vendor ID + DeviceID
+default: 0x34831106
 [    1.275091] drivers/pci/controller/pcie-brcmstb.c:720 Write 32 bits [0xfd509000]=0x100000
 [    1.275127] drivers/pci/access.c:93 Read 32 bits [0xfd508100]=0x10001
 [    1.275137] drivers/pci/controller/pcie-brcmstb.c:720 Write 32 bits [0xfd509000]=0x100000
@@ -422,18 +434,27 @@ sleep 100-200 us
 [    1.275186] pci 0000:01:00.0: [1106:3483] type 00 class 0x0c0330
 [    1.275203] drivers/pci/controller/pcie-brcmstb.c:720 Write 32 bits [0xfd509000]=0x100000
 [    1.275241] drivers/pci/access.c:91 Read 16 bits [0xfd508004]=0x0
+PCI Command
+default: 0x0000
 [    1.275250] drivers/pci/controller/pcie-brcmstb.c:720 Write 32 bits [0xfd509000]=0x100000
 [    1.275259] drivers/pci/access.c:111 Write 16 bits [0xfd508004]=0x400
+PCI Command
+INTRDIS (Interrupt Disable) = 1
 [    1.275297] drivers/pci/controller/pcie-brcmstb.c:720 Write 32 bits [0xfd509000]=0x100000
 [    1.275337] drivers/pci/access.c:91 Read 16 bits [0xfd508004]=0x400
+read back written value
 [    1.275347] drivers/pci/controller/pcie-brcmstb.c:720 Write 32 bits [0xfd509000]=0x100000
 [    1.275354] drivers/pci/access.c:111 Write 16 bits [0xfd508004]=0x0
+PCI Command
+WRITE INTRDIS (Interrupt Disable) = 0
 [    1.275394] drivers/pci/controller/pcie-brcmstb.c:720 Write 32 bits [0xfd509000]=0x100000
 [    1.275434] drivers/pci/access.c:89 Read 8 bits [0xfd50803d]=0x1
 [    1.275442] drivers/pci/controller/pcie-brcmstb.c:720 Write 32 bits [0xfd509000]=0x100000
 [    1.275480] drivers/pci/access.c:89 Read 8 bits [0xfd50803c]=0x0
 [    1.275489] drivers/pci/controller/pcie-brcmstb.c:720 Write 32 bits [0xfd509000]=0x100000
 [    1.275525] drivers/pci/access.c:91 Read 16 bits [0xfd508004]=0x0
+PCI Command
+READ INTRDIS (Interrupt Disable) = 0
 [    1.275534] drivers/pci/controller/pcie-brcmstb.c:720 Write 32 bits [0xfd509000]=0x100000
 [    1.275570] drivers/pci/access.c:93 Read 32 bits [0xfd508010]=0x4
 [    1.275579] drivers/pci/controller/pcie-brcmstb.c:720 Write 32 bits [0xfd509000]=0x100000
@@ -1119,7 +1140,7 @@ Header type: 0x0000000000000001
 
 Vendor ID: 14e4
 Device ID: 2711
-Command: 0000
+Command: 0000 (Linux: 0060)
 Status: 0010
 Revision ID: 20
 Prog IF: 00
@@ -1138,8 +1159,8 @@ Secondary Latency Timer: 00
 I/O Base: 00
 I/O Limit: 00
 Secondary Status: 0000
-Memory Base: f800
-Memory Limit: f800
+Memory Base: f800 (Linux: c000)
+Memory Limit: f800 (Linux: c000)
 Prefetchable Memory Base: fff1
 Prefetchable Memory Limit: 0001
 Prefetchable Base Upper 32 bits: 00000000
@@ -1230,6 +1251,8 @@ docker start -i rpikernel
 git reset --hard HEAD; git clean -fdx
 git grep -l '\(read\|write\)l' | grep '\.c$' | while read file; do if ! grep -q 'pete_\(read\|write\)l' "${file}"; then echo "processing ${file}..."; git checkout "${file}"; cat "${file}" | sed 's/readl(/pete_&/g' | sed 's/writel(/pete_&/g' | sed 's/_pete_readl/_readl/g' | sed 's/_pete_writel/_writel/g' > y; cat y | grep -n 'pete_\(read\|write\)l' | sed 's/:.*//' | while read line; do cat y | sed "${line}s%pete_readl(%&\"${file}:${line}\", %g" | sed "${line}s%pete_writel(%&\"${file}:${line}\", %g" > x; mv x y; done; mv y "${file}"; fi; done
 
+
+sudo apt install git bc bison flex libssl-dev make
 export KERNEL=kernel8 # examples online didn't export, but I have no idea how it reaches make subprocess if not exported
 make bcm2711_defconfig
 sed -i 's/^\(CONFIG_LOCALVERSION=.*\)"/\1-pmoore"/' .config
