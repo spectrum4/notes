@@ -1261,8 +1261,12 @@ sed -i 's/^# CONFIG_WERROR is not set/CONFIG_WERROR=y/' .config
 # sed -i 's/^\(CONFIG_LOG_BUF_SHIFT=\).*/\118/' .config  # (note, this sets the _default_ kernel ring buffer size when an explicit value is not specified in /boot/cmdline.txt - so probably better to just specify in /boot/cmdline.txt instead, and leave the default settings alone)
 make -j8 Image.gz
 
+# note - if you get errors about 128 bit integer types, it probably means you are in a 32 bit userspace (file /bin/bash should give you an idea)
+# make sure you installed a 64 bit version of Raspbian OS etc, not the standard 32 bit version
+
+sudo cp arch/arm64/boot/Image.gz /boot/kernel8.img
+
 make drivers/pci/controller/pcie-brcmstb.i
 
-
-/boot/cmdline.txt: log_buf_len=4M (log-buf-len=4M should also work)
+edit /boot/cmdline.txt: add `log_buf_len=64M` (`log-buf-len=64M` should also work)
 ```
