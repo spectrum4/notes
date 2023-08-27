@@ -1269,4 +1269,8 @@ sudo cp arch/arm64/boot/Image.gz /boot/kernel8.img
 make drivers/pci/controller/pcie-brcmstb.i
 
 edit /boot/cmdline.txt: add `log_buf_len=64M` (`log-buf-len=64M` should also work)
+
+# then boot into kernel, and run
+dmesg > dmesg.log 2>&1
+scp dmesg.log pmoore@Petes-iMac.local:.  # (for example)
 ```
