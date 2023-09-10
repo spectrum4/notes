@@ -84,8 +84,8 @@ Steps from enumeration example above:
 
 
 Steps from linux kernel:
-```
-* set bit 1 (RGR1_SW_INIT_1_INIT_GENERIC_MASK) of register [0xfd509210] (RGR1_SW_INIT_1)
+
+* [set](https://github.com/petemoore/linux/blob/rpi-5.15.y-debug-pcie-usb/drivers/pci/controller/pcie-brcmstb.c#L737) bit 1 (RGR1_SW_INIT_1_INIT_GENERIC_MASK) of register [0xfd509210] (RGR1_SW_INIT_1)
 * set bit 0 (PCIE_RGR1_SW_INIT_1_PERST_MASK) of register [0xfd509210] (RGR1_SW_INIT_1)
 * sleep for 100-200 microseconds
 * clear bit 1 of [0xfd509210] (RGR1_SW_INIT_1)
@@ -135,7 +135,7 @@ Steps from linux kernel:
   * set [0xfd504044]=0xfffffffd (lower 32 bits of msi target address with bit 0 set => msi enable)
   * set [0xfd504048]=0x0 (upper 32 bits of msi target address)
   * set [0xfd50404c]=0xffe06540
-```
+
 
 Steps from dmesg debug logs:
 
