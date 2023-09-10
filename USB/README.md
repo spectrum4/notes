@@ -27,7 +27,7 @@
 27. [Where can I Download USB3 VL805-Q6 Datasheet ?](https://forums.raspberrypi.com/viewtopic.php?t=302700)
 28. [Reverse engineering a USB device with Rust - Harry Gill](https://gill.net.in/posts/reverse-engineering-a-usb-device-with-rust/)
 29. [The Linux-USB Host Side API — The Linux Kernel documentation](https://www.kernel.org/doc/html/v4.10/driver-api/usb.html)
-30. [u-boot PCIe implementation](https://github.com/u-boot/u-boot/blob/master/drivers/pci/pcie_brcmstb.c#L424-L573)
+30. [u-boot PCIe implementation](https://github.com/u-boot/u-boot/blob/fbfa15c0b82b4e1ee1e974e2a85075cead502976/drivers/pci/pcie_brcmstb.c#L424-L573)
 
 
 ```
