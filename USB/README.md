@@ -84,7 +84,7 @@ Steps from enumeration example above:
 
 
 
-Steps from linux kernel:
+## Steps from linux kernel
 
 * [set](https://github.com/petemoore/linux/blob/rpi-5.15.y-debug-pcie-usb/drivers/pci/controller/pcie-brcmstb.c#L737) bit 1 (RGR1_SW_INIT_1_INIT_GENERIC_MASK) of register [0xfd509210] (RGR1_SW_INIT_1)
 * set bit 0 (PCIE_RGR1_SW_INIT_1_PERST_MASK) of register [0xfd509210] (RGR1_SW_INIT_1)
@@ -138,7 +138,107 @@ Steps from linux kernel:
   * set [0xfd50404c]=0xffe06540
 
 
-Steps from dmesg debug logs:
+## RC BAR 2 stuff
+
+* https://github.com/raspberrypi/linux/blob/14b35093ca68bf2c81bbc90aace5007142b40b40/drivers/pci/controller/pcie-brcmstb.c#L915-L925
+* https://github.com/raspberrypi/linux/blob/14b35093ca68bf2c81bbc90aace5007142b40b40/drivers/pci/controller/pcie-brcmstb.c#L780-L865
+
+[ranges](https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#ranges) and [dma-ranges](https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#dma-ranges)
+explains the meaning of the entries in [bcm2711.dtsi](https://github.com/raspberrypi/linux/blob/14b35093ca68bf2c81bbc90aace5007142b40b40/arch/arm/boot/dts/bcm2711.dtsi#L588-L596):
+
+> The `dma-ranges` property is used to describe the direct memory access (DMA)
+> structure of a memory-mapped bus whose devicetree parent can be accessed from
+> DMA operations originating from the bus. It provides a means of defining a
+> mapping or translation between the physical address space of the bus and the
+> physical address space of the parent of the bus.
+>
+> The format of the value of the `dma-ranges` property is an arbitrary number
+> of triplets of (`child-bus-address`, `parent-bus-address`, `length`). Each
+> triplet specified describes a contiguous DMA address range.
+>
+> * The `child-bus-address` is a physical address within the child bus' address
+>   space. The number of cells to represent the address depends on the bus and
+>   can be determined from the `#address-cells` of this node (the node in which
+>   the `dma-ranges` property appears).
+> * The `parent-bus-address` is a physical address within the parent bus'
+>   address space. The number of cells to represent the parent address is bus
+>   dependent and can be determined from the `#address-cells` property of the
+>   node that defines the parent's address space.
+> * The `length` specifies the size of the range in the child’s address space.
+>   The number of cells to represent the size can be determined from the
+>   `#size-cells` of this node (the node in which the `dma-ranges` property
+>   appears).
+
+```
+	scb {
+		#address-cells = <2>;
+
+		pcie0: pcie@7d500000 {
+			#address-cells = <3>;
+			#size-cells = <2>;
+			ranges = <0x02000000 0x0 0xc0000000 0x6 0x00000000 0x0 0x40000000>;
+			/*
+			 * The wrapper around the PCIe block has a bug
+			 * preventing it from accessing beyond the first 3GB of
+			 * memory.
+			 */
+			dma-ranges = <0x02000000 0x0 0x00000000 0x0 0x00000000 0x0 0xc0000000>;
+		}
+	}
+```
+
+From this we see that one range (CPU address -> PCI address):
+
+* child bus address: 0x02000000 0x0 0xc0000000
+* parent bus address: 0x6 0x00000000
+* length: 0x0 0x40000000
+
+and one DMA range (PCI address -> CPU address) is defined:
+
+* child bus address: 0x02000000 0x0 0x00000000
+* parent bus address: 0x0 0x00000000
+* length: 0x0 0xc0000000
+
+To understand this better, see:
+
+* [PCI Address Translation](https://elinux.org/Device_Tree_Usage#PCI_Address_Translation)
+* [PCI Bus Binding to Open Firmware](https://www.openfirmware.info/data/docs/bus.pci.pdf)
+
+## ranges
+
+One 1GB 32 bit non-prefetchable memory space region mapping is defined:
+* CPU physical addresses [0x0000 0006 0000 0000 -> 0x0000 0006 3fff ffff]
+maps to:
+* PCI addresses [0x0000 0000 c000 0000 -> 0x0000 0000 ffff ffff]
+
+## dma ranges
+
+One 3GB 32 bit non-prefetchable memory space region mapping is defined:
+* PCI addresses [0x0000 0000 0000 0000 -> 0x0000 0000 bfff ffff]
+maps to:
+* CPU physical addresses [0x0000 0000 0000 0000 -> 0x0000 0000 bfff ffff]
+
+Reverse engineering from dmesg logs, where [0xfd504034] (PCIE_MISC_RC_BAR2_CONFIG_LO) = 0x11
+and [0xfd504038] (PCIE_MISC_RC_BAR2_CONFIG_HI) = 0x4 and looking at code
+[here](https://github.com/raspberrypi/linux/blob/14b35093ca68bf2c81bbc90aace5007142b40b40/drivers/pci/controller/pcie-brcmstb.c#L915-L925)
+we can deduce what rci bar2 offset and size must be:
+
+rc2 bar2 offset:   0bhhhh hhhh hhhh hhhh hhhh hhhh hhhh hhhh llll llll llll llll llll llll llll llll
+rc2 bar2 size:     0bHHHH HHHH HHHH HHHH HHHH HHHH HHHH HHHH LLLL LLLL LLLL LLLL LLLL LLLL LLLL LLLL
+tmp:               0b0000 0000 0000 0000 0000 0000 0000 0000 llll llll llll llll llll llll llll llll
+tmp:               0b0000 0000 0000 0000 0000 0000 0000 0000 llll llll llll llll llll llll lllx xxxx
+
+LO: 0b0000 0000 0000 0000 0000 0000 0001 0001 = 0bllll llll llll llll llll llll lllx xxxx
+
+HI: 0b0000 0000 0000 0000 0000 0000 0000 0100 = 0bhhhh hhhh hhhh hhhh hhhh hhhh hhhh hhhh
+
+=> rc bar2 offset = 0x4 0000 0000
+and brcm_pcie_encode_ibar_size(size) = 0x11
+=> log2_in = 32
+=> rc bar2 size = 4GB = 0x1 0000 0000
+
+
+## Steps from dmesg debug logs
 
 ```
 [    1.204465] brcm-pcie fd500000.pcie: host bridge /scb/pcie@7d500000 ranges:
