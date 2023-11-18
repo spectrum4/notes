@@ -1439,11 +1439,73 @@ struct pci_bus {
 struct pci_ops {
 	int (*add_bus)(struct pci_bus *bus);
 	void (*remove_bus)(struct pci_bus *bus);
-	void __iomem *(*map_bus)(struct pci_bus *bus, unsigned int devfn, int where);
-	int (*read)(struct pci_bus *bus, unsigned int devfn, int where, int size, u32 *val);
-	int (*write)(struct pci_bus *bus, unsigned int devfn, int where, int size, u32 val);
+	void __iomem *(*map_bus)(struct pci_bus *bus, unsigned int devfn, int where);          //// on rpi400 that is brcm_pcie_map_conf
+	int (*read)(struct pci_bus *bus, unsigned int devfn, int where, int size, u32 *val);   //// or rpi400 that is pci_generic_config_read
+	int (*write)(struct pci_bus *bus, unsigned int devfn, int where, int size, u32 val);   //// or rpi400 that is pci_generic_config_write
 };
 ```
+
+```
+
+static struct pci_ops brcm_pcie_ops = {
+	.map_bus = brcm_pcie_map_conf,
+	.read = pci_generic_config_read,
+	.write = pci_generic_config_write,
+};
+
+```
+
+
+```
+#define PCI_SLOT(devfn)		(((devfn) >> 3) & 0x1f)
+```
+
+
+```
+static void __iomem *brcm_pcie_map_conf(struct pci_bus *bus, unsigned int devfn,
+					int where)
+{
+	struct brcm_pcie *pcie = bus->sysdata;
+	void __iomem *base = pcie->base;
+	int idx;
+
+	/* Accesses to the RC go right to the RC registers if slot==0 */
+	if (pci_is_root_bus(bus))
+		return PCI_SLOT(devfn) ? NULL : base + where;
+// #define PCI_SLOT(devfn)     (((devfn) >> 3) & 0x1f)
+
+	/* For devices, write to the config space index register */
+	idx = PCIE_ECAM_OFFSET(bus->number, devfn, 0);
+	writel(idx, pcie->base + PCIE_EXT_CFG_INDEX);
+	return base + PCIE_EXT_CFG_DATA + where;
+// #define PCIE_EXT_CFG_DATA				0x8000
+}
+```
+
+```
+/*
+ * Enhanced Configuration Access Mechanism (ECAM)
+ *
+ * See PCI Express Base Specification, Revision 5.0, Version 1.0,
+ * Section 7.2.2, Table 7-1, p. 677.
+ */
+#define PCIE_ECAM_BUS_SHIFT	20 /* Bus number */
+#define PCIE_ECAM_DEVFN_SHIFT	12 /* Device and Function number */
+
+#define PCIE_ECAM_BUS_MASK	0xff
+#define PCIE_ECAM_DEVFN_MASK	0xff
+#define PCIE_ECAM_REG_MASK	0xfff /* Limit offset to a maximum of 4K */
+
+#define PCIE_ECAM_BUS(x)	(((x) & PCIE_ECAM_BUS_MASK) << PCIE_ECAM_BUS_SHIFT)
+#define PCIE_ECAM_DEVFN(x)	(((x) & PCIE_ECAM_DEVFN_MASK) << PCIE_ECAM_DEVFN_SHIFT)
+#define PCIE_ECAM_REG(x)	((x) & PCIE_ECAM_REG_MASK)
+
+#define PCIE_ECAM_OFFSET(bus, devfn, where) \
+	(PCIE_ECAM_BUS(bus) | \
+	 PCIE_ECAM_DEVFN(devfn) | \
+	 PCIE_ECAM_REG(where))
+```
+
 
 
 ```
@@ -1672,5 +1734,47 @@ struct pcie_link_state {
 	u32 clkpm_enabled:1;		/* Current Clock PM state */
 	u32 clkpm_default:1;		/* Default Clock PM state by BIOS */
 	u32 clkpm_disable:1;		/* Clock PM disabled */
+};
+```
+
+```
+struct pcie_cfg_data {
+	const int *offsets;
+	const enum pcie_type type;
+	void (*perst_set)(struct brcm_pcie *pcie, u32 val);
+	void (*bridge_sw_init_set)(struct brcm_pcie *pcie, u32 val);
+};
+```
+
+```
+enum pcie_type {
+	GENERIC,
+	BCM4908,
+	BCM7278,
+	BCM2711,
+};
+```
+
+```
+/* Internal PCIe Host Controller Information.*/
+struct brcm_pcie {
+	struct device		*dev;
+	void __iomem		*base;
+	struct clk		*clk;
+	struct device_node	*np;
+	bool			ssc;
+	bool			l1ss;
+	int			gen;
+	u64			msi_target_addr;
+	struct brcm_msi		*msi;
+	const int		*reg_offsets;
+	enum pcie_type		type;
+	struct reset_control	*rescal;
+	struct reset_control	*perst_reset;
+	int			num_memc;
+	u64			memc_size[PCIE_BRCM_MAX_MEMC];
+	u32			hw_rev;
+	void			(*perst_set)(struct brcm_pcie *pcie, u32 val);
+	void			(*bridge_sw_init_set)(struct brcm_pcie *pcie, u32 val);
 };
 ```
