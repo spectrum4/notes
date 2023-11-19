@@ -1357,7 +1357,10 @@ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcm2711_defconfig
 sed -i 's/^\(CONFIG_LOCALVERSION=.*\)"/\1-pmoore"/' .config
 sed -i 's/-pmoore-pmoore/-pmoore/' .config
 sed -i 's/^# CONFIG_WERROR is not set/CONFIG_WERROR=y/' .config
-make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j Image modules dtbs
+sed -i '425,488s/=y/=n/' .config
+# make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j Image modules dtbs
+make -j8 Image modules dtbs
+objdump -d vmlinux > kernel.s
 
 docker start -i $(docker ps -q -l)
 docker start -i rpikernel
