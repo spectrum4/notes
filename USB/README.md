@@ -1345,14 +1345,34 @@ wr_fld_rb(0xFD509210, 2=mask, 1=shift, 1=value)  =>  set bit 1 of 0Xfd509210
 
 * https://olegkutkov.me/2021/01/07/writing-a-pci-device-driver-for-linux/
 
+## Building Linux kernel under docker (e.g. on macOS)
+
 ```bash
+docker run --name rpikernel -v /Volumes/casesensitive/linux -ti ubuntu /bin/bash
+apt-get update
+apt-get upgrade
+apt install git bc bison flex libssl-dev make libc6-dev libncurses5-dev crossbuild-essential-arm64
+export KERNEL=kernel8
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcm2711_defconfig
+sed -i 's/^\(CONFIG_LOCALVERSION=.*\)"/\1-pmoore"/' .config
+sed -i 's/-pmoore-pmoore/-pmoore/' .config
+sed -i 's/^# CONFIG_WERROR is not set/CONFIG_WERROR=y/' .config
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j Image modules dtbs
+
 docker start -i $(docker ps -q -l)
 docker start -i rpikernel
+```
 
+## Logging mmio read/writes in dmesg logs
+
+```
 git reset --hard HEAD; git clean -fdx
 git grep -l '\(read\|write\)l' | grep '\.c$' | while read file; do if ! grep -q 'pete_\(read\|write\)l' "${file}"; then echo "processing ${file}..."; git checkout "${file}"; cat "${file}" | sed 's/readl(/pete_&/g' | sed 's/writel(/pete_&/g' | sed 's/_pete_readl/_readl/g' | sed 's/_pete_writel/_writel/g' > y; cat y | grep -n 'pete_\(read\|write\)l' | sed 's/:.*//' | while read line; do cat y | sed "${line}s%pete_readl(%&\"${file}:${line}\", %g" | sed "${line}s%pete_writel(%&\"${file}:${line}\", %g" > x; mv x y; done; mv y "${file}"; fi; done
+```
 
+## Building Linux kernel directly on rpi
 
+```
 sudo apt install git bc bison flex libssl-dev make
 export KERNEL=kernel8 # examples online didn't export, but I have no idea how it reaches make subprocess if not exported
 make bcm2711_defconfig
@@ -1777,4 +1797,19 @@ struct brcm_pcie {
 	void			(*perst_set)(struct brcm_pcie *pcie, u32 val);
 	void			(*bridge_sw_init_set)(struct brcm_pcie *pcie, u32 val);
 };
+```
+
+```
+/*
+ * Returns true if the PCI bus is root (behind host-PCI bridge),
+ * false otherwise
+ *
+ * Some code assumes that "bus->self == NULL" means that bus is a root bus.
+ * This is incorrect because "virtual" buses added for SR-IOV (via
+ * virtfn_add_bus()) have "bus->self == NULL" but are not root buses.
+ */
+static inline bool pci_is_root_bus(struct pci_bus *pbus)
+{
+	return !(pbus->parent);
+}
 ```
