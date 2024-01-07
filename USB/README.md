@@ -1819,51 +1819,67 @@ static inline bool pci_is_root_bus(struct pci_bus *pbus)
 
 
 ```
-/*
-Returns the pcie register address that maps to the given pci bus, function and
-config offset (where).  If the pci bus has no parent, this will be the offset
-from the pcie base, otherwise PCIE_EXT_CFG_INDEX register will be written to
-with the ECAM offset for bus/function, and offset (where) will be applied to
-PCIE_EXT_CFG_DATA. If no bus parent, but device (slot) is not 0, return 0.
-*/
+/**
+ * Returns the pcie register address that maps to the given pci bus, function and
+ * config offset (where).  If the pci bus has no parent, this will be the offset
+ * from the pcie base, otherwise PCIE_EXT_CFG_INDEX register will be written to
+ * with the ECAM offset for bus/function, and offset (where) will be applied to
+ * PCIE_EXT_CFG_DATA. If no bus parent, but device (slot) is not 0, return 0.
+ */
 static void __iomem *brcm_pcie_map_conf(struct pci_bus *bus, unsigned int devfn, int where)
 
 
 
-/*
-Reads byte/word/dword into val for given inputs. Calls brcm_pcie_map_conf to
-get address. Returns PCIBIOS_DEVICE_NOT_FOUND / PCIBIOS_SUCCESSFUL
-*/
+/**
+ * Reads byte/word/dword into val for given inputs. Calls brcm_pcie_map_conf to
+ * get address. Returns PCIBIOS_DEVICE_NOT_FOUND / PCIBIOS_SUCCESSFUL
+ */
 pci_generic_config_read(struct pci_bus *bus, unsigned int devfn, int where, int size, u32 *val)
 
 
-/*
-Wrapper for pci_generic_config_read that returns PCIBIOS_BAD_REGISTER_NUMBER if
-pos/size misaligned. Spinlock around access (raw_spin_lock_irqsave).
-*/
+/**
+ * Wrapper for pci_generic_config_read that returns PCIBIOS_BAD_REGISTER_NUMBER if
+ * pos/size misaligned. Spinlock around access (raw_spin_lock_irqsave).
+ */
 pci_bus_read_config_{byte,word,dword==size} (struct pci_bus *bus, unsigned int devfn, int pos, type *value)
 
 
 
-/*
-Reads vendorid (where=0, size=4) into l. If two upper bytes or two lower bytes
-== 0x0000 of 0xffff, returns false.  If Vendor (l & 0xffff) comes back as
-0x0001, keep retrying until timeout with exponential backoff. Return true if
-value not 0x0001, otherwise false.
-*/
+/**
+ * Reads vendorid (where=0, size=4) into l. If two upper bytes or two lower bytes
+ * == 0x0000 or 0xffff, returns false.  If Vendor (l & 0xffff) comes back as
+ * 0x0001, keep retrying until timeout with exponential backoff. Return true if
+ * value not 0x0001, otherwise false.
+ */
 bool pci_bus_generic_read_dev_vendor_id(struct pci_bus *bus, int devfn, u32 *l, int timeout)
 
 
-/*
-Allocate a pci_bus structure. Initialise bus_list (doubly linked list), type
-(pci_dev_type), bus (by calling pci_bus_get)...
-*/
+/**
+ * Allocate a pci_dev struct from the pci_bus struct passed in. Initialise bus_list (doubly linked list), type
+ * (pci_dev_type), bus = bus->dev of bus passed in (taking care of reference counting).
+ */
 struct pci_dev *pci_alloc_dev(struct pci_bus *bus)
 
 
-/*
-Call pci_bus_generic_read_dev_vendor_id to get vendor id (60 second timeout or fail).
-*/
+/**
+ * Call pci_bus_generic_read_dev_vendor_id to get vendor/device id (60 second
+ * timeout or fail).  Allocate a pci_dev device (dev) by calling pci_alloc_dev(bus).
+ * Then set dev->devfn, dev->vendor and dev->device. Call pci_setup_device(dev) and if
+ * that fails, free the device, otherwise return it.
+ */
 static struct pci_dev *pci_scan_device(struct pci_bus *bus, int devfn)
 
+
+
+/**
+ * pci_setup_device - Fill in class and map information of a device
+ * @dev: the device structure to fill
+ *
+ * Initialize the device structure with information about the device's
+ * vendor,class,memory and IO-space addresses, IRQ lines etc.
+ * Called at initialisation of the PCI subsystem and by CardBus services.
+ * Returns 0 on success and negative if unknown type of device (not normal,
+ * bridge or CardBus).
+ */
+int pci_setup_device(struct pci_dev *dev)
 ```
