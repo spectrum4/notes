@@ -38,7 +38,8 @@ memory, peripherals, etc.  Afterwards .dtb files on the boot media are loaded
 to update `MachineInfo` with additional information.  Next, [static
 constructors are
 called](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/lib/sysinit.cpp#L246-L252),
-if any are registered. I can't seem to find any registered (the [circle.ld]()
+if any are registered. I can't seem to find any registered (the
+[circle.ld](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/circle.ld#L23-L29)
 file keeps `.init_array*` sections between `__init_start` and `__init_end`) so
 probably this is just so external code that uses cirlce can register static
 constructors if required. However, this led me to the [memory map
