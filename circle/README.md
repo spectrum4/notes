@@ -68,3 +68,12 @@ as `CUSBHCIDevice` which maps to the
 [`CXHCIDevice`](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/include/circle/usb/usbhcidevice.h#L31)
 class whose constructor is found
 [here](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/lib/usb/xhcidevice.cpp#L38).
+
+# CXHCIDevice
+
+The first entry in the initialization list is just a boolean for whether plug
+and play is enabled. This is just passed through and there is no additional
+logic. The second entry in the initialization list is for the interrupt system
+(`CInterruptSystem m_pInterruptSystem`). The constructor here initialises the
+interrupt lines
+[here](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/lib/interrupt.cpp#L51-L60).
