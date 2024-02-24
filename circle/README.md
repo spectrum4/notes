@@ -62,3 +62,9 @@ The CKernel constructor is
 This initialises various subsystems, and most importantly, one of these is the
 [USB Host Controller
 Interface](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/sample/08-usbkeyboard/kernel.cpp#L37).
+This is declared
+[here](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/sample/08-usbkeyboard/kernel.h#L72)
+as `CUSBHCIDevice` which maps to the
+[`CXHCIDevice`](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/include/circle/usb/usbhcidevice.h#L31)
+class whose constructor is found
+[here](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/lib/usb/xhcidevice.cpp#L38).
