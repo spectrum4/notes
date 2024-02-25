@@ -74,10 +74,10 @@ class whose constructor is found
 The first entry in the initialization list is just a boolean for whether plug
 and play is enabled. This is just passed through and there is no additional
 logic. The second entry in the initialization list is for the interrupt system
-(`CInterruptSystem m_pInterruptSystem`). The constructor here initialises the
-[data
+(`CInterruptSystem m_pInterruptSystem`). The constructor
+[here](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/lib/interruptgic.cpp#L89-L98)
+initialises the [data
 structures](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/include/circle/interrupt.h#L66-L67)
 for the
 [256](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/include/circle/bcm2711int.h#L64)
-interrupt lines
-[here](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/lib/interruptgic.cpp#L89-L98).
+interrupt lines.
