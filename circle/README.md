@@ -15,7 +15,7 @@ demystification process.
 
 The entry point is
 [`_start`](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/lib/startup64.S#L77)
-assembly routine.  This performs some basic initialisation to get from EL3 to
+assembly routine. This performs some basic initialisation to get from EL3 to
 EL1, set up stacks, exception table etc. Nothing here that Spectrum +4 needs,
 as these parts are already developed. There is code for starting up additional
 cores, but we're not supporting this on Spectrum +4 at the moment, so we'll
@@ -32,11 +32,14 @@ and
 interrupts are enabled. After this, [bss is
 cleared](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/lib/sysinit.cpp#L208-L211)
 (pretty standard), a check is made that `MEM_KERNEL_END` fits inside the bss
-section otherwise system is halted.  After this `MachineInfo` and `Memory`
-constructors are called which hold information about the raspberry pi version,
-memory, peripherals, etc.  Afterwards .dtb files on the boot media are loaded
-to update `MachineInfo` with additional information.  Next, [static
-constructors are
+section otherwise system is halted. After this
+[`MachineInfo`](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/lib/machineinfo.cpp#L144-L243)
+and
+[`Memory`](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/lib/memory.cpp#L48-L144)
+variables are declared which will eventually hold information about the
+raspberry pi version, memory, peripherals, etc. Afterwards .dtb files on the
+boot media are loaded to update `MachineInfo` with additional information.
+Next, [static constructors are
 called](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/lib/sysinit.cpp#L246-L252),
 if any are registered. I can't seem to find any registered (the
 [circle.ld](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/circle.ld#L23-L29)
