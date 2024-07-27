@@ -30324,12 +30324,12 @@ Disassembly of section .text:
 000000000009ccd0 <CBcmPropertyTags::GetTag(unsigned int, void*, unsigned int, unsigned int)>:
    9ccd0:   a9be7bfd    stp x29, x30, [sp, #-32]!
    9ccd4:   910003fd    mov x29, sp
-   9ccd8:   f9000bf3    str x19, [sp, #16]
-   9ccdc:   aa0203f3    mov x19, x2
-   9cce0:   b4000662    cbz x2, 9cdac <CBcmPropertyTags::GetTag(unsigned int, void*, unsigned int, unsigned int)+0xdc>
+   9ccd8:   f9000bf3    str x19, [sp, #16]                             // preserve x19
+   9ccdc:   aa0203f3    mov x19, x2                                    // x19 = pTag
+   9cce0:   b4000662    cbz x2, 9cdac <CBcmPropertyTags::GetTag(unsigned int, void*, unsigned int, unsigned int)+0xdc> // if pTag == 0 
    9cce4:   71003c7f    cmp w3, #0xf
    9cce8:   2a0303e2    mov w2, w3
-   9ccec:   540006a9    b.ls    9cdc0 <CBcmPropertyTags::GetTag(unsigned int, void*, unsigned int, unsigned int)+0xf0>
+   9ccec:   540006a9    b.ls    9cdc0 <CBcmPropertyTags::GetTag(unsigned int, void*, unsigned int, unsigned int)+0xf0> // if nTagSize <= 15 jump to 0x9cdc0 (assertion failed)
    9ccf0:   51003063    sub w3, w3, #0xc
    9ccf4:   d3483c26    ubfx    x6, x1, #8, #8
    9ccf8:   39000261    strb    w1, [x19]
@@ -30377,11 +30377,16 @@ Disassembly of section .text:
    9cda0:   2a0203e0    mov w0, w2
    9cda4:   a8c27bfd    ldp x29, x30, [sp], #32
    9cda8:   d65f03c0    ret
+
+
+// assertion failed
    9cdac:   f00000c1    adrp    x1, b7000 <CKeyMap::s_DefaultMap+0x16a0>
-   9cdb0:   9131e021    add x1, x1, #0xc78
-   9cdb4:   9101c020    add x0, x1, #0x70
-   9cdb8:   52800662    mov w2, #0x33
+   9cdb0:   9131e021    add x1, x1, #0xc78                                                  // x1 = 0xb7c78
+   9cdb4:   9101c020    add x0, x1, #0x70                                                   // x0 = 0xb7ce8
+   9cdb8:   52800662    mov w2, #0x33                                                       // x2 = 0x33
    9cdbc:   97ffff41    bl  9cac0 <assertion_failed>
+
+// assertion failed
    9cdc0:   f00000c1    adrp    x1, b7000 <CKeyMap::s_DefaultMap+0x16a0>
    9cdc4:   9131e021    add x1, x1, #0xc78
    9cdc8:   91020020    add x0, x1, #0x80
@@ -33685,29 +33690,29 @@ Disassembly of section .text:
    9fe88:   f9000bf3    str x19, [sp, #16]                             // preserve x19
    9fe8c:   f90017e0    str x0, [sp, #40]                              // preserve x0
    9fe90:   f94017e0    ldr x0, [sp, #40]                              // retrieve it. why?!
-   9fe94:   b900001f    str wzr, [x0]                                  // str 0x00000000 at memory address of x0 (sp + 0x50)
+   9fe94:   b900001f    str wzr, [x0]                                  // str 0x00000000 at memory address of x0 (sp + 0x50) = m_nRevisionRaw
    9fe98:   f94017e0    ldr x0, [sp, #40]                              // retrieve x0 again, for no good reason?!
    9fe9c:   52800281    mov w1, #0x14
-   9fea0:   b9001001    str w1, [x0, #16]                              // store 20 on the stack
+   9fea0:   b9001001    str w1, [x0, #16]                              // store 20 on the stack ( MachineModelUnknown from https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/include/circle/machineinfo.h#L51 )
    9fea4:   f94017e0    ldr x0, [sp, #40]
-   9fea8:   b900201f    str wzr, [x0, #32]                             // store 0 on the stack
+   9fea8:   b900201f    str wzr, [x0, #32]                             // store 0 on the stack (m_nModelMajor)
    9feac:   f94017e0    ldr x0, [sp, #40]
-   9feb0:   b900301f    str wzr, [x0, #48]                             // store 0 on the stack
+   9feb0:   b900301f    str wzr, [x0, #48]                             // store 0 on the stack (m_nModelRevision)
    9feb4:   f94017e0    ldr x0, [sp, #40]
    9feb8:   52800081    mov w1, #0x4
-   9febc:   b9004001    str w1, [x0, #64]                              // store 4 on the stack
+   9febc:   b9004001    str w1, [x0, #64]                              // store 4 on the stack ( SoCTypeUnknown from https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/include/circle/machineinfo.h#L60 )
    9fec0:   f94017e0    ldr x0, [sp, #40]
-   9fec4:   b900501f    str wzr, [x0, #80]                             // store 0x00000000 on the stack
+   9fec4:   b900501f    str wzr, [x0, #80]                             // store 0x00000000 on the stack (m_nRAMSize)
    9fec8:   f94017e0    ldr x0, [sp, #40]
    9fecc:   528e3ea1    mov w1, #0x71f5
-   9fed0:   7900c001    strh    w1, [x0, #96]                          // store 0x71f5 on the stack (29173)
+   9fed0:   7900c001    strh    w1, [x0, #96]                          // store 0x71f5 on the stack (29173) (m_usDMAChannelMap default mapping)
    9fed4:   f94017e0    ldr x0, [sp, #40]
-   9fed8:   f900381f    str xzr, [x0, #112]                            // store 0x0000000000000000 on the stack
+   9fed8:   f900381f    str xzr, [x0, #112]                            // store 0x0000000000000000 on the stack (m_pDTB)
    9fedc:   f00000c0    adrp    x0, ba000 <font_data+0x1080>
    9fee0:   9125e000    add x0, x0, #0x978
-   9fee4:   f9400000    ldr x0, [x0]                                   // x0 = [0xba978]
+   9fee4:   f9400000    ldr x0, [x0]                                   // x0 = [0xba978] = s_pThis
    9fee8:   f100001f    cmp x0, #0x0
-   9feec:   540004c0    b.eq    9ff84 <CMachineInfo::CMachineInfo()+0x104>
+   9feec:   540004c0    b.eq    9ff84 <CMachineInfo::CMachineInfo()+0x104> // if s_pThis == 0 skip ahead to 0x9ff84
    9fef0:   f00000c0    adrp    x0, ba000 <font_data+0x1080>
    9fef4:   9125e000    add x0, x0, #0x978
    9fef8:   f9400000    ldr x0, [x0]
@@ -33745,6 +33750,7 @@ Disassembly of section .text:
    9ff78:   f94017e0    ldr x0, [sp, #40]
    9ff7c:   b9005001    str w1, [x0, #80]
    9ff80:   140000ce    b   a02b8 <CMachineInfo::CMachineInfo()+0x438>
+
    9ff84:   f00000c0    adrp    x0, ba000 <font_data+0x1080>
    9ff88:   9125e000    add x0, x0, #0x978
    9ff8c:   f94017e1    ldr x1, [sp, #40]
@@ -33950,6 +33956,7 @@ Disassembly of section .text:
    a02ac:   910163e0    add x0, sp, #0x58
    a02b0:   97fff22c    bl  9cb60 <CBcmPropertyTags::~CBcmPropertyTags()>
    a02b4:   7100067f    cmp w19, #0x1
+
    a02b8:   f9400bf3    ldr x19, [sp, #16]
    a02bc:   a8c77bfd    ldp x29, x30, [sp], #112
    a02c0:   d65f03c0    ret
