@@ -34354,7 +34354,7 @@ Disassembly of section .text:
    a0858:   d503201f    nop
    a085c:   d503201f    nop
 
-00000000000a0860 <CMachineInfo::FetchDTB()>:
+00000000000a0860 <CMachineInfo::FetchDTB()>:                         // https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/lib/machineinfo.cpp#L556
    a0860:   d2801f01    mov x1, #0xf8
    a0864:   a9bd7bfd    stp x29, x30, [sp, #-48]!
    a0868:   910003fd    mov x29, sp
