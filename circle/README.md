@@ -84,3 +84,57 @@ structures](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a
 for the
 [256](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/include/circle/bcm2711int.h#L64)
 interrupt lines.
+
+# Notes
+
+## Debugging
+
+```diff
+#include <circle/logger.h>
+...
+static const char From[] = "foo-subsystem";
+...
++       LOGDBG ("Logging my first message");
++       LOGDBG ("Circle version: %s", Version);
++       LOGDBG ("Machine name: %s", MachineInfo.GetMachineName());
++       LOGDBG ("Memory size: %u", Memory.GetMemSize());
+```
+
+Formatting primitives: see lib/string.cpp
+  * `%u`
+  * `%x`
+  * `%i`
+  * `%l`
+  * `%s`
+  * `%f`
+
+Compiling:
+
+```
+cd lib
+make clean
+make
+cd ../samples/08-usbkeyboard
+make clean
+make
+```
+
+Debug settings:
+
+```
+$ git grep '#ifdef.*DEBUG' | sed 's/.*:#ifdef //' | sort -u
+DEBUG
+DEBUG_CLICK
+EMMC_DEBUG
+EMMC_DEBUG2
+HDMI_DEBUG
+HEAP_DEBUG
+NDEBUG
+PAGE_DEBUG
+RTO_DEBUG
+TCP_DEBUG
+USB_GADGET_DEBUG
+VCOS_BLOCKPOOL_DEBUGGING
+XHCI_DEBUG
+XHCI_DEBUG2
+```
