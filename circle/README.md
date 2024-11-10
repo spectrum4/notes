@@ -62,7 +62,7 @@ then calls Run method.
 
 The CKernel constructor is
 [here](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/sample/08-usbkeyboard/kernel.cpp#L33).
-This initialises various subsystems, and most importantly, one of these is the
+This constructs objects for the various subsystems, and most importantly, one of these is the
 [USB Host Controller
 Interface](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/sample/08-usbkeyboard/kernel.cpp#L37).
 This is declared
@@ -71,6 +71,20 @@ as `CUSBHCIDevice` which maps to the
 [`CXHCIDevice`](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/include/circle/usb/usbhcidevice.h#L31)
 class whose constructor is found
 [here](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/lib/usb/xhcidevice.cpp#L38).
+
+The Initialize call of the CKernel instance [configures the
+systems](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/sample/08-usbkeyboard/kernel.cpp#L51-L92)
+that were created in the constructor:
+* screen
+* serial driver
+* logger
+* interrupt handling
+* timer
+* USB host controller interface.
+
+Interrupt initialization is managed in
+[interruptgic.cpp](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/lib/interruptgic.cpp#L109-L174)
+on rpi4.
 
 # CXHCIDevice
 
