@@ -11,7 +11,7 @@ document is an attempt to unravel how it works, in order that I can develop my
 own keyboard routines for the Spectrum +4 project in assembly.
 
 I have compiled the code and output the generated assembly, to aid the
-demystification process.
+demystification process (see generate-dissassembly.sh script).
 
 The entry point is
 [`_start`](https://github.com/rsta2/circle/blob/c21f2efdad86c1062f255fbf891135a2a356713e/lib/startup64.S#L77)
