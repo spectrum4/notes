@@ -1,0 +1,945 @@
+logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
+logger: Revision code is c03130, compiler has been GCC 13.2.1
+interruptgic: write32 [ff841100] = 40000000
+interruptgic: read32 [ff84200c] = 1e
+00:00:00.01 interruptgic: write32 [ff842010] = 1e
+00:00:00.01 interruptgic: read32 [ff84200c] = 1e
+00:00:00.02 interruptgic: write32 [ff842010] = 1e
+00:00:00.02 interruptgic: read32 [ff84200c] = 1e
+00:00:00.03 interruptgic: write32 [ff842010] = 1e
+00:00:00.03 interruptgic: read32 [ff84200c] = 1e
+00:00:00.04 interruptgic: write32 [ff842010] = 1e
+00:00:00.04 interruptgic: read32 [ff84200c] = 1e
+00:00:00.05 interruptgic: write32 [ff842010] = 1e
+00:00:00.05 interruptgic: read32 [ff84200c] = 1e
+00:00:00.06 interruptgic: write32 [ff842010] = 1e
+00:00:00.06 interruptgic: read32 [ff84200c] = 1e
+00:00:00.07 interruptgic: write32 [ff842010] = 1e
+00:00:00.07 interruptgic: read32 [ff84200c] = 1e
+00:00:00.08 interruptgic: write32 [ff842010] = 1e
+00:00:00.08 interruptgic: read32 [ff84200c] = 1e
+00:00:00.09 interruptgic: write32 [ff842010] = 1e
+00:00:00.09 interruptgic: read32 [ff84200c] = 1e
+00:00:00.10 interruptgic: write32 [ff842010] = 1e
+00:00:00.10 interruptgic: read32 [ff84200c] = 1e
+00:00:00.11 interruptgic: write32 [ff842010] = 1e
+00:00:00.11 interruptgic: read32 [ff84200c] = 1e
+00:00:00.12 interruptgic: write32 [ff842010] = 1e
+00:00:00.12 interruptgic: read32 [ff84200c] = 1e
+00:00:00.13 interruptgic: write32 [ff842010] = 1e
+00:00:00.13 interruptgic: read32 [ff84200c] = 1e
+00:00:00.14 interruptgic: write32 [ff842010] = 1e
+00:00:00.14 interruptgic: read32 [ff84200c] = 1e
+00:00:00.15 interruptgic: write32 [ff842010] = 1e
+00:00:00.15 interruptgic: read32 [ff84200c] = 1e
+00:00:00.16 interruptgic: write32 [ff842010] = 1e
+00:00:00.16 interruptgic: read32 [ff84200c] = 1e
+00:00:00.17 interruptgic: write32 [ff842010] = 1e
+00:00:00.17 interruptgic: read32 [ff84200c] = 1e
+00:00:00.18 interruptgic: write32 [ff842010] = 1e
+00:00:00.18 interruptgic: read32 [ff84200c] = 1e
+00:00:00.19 interruptgic: write32 [ff842010] = 1e
+00:00:00.19 interruptgic: read32 [ff84200c] = 1e
+00:00:00.20 interruptgic: write32 [ff842010] = 1e
+00:00:00.20 interruptgic: read32 [ff84200c] = 1e
+00:00:00.21 interruptgic: write32 [ff842010] = 1e
+00:00:00.21 interruptgic: read32 [ff84200c] = 1e
+00:00:00.22 interruptgic: write32 [ff842010] = 1e
+00:00:00.22 interruptgic: read32 [ff84200c] = 1e
+00:00:00.23 interruptgic: write32 [ff842010] = 1e
+00:00:00.23 interruptgic: read32 [ff84200c] = 1e
+00:00:00.24 interruptgic: write32 [ff842010] = 1e
+00:00:00.24 interruptgic: read32 [ff84200c] = 1e
+00:00:00.25 interruptgic: write32 [ff842010] = 1e
+00:00:00.25 interruptgic: read32 [ff84200c] = 1e
+00:00:00.26 interruptgic: write32 [ff842010] = 1e
+00:00:00.26 interruptgic: read32 [ff84200c] = 1e
+00:00:00.27 interruptgic: write32 [ff842010] = 1e
+00:00:00.27 interruptgic: read32 [ff84200c] = 1e
+00:00:00.28 interruptgic: write32 [ff842010] = 1e
+00:00:00.28 interruptgic: read32 [ff84200c] = 1e
+00:00:00.29 interruptgic: write32 [ff842010] = 1e
+00:00:00.29 interruptgic: read32 [ff84200c] = 1e
+00:00:00.30 interruptgic: write32 [ff842010] = 1e
+00:00:00.30 interruptgic: read32 [ff84200c] = 1e
+00:00:00.31 interruptgic: write32 [ff842010] = 1e
+00:00:00.31 interruptgic: read32 [ff84200c] = 1e
+00:00:00.32 interruptgic: write32 [ff842010] = 1e
+00:00:00.32 interruptgic: read32 [ff84200c] = 1e
+00:00:00.33 interruptgic: write32 [ff842010] = 1e
+00:00:00.33 interruptgic: read32 [ff84200c] = 1e
+00:00:00.34 interruptgic: write32 [ff842010] = 1e
+00:00:00.34 interruptgic: read32 [ff84200c] = 1e
+00:00:00.35 interruptgic: write32 [ff842010] = 1e
+00:00:00.35 interruptgic: read32 [ff84200c] = 1e
+00:00:00.36 interruptgic: write32 [ff842010] = 1e
+00:00:00.36 interruptgic: read32 [ff84200c] = 1e
+00:00:00.37 interruptgic: write32 [ff842010] = 1e
+00:00:00.37 interruptgic: read32 [ff84200c] = 1e
+00:00:00.38 interruptgic: write32 [ff842010] = 1e
+00:00:00.38 interruptgic: read32 [ff84200c] = 1e
+00:00:00.39 interruptgic: write32 [ff842010] = 1e
+00:00:00.39 interruptgic: read32 [ff84200c] = 1e
+00:00:00.40 interruptgic: write32 [ff842010] = 1e
+00:00:00.40 interruptgic: read32 [ff84200c] = 1e
+00:00:00.41 interruptgic: write32 [ff842010] = 1e
+00:00:00.41 interruptgic: read32 [ff84200c] = 1e
+00:00:00.42 interruptgic: write32 [ff842010] = 1e
+00:00:00.42 interruptgic: read32 [ff84200c] = 1e
+00:00:00.43 interruptgic: write32 [ff842010] = 1e
+00:00:00.43 interruptgic: read32 [ff84200c] = 1e
+00:00:00.44 interruptgic: write32 [ff842010] = 1e
+00:00:00.44 interruptgic: read32 [ff84200c] = 1e
+00:00:00.45 interruptgic: write32 [ff842010] = 1e
+00:00:00.45 interruptgic: read32 [ff84200c] = 1e
+00:00:00.46 interruptgic: write32 [ff842010] = 1e
+00:00:00.46 interruptgic: read32 [ff84200c] = 1e
+00:00:00.47 interruptgic: write32 [ff842010] = 1e
+00:00:00.47 interruptgic: read32 [ff84200c] = 1e
+00:00:00.48 interruptgic: write32 [ff842010] = 1e
+00:00:00.48 interruptgic: read32 [ff84200c] = 1e
+00:00:00.49 interruptgic: write32 [ff842010] = 1e
+00:00:00.49 interruptgic: read32 [ff84200c] = 1e
+00:00:00.50 interruptgic: write32 [ff842010] = 1e
+00:00:00.50 interruptgic: read32 [ff84200c] = 1e
+00:00:00.51 interruptgic: write32 [ff842010] = 1e
+00:00:00.51 interruptgic: read32 [ff84200c] = 1e
+00:00:00.52 interruptgic: write32 [ff842010] = 1e
+00:00:00.52 interruptgic: read32 [ff84200c] = 1e
+00:00:00.53 interruptgic: write32 [ff842010] = 1e
+00:00:00.53 interruptgic: read32 [ff84200c] = 1e
+00:00:00.54 interruptgic: write32 [ff842010] = 1e
+00:00:00.54 interruptgic: read32 [ff84200c] = 1e
+00:00:00.55 interruptgic: write32 [ff842010] = 1e
+00:00:00.55 interruptgic: read32 [ff84200c] = 1e
+00:00:00.56 interruptgic: write32 [ff842010] = 1e
+00:00:00.56 interruptgic: read32 [ff84200c] = 1e
+00:00:00.57 interruptgic: write32 [ff842010] = 1e
+00:00:00.57 interruptgic: read32 [ff84200c] = 1e
+00:00:00.58 interruptgic: write32 [ff842010] = 1e
+00:00:00.58 interruptgic: read32 [ff84200c] = 1e
+00:00:00.59 interruptgic: write32 [ff842010] = 1e
+00:00:00.59 interruptgic: read32 [ff84200c] = 1e
+00:00:00.60 interruptgic: write32 [ff842010] = 1e
+00:00:00.60 interruptgic: read32 [ff84200c] = 1e
+00:00:00.61 interruptgic: write32 [ff842010] = 1e
+00:00:00.61 interruptgic: read32 [ff84200c] = 1e
+00:00:00.62 interruptgic: write32 [ff842010] = 1e
+00:00:00.62 interruptgic: read32 [ff84200c] = 1e
+00:00:00.63 interruptgic: write32 [ff842010] = 1e
+00:00:00.63 interruptgic: read32 [ff84200c] = 1e
+00:00:00.64 interruptgic: write32 [ff842010] = 1e
+00:00:00.64 interruptgic: read32 [ff84200c] = 1e
+00:00:00.65 interruptgic: write32 [ff842010] = 1e
+00:00:00.65 interruptgic: read32 [ff84200c] = 1e
+00:00:00.66 interruptgic: write32 [ff842010] = 1e
+00:00:00.66 interruptgic: read32 [ff84200c] = 1e
+00:00:00.67 interruptgic: write32 [ff842010] = 1e
+00:00:00.67 interruptgic: read32 [ff84200c] = 1e
+00:00:00.68 interruptgic: write32 [ff842010] = 1e
+00:00:00.68 interruptgic: read32 [ff84200c] = 1e
+00:00:00.69 interruptgic: write32 [ff842010] = 1e
+00:00:00.69 interruptgic: read32 [ff84200c] = 1e
+00:00:00.70 interruptgic: write32 [ff842010] = 1e
+00:00:00.70 interruptgic: read32 [ff84200c] = 1e
+00:00:00.71 interruptgic: write32 [ff842010] = 1e
+00:00:00.71 interruptgic: read32 [ff84200c] = 1e
+00:00:00.72 interruptgic: write32 [ff842010] = 1e
+00:00:00.72 interruptgic: read32 [ff84200c] = 1e
+00:00:00.73 interruptgic: write32 [ff842010] = 1e
+00:00:00.73 interruptgic: read32 [ff84200c] = 1e
+00:00:00.74 interruptgic: write32 [ff842010] = 1e
+00:00:00.74 interruptgic: read32 [ff84200c] = 1e
+00:00:00.75 interruptgic: write32 [ff842010] = 1e
+00:00:00.75 interruptgic: read32 [ff84200c] = 1e
+00:00:00.76 interruptgic: write32 [ff842010] = 1e
+00:00:00.76 interruptgic: read32 [ff84200c] = 1e
+00:00:00.77 interruptgic: write32 [ff842010] = 1e
+00:00:00.77 interruptgic: read32 [ff84200c] = 1e
+00:00:00.78 interruptgic: write32 [ff842010] = 1e
+00:00:00.78 interruptgic: read32 [ff84200c] = 1e
+00:00:00.79 interruptgic: write32 [ff842010] = 1e
+00:00:00.79 interruptgic: read32 [ff84200c] = 1e
+00:00:00.80 interruptgic: write32 [ff842010] = 1e
+00:00:00.80 interruptgic: read32 [ff84200c] = 1e
+00:00:00.81 interruptgic: write32 [ff842010] = 1e
+00:00:00.81 interruptgic: read32 [ff84200c] = 1e
+00:00:00.82 interruptgic: write32 [ff842010] = 1e
+00:00:00.82 interruptgic: read32 [ff84200c] = 1e
+00:00:00.83 interruptgic: write32 [ff842010] = 1e
+00:00:00.83 interruptgic: read32 [ff84200c] = 1e
+00:00:00.84 interruptgic: write32 [ff842010] = 1e
+00:00:00.84 interruptgic: read32 [ff84200c] = 1e
+00:00:00.85 interruptgic: write32 [ff842010] = 1e
+00:00:00.85 interruptgic: read32 [ff84200c] = 1e
+00:00:00.86 interruptgic: write32 [ff842010] = 1e
+00:00:00.86 interruptgic: read32 [ff84200c] = 1e
+00:00:00.87 interruptgic: write32 [ff842010] = 1e
+00:00:00.87 interruptgic: read32 [ff84200c] = 1e
+00:00:00.88 interruptgic: write32 [ff842010] = 1e
+00:00:00.88 interruptgic: read32 [ff84200c] = 1e
+00:00:00.89 interruptgic: write32 [ff842010] = 1e
+00:00:00.89 interruptgic: read32 [ff84200c] = 1e
+00:00:00.90 interruptgic: write32 [ff842010] = 1e
+00:00:00.90 interruptgic: read32 [ff84200c] = 1e
+00:00:00.91 interruptgic: write32 [ff842010] = 1e
+00:00:00.91 interruptgic: read32 [ff84200c] = 1e
+00:00:00.92 interruptgic: write32 [ff842010] = 1e
+00:00:00.92 interruptgic: read32 [ff84200c] = 1e
+00:00:00.93 interruptgic: write32 [ff842010] = 1e
+00:00:00.93 interruptgic: read32 [ff84200c] = 1e
+00:00:00.94 interruptgic: write32 [ff842010] = 1e
+00:00:00.94 interruptgic: read32 [ff84200c] = 1e
+00:00:00.95 interruptgic: write32 [ff842010] = 1e
+00:00:00.95 interruptgic: read32 [ff84200c] = 1e
+00:00:00.96 interruptgic: write32 [ff842010] = 1e
+00:00:00.96 interruptgic: read32 [ff84200c] = 1e
+00:00:00.97 interruptgic: write32 [ff842010] = 1e
+00:00:00.97 interruptgic: read32 [ff84200c] = 1e
+00:00:00.98 interruptgic: write32 [ff842010] = 1e
+00:00:00.98 interruptgic: read32 [ff84200c] = 1e
+00:00:00.99 interruptgic: write32 [ff842010] = 1e
+00:00:00.99 interruptgic: read32 [ff84200c] = 1e
+00:00:01.00 interruptgic: write32 [ff842010] = 1e
+00:00:01.00 interruptgic: read32 [ff84200c] = 1e
+00:00:01.01 interruptgic: write32 [ff842010] = 1e
+00:00:01.01 interruptgic: read32 [ff84200c] = 1e
+00:00:01.02 interruptgic: write32 [ff842010] = 1e
+00:00:01.02 interruptgic: read32 [ff84200c] = 1e
+00:00:01.03 interruptgic: write32 [ff842010] = 1e
+00:00:01.03 interruptgic: read32 [ff84200c] = 1e
+00:00:01.04 interruptgic: write32 [ff842010] = 1e
+00:00:01.04 interruptgic: read32 [ff84200c] = 1e
+00:00:01.05 interruptgic: write32 [ff842010] = 1e
+00:00:01.05 interruptgic: read32 [ff84200c] = 1e
+00:00:01.06 interruptgic: write32 [ff842010] = 1e
+00:00:01.06 interruptgic: read32 [ff84200c] = 1e
+00:00:01.07 interruptgic: write32 [ff842010] = 1e
+00:00:01.07 interruptgic: read32 [ff84200c] = 1e
+00:00:01.08 interruptgic: write32 [ff842010] = 1e
+00:00:01.08 interruptgic: read32 [ff84200c] = 1e
+00:00:01.09 interruptgic: write32 [ff842010] = 1e
+00:00:01.09 interruptgic: read32 [ff84200c] = 1e
+00:00:01.10 interruptgic: write32 [ff842010] = 1e
+00:00:01.10 interruptgic: read32 [ff84200c] = 1e
+00:00:01.11 interruptgic: write32 [ff842010] = 1e
+00:00:01.11 interruptgic: read32 [ff84200c] = 1e
+00:00:01.12 interruptgic: write32 [ff842010] = 1e
+00:00:01.12 interruptgic: read32 [ff84200c] = 1e
+00:00:01.13 interruptgic: write32 [ff842010] = 1e
+00:00:01.13 interruptgic: read32 [ff84200c] = 1e
+00:00:01.14 interruptgic: write32 [ff842010] = 1e
+00:00:01.14 interruptgic: read32 [ff84200c] = 1e
+00:00:01.15 interruptgic: write32 [ff842010] = 1e
+00:00:01.15 interruptgic: read32 [ff84200c] = 1e
+00:00:01.16 interruptgic: write32 [ff842010] = 1e
+00:00:01.16 interruptgic: read32 [ff84200c] = 1e
+00:00:01.17 interruptgic: write32 [ff842010] = 1e
+00:00:01.17 interruptgic: read32 [ff84200c] = 1e
+00:00:01.18 interruptgic: write32 [ff842010] = 1e
+00:00:01.18 interruptgic: read32 [ff84200c] = 1e
+00:00:01.19 interruptgic: write32 [ff842010] = 1e
+00:00:01.19 interruptgic: read32 [ff84200c] = 1e
+00:00:01.20 interruptgic: write32 [ff842010] = 1e
+00:00:01.20 interruptgic: read32 [ff84200c] = 1e
+00:00:01.21 interruptgic: write32 [ff842010] = 1e
+00:00:01.21 interruptgic: read32 [ff84200c] = 1e
+00:00:01.22 interruptgic: write32 [ff842010] = 1e
+00:00:01.22 interruptgic: read32 [ff84200c] = 1e
+00:00:01.23 interruptgic: write32 [ff842010] = 1e
+00:00:01.23 interruptgic: read32 [ff84200c] = 1e
+00:00:01.24 interruptgic: write32 [ff842010] = 1e
+00:00:01.24 interruptgic: read32 [ff84200c] = 1e
+00:00:01.25 interruptgic: write32 [ff842010] = 1e
+00:00:01.25 interruptgic: read32 [ff84200c] = 1e
+00:00:01.26 interruptgic: write32 [ff842010] = 1e
+00:00:01.26 interruptgic: read32 [ff84200c] = 1e
+00:00:01.27 interruptgic: write32 [ff842010] = 1e
+00:00:01.27 interruptgic: read32 [ff84200c] = 1e
+00:00:01.28 interruptgic: write32 [ff842010] = 1e
+00:00:01.28 interruptgic: read32 [ff84200c] = 1e
+00:00:01.29 interruptgic: write32 [ff842010] = 1e
+00:00:01.29 interruptgic: read32 [ff84200c] = 1e
+00:00:01.30 interruptgic: write32 [ff842010] = 1e
+00:00:01.30 interruptgic: read32 [ff84200c] = 1e
+00:00:01.31 interruptgic: write32 [ff842010] = 1e
+00:00:01.31 interruptgic: read32 [ff84200c] = 1e
+00:00:01.32 interruptgic: write32 [ff842010] = 1e
+00:00:01.32 interruptgic: read32 [ff84200c] = 1e
+00:00:01.33 interruptgic: write32 [ff842010] = 1e
+00:00:01.33 interruptgic: read32 [ff84200c] = 1e
+00:00:01.34 interruptgic: write32 [ff842010] = 1e
+00:00:01.34 interruptgic: read32 [ff84200c] = 1e
+00:00:01.35 interruptgic: write32 [ff842010] = 1e
+00:00:01.35 interruptgic: read32 [ff84200c] = 1e
+00:00:01.36 interruptgic: write32 [ff842010] = 1e
+00:00:01.36 interruptgic: read32 [ff84200c] = 1e
+00:00:01.37 interruptgic: write32 [ff842010] = 1e
+00:00:01.37 interruptgic: read32 [ff84200c] = 1e
+00:00:01.38 interruptgic: write32 [ff842010] = 1e
+00:00:01.38 interruptgic: read32 [ff84200c] = 1e
+00:00:01.39 interruptgic: write32 [ff842010] = 1e
+00:00:01.39 interruptgic: read32 [ff84200c] = 1e
+00:00:01.40 interruptgic: write32 [ff842010] = 1e
+00:00:01.40 interruptgic: read32 [ff84200c] = 1e
+00:00:01.41 interruptgic: write32 [ff842010] = 1e
+00:00:01.41 interruptgic: read32 [ff84200c] = 1e
+00:00:01.42 interruptgic: write32 [ff842010] = 1e
+00:00:01.42 interruptgic: read32 [ff84200c] = 1e
+00:00:01.43 interruptgic: write32 [ff842010] = 1e
+00:00:01.43 interruptgic: read32 [ff84200c] = 1e
+00:00:01.44 interruptgic: write32 [ff842010] = 1e
+00:00:01.44 interruptgic: read32 [ff84200c] = 1e
+00:00:01.45 interruptgic: write32 [ff842010] = 1e
+00:00:01.45 interruptgic: read32 [ff84200c] = 1e
+00:00:01.46 interruptgic: write32 [ff842010] = 1e
+00:00:01.46 interruptgic: read32 [ff84200c] = 1e
+00:00:01.47 interruptgic: write32 [ff842010] = 1e
+00:00:01.47 interruptgic: read32 [ff84200c] = 1e
+00:00:01.48 interruptgic: write32 [ff842010] = 1e
+00:00:01.48 interruptgic: read32 [ff84200c] = 1e
+00:00:01.49 interruptgic: write32 [ff842010] = 1e
+00:00:01.49 interruptgic: read32 [ff84200c] = 1e
+00:00:01.50 interruptgic: write32 [ff842010] = 1e
+00:00:01.50 interruptgic: read32 [ff84200c] = 1e
+00:00:01.51 interruptgic: write32 [ff842010] = 1e
+00:00:01.51 interruptgic: read32 [ff84200c] = 1e
+00:00:01.52 interruptgic: write32 [ff842010] = 1e
+00:00:01.52 interruptgic: read32 [ff84200c] = 1e
+00:00:01.53 interruptgic: write32 [ff842010] = 1e
+00:00:01.53 interruptgic: read32 [ff84200c] = 1e
+00:00:01.54 interruptgic: write32 [ff842010] = 1e
+00:00:01.54 interruptgic: read32 [ff84200c] = 1e
+00:00:01.55 interruptgic: write32 [ff842010] = 1e
+00:00:01.55 interruptgic: read32 [ff84200c] = 1e
+00:00:01.56 interruptgic: write32 [ff842010] = 1e
+00:00:01.56 interruptgic: read32 [ff84200c] = 1e
+00:00:01.57 interruptgic: write32 [ff842010] = 1e
+00:00:01.57 interruptgic: read32 [ff84200c] = 1e
+00:00:01.58 interruptgic: write32 [ff842010] = 1e
+00:00:01.58 interruptgic: read32 [ff84200c] = 1e
+00:00:01.59 interruptgic: write32 [ff842010] = 1e
+00:00:01.59 interruptgic: read32 [ff84200c] = 1e
+00:00:01.60 interruptgic: write32 [ff842010] = 1e
+00:00:01.60 interruptgic: read32 [ff84200c] = 1e
+00:00:01.61 interruptgic: write32 [ff842010] = 1e
+00:00:01.61 timer: SpeedFactor is 0.62
+00:00:01.61 bcmpciehostbridge: read32 [fd509210] = 1
+00:00:01.62 bcmpciehostbridge: write32 [fd509210] = 3
+00:00:01.62 bcmpciehostbridge: read32 [fd509210] = 3
+00:00:01.63 bcmpciehostbridge: read32 [fd509210] = 3
+00:00:01.63 bcmpciehostbridge: write32 [fd509210] = 3
+00:00:01.64 bcmpciehostbridge: read32 [fd509210] = 3
+00:00:01.64 bcmpciehostbridge: read32 [fd509210] = 3
+00:00:01.65 bcmpciehostbridge: write32 [fd509210] = 1
+00:00:01.65 bcmpciehostbridge: read32 [fd509210] = 1
+00:00:01.66 bcmpciehostbridge: read32 [fd504204] = 200000
+00:00:01.66 bcmpciehostbridge: write32 [fd504204] = 200000
+00:00:01.67 bcmpciehostbridge: read32 [fd504204] = 200000
+00:00:01.67 bcmpciehostbridge: read32 [fd50406c] = 304
+00:00:01.68 bcmpciehostbridge: read32 [fd504008] = 0
+00:00:01.68 bcmpciehostbridge: write32 [fd504008] = 3000
+00:00:01.69 bcmpciehostbridge: write32 [fd504034] = 11
+00:00:01.69 bcmpciehostbridge: write32 [fd504038] = 4
+00:00:01.70 bcmpciehostbridge: read32 [fd504008] = 3000
+00:00:01.70 bcmpciehostbridge: write32 [fd504008] = 88003000
+00:00:01.71 bcmpciehostbridge: read32 [fd50402c] = 0
+00:00:01.71 bcmpciehostbridge: write32 [fd50402c] = 0
+00:00:01.72 bcmpciehostbridge: read32 [fd50403c] = 0
+00:00:01.72 bcmpciehostbridge: write32 [fd50403c] = 0
+00:00:01.73 bcmpciehostbridge: write32 [fd504308] = ffffffff
+00:00:01.73 bcmpciehostbridge: read32 [fd504308] = 0
+00:00:01.74 bcmpciehostbridge: write32 [fd504310] = ffffffff
+00:00:01.74 bcmpciehostbridge: read32 [fd504310] = 0
+00:00:01.75 bcmpciehostbridge: read32 [fd5000b8] = 655c12
+00:00:01.75 bcmpciehostbridge: read16 [fd5000dc] = 2
+00:00:01.76 bcmpciehostbridge: write32 [fd5000b8] = 655c12
+00:00:01.76 bcmpciehostbridge: write16 [fd5000dc] = 2
+00:00:01.77 bcmpciehostbridge: read32 [fd509210] = 1
+00:00:01.77 bcmpciehostbridge: write32 [fd509210] = 0
+00:00:01.78 bcmpciehostbridge: read32 [fd509210] = 0
+00:00:01.78 interruptgic: read32 [ff84200c] = 1e
+00:00:01.79 interruptgic: write32 [ff842010] = 1e
+00:00:01.79 interruptgic: read32 [ff84200c] = 1e
+00:00:01.80 interruptgic: write32 [ff842010] = 1e
+00:00:01.80 interruptgic: read32 [ff84200c] = 1e
+00:00:01.81 interruptgic: write32 [ff842010] = 1e
+00:00:01.81 interruptgic: read32 [ff84200c] = 1e
+00:00:01.82 interruptgic: write32 [ff842010] = 1e
+00:00:01.82 interruptgic: read32 [ff84200c] = 1e
+00:00:01.83 interruptgic: write32 [ff842010] = 1e
+00:00:01.83 interruptgic: read32 [ff84200c] = 1e
+00:00:01.84 interruptgic: write32 [ff842010] = 1e
+00:00:01.84 interruptgic: read32 [ff84200c] = 1e
+00:00:01.85 interruptgic: write32 [ff842010] = 1e
+00:00:01.85 interruptgic: read32 [ff84200c] = 1e
+00:00:01.86 interruptgic: write32 [ff842010] = 1e
+00:00:01.86 interruptgic: read32 [ff84200c] = 1e
+00:00:01.87 interruptgic: write32 [ff842010] = 1e
+00:00:01.87 interruptgic: read32 [ff84200c] = 1e
+00:00:01.88 interruptgic: write32 [ff842010] = 1e
+00:00:01.88 bcmpciehostbridge: read32 [fd504068] = b0
+00:00:01.89 bcmpciehostbridge: read32 [fd504068] = b0
+00:00:01.89 bcmpciehostbridge: read32 [fd504068] = b0
+00:00:01.90 bcmpciehostbridge: write32 [fd50400c] = f8000000
+00:00:01.90 bcmpciehostbridge: write32 [fd504010] = 0
+00:00:01.91 bcmpciehostbridge: read32 [fd504070] = 10
+00:00:01.91 bcmpciehostbridge: write32 [fd504070] = 0
+00:00:01.91 bcmpciehostbridge: read32 [fd504070] = 0
+00:00:01.92 bcmpciehostbridge: write32 [fd504070] = 3f00000
+00:00:01.92 bcmpciehostbridge: read32 [fd504080] = 0
+00:00:01.93 bcmpciehostbridge: write32 [fd504080] = 6
+00:00:01.93 bcmpciehostbridge: read32 [fd504084] = 0
+00:00:01.94 bcmpciehostbridge: write32 [fd504084] = 6
+00:00:01.94 bcmpciehostbridge: read32 [fd50043c] = 20060400
+00:00:01.95 bcmpciehostbridge: write32 [fd50043c] = 20060400
+00:00:01.95 bcmpciehostbridge: read32 [fd50043c] = 20060400
+00:00:01.96 bcmpciehostbridge: read16 [fd5000be] = 9012
+00:00:01.96 pcie: Link up, 5.0 Gbps x1
+00:00:01.97 bcmpciehostbridge: read32 [fd500188] = 0
+00:00:01.97 bcmpciehostbridge: write32 [fd500188] = 0
+00:00:01.98 bcmpciehostbridge: read32 [fd500188] = 0
+00:00:01.98 bcmpciehostbridge: read32 [fd504204] = 200000
+00:00:01.99 bcmpciehostbridge: write32 [fd504204] = 200002
+00:00:01.99 bcmpciehostbridge: read32 [fd504204] = 200002
+00:00:02.00 bcmpciehostbridge: read32 [fd500008] = 6040020
+00:00:02.00 bcmpciehostbridge: read8 [1] = 0
+00:00:02.01 bcmpciehostbridge: write8 [fd50000c] = 10
+00:00:02.01 bcmpciehostbridge: write8 [fd500019] = 1
+00:00:02.02 bcmpciehostbridge: write8 [fd50001a] = 1
+00:00:02.02 bcmpciehostbridge: write16 [fd500020] = f800
+00:00:02.03 bcmpciehostbridge: write16 [fd500022] = f800
+00:00:02.03 bcmpciehostbridge: write8 [fd50003e] = 1
+00:00:02.04 bcmpciehostbridge: read8 [10] = 0
+00:00:02.04 bcmpciehostbridge: write8 [fd5000c8] = 10
+00:00:02.04 bcmpciehostbridge: write16 [fd500004] = 146
+00:00:02.05 bcmmailbox: read32 [fe00b898] = 40000000
+00:00:02.05 bcmmailbox: read32 [fe00b8b8] = 40000000
+00:00:02.06 bcmmailbox: write32 [fe00b8a0] = c0500008
+00:00:02.06 bcmmailbox: read32 [fe00b898] = 40000000
+00:00:02.07 bcmmailbox: read32 [fe00b898] = 40000000
+00:00:02.07 bcmmailbox: read32 [fe00b898] = 40000000
+00:00:02.08 bcmmailbox: read32 [fe00b898] = 40000000
+00:00:02.08 bcmmailbox: read32 [fe00b898] = 40000000
+00:00:02.09 bcmmailbox: read32 [fe00b898] = 40000000
+00:00:02.09 bcmmailbox: read32 [fe00b898] = 40000000
+00:00:02.10 bcmmailbox: read32 [fe00b898] = 40000000
+00:00:02.10 bcmmailbox: read32 [fe00b898] = 40000000
+00:00:02.11 bcmmailbox: read32 [fe00b898] = 40000000
+00:00:02.11 bcmmailbox: read32 [fe00b898] = 1
+00:00:02.11 bcmmailbox: read32 [fe00b880] = c0500008
+00:00:02.12 bcmpciehostbridge: write32 [fd509000] = 100000
+00:00:02.12 bcmpciehostbridge: read32 [fd508008] = c033001
+00:00:02.13 bcmpciehostbridge: read8 [0] = 0
+00:00:02.13 bcmpciehostbridge: write8 [fd50800c] = 10
+00:00:02.14 bcmpciehostbridge: write32 [fd508010] = f8000004
+00:00:02.14 bcmpciehostbridge: write32 [fd508014] = 0
+00:00:02.15 bcmpciehostbridge: read8 [1] = 0
+00:00:02.15 bcmpciehostbridge: write16 [fd508004] = 146
+00:00:02.16 xhci: read16 [2] = 100
+00:00:02.16 xhcimmiospace: read8 [20] = 43
+00:00:02.16 xhcimmiospace: read32 [14] = 100
+00:00:02.17 xhcimmiospace: read32 [18] = 200
+00:00:02.17 xhcimmiospace: read32 [4] = 5000420
+00:00:02.18 xhcimmiospace: read32 [8] = fc000031
+00:00:02.18 xhcimmiospace: read32 [c] = e70004
+00:00:02.19 xhcimmiospace: read32 [10] = 2841eb
+00:00:02.19 xhci: 32 slots, 5 ports, 31 scratchpad bufs
+00:00:02.19 xhcimmiospace: read32 [24] = 1
+00:00:02.20 xhcimmiospace: read32 [20] = 0
+00:00:02.20 xhcimmiospace: write32 [20] = 2
+00:00:02.21 xhcimmiospace: read32 [20] = 2
+00:00:02.21 xhcimmiospace: read32 [20] = 0
+00:00:02.21 xhcimmiospace: read32 [24] = 11
+00:00:02.22 xhcimmiospace: read32 [28] = 1
+00:00:02.22 xhcimmiospace: read32 [58] = 0
+00:00:02.23 xhcimmiospace: write32 [58] = 20
+00:00:02.23 xhcimmiospace: write32 [50] = 600040
+00:00:02.23 xhcimmiospace: write32 [54] = 4
+00:00:02.24 xhcimmiospace: write32 [228] = 1
+00:00:02.24 xhcimmiospace: write32 [230] = 6018c0
+00:00:02.25 xhcimmiospace: write32 [234] = 4
+00:00:02.25 xhcimmiospace: write32 [238] = 600880
+00:00:02.25 xhcimmiospace: write32 [23c] = 4
+00:00:02.26 xhcimmiospace: write32 [224] = 1f4
+00:00:02.26 xhcimmiospace: read32 [220] = 0
+00:00:02.27 xhcimmiospace: write32 [220] = 2
+00:00:02.27 xhcimmiospace: write32 [38] = 602101
+00:00:02.28 xhcimmiospace: write32 [3c] = 4
+00:00:02.28 interruptgic: write32 [ff841114] = 8000
+00:00:02.28 xhcimmiospace: read32 [20] = 0
+00:00:02.29 xhcimmiospace: write32 [20] = 4
+00:00:02.29 xhcimmiospace: read32 [20] = 4
+00:00:02.30 xhcimmiospace: write32 [20] = 5
+00:00:02.30 interruptgic: read32 [ff84200c] = af
+00:00:02.30 xhci: IRQ
+00:00:02.30 xhcimmiospace: read32 [24] = 18
+00:00:02.30 xhcimmiospace: write32 [24] = 18
+00:00:02.30 xhcimmiospace: read32 [220] = 3
+00:00:02.30 xhcimmiospace: write32 [220] = 3
+00:00:02.30 xhcimmiospace: read32 [420] = 400202e1
+00:00:02.30 xhciroot: Port 1 status is 0x400202E1
+00:00:02.30 xhcimmiospace: write32 [420] = 400202e1
+00:00:02.30 xhcimmiospace: write32 [238] = 600898
+00:00:02.30 xhcimmiospace: write32 [23c] = 4
+00:00:02.30 interruptgic: write32 [ff842010] = af
+00:00:02.30 interruptgic: read32 [ff84200c] = 1e
+00:00:02.31 interruptgic: write32 [ff842010] = 1e
+00:00:02.31 interruptgic: read32 [ff84200c] = 1e
+00:00:02.32 interruptgic: write32 [ff842010] = 1e
+00:00:02.32 interruptgic: read32 [ff84200c] = 1e
+00:00:02.33 interruptgic: write32 [ff842010] = 1e
+00:00:02.33 interruptgic: read32 [ff84200c] = 1e
+00:00:02.34 interruptgic: write32 [ff842010] = 1e
+00:00:02.34 interruptgic: read32 [ff84200c] = 1e
+00:00:02.35 interruptgic: write32 [ff842010] = 1e
+00:00:02.35 interruptgic: read32 [ff84200c] = 1e
+00:00:02.36 interruptgic: write32 [ff842010] = 1e
+00:00:02.36 interruptgic: read32 [ff84200c] = 1e
+00:00:02.37 interruptgic: write32 [ff842010] = 1e
+00:00:02.37 interruptgic: read32 [ff84200c] = 1e
+00:00:02.38 interruptgic: write32 [ff842010] = 1e
+00:00:02.38 interruptgic: read32 [ff84200c] = 1e
+00:00:02.39 interruptgic: write32 [ff842010] = 1e
+00:00:02.39 interruptgic: read32 [ff84200c] = 1e
+00:00:02.40 interruptgic: write32 [ff842010] = 1e
+00:00:02.40 interruptgic: read32 [ff84200c] = 1e
+00:00:02.41 interruptgic: write32 [ff842010] = 1e
+00:00:02.41 interruptgic: read32 [ff84200c] = 1e
+00:00:02.42 interruptgic: write32 [ff842010] = 1e
+00:00:02.42 interruptgic: read32 [ff84200c] = 1e
+00:00:02.43 interruptgic: write32 [ff842010] = 1e
+00:00:02.43 interruptgic: read32 [ff84200c] = 1e
+00:00:02.44 interruptgic: write32 [ff842010] = 1e
+00:00:02.44 interruptgic: read32 [ff84200c] = 1e
+00:00:02.45 interruptgic: write32 [ff842010] = 1e
+00:00:02.45 interruptgic: read32 [ff84200c] = 1e
+00:00:02.46 interruptgic: write32 [ff842010] = 1e
+00:00:02.46 interruptgic: read32 [ff84200c] = 1e
+00:00:02.47 interruptgic: write32 [ff842010] = 1e
+00:00:02.47 interruptgic: read32 [ff84200c] = 1e
+00:00:02.48 interruptgic: write32 [ff842010] = 1e
+00:00:02.48 interruptgic: read32 [ff84200c] = 1e
+00:00:02.49 interruptgic: write32 [ff842010] = 1e
+00:00:02.49 interruptgic: read32 [ff84200c] = 1e
+00:00:02.50 interruptgic: write32 [ff842010] = 1e
+00:00:02.50 interruptgic: read32 [ff84200c] = 1e
+00:00:02.51 interruptgic: write32 [ff842010] = 1e
+00:00:02.51 interruptgic: read32 [ff84200c] = 1e
+00:00:02.52 interruptgic: write32 [ff842010] = 1e
+00:00:02.52 interruptgic: read32 [ff84200c] = 1e
+00:00:02.53 interruptgic: write32 [ff842010] = 1e
+00:00:02.53 interruptgic: read32 [ff84200c] = 1e
+00:00:02.54 interruptgic: write32 [ff842010] = 1e
+00:00:02.54 interruptgic: read32 [ff84200c] = 1e
+00:00:02.55 interruptgic: write32 [ff842010] = 1e
+00:00:02.55 interruptgic: read32 [ff84200c] = 1e
+00:00:02.56 interruptgic: write32 [ff842010] = 1e
+00:00:02.56 interruptgic: read32 [ff84200c] = 1e
+00:00:02.57 interruptgic: write32 [ff842010] = 1e
+00:00:02.57 interruptgic: read32 [ff84200c] = 1e
+00:00:02.58 interruptgic: write32 [ff842010] = 1e
+00:00:02.58 interruptgic: read32 [ff84200c] = 1e
+00:00:02.59 interruptgic: write32 [ff842010] = 1e
+00:00:02.59 interruptgic: read32 [ff84200c] = 1e
+00:00:02.60 interruptgic: write32 [ff842010] = 1e
+00:00:02.60 interruptgic: read32 [ff84200c] = 1e
+00:00:02.61 interruptgic: write32 [ff842010] = 1e
+00:00:02.61 interruptgic: read32 [ff84200c] = 1e
+00:00:02.62 interruptgic: write32 [ff842010] = 1e
+00:00:02.62 interruptgic: read32 [ff84200c] = 1e
+00:00:02.63 interruptgic: write32 [ff842010] = 1e
+00:00:02.63 interruptgic: read32 [ff84200c] = 1e
+00:00:02.64 interruptgic: write32 [ff842010] = 1e
+00:00:02.64 interruptgic: read32 [ff84200c] = 1e
+00:00:02.65 interruptgic: write32 [ff842010] = 1e
+00:00:02.65 xhcimmiospace: read32 [420] = 400002e1
+00:00:02.66 xhcimmiospace: read32 [420] = 400002e1
+00:00:02.66 xhcimmiospace: write32 [420] = 400002f1
+00:00:02.66 interruptgic: read32 [ff84200c] = 1e
+00:00:02.67 interruptgic: write32 [ff842010] = 1e
+00:00:02.67 interruptgic: read32 [ff84200c] = 1e
+00:00:02.68 interruptgic: write32 [ff842010] = 1e
+00:00:02.68 interruptgic: read32 [ff84200c] = 1e
+00:00:02.69 interruptgic: write32 [ff842010] = 1e
+00:00:02.69 interruptgic: read32 [ff84200c] = af
+00:00:02.69 xhci: IRQ
+00:00:02.69 xhcimmiospace: read32 [24] = 18
+00:00:02.69 xhcimmiospace: write32 [24] = 18
+00:00:02.69 xhcimmiospace: read32 [220] = 3
+00:00:02.69 xhcimmiospace: write32 [220] = 3
+00:00:02.69 xhcimmiospace: read32 [420] = 40200e03
+00:00:02.69 xhciroot: Port 1 status is 0x40200E03
+00:00:02.69 xhcimmiospace: write32 [420] = 40200e01
+00:00:02.69 xhcimmiospace: write32 [238] = 6008a8
+00:00:02.69 xhcimmiospace: write32 [23c] = 4
+00:00:02.69 interruptgic: write32 [ff842010] = af
+00:00:02.69 interruptgic: read32 [ff84200c] = 1e
+00:00:02.70 interruptgic: write32 [ff842010] = 1e
+00:00:02.70 interruptgic: read32 [ff84200c] = 1e
+00:00:02.71 interruptgic: write32 [ff842010] = 1e
+00:00:02.71 interruptgic: read32 [ff84200c] = 1e
+00:00:02.72 interruptgic: write32 [ff842010] = 1e
+00:00:02.72 interruptgic: read32 [ff84200c] = 1e
+00:00:02.73 interruptgic: write32 [ff842010] = 1e
+00:00:02.73 interruptgic: read32 [ff84200c] = 1e
+00:00:02.74 interruptgic: write32 [ff842010] = 1e
+00:00:02.74 interruptgic: read32 [ff84200c] = 1e
+00:00:02.75 interruptgic: write32 [ff842010] = 1e
+00:00:02.75 interruptgic: read32 [ff84200c] = 1e
+00:00:02.76 interruptgic: write32 [ff842010] = 1e
+00:00:02.76 interruptgic: read32 [ff84200c] = 1e
+00:00:02.77 interruptgic: write32 [ff842010] = 1e
+00:00:02.77 interruptgic: read32 [ff84200c] = 1e
+00:00:02.78 interruptgic: write32 [ff842010] = 1e
+00:00:02.78 interruptgic: read32 [ff84200c] = 1e
+00:00:02.79 interruptgic: write32 [ff842010] = 1e
+00:00:02.79 interruptgic: read32 [ff84200c] = 1e
+00:00:02.80 interruptgic: write32 [ff842010] = 1e
+00:00:02.80 interruptgic: read32 [ff84200c] = 1e
+00:00:02.81 interruptgic: write32 [ff842010] = 1e
+00:00:02.81 interruptgic: read32 [ff84200c] = 1e
+00:00:02.82 interruptgic: write32 [ff842010] = 1e
+00:00:02.82 interruptgic: read32 [ff84200c] = 1e
+00:00:02.83 interruptgic: write32 [ff842010] = 1e
+00:00:02.83 interruptgic: read32 [ff84200c] = 1e
+00:00:02.84 interruptgic: write32 [ff842010] = 1e
+00:00:02.84 interruptgic: read32 [ff84200c] = 1e
+00:00:02.85 interruptgic: write32 [ff842010] = 1e
+00:00:02.85 interruptgic: read32 [ff84200c] = 1e
+00:00:02.86 interruptgic: write32 [ff842010] = 1e
+00:00:02.86 interruptgic: read32 [ff84200c] = 1e
+00:00:02.87 interruptgic: write32 [ff842010] = 1e
+00:00:02.87 interruptgic: read32 [ff84200c] = 1e
+00:00:02.88 interruptgic: write32 [ff842010] = 1e
+00:00:02.88 interruptgic: read32 [ff84200c] = 1e
+00:00:02.89 interruptgic: write32 [ff842010] = 1e
+00:00:02.89 interruptgic: read32 [ff84200c] = 1e
+00:00:02.90 interruptgic: write32 [ff842010] = 1e
+00:00:02.90 interruptgic: read32 [ff84200c] = 1e
+00:00:02.91 interruptgic: write32 [ff842010] = 1e
+00:00:02.91 interruptgic: read32 [ff84200c] = 1e
+00:00:02.92 interruptgic: write32 [ff842010] = 1e
+00:00:02.92 interruptgic: read32 [ff84200c] = 1e
+00:00:02.93 interruptgic: write32 [ff842010] = 1e
+00:00:02.93 interruptgic: read32 [ff84200c] = 1e
+00:00:02.94 interruptgic: write32 [ff842010] = 1e
+00:00:02.94 interruptgic: read32 [ff84200c] = 1e
+00:00:02.95 interruptgic: write32 [ff842010] = 1e
+00:00:02.95 interruptgic: read32 [ff84200c] = 1e
+00:00:02.96 interruptgic: write32 [ff842010] = 1e
+00:00:02.96 interruptgic: read32 [ff84200c] = 1e
+00:00:02.97 interruptgic: write32 [ff842010] = 1e
+00:00:02.97 interruptgic: read32 [ff84200c] = 1e
+00:00:02.98 interruptgic: write32 [ff842010] = 1e
+00:00:02.98 interruptgic: read32 [ff84200c] = 1e
+00:00:02.99 interruptgic: write32 [ff842010] = 1e
+00:00:02.99 interruptgic: read32 [ff84200c] = 1e
+00:00:03.00 interruptgic: write32 [ff842010] = 1e
+00:00:03.00 interruptgic: read32 [ff84200c] = 1e
+00:00:03.01 interruptgic: write32 [ff842010] = 1e
+00:00:03.01 interruptgic: read32 [ff84200c] = 1e
+00:00:03.02 interruptgic: write32 [ff842010] = 1e
+00:00:03.02 interruptgic: read32 [ff84200c] = 1e
+00:00:03.03 interruptgic: write32 [ff842010] = 1e
+00:00:03.03 interruptgic: read32 [ff84200c] = 1e
+00:00:03.04 interruptgic: write32 [ff842010] = 1e
+00:00:03.04 interruptgic: read32 [ff84200c] = 1e
+00:00:03.05 interruptgic: write32 [ff842010] = 1e
+00:00:03.05 interruptgic: read32 [ff84200c] = 1e
+00:00:03.06 interruptgic: write32 [ff842010] = 1e
+00:00:03.06 interruptgic: read32 [ff84200c] = 1e
+00:00:03.07 interruptgic: write32 [ff842010] = 1e
+00:00:03.07 interruptgic: read32 [ff84200c] = 1e
+00:00:03.08 interruptgic: write32 [ff842010] = 1e
+00:00:03.08 xhcimmiospace: read32 [420] = 40000e03
+00:00:03.09 interruptgic: read32 [ff84200c] = 1e
+00:00:03.10 interruptgic: write32 [ff842010] = 1e
+00:00:03.10 interruptgic: read32 [ff84200c] = 1e
+00:00:03.11 interruptgic: write32 [ff842010] = 1e
+00:00:03.11 interruptgic: read32 [ff84200c] = 1e
+00:00:03.12 interruptgic: write32 [ff842010] = 1e
+00:00:03.12 interruptgic: read32 [ff84200c] = 1e
+00:00:03.13 interruptgic: write32 [ff842010] = 1e
+00:00:03.13 interruptgic: read32 [ff84200c] = 1e
+00:00:03.14 interruptgic: write32 [ff842010] = 1e
+00:00:03.14 interruptgic: read32 [ff84200c] = 1e
+00:00:03.15 interruptgic: write32 [ff842010] = 1e
+00:00:03.15 interruptgic: read32 [ff84200c] = 1e
+00:00:03.16 interruptgic: write32 [ff842010] = 1e
+00:00:03.16 interruptgic: read32 [ff84200c] = 1e
+00:00:03.17 interruptgic: write32 [ff842010] = 1e
+00:00:03.17 interruptgic: read32 [ff84200c] = 1e
+00:00:03.18 interruptgic: write32 [ff842010] = 1e
+00:00:03.18 interruptgic: read32 [ff84200c] = 1e
+00:00:03.19 interruptgic: write32 [ff842010] = 1e
+00:00:03.19 xhcimmiospace: read32 [420] = 40000e03
+00:00:03.20 xhcicmd: Execute command 9 (control 0x2400)
+00:00:03.20 xhcimmiospace: write32 [100] = 0
+00:00:03.20 interruptgic: read32 [ff84200c] = af
+00:00:03.20 xhci: IRQ
+00:00:03.20 xhcimmiospace: read32 [24] = 8
+00:00:03.20 xhcimmiospace: write32 [24] = 8
+00:00:03.20 xhcimmiospace: read32 [220] = 3
+00:00:03.20 xhcimmiospace: write32 [220] = 3
+00:00:03.20 xhcicmd: Command 9 completed with 1 (slot 1)
+00:00:03.20 xhcimmiospace: write32 [238] = 6008b8
+00:00:03.20 xhcimmiospace: write32 [23c] = 4
+00:00:03.20 interruptgic: write32 [ff842010] = af
+00:00:03.20 interruptgic: read32 [ff84200c] = 1e
+00:00:03.21 interruptgic: write32 [ff842010] = 1e
+00:00:03.21 interruptgic: read32 [ff84200c] = 1e
+00:00:03.22 interruptgic: write32 [ff842010] = 1e
+00:00:03.22 interruptgic: read32 [ff84200c] = 1e
+00:00:03.23 interruptgic: write32 [ff842010] = 1e
+00:00:03.23 interruptgic: read32 [ff84200c] = 1e
+00:00:03.24 interruptgic: write32 [ff842010] = 1e
+00:00:03.24 interruptgic: read32 [ff84200c] = 1e
+00:00:03.25 interruptgic: write32 [ff842010] = 1e
+00:00:03.25 interruptgic: read32 [ff84200c] = 1e
+00:00:03.26 interruptgic: write32 [ff842010] = 1e
+00:00:03.26 interruptgic: read32 [ff84200c] = 1e
+00:00:03.27 interruptgic: write32 [ff842010] = 1e
+00:00:03.27 interruptgic: read32 [ff84200c] = 1e
+00:00:03.28 interruptgic: write32 [ff842010] = 1e
+00:00:03.28 interruptgic: read32 [ff84200c] = 1e
+00:00:03.29 interruptgic: write32 [ff842010] = 1e
+00:00:03.29 interruptgic: read32 [ff84200c] = 1e
+00:00:03.30 interruptgic: write32 [ff842010] = 1e
+00:00:03.30 interruptgic: read32 [ff84200c] = 1e
+00:00:03.31 interruptgic: write32 [ff842010] = 1e
+00:00:03.31 interruptgic: read32 [ff84200c] = 1e
+00:00:03.32 interruptgic: write32 [ff842010] = 1e
+00:00:03.32 interruptgic: read32 [ff84200c] = 1e
+00:00:03.33 interruptgic: write32 [ff842010] = 1e
+00:00:03.33 interruptgic: read32 [ff84200c] = 1e
+00:00:03.34 interruptgic: write32 [ff842010] = 1e
+00:00:03.34 interruptgic: read32 [ff84200c] = 1e
+00:00:03.35 interruptgic: write32 [ff842010] = 1e
+00:00:03.35 interruptgic: read32 [ff84200c] = 1e
+00:00:03.36 interruptgic: write32 [ff842010] = 1e
+00:00:03.36 interruptgic: read32 [ff84200c] = 1e
+00:00:03.37 interruptgic: write32 [ff842010] = 1e
+00:00:03.37 interruptgic: read32 [ff84200c] = 1e
+00:00:03.38 interruptgic: write32 [ff842010] = 1e
+00:00:03.38 interruptgic: read32 [ff84200c] = 1e
+00:00:03.39 interruptgic: write32 [ff842010] = 1e
+00:00:03.39 interruptgic: read32 [ff84200c] = 1e
+00:00:03.40 interruptgic: write32 [ff842010] = 1e
+00:00:03.40 interruptgic: read32 [ff84200c] = 1e
+00:00:03.41 interruptgic: write32 [ff842010] = 1e
+00:00:03.41 interruptgic: read32 [ff84200c] = 1e
+00:00:03.42 interruptgic: write32 [ff842010] = 1e
+00:00:03.42 interruptgic: read32 [ff84200c] = 1e
+00:00:03.43 interruptgic: write32 [ff842010] = 1e
+00:00:03.43 interruptgic: read32 [ff84200c] = 1e
+00:00:03.44 interruptgic: write32 [ff842010] = 1e
+00:00:03.44 interruptgic: read32 [ff84200c] = 1e
+00:00:03.45 interruptgic: write32 [ff842010] = 1e
+00:00:03.45 interruptgic: read32 [ff84200c] = 1e
+00:00:03.46 interruptgic: write32 [ff842010] = 1e
+00:00:03.46 interruptgic: read32 [ff84200c] = 1e
+00:00:03.47 interruptgic: write32 [ff842010] = 1e
+00:00:03.47 interruptgic: read32 [ff84200c] = 1e
+00:00:03.48 interruptgic: write32 [ff842010] = 1e
+00:00:03.48 interruptgic: read32 [ff84200c] = 1e
+00:00:03.49 interruptgic: write32 [ff842010] = 1e
+00:00:03.49 interruptgic: read32 [ff84200c] = 1e
+00:00:03.50 interruptgic: write32 [ff842010] = 1e
+00:00:03.50 interruptgic: read32 [ff84200c] = 1e
+00:00:03.51 interruptgic: write32 [ff842010] = 1e
+00:00:03.51 interruptgic: read32 [ff84200c] = 1e
+00:00:03.52 interruptgic: write32 [ff842010] = 1e
+00:00:03.52 xhcicmd: Execute command 11 (control 0x1002C00)
+00:00:03.53 xhcimmiospace: write32 [100] = 0
+00:00:03.53 interruptgic: read32 [ff84200c] = af
+00:00:03.53 xhci: IRQ
+00:00:03.53 xhcimmiospace: read32 [24] = 8
+00:00:03.53 xhcimmiospace: write32 [24] = 8
+00:00:03.53 xhcimmiospace: read32 [220] = 3
+00:00:03.53 xhcimmiospace: write32 [220] = 3
+00:00:03.53 xhcicmd: Command 11 completed with 1 (slot 1)
+00:00:03.53 xhcimmiospace: write32 [238] = 6008c8
+00:00:03.53 xhcimmiospace: write32 [23c] = 4
+00:00:03.53 interruptgic: write32 [ff842010] = af
+00:00:03.53 interruptgic: read32 [ff84200c] = 1e
+00:00:03.54 interruptgic: write32 [ff842010] = 1e
+00:00:03.54 interruptgic: read32 [ff84200c] = 1e
+00:00:03.55 interruptgic: write32 [ff842010] = 1e
+00:00:03.55 interruptgic: read32 [ff84200c] = 1e
+00:00:03.56 interruptgic: write32 [ff842010] = 1e
+00:00:03.56 interruptgic: read32 [ff84200c] = 1e
+00:00:03.57 interruptgic: write32 [ff842010] = 1e
+00:00:03.57 interruptgic: read32 [ff84200c] = 1e
+00:00:03.58 interruptgic: write32 [ff842010] = 1e
+00:00:03.58 interruptgic: read32 [ff84200c] = 1e
+00:00:03.59 interruptgic: write32 [ff842010] = 1e
+00:00:03.59 interruptgic: read32 [ff84200c] = 1e
+00:00:03.60 interruptgic: write32 [ff842010] = 1e
+00:00:03.60 interruptgic: read32 [ff84200c] = 1e
+00:00:03.61 interruptgic: write32 [ff842010] = 1e
+00:00:03.61 interruptgic: read32 [ff84200c] = 1e
+00:00:03.62 interruptgic: write32 [ff842010] = 1e
+00:00:03.62 interruptgic: read32 [ff84200c] = 1e
+00:00:03.63 interruptgic: write32 [ff842010] = 1e
+00:00:03.63 interruptgic: read32 [ff84200c] = 1e
+00:00:03.64 interruptgic: write32 [ff842010] = 1e
+00:00:03.64 interruptgic: read32 [ff84200c] = 1e
+00:00:03.65 interruptgic: write32 [ff842010] = 1e
+00:00:03.65 interruptgic: read32 [ff84200c] = 1e
+00:00:03.66 interruptgic: write32 [ff842010] = 1e
+00:00:03.66 interruptgic: read32 [ff84200c] = 1e
+00:00:03.67 interruptgic: write32 [ff842010] = 1e
+00:00:03.67 interruptgic: read32 [ff84200c] = 1e
+00:00:03.68 interruptgic: write32 [ff842010] = 1e
+00:00:03.68 interruptgic: read32 [ff84200c] = 1e
+00:00:03.69 interruptgic: write32 [ff842010] = 1e
+00:00:03.69 interruptgic: read32 [ff84200c] = 1e
+00:00:03.70 interruptgic: write32 [ff842010] = 1e
+00:00:03.70 interruptgic: read32 [ff84200c] = 1e
+00:00:03.71 interruptgic: write32 [ff842010] = 1e
+00:00:03.71 interruptgic: read32 [ff84200c] = 1e
+00:00:03.72 interruptgic: write32 [ff842010] = 1e
+00:00:03.72 interruptgic: read32 [ff84200c] = 1e
+00:00:03.73 interruptgic: write32 [ff842010] = 1e
+00:00:03.73 interruptgic: read32 [ff84200c] = 1e
+00:00:03.74 interruptgic: write32 [ff842010] = 1e
+00:00:03.74 interruptgic: read32 [ff84200c] = 1e
+00:00:03.75 interruptgic: write32 [ff842010] = 1e
+00:00:03.75 interruptgic: read32 [ff84200c] = 1e
+00:00:03.76 interruptgic: write32 [ff842010] = 1e
+00:00:03.76 interruptgic: read32 [ff84200c] = 1e
+00:00:03.77 interruptgic: write32 [ff842010] = 1e
+00:00:03.77 interruptgic: read32 [ff84200c] = 1e
+00:00:03.78 interruptgic: write32 [ff842010] = 1e
+00:00:03.78 interruptgic: read32 [ff84200c] = 1e
+00:00:03.79 interruptgic: write32 [ff842010] = 1e
+00:00:03.79 interruptgic: read32 [ff84200c] = 1e
+00:00:03.80 interruptgic: write32 [ff842010] = 1e
+00:00:03.80 interruptgic: read32 [ff84200c] = 1e
+00:00:03.81 interruptgic: write32 [ff842010] = 1e
+00:00:03.81 interruptgic: read32 [ff84200c] = 1e
+00:00:03.82 interruptgic: write32 [ff842010] = 1e
+00:00:03.82 interruptgic: read32 [ff84200c] = 1e
+00:00:03.83 interruptgic: write32 [ff842010] = 1e
+00:00:03.83 interruptgic: read32 [ff84200c] = 1e
+00:00:03.84 interruptgic: write32 [ff842010] = 1e
+00:00:03.84 interruptgic: read32 [ff84200c] = 1e
+00:00:03.85 interruptgic: write32 [ff842010] = 1e
+00:00:03.85 interruptgic: read32 [ff84200c] = 1e
+00:00:03.86 interruptgic: write32 [ff842010] = 1e
+00:00:03.86 interruptgic: read32 [ff84200c] = 1e
+00:00:03.87 interruptgic: write32 [ff842010] = 1e
+00:00:03.87 interruptgic: read32 [ff84200c] = 1e
+00:00:03.88 interruptgic: write32 [ff842010] = 1e
+00:00:03.88 interruptgic: read32 [ff84200c] = 1e
+00:00:03.89 interruptgic: write32 [ff842010] = 1e
+00:00:03.89 interruptgic: read32 [ff84200c] = 1e
+00:00:03.90 interruptgic: write32 [ff842010] = 1e
+00:00:03.90 xhcimmiospace: write32 [104] = 1
+00:00:03.91 interruptgic: read32 [ff84200c] = af
+00:00:03.91 xhci: IRQ
+00:00:03.91 xhcimmiospace: read32 [24] = 8
+00:00:03.91 xhcimmiospace: write32 [24] = 8
+00:00:03.91 xhcimmiospace: read32 [220] = 3
+00:00:03.91 xhcimmiospace: write32 [220] = 3
+00:00:03.91 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:03.91 xhcimmiospace: write32 [238] = 6008d8
+00:00:03.91 xhcimmiospace: write32 [23c] = 4
+00:00:03.91 interruptgic: write32 [ff842010] = af
+00:00:03.91 interruptgic: read32 [ff84200c] = 1e
+00:00:03.92 interruptgic: write32 [ff842010] = 1e
+00:00:03.92 interruptgic: read32 [ff84200c] = 1e
+00:00:03.93 interruptgic: write32 [ff842010] = 1e
+00:00:03.93 interruptgic: read32 [ff84200c] = 1e
+00:00:03.94 interruptgic: write32 [ff842010] = 1e
+00:00:03.94 interruptgic: read32 [ff84200c] = 1e
+00:00:03.95 interruptgic: write32 [ff842010] = 1e
+00:00:03.95 interruptgic: read32 [ff84200c] = 1e
+00:00:03.96 interruptgic: write32 [ff842010] = 1e
+00:00:03.96 interruptgic: read32 [ff84200c] = 1e
+00:00:03.97 interruptgic: write32 [ff842010] = 1e
+00:00:03.97 interruptgic: read32 [ff84200c] = 1e
+00:00:03.98 interruptgic: write32 [ff842010] = 1e
+00:00:03.98 interruptgic: read32 [ff84200c] = 1e
+00:00:03.99 interruptgic: write32 [ff842010] = 1e
+00:00:03.99 interruptgic: read32 [ff84200c] = 1e
+00:00:04.00 interruptgic: write32 [ff842010] = 1e
+00:00:04.00 interruptgic: read32 [ff84200c] = 1e
+00:00:04.01 interruptgic: write32 [ff842010] = 1e
+00:00:04.01 interruptgic: read32 [ff84200c] = 1e
+00:00:04.02 interruptgic: write32 [ff842010] = 1e
+00:00:04.02 interruptgic: read32 [ff84200c] = 1e
+00:00:04.03 interruptgic: write32 [ff842010] = 1e
+00:00:04.03 interruptgic: read32 [ff84200c] = 1e
+00:00:04.04 interruptgic: write32 [ff842010] = 1e
+00:00:04.04 interruptgic: read32 [ff84200c] = 1e
+00:00:04.05 interruptgic: write32 [ff842010] = 1e
+00:00:04.05 interruptgic: read32 [ff84200c] = 1e
+00:00:04.06 interruptgic: write32 [ff842010] = 1e
+00:00:04.06 interruptgic: read32 [ff84200c] = 1e
+00:00:04.07 interruptgic: write32 [ff842010] = 1e
+00:00:04.07 interruptgic: read32 [ff84200c] = 1e
+00:00:04.08 interruptgic: write32 [ff842010] = 1e
+00:00:04.08 interruptgic: read32 [ff84200c] = 1e
+00:00:04.09 interruptgic: write32 [ff842010] = 1e
+00:00:04.09 interruptgic: read32 [ff84200c] = 1e
+00:00:04.10 interruptgic: write32 [ff842010] = 1e
+00:00:04.10 interruptgic: read32 [ff84200c] = 1e
+00:00:04.11 interruptgic: write32 [ff842010] = 1e
+00:00:04.11 interruptgic: read32 [ff84200c] = 1e
+00:00:04.12 interruptgic: write32 [ff842010] = 1e
+00:00:04.12 interruptgic: read32 [ff84200c] = 1e
+00:00:04.13 interruptgic: write32 [ff842010] = 1e
+00:00:04.13 interruptgic: read32 [ff84200c] = 1e
+00:00:04.14 interruptgic: write32 [ff842010] = 1e
+00:00:04.14 interruptgic: read32 [ff84200c] = 1e
+00:00:04.15 interruptgic: write32 [ff842010] = 1e
+00:00:04.15 interruptgic: read32 [ff84200c] = 1e
+00:00:04.16 interruptgic: write32 [ff842010] = 1e
+00:00:04.16 interruptgic: read32 [ff84200c] = 1e
+00:00:04.17 interruptgic: write32 [ff842010] = 1e
+00:00:04.17 interruptgic: read32 [ff84200c] = 1e
+00:00:04.18 interruptgic: write32 [ff842010] = 1e
+00:00:04.18 xhcimmiospace: write32 [104] = 1
+00:00:04.19 interruptgic: read32 [ff84200c] = af
+00:00:04.19 xhci: IRQ
+00:00:04.19 xhcimmiospace: read32 [24] = 8
+00:00:04.19 xhcimmiospace: write32 [24] = 8
+00:00:04.19 xhcimmiospace: read32 [220] = 3
+00:00:04.19 xhcimmiospace: write32 [220] = 3
+00:00:04.19 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:04.19 xhcimmiospace: write32 [238] = 6008e8
+00:00:04.19 xhcimmiospace: write32 [23c] = 4
+00:00:04.19 interruptgic: write32 [ff842010] = af
+00:00:04.19 interruptgic: read32 [ff84200c] = 1e
+00:00:04.20 interruptgic: write32 [ff842010] = 1e
+00:00:04.20 interruptgic: read32 [ff84200c] = 1e
+00:00:04.21 interruptgic: write32 [ff842010] = 1e
+00:00:04.21 interruptgic: read32 [ff84200c] = 1e
+00:00:04.22 interruptgic: write32 [ff842010] = 1e
+00:00:04.22 interruptgic: read32 [ff84200c] = 1e
+00:00:04.23 interruptgic: write32 [ff842010] = 1e
+00:00:04.23 interruptgic: read32 [ff84200c] = 1e
+00:00:04.24 interruptgic: write32 [ff842010] = 1e
+00:00:04.24 interruptgic: read32 [ff84200c] = 1e
+00:00:04.25 interruptgic: write32 [ff842010] = 1e
+00:00:04.25 interruptgic: read32 [ff84200c] = 1e
+00:00:04.26 interruptgic: write32 [ff842010] = 1e
+00:00:04.26 interruptgic: read32 [ff84200c] = 1e
+00:00:04.27 interruptgic: write32 [ff842010] = 1e
+00:00:04.27 interruptgic: read32 [ff84200c] = 1e
+00:00:04.28 interruptgic: write32 [ff842010] = 1e
+00:00:04.28 interruptgic: read32 [ff84200c] = 1e
+00:00:04.29 interruptgic: write32 [ff842010] = 1e
+00:00:04.29 interruptgic: read32 [ff84200c] = 1e
+00:00:04.30 interruptgic: write32 [ff842010] = 1e
+00:00:04.30 interruptgic: read32 [ff84200c] = 1e
+00:00:04.31 interruptgic: write32 [ff842010] = 1e
+00:00:04.31 interruptgic: read32 [ff84200c] = 1e
+00:00:04.32 interruptgic: write32 [ff842010] = 1e
+00:00:04.32 interruptgic: read32 [ff84200c] = 1e
+00:00:04.33 interruptgic: write32 [ff842010] = 1e
+00:00:04.33 interruptgic: read32 [ff84200c] = 1e
+00:00:04.34 interruptgic: write32 [ff842010] = 1e
+00:00:04.34 interruptgic: 
