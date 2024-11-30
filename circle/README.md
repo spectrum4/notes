@@ -157,30 +157,25 @@ XHCI_DEBUG2
 
 The USB example on rpi4 updates the following ARM registers:
 
-* `cnthctl_el2`
+* `cnthctl_el2`:  0x0000000000000003
 * `cntp_ctl_el0`
 * `cntp_cval_el0`
-* `cntvoff_el2`
+* `cntvoff_el2`:  0x0000000000000000
 * `cpacr_el1`:    0x0000000000300000
-* `cptr_el2`
-* `daif`
-* `daifclr`
-* `daifset`
-* `elr_el1`:      0x00000000000a9470
-* `elr_el2`
-* `hcr_el2`
-* `hstr_el2`
+* `cptr_el2`:     0x00000000000033ff
+* `hcr_el2`:      0x0000000080000000
+* `hstr_el2`:     0x0000000000000000
 * `mair_el1`:     0x00000000000004ff
 * `sctlr_el1`:    0x0000000030d01805
-* `sp_el1`
 * `spsr_el1`:     0x0000000060000304
-* `spsr_el2`
+* `spsr_el2`:     0x00000000000003c4
 * `tcr_el1`:      0x000000010080751c
 * `ttbr0_el1`:    0x0000000007000000
 * `vbar_el1`:     0x00000000000af800
-* `vbar_el2`
-* `vmpidr_el2`
-* `vpidr_el2`
+* `vbar_el2`:     0x00000000000af800
+* `vmpidr_el2`:   0x0000000080000000
+* `vpidr_el2`:    0x00000000410fd083
+
 
 Spectrum +4 currently updates the following ARM registers:
 
