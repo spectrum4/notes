@@ -152,3 +152,78 @@ VCOS_BLOCKPOOL_DEBUGGING
 XHCI_DEBUG
 XHCI_DEBUG2
 ```
+
+## ARM registers that are updated
+
+The USB example on rpi4 updates the following ARM registers:
+
+* `cnthctl_el2`
+* `cntp_ctl_el0`
+* `cntp_cval_el0`
+* `cntvoff_el2`
+* `cpacr_el1`
+* `cptr_el2`
+* `daif`
+* `daifclr`
+* `daifset`
+* `elr_el1`
+* `elr_el2`
+* `hcr_el2`
+* `hstr_el2`
+* `mair_el1`
+* `sctlr_el1`
+* `sp_el1`
+* `spsr_el1`
+* `spsr_el2`
+* `tcr_el1`
+* `ttbr0_el1`
+* `vbar_el1`
+* `vbar_el2`
+* `vmpidr_el2`
+* `vpidr_el2`
+
+Spectrum +4 currently updates the following ARM registers:
+
+* `daifclr`
+* `daifset`
+* `elr_el2`
+* `elr_el3`
+* `hcr_el2`
+* `mair_el1`
+* `scr_el3`
+* `sctlr_el1`
+* `spsr_el2`
+* `spsr_el3`
+* `tcr_el1`
+* `ttbr0_el1`
+* `ttbr1_el1`
+* `vbar_el1`
+
+This suggests spectrum4 updates to the following registers might be superfluous:
+
+* `elr_el3`
+* `scr_el3`
+* `spsr_el3`
+* `ttbr1_el1`
+
+And updates to the following registers should be considered:
+
+* `cnthctl_el2`
+* `cntp_ctl_el0`
+* `cntp_cval_el0`
+* `cntvoff_el2`
+* `cpacr_el1`
+* `cptr_el2`
+* `daif`
+* `elr_el1`
+* `hstr_el2`
+* `sp_el1`
+* `spsr_el1`
+* `vbar_el2`
+* `vmpidr_el2`
+* `vpidr_el2`
+
+It would also be beneficial to dump the values of all of these registers in
+both projects to compare them. See
+https://developer.arm.com/documentation/ddi0601/2024-09/AArch64-Registers?lang=en
+for descriptions of the registers.
