@@ -157,22 +157,31 @@ XHCI_DEBUG2
 
 The USB example on rpi4 updates the following ARM registers:
 
+* `cntfrq_el0`
 * `cnthctl_el2`:  0x0000000000000003
 * `cntp_ctl_el0`
 * `cntp_cval_el0`
 * `cntvoff_el2`:  0x0000000000000000
 * `cpacr_el1`:    0x0000000000300000
 * `cptr_el2`:     0x00000000000033ff
+* `cptr_el3`
+* `cpuectlr_el1`
+* `elr_el3`
 * `hcr_el2`:      0x0000000080000000
 * `hstr_el2`:     0x0000000000000000
+* `l2ctlr_el1`
 * `mair_el1`:     0x00000000000004ff
+* `scr_el3`
 * `sctlr_el1`:    0x0000000030d01805
+* `sctlr_el2`
 * `spsr_el1`:     0x0000000060000304
 * `spsr_el2`:     0x00000000000003c4
+* `spsr_el3`
 * `tcr_el1`:      0x000000010080751c
 * `ttbr0_el1`:    0x0000000007000000
 * `vbar_el1`:     0x00000000000af800
 * `vbar_el2`:     0x00000000000af800
+* `vbar_el3`
 * `vmpidr_el2`:   0x0000000080000000
 * `vpidr_el2`:    0x00000000410fd083
 
