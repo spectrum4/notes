@@ -157,15 +157,15 @@ XHCI_DEBUG2
 
 The USB example on rpi4 updates the following ARM registers:
 
-* `cntfrq_el0`
-* `cnthctl_el2`:  0x0000000000000003
-* `cntp_ctl_el0`
-* `cntp_cval_el0`
-* `cntvoff_el2`:  0x0000000000000000
-* `cpacr_el1`:    0x0000000000300000
-* `cptr_el2`:     0x00000000000033ff
-* `cptr_el3`
-* `cpuectlr_el1`
+* `cntfrq_el0`:   0x000000000337f980 (54 000 000) ... set in armstub - clock frequency, i.e. 54MHz
+* `cnthctl_el2`:  0x0000000000000003 (enable EL1 and EL0 access to physical timer registers CNTP_CTL_EL0, CNTP_CVAL_EL0, CNTP_TVAL_EL0, CNTPCT_EL0 and CNTPCTSS_EL0) - [1:0]
+* `cntp_ctl_el0`: 0x0000000000000001 (timer init - enables the timer) [0]
+* `cntp_cval_el0`                    (time of next scheduled interrupt) [63:0]
+* `cntvoff_el2`:  0x0000000000000000 (virtual offset to physical timer)
+* `cpacr_el1`:    0x0000000000300000 (do not trap FP/SIMD operations in EL0/EL1) [21:20]
+* `cptr_el2`:     0x00000000000033ff (do not trap FP/SIMD operations) [10]
+* `cptr_el3`:     0x00000000000033ff (enable floating point/SIMD) (should be 0x0 - see https://github.com/raspberrypi/tools/commit/2e59fc67d465510179155973d2b959e50a440e47)
+* `cpuectlr_el1`  0x0000000000000040 (SMPEN: Enables data coherency with other cores in the cluster) [6]
 * `elr_el3`
 * `hcr_el2`:      0x0000000080000000
 * `hstr_el2`:     0x0000000000000000
@@ -188,8 +188,6 @@ The USB example on rpi4 updates the following ARM registers:
 
 Spectrum +4 currently updates the following ARM registers:
 
-* `daifclr`
-* `daifset`
 * `elr_el2`
 * `elr_el3`
 * `hcr_el2`
@@ -203,27 +201,25 @@ Spectrum +4 currently updates the following ARM registers:
 * `ttbr1_el1`
 * `vbar_el1`
 
-This suggests spectrum4 updates to the following registers might be superfluous:
-
-* `elr_el3`
-* `scr_el3`
-* `spsr_el3`
-* `ttbr1_el1`
-
 And updates to the following registers should be considered:
 
+* `cntfrq_el0`
 * `cnthctl_el2`
 * `cntp_ctl_el0`
 * `cntp_cval_el0`
 * `cntvoff_el2`
 * `cpacr_el1`
 * `cptr_el2`
-* `daif`
+* `cptr_el3`
+* `cpuectlr_el1`
 * `elr_el1`
 * `hstr_el2`
+* `l2ctlr_el1`
+* `sctlr_el2`
 * `sp_el1`
 * `spsr_el1`
 * `vbar_el2`
+* `vbar_el3`
 * `vmpidr_el2`
 * `vpidr_el2`
 
