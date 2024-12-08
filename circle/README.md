@@ -157,33 +157,285 @@ XHCI_DEBUG2
 
 The USB example on rpi4 updates the following ARM registers:
 
-* `cntfrq_el0`:   0x000000000337f980 (54 000 000) ... set in armstub - clock frequency, i.e. 54MHz
-* `cnthctl_el2`:  0x0000000000000003 (enable EL1 and EL0 access to physical timer registers CNTP_CTL_EL0, CNTP_CVAL_EL0, CNTP_TVAL_EL0, CNTPCT_EL0 and CNTPCTSS_EL0) - [1:0]
-* `cntp_ctl_el0`: 0x0000000000000001 (timer init - enables the timer) [0]
-* `cntp_cval_el0`                    (time of next scheduled interrupt) [63:0]
-* `cntvoff_el2`:  0x0000000000000000 (virtual offset to physical timer)
-* `cpacr_el1`:    0x0000000000300000 (do not trap FP/SIMD operations in EL0/EL1) [21:20]
-* `cptr_el2`:     0x00000000000033ff (do not trap FP/SIMD operations) [10]
-* `cptr_el3`:     0x00000000000033ff (enable floating point/SIMD) (should be 0x0 - see https://github.com/raspberrypi/tools/commit/2e59fc67d465510179155973d2b959e50a440e47)
-* `cpuectlr_el1`  0x0000000000000040 (SMPEN: Enables data coherency with other cores in the cluster) [6]
-* `elr_el3`
-* `hcr_el2`:      0x0000000080000000
-* `hstr_el2`:     0x0000000000000000
-* `l2ctlr_el1`
-* `mair_el1`:     0x00000000000004ff
-* `scr_el3`
-* `sctlr_el1`:    0x0000000030d01805
-* `sctlr_el2`
-* `spsr_el1`:     0x0000000060000304
-* `spsr_el2`:     0x00000000000003c4
-* `spsr_el3`
-* `tcr_el1`:      0x000000010080751c
-* `ttbr0_el1`:    0x0000000007000000
-* `vbar_el1`:     0x00000000000af800
-* `vbar_el2`:     0x00000000000af800
-* `vbar_el3`
-* `vmpidr_el2`:   0x0000000080000000
-* `vpidr_el2`:    0x00000000410fd083
+arm stub
+
+```
+* l2ctlr_el1:                      (set bits 1, 5) [5] [1]
+                                                  // => L2 Data RAM latency [2:0] = 0b010 = 2 => 3 cycles
+                                                  // => L2 Data RAM setup [5] = 1 => 1 cycle
+* cntfrq_el0:   0x000000000337f980 (54 000 000) ... set in armstub - clock frequency, i.e. 54MHz [63:0]
+* cntvoff_el2:  0x0000000000000000 (virtual offset to physical timer) [63:0]
+* cptr_el3:     0x0000000000000000 (enable floating point/SIMD) [63:0]
+* scr_el3:      0x0000000000000531 [63:0]
+
+                                                  // => NS [0] = 1 => Non-secure security state
+                                                  // => IRQ [1] = 0 => Exceptions in IRQ mode (not monitor mode)
+                                                  // => FIQ [2] = 0 => FIQs in FIQ mode (not monitor mode)
+                                                  // => EA [3] = 0 => External aborts in Abort mode (not monitor mode)
+                                                  // => FW / RES1 [4] = 1 => seems to be RES1 but see CPSR.F and HCR.FMO
+                                                  // => AW / RES1 [5] = 1 => seems to be RES1 but see CPSR.A and HCR.AMO
+                                                  // => nET / RES0 [6] = 0 => RES0
+                                                  // => SCD / SMD [7] = 0 => SMC works from privileged modes
+                                                  // => HCE [8] = 1 => HVC enabled in EL1 and EL2 and performs a Hyp Call
+                                                  // => SIF [9] = 0 => Secure state instruction fetches from Non-secure memory permitted
+                                                  // => RES0 / RW [10] = 1 => EL2 uses aarch64
+                                                  // => RES0 / ST [11] = 0 => no traps for accesses to the Counter-timer Physical Secure timer registers
+
+
+
+
+
+* vbar_el3:     0x0000000000070000 [63:0]
+* cpuectlr_el1  0x0000000000000040 (SMPEN: Enables data coherency with other cores in the cluster) [63:0]
+* sctlr_el2     0x0000000030c50830 [63:0]
+* spsr_el3      0x00000000000003c9 [63:0]
+```
+
+kernel startup
+
+```
+* vbar_el2:     0x00000000000af800 [63:0]
+* cnthctl_el2:  0x0000000000000003 (enable EL1 and EL0 access to physical timer registers CNTP_CTL_EL0, CNTP_CVAL_EL0, CNTP_TVAL_EL0, CNTPCT_EL0 and CNTPCTSS_EL0) - [1:0]
+* cntvoff_el2:  0x0000000000000000 (virtual offset to physical timer) [63:0] (note, already done in arm stub)
+* vpidr_el2:    0x00000000410fd083 == [midr_el1] [63:0]
+* vmpidr_el2:   0x0000000080000000 == [mpidr_el1] [63:0]
+* cptr_el2:     0x00000000000033ff (do not trap FP/SIMD operations) [63:0]
+* hstr_el2:     0x0000000000000000 [63:0]
+* cpacr_el1:    0x0000000000300000 (do not trap FP/SIMD operations in EL0/EL1) [63:0]
+* hcr_el2:      0x0000000080000000 [63:0]
+* sctlr_el1:    0x0000000030d00800 [63:0] (reset value is 0x00c50838)
+* spsr_el2:     0x00000000000003c4 [63:0]
+* vbar_el1:     0x00000000000af800 [63:0]
+```
+
+timer
+
+```
+* cntp_ctl_el0: 0x0000000000000001 (timer init - enables the timer) [0]
+* cntp_cval_el0                    (time of next scheduled interrupt) [63:0]
+```
+
+enable mmu
+
+```
+* mair_el1:     0x00000000000004ff [63:0]
+* ttbr0_el1:    0x0000000007000000 page table address [63:0]
+* tcr_el1:      0x000000010080751c [34:32] [23] [22] [15:14] [13:12] [11:10] [9:8] [7] [5:0]
+
+                                                  // => T0SZ [5:0] = 0b011100 = 28 => region size = 2^(64-28) = 2^36 bytes = 64 GB
+                                                  // => RES0 [6] = <unchanged>
+                                                  // => EPD0 [7] = 0 => perform walk on a miss
+                                                  // => IRGN0 [9:8] = 0b01 => Normal memory, Inner Write-Back Read-Allocate Write-Allocate Cacheable.
+                                                  // => ORGN0 [11:10] = 0b01 => Normal memory, Outer Write-Back Read-Allocate Write-Allocate Cacheable.
+                                                  // => SH0 [13:12] = 0b11 => Inner Shareable
+                                                  // => TG0 [15:14] = 0b01 => Granule size 64KB
+                                                  // => T1SZ [21:16] = <unchanged>
+                                                  // => A1 [22] = 0 => TTBR0_EL1.ASID defines the ASID
+                                                  // => EPD1 [23] = 1 => A TLB miss on an address that is translated using TTBR1_EL1 generates a Translation fault. No translation table walk is performed
+                                                  // => IRGN1 [25:24] = <unchanged>
+                                                  // => ORGN1 [27:26] = <unchanged>
+                                                  // => SH1 [29:28] = <unchanged>
+                                                  // => TG1 [31:30] = <unchanged> (Granule size for TTBR1_EL1)
+                                                  // => IPS [34:32] = 1 => Intermediate Physical Address size = 36 bits, 64GB.
+
+
+* sctlr_el1:    0x0000000030d01805 [19] [12] [2] [1] [0]
+                                                  // => WXN [19] = 0 (Regions with write permission are not forced to be "eXecute Never")
+                                                  // => I [12] = 1 (Enable instruction cache)
+                                                  // => C [2] = 1 (Data and unified caches enabled)
+                                                  // => A [1] = 0 (Alignment fault checking disabled)
+                                                  // => M [0] = 1 (EL1 and EL0 stage 1 MMU enabled)
+```
+
+hvc stub
+
+```
+* spsr_el2:     0x---------------9 [0:3] => 0b1001
+
+                                                  // => M [3:0] = 0b1001 AArch64 Exception level and selected Stack Pointer: EL2 with SP_EL2 (EL2h)
+```
+
+armstub _start
+
+```
+/* Set L2 read/write cache latency to 3 (l2ctlr_el1) */
+mrs    x0, s3_1_c11_c0_2
+mov    x1, #0x22
+orr    x0, x0, x1
+msr    s3_1_c11_c0_2, x0
+
+ldr    x0, =0x000000000337f980 # (54 000 000 Hz)
+msr    cntfrq_el0, x0
+
+msr    cntvoff_el2, xzr
+
+msr    cptr_el3, xzr
+
+mov    x0, #0x531
+msr    scr_el3, x0
+
+mov    x0, #0x70000
+msr    vbar_el3, x0
+
+/* (cpuectlr_el1) */
+mov    x0, #0x40
+msr    s3_1_c15_c2_1, x0
+
+/*
+ * All set bits below are res1. LE, no WXN/I/SA/C/A/M
+ */
+ldr    x0, =0x30c50830
+msr    sctlr_el2, x0
+
+mov    x0, #0x3c9
+msr    spsr_el3, x0
+```
+
+kernel _start
+
+```
+
+# ldr    x0, =0x0000000000308000
+# msr    sp_el1, x0
+
+ldr    x0, =0x00000000000af000
+msr    vbar_el2, x0
+
+mrs    x0, cnthctl_el2
+orr    x0, x0, #0x3
+msr    cnthctl_el2, x0
+
+msr    cntvoff_el2, xzr
+
+mrs    x0, midr_el1
+msr    vpidr_el2, x0
+
+mrs    x1, mpidr_el1
+msr    vmpidr_el2, x1
+
+mov    x0, #0x33ff
+msr    cptr_el2, x0
+
+msr    hstr_el2, xzr
+
+mov    x0, #0x300000
+msr    cpacr_el1, x0
+
+mov    x0, #0x80000000
+msr    hcr_el2, x0
+
+ldr    x0, =0x30d00800
+msr    sctlr_el1, x0
+
+mov    x0, #0x3c4
+msr    spsr_el2, x0
+
+ldr    x0, =0x00000000000af000
+msr    vbar_el1, x0
+```
+
+
+CTimer::~CTimer() # Destructor
+```
+   a625c:    d2800001     mov    x1, #0x0                       // #0
+   a6260:    d51be221     msr    cntp_ctl_el0, x1
+```
+
+
+CTimer::InterruptHandler()
+```
+   a6c24:    d53be241     mrs    x1, cntp_cval_el0
+   a6c28:    b9400800     ldr    w0, [x0, #8]
+   a6c2c:    8b010000     add    x0, x0, x1
+   a6c30:    d51be240     msr    cntp_cval_el0, x0
+```
+
+CTimer::Initialize()
+```
+   a6e0c:    d53be001     mrs    x1, cntfrq_el0
+   a6e10:    d28b8520     mov    x0, #0x5c29                    // #23593
+   a6e14:    f2b851e0     movk    x0, #0xc28f, lsl #16
+   a6e18:    f2c51ea0     movk    x0, #0x28f5, lsl #32
+   a6e1c:    f2f1eb80     movk    x0, #0x8f5c, lsl #48
+   a6e20:    d291eb82     mov    x2, #0x8f5c                    // #36700
+   a6e24:    f2beb842     movk    x2, #0xf5c2, lsl #16
+   a6e28:    9b007c20     mul    x0, x1, x0
+   a6e2c:    f2cb8502     movk    x2, #0x5c28, lsl #32
+   a6e30:    f2e051e2     movk    x2, #0x28f, lsl #48
+   a6e34:    93c00800     ror    x0, x0, #2
+   a6e38:    eb02001f     cmp    x0, x2
+   a6e3c:    54000348     b.hi    a6ea4 <CTimer::Initialize()+0xc4>  // b.pmore
+   a6e40:    d29eb860     mov    x0, #0xf5c3                    // #62915
+   a6e44:    f2ab8500     movk    x0, #0x5c28, lsl #16
+   a6e48:    d342fc21     lsr    x1, x1, #2
+   a6e4c:    f2d851e0     movk    x0, #0xc28f, lsl #32
+   a6e50:    f2e51ea0     movk    x0, #0x28f5, lsl #48
+   a6e54:    9bc07c21     umulh    x1, x1, x0
+   a6e58:    d342fc21     lsr    x1, x1, #2
+   a6e5c:    b9000a61     str    w1, [x19, #8]
+   a6e60:    d53be020     mrs    x0, cntpct_el0
+   a6e64:    8b214001     add    x1, x0, w1, uxtw
+   a6e68:    d51be241     msr    cntp_cval_el0, x1
+   a6e6c:    d2800034     mov    x20, #0x1                       // #1
+   a6e70:    d51be234     msr    cntp_ctl_el0, x20
+```
+
+CMemorySystem::Destructor()
+```
+   a8dc8:    d5381000     mrs    x0, sctlr_el1
+   a8dcc:    928000a1     mov    x1, #0xfffffffffffffffa        // #-6
+   a8dd0:    8a010000     and    x0, x0, x1
+   a8dd4:    d5181000     msr    sctlr_el1, x0
+   a8dd8:    d5033f9f     dsb    sy
+   a8ddc:    d5033fdf     isb
+   a8de0:    9400017c     bl    a93d0 <CleanDataCache>
+   a8de4:    9400011f     bl    a9260 <InvalidateDataCache>
+   a8de8:    d508871f     tlbi    vmalle1
+   a8dec:    d5033f9f     dsb    sy
+   a8df0:    d5033fdf     isb
+```
+
+CMemorySystem::EnableMMU()
+```
+   a8f20:    d2809fe1     mov    x1, #0x4ff                     // #1279
+   a8f24:    d518a201     msr    mair_el1, x1
+   a8f28:    f9419400     ldr    x0, [x0, #808]
+   a8f2c:    b4000360     cbz    x0, a8f98 <CMemorySystem::EnableMMU()+0x88>
+   a8f30:    940001b4     bl    a9600 <CTranslationTable::GetBaseAddress() const>
+   a8f34:    d5182000     msr    ttbr0_el1, x0
+   a8f38:    d5382040     mrs    x0, tcr_el1
+   a8f3c:    929ff7e2     mov    x2, #0xffffffffffff0040        // #-65472
+   a8f40:    f2bff7e2     movk    x2, #0xffbf, lsl #16
+   a8f44:    f2dfff02     movk    x2, #0xfff8, lsl #32
+   a8f48:    d28ea381     mov    x1, #0x751c                    // #29980
+   a8f4c:    f2a01001     movk    x1, #0x80, lsl #16
+   a8f50:    8a020000     and    x0, x0, x2
+   a8f54:    f2c00021     movk    x1, #0x1, lsl #32
+   a8f58:    aa010000     orr    x0, x0, x1
+   a8f5c:    d5182040     msr    tcr_el1, x0
+   a8f60:    d5381000     mrs    x0, sctlr_el1
+   a8f64:    92800042     mov    x2, #0xfffffffffffffffd     //   (bit 1)
+   a8f68:    f2bffee2     movk    x2, #0xfff7, lsl #16    //   (bit 19)
+   a8f6c:    d28200a1     mov    x1, #0x1005                    //   (bits 0, 2, 12)
+   a8f70:    8a020000     and    x0, x0, x2                  //   clear bits 1, 19
+   a8f74:    aa010000     orr    x0, x0, x1                  //   set bits 0, 2, 12
+   a8f78:    d5181000     msr    sctlr_el1, x0
+```
+
+IRQStub
+```
+   af8cc:    d518403d     msr    elr_el1, x29
+   af8d0:    d518401e     msr    spsr_el1, x30
+```
+
+HVCStub
+```
+   af9a0:    d53c4000     mrs    x0, spsr_el2
+   af9a4:    927cec00     and    x0, x0, #0xfffffffffffffff0
+   af9a8:    d2800121     mov    x1, #0x9                       // #9
+   af9ac:    aa010000     orr    x0, x0, x1
+   af9b0:    d51c4000     msr    spsr_el2, x0
+```
 
 
 Spectrum +4 currently updates the following ARM registers:
