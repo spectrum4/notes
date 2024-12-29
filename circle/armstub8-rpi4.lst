@@ -1,0 +1,107 @@
+
+armstub8-rpi4.elf:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000000000000 <_start>:
+   0:	d2bff000 	mov	x0, #0xff800000            	// #4286578688
+   4:	b900001f 	str	wzr, [x0]
+   8:	52b00001 	mov	w1, #0x80000000            	// #-2147483648
+   c:	b9000801 	str	w1, [x0, #8]
+  10:	d539b040 	mrs	x0, s3_1_c11_c0_2
+  14:	d2800441 	mov	x1, #0x22                  	// #34
+  18:	aa010000 	orr	x0, x0, x1
+  1c:	d519b040 	msr	s3_1_c11_c0_2, x0
+  20:	58000480 	ldr	x0, b0 <boot_kernel+0x14>
+  24:	d51be000 	msr	cntfrq_el0, x0
+  28:	d51ce07f 	msr	cntvoff_el2, xzr
+  2c:	d2867fe0 	mov	x0, #0x33ff                	// #13311
+  30:	d51e1140 	msr	cptr_el3, x0
+  34:	d280a620 	mov	x0, #0x531                 	// #1329
+  38:	d51e1100 	msr	scr_el3, x0
+  3c:	d2a000e0 	mov	x0, #0x70000               	// #458752
+  40:	d51ec000 	msr	vbar_el3, x0
+  44:	9100001f 	mov	sp, x0
+  48:	d2800800 	mov	x0, #0x40                  	// #64
+  4c:	d519f220 	msr	s3_1_c15_c2_1, x0
+  50:	9400002c 	bl	100 <setup_gic>
+  54:	58000320 	ldr	x0, b8 <boot_kernel+0x1c>
+  58:	d51c1000 	msr	sctlr_el2, x0
+  5c:	d2807920 	mov	x0, #0x3c9                 	// #969
+  60:	d51e4000 	msr	spsr_el3, x0
+  64:	10000060 	adr	x0, 70 <in_el2>
+  68:	d51e4020 	msr	elr_el3, x0
+  6c:	d69f03e0 	eret
+
+0000000000000070 <in_el2>:
+  70:	d53800a6 	mrs	x6, mpidr_el1
+  74:	924004c6 	and	x6, x6, #0x3
+  78:	b40000e6 	cbz	x6, 94 <primary_cpu>
+  7c:	100002e5 	adr	x5, d8 <spin_cpu0>
+
+0000000000000080 <secondary_spin>:
+  80:	d503205f 	wfe
+  84:	f86678a4 	ldr	x4, [x5, x6, lsl #3]
+  88:	b4ffffc4 	cbz	x4, 80 <secondary_spin>
+  8c:	d2800000 	mov	x0, #0x0                   	// #0
+  90:	14000003 	b	9c <boot_kernel>
+
+0000000000000094 <primary_cpu>:
+  94:	18000344 	ldr	w4, fc <kernel_entry32>
+  98:	18000300 	ldr	w0, f8 <dtb_ptr32>
+
+000000000000009c <boot_kernel>:
+  9c:	d2800001 	mov	x1, #0x0                   	// #0
+  a0:	d2800002 	mov	x2, #0x0                   	// #0
+  a4:	d2800003 	mov	x3, #0x0                   	// #0
+  a8:	d61f0080 	br	x4
+  ac:	00000000 	udf	#0
+  b0:	0337f980 	.inst	0x0337f980 ; undefined
+  b4:	00000000 	udf	#0
+  b8:	30c50830 	adr	x16, fffffffffff8a1bd <_stack+0xfffffffffff0a1bd>
+	...
+  d4:	53514946 	.inst	0x53514946 ; undefined
+
+00000000000000d8 <spin_cpu0>:
+	...
+
+00000000000000e0 <spin_cpu1>:
+	...
+
+00000000000000e8 <spin_cpu2>:
+	...
+
+00000000000000f0 <spin_cpu3>:
+  f0:	5afe570b 	.inst	0x5afe570b ; undefined
+
+00000000000000f4 <stub_version>:
+  f4:	00000000 	udf	#0
+
+00000000000000f8 <dtb_ptr32>:
+  f8:	00000000 	udf	#0
+
+00000000000000fc <kernel_entry32>:
+  fc:	00000000 	udf	#0
+
+0000000000000100 <setup_gic>:
+ 100:	d53800a0 	mrs	x0, mpidr_el1
+ 104:	58000222 	ldr	x2, 148 <setup_gic+0x48>
+ 108:	f240041f 	tst	x0, #0x3
+ 10c:	54000060 	b.eq	118 <setup_gic+0x18>  // b.none
+ 110:	52800060 	mov	w0, #0x3                   	// #3
+ 114:	b9000040 	str	w0, [x2]
+ 118:	91400441 	add	x1, x2, #0x1, lsl #12
+ 11c:	52803ce0 	mov	w0, #0x1e7                 	// #487
+ 120:	b9000020 	str	w0, [x1]
+ 124:	52801fe0 	mov	w0, #0xff                  	// #255
+ 128:	b9000420 	str	w0, [x1, #4]
+ 12c:	91020042 	add	x2, x2, #0x80
+ 130:	d2800400 	mov	x0, #0x20                  	// #32
+ 134:	12800001 	mov	w1, #0xffffffff            	// #-1
+ 138:	f1001000 	subs	x0, x0, #0x4
+ 13c:	b8206841 	str	w1, [x2, x0]
+ 140:	54ffffc1 	b.ne	138 <setup_gic+0x38>  // b.any
+ 144:	d65f03c0 	ret
+ 148:	ff841000 	.inst	0xff841000 ; undefined
+ 14c:	00000000 	udf	#0
