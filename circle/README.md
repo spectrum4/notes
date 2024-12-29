@@ -255,84 +255,7 @@ hvc stub
                                                   // => M [3:0] = 0b1001 AArch64 Exception level and selected Stack Pointer: EL2 with SP_EL2 (EL2h)
 ```
 
-armstub _start
-
-```
-/* Set L2 read/write cache latency to 3 (l2ctlr_el1) */
-mrs    x0, s3_1_c11_c0_2
-mov    x1, #0x22
-orr    x0, x0, x1
-msr    s3_1_c11_c0_2, x0
-
-ldr    x0, =0x000000000337f980 # (54 000 000 Hz)
-msr    cntfrq_el0, x0
-
-msr    cntvoff_el2, xzr
-
-msr    cptr_el3, xzr
-
-mov    x0, #0x531
-msr    scr_el3, x0
-
-mov    x0, #0x70000
-msr    vbar_el3, x0
-
-/* (cpuectlr_el1) */
-mov    x0, #0x40
-msr    s3_1_c15_c2_1, x0
-
-/*
- * All set bits below are res1. LE, no WXN/I/SA/C/A/M
- */
-ldr    x0, =0x30c50830
-msr    sctlr_el2, x0
-
-mov    x0, #0x3c9
-msr    spsr_el3, x0
-```
-
 kernel _start
-
-```
-
-# ldr    x0, =0x0000000000308000
-# msr    sp_el1, x0
-
-ldr    x0, =0x00000000000af000
-msr    vbar_el2, x0
-
-mrs    x0, cnthctl_el2
-orr    x0, x0, #0x3
-msr    cnthctl_el2, x0
-
-msr    cntvoff_el2, xzr
-
-mrs    x0, midr_el1
-msr    vpidr_el2, x0
-
-mrs    x1, mpidr_el1
-msr    vmpidr_el2, x1
-
-mov    x0, #0x33ff
-msr    cptr_el2, x0
-
-msr    hstr_el2, xzr
-
-mov    x0, #0x300000
-msr    cpacr_el1, x0
-
-mov    x0, #0x80000000
-msr    hcr_el2, x0
-
-ldr    x0, =0x30d00800
-msr    sctlr_el1, x0
-
-mov    x0, #0x3c4
-msr    spsr_el2, x0
-
-ldr    x0, =0x00000000000af000
-msr    vbar_el1, x0
-```
 
 
 CTimer::~CTimer() # Destructor
@@ -479,3 +402,399 @@ It would also be beneficial to dump the values of all of these registers in
 both projects to compare them. See
 https://developer.arm.com/documentation/ddi0601/2024-09/AArch64-Registers?lang=en
 for descriptions of the registers.
+
+
+
+
+## Start up
+
+arm stub
+
+```asm
+/*
+ * Modified version for the Raspberry Pi 4 which allows using FIQ with Circle
+ */
+/*
+ * Copyright (c) 2016 Raspberry Pi (Trading) Ltd.
+ * Copyright (c) 2016 Stephen Warren <swarren@wwwdotorg.org>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ * * Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ * * Redistributions in binary form must reproduce the above copyright notice,
+ *   this list of conditions and the following disclaimer in the documentation
+ *   and/or other materials provided with the distribution.
+ * * Neither the name of the copyright holder nor the names of its contributors
+ *   may be used to endorse or promote products derived from this software
+ *   without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+.globl _start
+_start:
+ /*
+	 * LOCAL_CONTROL:
+	 * Bit 9 clear: Increment by 1 (vs. 2).
+	 * Bit 8 clear: Timer source is 19.2MHz crystal (vs. APB).
+	 */
+ mov x0, 0xff800000
+ str wzr, [x0]
+ /* LOCAL_PRESCALER; divide-by (0x80000000 / register_val) == 1 */
+ mov w1, 0x80000000
+ str w1, [x0, #(0xff800008 - 0xff800000)]
+ /* Set L2 read/write cache latency to 3 */
+ mrs x0, S3_1_C11_C0_2
+ mov x1, #0x22
+ orr x0, x0, x1
+ msr S3_1_C11_C0_2, x0
+ /* Set up CNTFRQ_EL0 */
+ ldr x0, =54000000
+ msr CNTFRQ_EL0, x0
+ /* Set up CNTVOFF_EL2 */
+ msr CNTVOFF_EL2, xzr
+ /* Enable FP/SIMD */
+ /* bit 10 (TFP) set to 0 */
+ msr CPTR_EL3, xzr
+ /* Set up SCR */
+ mov x0, #((1 << (10)) | (1 << (8)) | (1 << (5)) | (1 << (4)) | (1 << (0)))
+ msr SCR_EL3, x0
+ /* Set up secure monitor entry and stack */
+ mov x0, #0x70000
+ msr VBAR_EL3, x0
+ mov sp, x0
+ /* Set SMPEN */
+ mov x0, #(1 << (6))
+ msr S3_1_C15_C2_1, x0
+        bl setup_gic
+ /*
+	 * Set up SCTLR_EL2
+	 * All set bits below are res1. LE, no WXN/I/SA/C/A/M
+	 */
+ ldr x0, =0x30c50830
+ msr SCTLR_EL2, x0
+ /* Switch to EL2 */
+ mov x0, #((1 << (9)) | (1 << (8)) | (1 << (7)) | (1 << (6)) | 9)
+ msr spsr_el3, x0
+ adr x0, in_el2
+ msr elr_el3, x0
+ eret
+in_el2:
+ mrs x6, MPIDR_EL1
+ and x6, x6, #0x3
+ cbz x6, primary_cpu
+ adr x5, spin_cpu0
+secondary_spin:
+ wfe
+ ldr x4, [x5, x6, lsl #3]
+ cbz x4, secondary_spin
+ mov x0, #0
+ b boot_kernel
+primary_cpu:
+ ldr w4, kernel_entry32
+ ldr w0, dtb_ptr32
+boot_kernel:
+ mov x1, #0
+ mov x2, #0
+ mov x3, #0
+ br x4
+.ltorg
+.org 0xd4
+ .ascii "FIQS" /* Circle GIC code checks this for presence */
+.org 0xd8
+.globl spin_cpu0
+spin_cpu0:
+ .quad 0
+.org 0xe0
+.globl spin_cpu1
+spin_cpu1:
+ .quad 0
+.org 0xe8
+.globl spin_cpu2
+spin_cpu2:
+ .quad 0
+.org 0xf0
+.globl spin_cpu3
+spin_cpu3:
+ # Shared with next two symbols/.word
+ # FW clears the next 8 bytes after reading the initial value, leaving
+ # the location suitable for use as spin_cpu3
+.org 0xf0
+.globl stub_magic
+stub_magic:
+ .word 0x5afe570b
+.org 0xf4
+.globl stub_version
+stub_version:
+ .word 0
+.org 0xf8
+.globl dtb_ptr32
+dtb_ptr32:
+ .word 0x0
+.org 0xfc
+.globl kernel_entry32
+kernel_entry32:
+ .word 0x0
+.org 0x100
+setup_gic: // Called from secure mode - set all interrupts to group 1 and enable.
+ mrs x0, MPIDR_EL1
+ ldr x2, =0xff841000
+ tst x0, #0x3
+ b.eq 2f // primary core
+ mov w0, #3 // Enable group 0 and 1 IRQs from distributor
+ str w0, [x2, #0x0]
+2:
+ add x1, x2, #(0xff842000 - 0xff841000)
+ mov w0, #0x1e7
+ str w0, [x1, #0x0] // Enable group 1 IRQs from CPU interface
+ mov w0, #0xff
+ str w0, [x1, #0x4] // priority mask
+ add x2, x2, #0x80
+ mov x0, #(0x8 * 4)
+ mov w1, #~0 // group 1 all the things
+3:
+ subs x0, x0, #4
+ str w1, [x2, x0]
+ b.ne 3b
+ ret
+.ltorg
+.globl dtb_space
+dtb_space:
+```
+
+startup
+
+```asm
+ .macro armv8_switch_to_el1_m, xreg1, xreg2
+ /* Initialize Generic Timers */
+ mrs \xreg1, cnthctl_el2
+ orr \xreg1, \xreg1, #0x3 /* Enable EL1 access to timers */
+ msr cnthctl_el2, \xreg1
+ msr cntvoff_el2, xzr
+ /* Initilize MPID/MPIDR registers */
+ mrs \xreg1, midr_el1
+ mrs \xreg2, mpidr_el1
+ msr vpidr_el2, \xreg1
+ msr vmpidr_el2, \xreg2
+ /* Disable coprocessor traps */
+ mov \xreg1, #0x33ff
+ msr cptr_el2, \xreg1 /* Disable coprocessor traps to EL2 */
+ msr hstr_el2, xzr /* Disable coprocessor traps to EL2 */
+ mov \xreg1, #3 << 20
+ msr cpacr_el1, \xreg1 /* Enable FP/SIMD at EL1 */
+ /* Initialize HCR_EL2 */
+ mov \xreg1, #(1 << 31) /* 64bit EL1 */
+ msr hcr_el2, \xreg1
+ /* SCTLR_EL1 initialization
+	 *
+	 * setting RES1 bits (29,28,23,22,20,11) to 1
+	 * and RES0 bits (31,30,27,21,17,13,10,6) +
+	 * UCI,EE,EOE,WXN,nTWE,nTWI,UCT,DZE,I,UMA,SED,ITD,
+	 * CP15BEN,SA0,SA,C,A,M to 0
+	 */
+ mov \xreg1, #0x0800
+ movk \xreg1, #0x30d0, lsl #16
+ msr sctlr_el1, \xreg1
+ /* Return to the EL1_SP1 mode from EL2 */
+ mov \xreg1, #0x3c4
+ msr spsr_el2, \xreg1 /* EL1_SP0 | D | A | I | F */
+ adr \xreg1, 1f
+ msr elr_el2, \xreg1
+ eret
+1:
+ .endm
+ .section .init
+ .globl _start
+_start: /* normally entered from armstub8 in EL2 after boot */
+ mrs x0, CurrentEL /* check if already in EL1t mode? */
+ cmp x0, #4
+ beq 1f
+ ldr x0, =(((0x80000 + (2 * 0x100000)) + 0x20000) + 0x20000 * (4 -1) + 0x8000) /* IRQ, FIQ and exception handler run in EL1h */
+ msr sp_el1, x0 /* init their stack */
+ ldr x0, =VectorTable /* init exception vector table for EL2 */
+ msr vbar_el2, x0
+ armv8_switch_to_el1_m x0, x1
+1: ldr x0, =((0x80000 + (2 * 0x100000)) + 0x20000) /* main thread runs in EL1t and uses sp_el0 */
+ mov sp, x0 /* init its stack */
+ ldr x0, =VectorTable /* init exception vector table */
+ msr vbar_el1, x0
+ b sysinit
+```
+
+sysinit
+
+```cpp
+void sysinit (void)
+{
+ asm volatile ("msr DAIFClr, #1"); // go to IRQ_LEVEL, EnterCritical() will not work otherwise
+ asm volatile ("msr DAIFClr, #2"); // go to TASK_LEVEL
+ // clear BSS
+ extern unsigned char __bss_start;
+ extern unsigned char _end;
+ memset (&__bss_start, 0, &_end - &__bss_start);
+ // halt, if KERNEL_MAX_SIZE is not properly set
+ // cannot inform the user here
+ if ((0x80000 + (2 * 0x100000)) < reinterpret_cast<uintptr> (&_end))
+ {
+  halt ();
+ }
+ CMemorySystem Memory;
+ CMachineInfo MachineInfo;
+ Memory.SetupHighMem ();
+ // set circle_version_string[]
+ CString Version;
+ if ((480000 % 100))
+ {
+  Version.Format ("%d.%d.%d", (480000 / 10000), (480000 / 100 % 100),
+           (480000 % 100));
+ }
+ else if ((480000 / 100 % 100))
+ {
+  Version.Format ("%d.%d", (480000 / 10000), (480000 / 100 % 100));
+ }
+ else
+ {
+  Version.Format ("%d", (480000 / 10000));
+ }
+ strcpy (circle_version_string, Version);
+ CInterruptSystem InterruptSystem;
+ if (!InterruptSystem.Initialize ())
+ {
+  error_halt (2);
+ }
+ // call constructors of static objects
+ extern void (*__init_start) (void);
+ extern void (*__init_end) (void);
+ for (void (**pFunc) (void) = &__init_start; pFunc < &__init_end; pFunc++)
+ {
+  (**pFunc) ();
+ }
+ extern int main (void);
+ int nResult = main ();
+ if (nResult == 1)
+ {
+  if (IsChainBootEnabled ())
+  {
+   InterruptSystem.Destructor ();
+   Memory.Destructor ();
+   asm volatile ("msr DAIFSet, #1");
+   DoChainBoot ();
+  }
+  reboot ();
+ }
+ halt ();
+}
+```
+
+```cpp
+void CMemorySystem::SetupHighMem (void)
+{
+ unsigned nRAMSize = CMachineInfo::Get ()->GetRAMSize ();
+ if (nRAMSize > 1024)
+ {
+  u64 nHighSize = (nRAMSize - 1024) * 0x100000;
+  if (nHighSize > (3 * 0x40000000UL - 1)+1 - 0x40000000UL)
+  {
+   nHighSize = (3 * 0x40000000UL - 1)+1 - 0x40000000UL;
+  }
+  m_nMemSizeHigh = (size_t) nHighSize;
+  m_HeapHigh.Setup (0x40000000UL, (size_t) nHighSize, 0);
+ }
+}
+```
+
+```cpp
+void CHeapAllocator::Setup (uintptr nBase, size_t nSize, size_t nReserve)
+{
+ m_pNext = (u8 *) nBase;
+ m_pLimit = (u8 *) (nBase + nSize);
+ m_nReserve = nReserve;
+}
+```
+
+```cpp
+CMemorySystem *CMemorySystem::s_pThis = 0;
+CMemorySystem::CMemorySystem (boolean bEnableMMU)
+: m_bEnableMMU (bEnableMMU),
+ m_nMemSize (0),
+ m_nMemSizeHigh (0),
+ m_HeapLow ("heaplow"),
+ m_HeapHigh ("heaphigh"),
+ m_pTranslationTable (0)
+{
+ if (s_pThis != 0) // ignore second instance
+ {
+  return;
+ }
+ s_pThis = this;
+ CBcmPropertyTags Tags (true);
+ TPropertyTagMemory TagMemory;
+ if (!Tags.GetTag (0x00010005, &TagMemory, sizeof TagMemory))
+ {
+  TagMemory.nBaseAddress = 0;
+  TagMemory.nSize = ((512 * 0x100000) - (64 * 0x100000));
+ }
+ ( __builtin_expect (!!(TagMemory.nBaseAddress == 0), 1) ? ((void) 0) : assertion_failed ("TagMemory.nBaseAddress == 0", "memory64.cpp", 55));
+ m_nMemSize = TagMemory.nSize;
+ size_t nBlockReserve = m_nMemSize - (((((((0x80000 + (2 * 0x100000)) + 0x20000) + 0x20000 * (4 -1) + 0x8000) + 0x8000 * (4 -1)) + 2*0x100000) & ~(0x100000 -1)) + 4*0x100000) - (16 * 0x100000);
+ m_HeapLow.Setup ((((((((0x80000 + (2 * 0x100000)) + 0x20000) + 0x20000 * (4 -1) + 0x8000) + 0x8000 * (4 -1)) + 2*0x100000) & ~(0x100000 -1)) + 4*0x100000), nBlockReserve, 0x40000);
+ m_Pager.Setup ((((((((0x80000 + (2 * 0x100000)) + 0x20000) + 0x20000 * (4 -1) + 0x8000) + 0x8000 * (4 -1)) + 2*0x100000) & ~(0x100000 -1)) + 4*0x100000) + nBlockReserve, (16 * 0x100000));
+ if (m_bEnableMMU)
+ {
+  m_pTranslationTable = new CTranslationTable (m_nMemSize);
+  ( __builtin_expect (!!(m_pTranslationTable != 0), 1) ? ((void) 0) : assertion_failed ("m_pTranslationTable != 0", "memory64.cpp", 66));
+  EnableMMU ();
+  asm volatile ("isb" ::: "memory");
+ }
+}
+```
+
+```cpp
+void CMemorySystem::EnableMMU (void)
+{
+ ( __builtin_expect (!!(m_bEnableMMU), 1) ? ((void) 0) : assertion_failed ("m_bEnableMMU", "memory64.cpp", 156));
+ u64 nMAIR_EL1 = 0xFF << 0*8 // inner/outer write-back non-transient, allocating
+                 | 0x04 << 1*8 // Device-nGnRE
+                 | 0x00 << 2*8; // Device-nGnRnE
+ asm volatile ("msr mair_el1, %0" : : "r" (nMAIR_EL1));
+ ( __builtin_expect (!!(m_pTranslationTable != 0), 1) ? ((void) 0) : assertion_failed ("m_pTranslationTable != 0", "memory64.cpp", 163));
+ asm volatile ("msr ttbr0_el1, %0" : : "r" (m_pTranslationTable->GetBaseAddress ()));
+ u64 nTCR_EL1;
+ asm volatile ("mrs %0, tcr_el1" : "=r" (nTCR_EL1));
+ nTCR_EL1 &= ~( (7UL << 32)
+        | (1 << 22)
+        | (3 << 14)
+        | (3 << 12)
+        | (3 << 10)
+        | (3 << 8)
+        | (1 << 7)
+        | (0x3F << 0));
+ nTCR_EL1 |= (1 << 23)
+      | 1 << 14
+      | 3 << 12
+      | 1 << 10
+      | 1 << 8
+      | 1UL << 32
+      | 28 << 0;
+ asm volatile ("msr tcr_el1, %0" : : "r" (nTCR_EL1));
+ u64 nSCTLR_EL1;
+ asm volatile ("mrs %0, sctlr_el1" : "=r" (nSCTLR_EL1));
+ nSCTLR_EL1 &= ~( (1 << 19)
+   | (1 << 1));
+ nSCTLR_EL1 |= (1 << 12)
+        | (1 << 2)
+        | (1 << 0);
+ asm volatile ("msr sctlr_el1, %0" : : "r" (nSCTLR_EL1) : "memory");
+}
+```
