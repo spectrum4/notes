@@ -18,14 +18,14 @@ git clone git@github.com:rsta2/circle.git
 cd circle
 
 # git checkout c21f2efdad86c1062f255fbf891135a2a356713e
-# git checkout develop
+git checkout develop
 # git checkout master
-git checkout Step48
+# git checkout Step48
 
 git remote add pete git@github.com:petemoore/circle.git
 git fetch pete fix-cflashy-macos
 GIT_COMMIT_SHA="$(git rev-parse HEAD)"
-git cherry-pick 2f27212d92c27efc3493f97fe770e7ec9b380cae # fix configure script
+# git cherry-pick 2f27212d92c27efc3493f97fe770e7ec9b380cae # fix configure script
 git cherry-pick 06f741ca0e709422e87a956e5b274af345f6ba2a # fix cflashy
 
 ./configure -r 4 -p aarch64-none-elf- --keymap US --qemu -d XHCI_DEBUG=1 -d XHCI_DEBUG2=1 -d DEBUG=1 -d USB_GADGET_DEBUG=1 -f
