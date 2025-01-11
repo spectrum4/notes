@@ -240,6 +240,7 @@ enable mmu
 
 
 * sctlr_el1:    0x0000000030d01805 [19] [12] [2] [1] [0]
+* sctlr_el1:    0x0000000030d00801 [19] [12] [2] [1] [0]
                                                   // => WXN [19] = 0 (Regions with write permission are not forced to be "eXecute Never")
                                                   // => I [12] = 1 (Enable instruction cache)
                                                   // => C [2] = 1 (Data and unified caches enabled)
@@ -250,7 +251,7 @@ enable mmu
 hvc stub
 
 ```
-* spsr_el2:     0x---------------9 [0:3] => 0b1001
+* spsr_el2:     0x---------------9 [3:0] => 0b1001
 
                                                   // => M [3:0] = 0b1001 AArch64 Exception level and selected Stack Pointer: EL2 with SP_EL2 (EL2h)
 ```
@@ -576,26 +577,35 @@ dtb_space:
 startup
 
 ```asm
- .macro armv8_switch_to_el1_m, xreg1, xreg2
+ .section .init
+ .globl _start
+_start: /* normally entered from armstub8 in EL2 after boot */
+ mrs x0, CurrentEL /* check if already in EL1t mode? */
+ cmp x0, #4
+ beq 1f
+ ldr x0, =0x0000000000308000 /* IRQ, FIQ and exception handler run in EL1h */
+ msr sp_el1, x0 /* init their stack */
+ ldr x0, =VectorTable /* init exception vector table for EL2 */
+ msr vbar_el2, x0
  /* Initialize Generic Timers */
- mrs \xreg1, cnthctl_el2
- orr \xreg1, \xreg1, #0x3 /* Enable EL1 access to timers */
- msr cnthctl_el2, \xreg1
+ mrs x0, cnthctl_el2
+ orr x0, x0, #0x3 /* Enable EL1 access to timers */
+ msr cnthctl_el2, x0
  msr cntvoff_el2, xzr
  /* Initilize MPID/MPIDR registers */
- mrs \xreg1, midr_el1
- mrs \xreg2, mpidr_el1
- msr vpidr_el2, \xreg1
- msr vmpidr_el2, \xreg2
+ mrs x0, midr_el1
+ mrs x1, mpidr_el1
+ msr vpidr_el2, x0
+ msr vmpidr_el2, x1
  /* Disable coprocessor traps */
- mov \xreg1, #0x33ff
- msr cptr_el2, \xreg1 /* Disable coprocessor traps to EL2 */
+ mov x0, #0x33ff
+ msr cptr_el2, x0 /* Disable coprocessor traps to EL2 */
  msr hstr_el2, xzr /* Disable coprocessor traps to EL2 */
- mov \xreg1, #3 << 20
- msr cpacr_el1, \xreg1 /* Enable FP/SIMD at EL1 */
+ mov x0, #3 << 20
+ msr cpacr_el1, x0 /* Enable FP/SIMD at EL1 */
  /* Initialize HCR_EL2 */
- mov \xreg1, #(1 << 31) /* 64bit EL1 */
- msr hcr_el2, \xreg1
+ mov x0, #(1 << 31) /* 64bit EL1 */
+ msr hcr_el2, x0
  /* SCTLR_EL1 initialization
 	 *
 	 * setting RES1 bits (29,28,23,22,20,11) to 1
@@ -603,29 +613,17 @@ startup
 	 * UCI,EE,EOE,WXN,nTWE,nTWI,UCT,DZE,I,UMA,SED,ITD,
 	 * CP15BEN,SA0,SA,C,A,M to 0
 	 */
- mov \xreg1, #0x0800
- movk \xreg1, #0x30d0, lsl #16
- msr sctlr_el1, \xreg1
+ mov x0, #0x0800
+ movk x0, #0x30d0, lsl #16
+ msr sctlr_el1, x0
  /* Return to the EL1_SP1 mode from EL2 */
- mov \xreg1, #0x3c4
- msr spsr_el2, \xreg1 /* EL1_SP0 | D | A | I | F */
- adr \xreg1, 1f
- msr elr_el2, \xreg1
+ mov x0, #0x3c4
+ msr spsr_el2, x0 /* EL1_SP0 | D | A | I | F */
+ adr x0, 1f
+ msr elr_el2, x0
  eret
 1:
- .endm
- .section .init
- .globl _start
-_start: /* normally entered from armstub8 in EL2 after boot */
- mrs x0, CurrentEL /* check if already in EL1t mode? */
- cmp x0, #4
- beq 1f
- ldr x0, =(((0x80000 + (2 * 0x100000)) + 0x20000) + 0x20000 * (4 -1) + 0x8000) /* IRQ, FIQ and exception handler run in EL1h */
- msr sp_el1, x0 /* init their stack */
- ldr x0, =VectorTable /* init exception vector table for EL2 */
- msr vbar_el2, x0
- armv8_switch_to_el1_m x0, x1
-1: ldr x0, =((0x80000 + (2 * 0x100000)) + 0x20000) /* main thread runs in EL1t and uses sp_el0 */
+ ldr x0, =((0x80000 + (2 * 0x100000)) + 0x20000) /* main thread runs in EL1t and uses sp_el0 */
  mov sp, x0 /* init its stack */
  ldr x0, =VectorTable /* init exception vector table */
  msr vbar_el1, x0
