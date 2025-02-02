@@ -39510,6 +39510,7 @@ Disassembly of section .text:
 00000000000a55c0 <halt>:
    a55c0:   d50342df    msr daifset, #0x2
    a55c4:   d50341df    msr daifset, #0x1
+
    a55c8:   d5033f9f    dsb sy
    a55cc:   d503207f    wfi
    a55d0:   17fffffe    b   a55c8 <halt+0x8>
@@ -46496,10 +46497,11 @@ memset:
    abbd8:   2a0103f5    mov w21, w1
    abbdc:   37000080    tbnz    w0, #0, abbec <CBcmMailBox::WriteRead(unsigned int)+0x2c>
    abbe0:   f0000060    adrp    x0, ba000 <font_data+0x1080>
-   abbe4:   b94b2800    ldr w0, [x0, #2856]
+   abbe4:   b94b2800    ldr w0, [x0, #2856]                                                      // w0 = [0xbab28]
    abbe8:   35000580    cbnz    w0, abc98 <CBcmMailBox::WriteRead(unsigned int)+0xd8>
+
    abbec:   d2971313    mov x19, #0xb898
-   abbf0:   f2bfc013    movk    x19, #0xfe00, lsl #16
+   abbf0:   f2bfc013    movk    x19, #0xfe00, lsl #16                                            // x19 = 0xfe00b898  == mailbox_status register
    abbf4:   b9400260    ldr w0, [x19]
    abbf8:   37f00120    tbnz    w0, #30, abc1c <CBcmMailBox::WriteRead(unsigned int)+0x5c>
    abbfc:   d1006273    sub x19, x19, #0x18
@@ -46541,6 +46543,7 @@ memset:
    abc8c:   f94013f5    ldr x21, [sp, #32]
    abc90:   a8c47bfd    ldp x29, x30, [sp], #64
    abc94:   d65f03c0    ret
+
    abc98:   97fff276    bl  a8670 <EnterCritical>
    abc9c:   17ffffd4    b   abbec <CBcmMailBox::WriteRead(unsigned int)+0x2c>
    abca0:   b9003fe0    str w0, [sp, #60]
