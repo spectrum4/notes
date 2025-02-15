@@ -1,24 +1,19 @@
+Initialising random number generator unit... DONE.
 read [0xfffffff0fd509210]=0x00000003
 write [0xfffffff0fd509210]=0x00000003
 write [0xfffffff0fd509210]=0x00000001
-
 read [0xfffffff0fd504204]=0x00200000
 write [0xfffffff0fd504204]=0x00200000
-
 read [0xfffffff0fd504008]=0x00000000
 write [0xfffffff0fd504008]=0x88003000
-
 write [0xfffffff0fd504034]=0x00000011
 write [0xfffffff0fd504038]=0x00000004
-
 read [0xfffffff0fd50402c]=0x00000000
 write [0xfffffff0fd50402c]=0x00000000
 read [0xfffffff0fd50403c]=0x00000000
 write [0xfffffff0fd50403c]=0x00000000
-
 read [0xfffffff0fd509210]=0x00000001
 write [0xfffffff0fd509210]=0x00000000
-
 read [0xfffffff0fd504068]=0x00000080
 read [0xfffffff0fd504068]=0x00000080
 read [0xfffffff0fd504068]=0x00000080
@@ -34,22 +29,18 @@ read [0xfffffff0fd504068]=0x00000080
 read [0xfffffff0fd504068]=0x00000080
 read [0xfffffff0fd504068]=0x00000080
 read [0xfffffff0fd504068]=0x000000b0
-
 write [0xfffffff0fd50400c]=0xc0000000
 write [0xfffffff0fd504010]=0x00000000
-
 read [0xfffffff0fd504070]=0x00000010
 write [0xfffffff0fd504070]=0x3ff00000
 read [0xfffffff0fd504080]=0x00000000
 write [0xfffffff0fd504080]=0x00000006
 read [0xfffffff0fd504084]=0x00000000
 write [0xfffffff0fd504084]=0x00000006
-
 read [0xfffffff0fd5004dc]=0x00315e12
 write [0xfffffff0fd5004dc]=0x00315e12
 read [0xfffffff0fd50043c]=0x20060400
 write [0xfffffff0fd50043c]=0x20060400
-
 write [0xfffffff0fd501100]=0x0000001f
 read [0xfffffff0fd501100]=0x0000001f
 write [0xfffffff0fd501104]=0x80001100
@@ -66,40 +57,30 @@ read [0xfffffff0fd501100]=0x00100001
 read [0xfffffff0fd501108]=0x80001c17
 write [0xfffffff000084268]=0x80001c17
 write [0xfffffff000084250]=0x0006
-
 read [0xfffffff0fd5000be]=0x9012
 write [0xfffffff000084252]=0x9012
-
 read [0xfffffff0fd500188]=0x00000000
 write [0xfffffff0fd500188]=0x00000000
 read [0xfffffff0fd504204]=0x00200000
 write [0xfffffff0fd504204]=0x00000002
-
 read [0xfffffff0fd50406c]=0x00000304
 write [0xfffffff000084254]=0x00000304
-
 read [0xfffffff0fd500000]=0x271114e4
-
 read [0xfffffff0fd50000e]=0x01
-
 write [0xfffffff0fd504514]=0xffffffff
 write [0xfffffff0fd504508]=0xffffffff
 write [0xfffffff0fd504044]=0xfffffffd
 write [0xfffffff0fd504048]=0x00000000
 write [0xfffffff0fd50404c]=0xffe06540
-
 write [0xfffffff0fd509000]=0x00100000
 read [0xfffffff0fd508008]=0xffffffff
 read [0xfffffff0fd50800e]=0xff
 write [0xfffffff0fd50800c]=0x10
-
-write [0xfffffff0fd508010]=0xf8000004
+write [0xfffffff0fd508010]=0xc0000004
 write [0xfffffff0fd508014]=0x00000000
-
 read [0xfffffff0fd50803d]=0xff
 write [0xfffffff0fd50803d]=0x01
 write [0xfffffff0fd508004]=0x0146
-
 read [0xfffffff600000002]=0xdead
 write [0xfffffff00008426c]=0xdead
 read [0xfffffff600000000]=0xad
@@ -155,7 +136,7 @@ NZCV: 0x0000000080000000
 REVIDR_EL1: 0x0000000000000000
 S3_1_C11_C0_2: 0x0000000003002422
 SCTLR_EL1: 0x0000000030d0188f
-SP_EL0: 0x0000000010000000
+SP_EL0: 0x00000000191d1a05
 TCR_EL1: 0x00000001b51c351c
 TTBR0_EL1: 0x0000000000000000
 TTBR1_EL1: 0x0000000000095000
