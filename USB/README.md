@@ -223,6 +223,7 @@ and [0xfd504038] (PCIE_MISC_RC_BAR2_CONFIG_HI) = 0x4 and looking at code
 [here](https://github.com/raspberrypi/linux/blob/14b35093ca68bf2c81bbc90aace5007142b40b40/drivers/pci/controller/pcie-brcmstb.c#L915-L925)
 we can deduce what rci bar2 offset and size must be:
 
+```
 rc2 bar2 offset:   0bhhhh hhhh hhhh hhhh hhhh hhhh hhhh hhhh llll llll llll llll llll llll llll llll
 rc2 bar2 size:     0bHHHH HHHH HHHH HHHH HHHH HHHH HHHH HHHH LLLL LLLL LLLL LLLL LLLL LLLL LLLL LLLL
 tmp:               0b0000 0000 0000 0000 0000 0000 0000 0000 llll llll llll llll llll llll llll llll
@@ -236,7 +237,7 @@ HI: 0b0000 0000 0000 0000 0000 0000 0000 0100 = 0bhhhh hhhh hhhh hhhh hhhh hhhh 
 and brcm_pcie_encode_ibar_size(size) = 0x11
 => log2_in = 32
 => rc bar2 size = 4GB = 0x1 0000 0000
-
+```
 
 ## Steps from dmesg debug logs
 
