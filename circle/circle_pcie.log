@@ -1,77 +1,95 @@
-read [0xfd509210]=0x00000003
-write [0xfd509210]=0x00000003
-read [0xfd509210]=0x00000003
-read [0xfd509210]=0x00000003
-write [0xfd509210]=0x00000003
-read [0xfd509210]=0x00000003
-read [0xfd509210]=0x00000003
-write [0xfd509210]=0x00000001
-read [0xfd509210]=0x00000001
-read [0xfd504204]=0x00200000
-write [0xfd504204]=0x00200000
-read [0xfd504204]=0x00200000
-read [0xfd50406c]=0x00000304
-read [0xfd504008]=0x00000000
-write [0xfd504008]=0x00003000   # updated later to final value
-write [0xfd504034]=0x00000011
-write [0xfd504038]=0x00000004
-read [0xfd504008]=0x00003000
-write [0xfd504008]=0x88003000
-read [0xfd50402c]=0x00000000
-write [0xfd50402c]=0x00000000
-read [0xfd50403c]=0x00000000
-write [0xfd50403c]=0x00000000
-write [0xfd504308]=0xffffffff
-read [0xfd504308]=0x00000000
-write [0xfd504310]=0xffffffff
-read [0xfd504310]=0x00000000
-read [0xfd5000b8]=0x00655c12
-read [0xfd5000dc]=0x0002
-write [0xfd5000b8]=0x00655c12
-write [0xfd5000dc]=0x0002
-read [0xfd509210]=0x00000001
-write [0xfd509210]=0x00000000
-read [0xfd509210]=0x00000000
-read [0xfd504068]=0x000000b0
-read [0xfd504068]=0x000000b0
-read [0xfd504068]=0x000000b0
-write [0xfd50400c]=0xf8000000
-write [0xfd504010]=0x00000000
-read [0xfd504070]=0x00000010
-write [0xfd504070]=0x00000000
-read [0xfd504070]=0x00000000
-write [0xfd504070]=0x03f00000
-read [0xfd504080]=0x00000000
-write [0xfd504080]=0x00000006
-read [0xfd504084]=0x00000000
-write [0xfd504084]=0x00000006
-read [0xfd50043c]=0x20060400
-write [0xfd50043c]=0x20060400
-read [0xfd50043c]=0x20060400
-read [0xfd5000be]=0x9012
-00:00:01.96 pcie: Link up, 5.0 Gbps x1
-read [0xfd500188]=0x00000000
-write [0xfd500188]=0x00000000
-read [0xfd500188]=0x00000000
-read [0xfd504204]=0x00200000
-write [0xfd504204]=0x00200002
-read [0xfd504204]=0x00200002
-read [0xfd500008]=0x06040020
-read [0x1]=0x00
-write [0xfd50000c]=0x10
-write [0xfd500019]=0x01
-write [0xfd50001a]=0x01
-write [0xfd500020]=0xf800
-write [0xfd500022]=0xf800
-write [0xfd50003e]=0x01
-read [0x10]=0x00
-write [0xfd5000c8]=0x10
-write [0xfd500004]=0x0146
-write [0xfd509000]=0x00100000
-read [0xfd508008]=0x0c033001
-read [0x0]=0x00
-write [0xfd50800c]=0x10
-write [0xfd508010]=0xf8000004
-write [0xfd508014]=0x00000000
-read [0x1]=0x00
-write [0xfd508004]=0x0146
+00:00:01.61 bcmpciehostbridge: read32 [fd509210] = 3
+00:00:01.62 bcmpciehostbridge: write32 [fd509210] = 3
+00:00:01.62 bcmpciehostbridge: read32 [fd509210] = 3
+00:00:01.63 bcmpciehostbridge: read32 [fd509210] = 3
+00:00:01.63 bcmpciehostbridge: write32 [fd509210] = 3
+00:00:01.64 bcmpciehostbridge: read32 [fd509210] = 3
+00:00:01.64 bcmpciehostbridge: read32 [fd509210] = 3
+00:00:01.65 bcmpciehostbridge: write32 [fd509210] = 1
+00:00:01.65 bcmpciehostbridge: read32 [fd509210] = 1
+
+00:00:01.66 bcmpciehostbridge: read32 [fd504204] = 200000
+00:00:01.66 bcmpciehostbridge: write32 [fd504204] = 200000
+00:00:01.67 bcmpciehostbridge: read32 [fd504204] = 200000
+
+00:00:01.67 bcmpciehostbridge: read32 [fd50406c] = 304
+
+00:00:01.68 bcmpciehostbridge: read32 [fd504008] = 0
+00:00:01.68 bcmpciehostbridge: write32 [fd504008] = 3000
+
+00:00:01.69 bcmpciehostbridge: write32 [fd504034] = 11
+00:00:01.69 bcmpciehostbridge: write32 [fd504038] = 4
+
+00:00:01.70 bcmpciehostbridge: read32 [fd504008] = 3000
+00:00:01.70 bcmpciehostbridge: write32 [fd504008] = 88003000
+
+00:00:01.71 bcmpciehostbridge: read32 [fd50402c] = 0
+00:00:01.71 bcmpciehostbridge: write32 [fd50402c] = 0
+00:00:01.72 bcmpciehostbridge: read32 [fd50403c] = 0
+00:00:01.72 bcmpciehostbridge: write32 [fd50403c] = 0
+
+00:00:01.73 bcmpciehostbridge: write32 [fd504308] = ffffffff
+00:00:01.73 bcmpciehostbridge: read32 [fd504308] = 0
+00:00:01.74 bcmpciehostbridge: write32 [fd504310] = ffffffff
+00:00:01.74 bcmpciehostbridge: read32 [fd504310] = 0
+00:00:01.75 bcmpciehostbridge: read32 [fd5000b8] = 655c12
+00:00:01.75 bcmpciehostbridge: read16 [fd5000dc] = 2
+00:00:01.76 bcmpciehostbridge: write32 [fd5000b8] = 655c12
+00:00:01.76 bcmpciehostbridge: write16 [fd5000dc] = 2
+
+00:00:01.77 bcmpciehostbridge: read32 [fd509210] = 1
+00:00:01.77 bcmpciehostbridge: write32 [fd509210] = 0
+00:00:01.78 bcmpciehostbridge: read32 [fd509210] = 0
+
+00:00:01.88 bcmpciehostbridge: read32 [fd504068] = b0
+00:00:01.89 bcmpciehostbridge: read32 [fd504068] = b0
+00:00:01.89 bcmpciehostbridge: read32 [fd504068] = b0
+
+00:00:01.90 bcmpciehostbridge: write32 [fd50400c] = f8000000
+00:00:01.90 bcmpciehostbridge: write32 [fd504010] = 0
+
+00:00:01.91 bcmpciehostbridge: read32 [fd504070] = 10
+00:00:01.91 bcmpciehostbridge: write32 [fd504070] = 0
+00:00:01.91 bcmpciehostbridge: read32 [fd504070] = 0
+00:00:01.92 bcmpciehostbridge: write32 [fd504070] = 3f00000
+00:00:01.92 bcmpciehostbridge: read32 [fd504080] = 0
+00:00:01.93 bcmpciehostbridge: write32 [fd504080] = 6
+00:00:01.93 bcmpciehostbridge: read32 [fd504084] = 0
+00:00:01.94 bcmpciehostbridge: write32 [fd504084] = 6
+
+00:00:01.94 bcmpciehostbridge: read32 [fd50043c] = 20060400
+00:00:01.95 bcmpciehostbridge: write32 [fd50043c] = 20060400
+00:00:01.95 bcmpciehostbridge: read32 [fd50043c] = 20060400
+
+00:00:01.96 bcmpciehostbridge: read16 [fd5000be] = 9012
+
+00:00:01.97 bcmpciehostbridge: read32 [fd500188] = 0
+00:00:01.97 bcmpciehostbridge: write32 [fd500188] = 0
+00:00:01.98 bcmpciehostbridge: read32 [fd500188] = 0
+00:00:01.98 bcmpciehostbridge: read32 [fd504204] = 200000
+00:00:01.99 bcmpciehostbridge: write32 [fd504204] = 200002
+00:00:01.99 bcmpciehostbridge: read32 [fd504204] = 200002
+
+00:00:02.00 bcmpciehostbridge: read32 [fd500008] = 6040020
+00:00:02.00 bcmpciehostbridge: read8 [fd50000e] = 1
+
+00:00:02.01 bcmpciehostbridge: write8 [fd50000c] = 10
+00:00:02.01 bcmpciehostbridge: write8 [fd500019] = 1
+00:00:02.02 bcmpciehostbridge: write8 [fd50001a] = 1
+00:00:02.02 bcmpciehostbridge: write16 [fd500020] = f800
+00:00:02.03 bcmpciehostbridge: write16 [fd500022] = f800
+00:00:02.03 bcmpciehostbridge: write8 [fd50003e] = 1
+00:00:02.04 bcmpciehostbridge: read8 [fd5000ac] = 10
+00:00:02.04 bcmpciehostbridge: write8 [fd5000c8] = 10
+00:00:02.05 bcmpciehostbridge: write16 [fd500004] = 146
+
+00:00:02.12 bcmpciehostbridge: write32 [fd509000] = 100000
+00:00:02.13 bcmpciehostbridge: read32 [fd508008] = c033001
+00:00:02.13 bcmpciehostbridge: read8 [fd50800e] = 0
+00:00:02.14 bcmpciehostbridge: write8 [fd50800c] = 10
+
+00:00:02.14 bcmpciehostbridge: write32 [fd508010] = f8000004
+00:00:02.15 bcmpciehostbridge: write32 [fd508014] = 0
+
+00:00:02.15 bcmpciehostbridge: read8 [fd50803d] = 1
+00:00:02.16 bcmpciehostbridge: write16 [fd508004] = 146
