@@ -403,20 +403,20 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:01.99 bcmpciehostbridge: write32 [fd504204] = 200002
 00:00:01.99 bcmpciehostbridge: read32 [fd504204] = 200002
 00:00:02.00 bcmpciehostbridge: read32 [fd500008] = 6040020
-00:00:02.00 bcmpciehostbridge: read8 [1] = 0
+00:00:02.00 bcmpciehostbridge: read8 [fd50000e] = 1
 00:00:02.01 bcmpciehostbridge: write8 [fd50000c] = 10
 00:00:02.01 bcmpciehostbridge: write8 [fd500019] = 1
 00:00:02.02 bcmpciehostbridge: write8 [fd50001a] = 1
 00:00:02.02 bcmpciehostbridge: write16 [fd500020] = f800
 00:00:02.03 bcmpciehostbridge: write16 [fd500022] = f800
 00:00:02.03 bcmpciehostbridge: write8 [fd50003e] = 1
-00:00:02.04 bcmpciehostbridge: read8 [10] = 0
+00:00:02.04 bcmpciehostbridge: read8 [fd5000ac] = 10
 00:00:02.04 bcmpciehostbridge: write8 [fd5000c8] = 10
-00:00:02.04 bcmpciehostbridge: write16 [fd500004] = 146
+00:00:02.05 bcmpciehostbridge: write16 [fd500004] = 146
 00:00:02.05 bcmmailbox: read32 [fe00b898] = 40000000
-00:00:02.05 bcmmailbox: read32 [fe00b8b8] = 40000000
+00:00:02.06 bcmmailbox: read32 [fe00b8b8] = 40000000
 00:00:02.06 bcmmailbox: write32 [fe00b8a0] = c0500008
-00:00:02.06 bcmmailbox: read32 [fe00b898] = 40000000
+00:00:02.07 bcmmailbox: read32 [fe00b898] = 40000000
 00:00:02.07 bcmmailbox: read32 [fe00b898] = 40000000
 00:00:02.07 bcmmailbox: read32 [fe00b898] = 40000000
 00:00:02.08 bcmmailbox: read32 [fe00b898] = 40000000
@@ -427,47 +427,47 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:02.10 bcmmailbox: read32 [fe00b898] = 40000000
 00:00:02.11 bcmmailbox: read32 [fe00b898] = 40000000
 00:00:02.11 bcmmailbox: read32 [fe00b898] = 1
-00:00:02.11 bcmmailbox: read32 [fe00b880] = c0500008
+00:00:02.12 bcmmailbox: read32 [fe00b880] = c0500008
 00:00:02.12 bcmpciehostbridge: write32 [fd509000] = 100000
-00:00:02.12 bcmpciehostbridge: read32 [fd508008] = c033001
-00:00:02.13 bcmpciehostbridge: read8 [0] = 0
-00:00:02.13 bcmpciehostbridge: write8 [fd50800c] = 10
+00:00:02.13 bcmpciehostbridge: read32 [fd508008] = c033001
+00:00:02.13 bcmpciehostbridge: read8 [fd50800e] = 0
+00:00:02.14 bcmpciehostbridge: write8 [fd50800c] = 10
 00:00:02.14 bcmpciehostbridge: write32 [fd508010] = f8000004
-00:00:02.14 bcmpciehostbridge: write32 [fd508014] = 0
-00:00:02.15 bcmpciehostbridge: read8 [1] = 0
-00:00:02.15 bcmpciehostbridge: write16 [fd508004] = 146
+00:00:02.15 bcmpciehostbridge: write32 [fd508014] = 0
+00:00:02.15 bcmpciehostbridge: read8 [fd50803d] = 1
+00:00:02.16 bcmpciehostbridge: write16 [fd508004] = 146
 00:00:02.16 xhci: read16 [2] = 100
-00:00:02.16 xhcimmiospace: read8 [20] = 43
-00:00:02.16 xhcimmiospace: read32 [14] = 100
+00:00:02.16 xhcimmiospace: read8 [0] = 20
+00:00:02.17 xhcimmiospace: read32 [14] = 100
 00:00:02.17 xhcimmiospace: read32 [18] = 200
-00:00:02.17 xhcimmiospace: read32 [4] = 5000420
+00:00:02.18 xhcimmiospace: read32 [4] = 5000420
 00:00:02.18 xhcimmiospace: read32 [8] = fc000031
 00:00:02.18 xhcimmiospace: read32 [c] = e70004
 00:00:02.19 xhcimmiospace: read32 [10] = 2841eb
 00:00:02.19 xhci: 32 slots, 5 ports, 31 scratchpad bufs
-00:00:02.19 xhcimmiospace: read32 [24] = 1
+00:00:02.20 xhcimmiospace: read32 [24] = 1
 00:00:02.20 xhcimmiospace: read32 [20] = 0
 00:00:02.20 xhcimmiospace: write32 [20] = 2
 00:00:02.21 xhcimmiospace: read32 [20] = 2
 00:00:02.21 xhcimmiospace: read32 [20] = 0
-00:00:02.21 xhcimmiospace: read32 [24] = 11
+00:00:02.22 xhcimmiospace: read32 [24] = 11
 00:00:02.22 xhcimmiospace: read32 [28] = 1
 00:00:02.22 xhcimmiospace: read32 [58] = 0
 00:00:02.23 xhcimmiospace: write32 [58] = 20
 00:00:02.23 xhcimmiospace: write32 [50] = 600040
-00:00:02.23 xhcimmiospace: write32 [54] = 4
+00:00:02.24 xhcimmiospace: write32 [54] = 4
 00:00:02.24 xhcimmiospace: write32 [228] = 1
 00:00:02.24 xhcimmiospace: write32 [230] = 6018c0
 00:00:02.25 xhcimmiospace: write32 [234] = 4
 00:00:02.25 xhcimmiospace: write32 [238] = 600880
-00:00:02.25 xhcimmiospace: write32 [23c] = 4
+00:00:02.26 xhcimmiospace: write32 [23c] = 4
 00:00:02.26 xhcimmiospace: write32 [224] = 1f4
-00:00:02.26 xhcimmiospace: read32 [220] = 0
+00:00:02.27 xhcimmiospace: read32 [220] = 0
 00:00:02.27 xhcimmiospace: write32 [220] = 2
 00:00:02.27 xhcimmiospace: write32 [38] = 602101
 00:00:02.28 xhcimmiospace: write32 [3c] = 4
 00:00:02.28 interruptgic: write32 [ff841114] = 8000
-00:00:02.28 xhcimmiospace: read32 [20] = 0
+00:00:02.29 xhcimmiospace: read32 [20] = 0
 00:00:02.29 xhcimmiospace: write32 [20] = 4
 00:00:02.29 xhcimmiospace: read32 [20] = 4
 00:00:02.30 xhcimmiospace: write32 [20] = 5
@@ -553,31 +553,31 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:02.64 interruptgic: write32 [ff842010] = 1e
 00:00:02.64 interruptgic: read32 [ff84200c] = 1e
 00:00:02.65 interruptgic: write32 [ff842010] = 1e
-00:00:02.65 xhcimmiospace: read32 [420] = 400002e1
-00:00:02.66 xhcimmiospace: read32 [420] = 400002e1
-00:00:02.66 xhcimmiospace: write32 [420] = 400002f1
+00:00:02.65 interruptgic: read32 [ff84200c] = 1e
+00:00:02.66 interruptgic: write32 [ff842010] = 1e
 00:00:02.66 interruptgic: read32 [ff84200c] = 1e
 00:00:02.67 interruptgic: write32 [ff842010] = 1e
-00:00:02.67 interruptgic: read32 [ff84200c] = 1e
-00:00:02.68 interruptgic: write32 [ff842010] = 1e
+00:00:02.67 xhcimmiospace: read32 [420] = 400002e1
+00:00:02.68 xhcimmiospace: read32 [420] = 400002e1
+00:00:02.68 xhcimmiospace: write32 [420] = 400002f1
 00:00:02.68 interruptgic: read32 [ff84200c] = 1e
 00:00:02.69 interruptgic: write32 [ff842010] = 1e
-00:00:02.69 interruptgic: read32 [ff84200c] = af
-00:00:02.69 xhci: IRQ
-00:00:02.69 xhcimmiospace: read32 [24] = 18
-00:00:02.69 xhcimmiospace: write32 [24] = 18
-00:00:02.69 xhcimmiospace: read32 [220] = 3
-00:00:02.69 xhcimmiospace: write32 [220] = 3
-00:00:02.69 xhcimmiospace: read32 [420] = 40200e03
-00:00:02.69 xhciroot: Port 1 status is 0x40200E03
-00:00:02.69 xhcimmiospace: write32 [420] = 40200e01
-00:00:02.69 xhcimmiospace: write32 [238] = 6008a8
-00:00:02.69 xhcimmiospace: write32 [23c] = 4
-00:00:02.69 interruptgic: write32 [ff842010] = af
 00:00:02.69 interruptgic: read32 [ff84200c] = 1e
 00:00:02.70 interruptgic: write32 [ff842010] = 1e
 00:00:02.70 interruptgic: read32 [ff84200c] = 1e
 00:00:02.71 interruptgic: write32 [ff842010] = 1e
+00:00:02.71 interruptgic: read32 [ff84200c] = af
+00:00:02.71 xhci: IRQ
+00:00:02.71 xhcimmiospace: read32 [24] = 18
+00:00:02.71 xhcimmiospace: write32 [24] = 18
+00:00:02.71 xhcimmiospace: read32 [220] = 3
+00:00:02.71 xhcimmiospace: write32 [220] = 3
+00:00:02.71 xhcimmiospace: read32 [420] = 40200e03
+00:00:02.71 xhciroot: Port 1 status is 0x40200E03
+00:00:02.71 xhcimmiospace: write32 [420] = 40200e01
+00:00:02.71 xhcimmiospace: write32 [238] = 6008a8
+00:00:02.71 xhcimmiospace: write32 [23c] = 4
+00:00:02.71 interruptgic: write32 [ff842010] = af
 00:00:02.71 interruptgic: read32 [ff84200c] = 1e
 00:00:02.72 interruptgic: write32 [ff842010] = 1e
 00:00:02.72 interruptgic: read32 [ff84200c] = 1e
@@ -652,11 +652,11 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:03.07 interruptgic: write32 [ff842010] = 1e
 00:00:03.07 interruptgic: read32 [ff84200c] = 1e
 00:00:03.08 interruptgic: write32 [ff842010] = 1e
-00:00:03.08 xhcimmiospace: read32 [420] = 40000e03
+00:00:03.08 interruptgic: read32 [ff84200c] = 1e
+00:00:03.09 interruptgic: write32 [ff842010] = 1e
 00:00:03.09 interruptgic: read32 [ff84200c] = 1e
 00:00:03.10 interruptgic: write32 [ff842010] = 1e
-00:00:03.10 interruptgic: read32 [ff84200c] = 1e
-00:00:03.11 interruptgic: write32 [ff842010] = 1e
+00:00:03.10 xhcimmiospace: read32 [420] = 40000e03
 00:00:03.11 interruptgic: read32 [ff84200c] = 1e
 00:00:03.12 interruptgic: write32 [ff842010] = 1e
 00:00:03.12 interruptgic: read32 [ff84200c] = 1e
@@ -673,23 +673,23 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:03.18 interruptgic: write32 [ff842010] = 1e
 00:00:03.18 interruptgic: read32 [ff84200c] = 1e
 00:00:03.19 interruptgic: write32 [ff842010] = 1e
-00:00:03.19 xhcimmiospace: read32 [420] = 40000e03
-00:00:03.20 xhcicmd: Execute command 9 (control 0x2400)
-00:00:03.20 xhcimmiospace: write32 [100] = 0
-00:00:03.20 interruptgic: read32 [ff84200c] = af
-00:00:03.20 xhci: IRQ
-00:00:03.20 xhcimmiospace: read32 [24] = 8
-00:00:03.20 xhcimmiospace: write32 [24] = 8
-00:00:03.20 xhcimmiospace: read32 [220] = 3
-00:00:03.20 xhcimmiospace: write32 [220] = 3
-00:00:03.20 xhcicmd: Command 9 completed with 1 (slot 1)
-00:00:03.20 xhcimmiospace: write32 [238] = 6008b8
-00:00:03.20 xhcimmiospace: write32 [23c] = 4
-00:00:03.20 interruptgic: write32 [ff842010] = af
+00:00:03.19 interruptgic: read32 [ff84200c] = 1e
+00:00:03.20 interruptgic: write32 [ff842010] = 1e
 00:00:03.20 interruptgic: read32 [ff84200c] = 1e
 00:00:03.21 interruptgic: write32 [ff842010] = 1e
-00:00:03.21 interruptgic: read32 [ff84200c] = 1e
-00:00:03.22 interruptgic: write32 [ff842010] = 1e
+00:00:03.21 xhcimmiospace: read32 [420] = 40000e03
+00:00:03.22 xhcicmd: Execute command 9 (control 0x2400)
+00:00:03.22 xhcimmiospace: write32 [100] = 0
+00:00:03.22 interruptgic: read32 [ff84200c] = af
+00:00:03.22 xhci: IRQ
+00:00:03.22 xhcimmiospace: read32 [24] = 8
+00:00:03.22 xhcimmiospace: write32 [24] = 8
+00:00:03.22 xhcimmiospace: read32 [220] = 3
+00:00:03.22 xhcimmiospace: write32 [220] = 3
+00:00:03.22 xhcicmd: Command 9 completed with 1 (slot 1)
+00:00:03.22 xhcimmiospace: write32 [238] = 6008b8
+00:00:03.22 xhcimmiospace: write32 [23c] = 4
+00:00:03.22 interruptgic: write32 [ff842010] = af
 00:00:03.22 interruptgic: read32 [ff84200c] = 1e
 00:00:03.23 interruptgic: write32 [ff842010] = 1e
 00:00:03.23 interruptgic: read32 [ff84200c] = 1e
@@ -750,22 +750,22 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:03.51 interruptgic: write32 [ff842010] = 1e
 00:00:03.51 interruptgic: read32 [ff84200c] = 1e
 00:00:03.52 interruptgic: write32 [ff842010] = 1e
-00:00:03.52 xhcicmd: Execute command 11 (control 0x1002C00)
-00:00:03.53 xhcimmiospace: write32 [100] = 0
-00:00:03.53 interruptgic: read32 [ff84200c] = af
-00:00:03.53 xhci: IRQ
-00:00:03.53 xhcimmiospace: read32 [24] = 8
-00:00:03.53 xhcimmiospace: write32 [24] = 8
-00:00:03.53 xhcimmiospace: read32 [220] = 3
-00:00:03.53 xhcimmiospace: write32 [220] = 3
-00:00:03.53 xhcicmd: Command 11 completed with 1 (slot 1)
-00:00:03.53 xhcimmiospace: write32 [238] = 6008c8
-00:00:03.53 xhcimmiospace: write32 [23c] = 4
-00:00:03.53 interruptgic: write32 [ff842010] = af
+00:00:03.52 interruptgic: read32 [ff84200c] = 1e
+00:00:03.53 interruptgic: write32 [ff842010] = 1e
 00:00:03.53 interruptgic: read32 [ff84200c] = 1e
 00:00:03.54 interruptgic: write32 [ff842010] = 1e
-00:00:03.54 interruptgic: read32 [ff84200c] = 1e
-00:00:03.55 interruptgic: write32 [ff842010] = 1e
+00:00:03.54 xhcicmd: Execute command 11 (control 0x1002C00)
+00:00:03.55 xhcimmiospace: write32 [100] = 0
+00:00:03.55 interruptgic: read32 [ff84200c] = af
+00:00:03.55 xhci: IRQ
+00:00:03.55 xhcimmiospace: read32 [24] = 8
+00:00:03.55 xhcimmiospace: write32 [24] = 8
+00:00:03.55 xhcimmiospace: read32 [220] = 3
+00:00:03.55 xhcimmiospace: write32 [220] = 3
+00:00:03.55 xhcicmd: Command 11 completed with 1 (slot 1)
+00:00:03.55 xhcimmiospace: write32 [238] = 6008c8
+00:00:03.55 xhcimmiospace: write32 [23c] = 4
+00:00:03.55 interruptgic: write32 [ff842010] = af
 00:00:03.55 interruptgic: read32 [ff84200c] = 1e
 00:00:03.56 interruptgic: write32 [ff842010] = 1e
 00:00:03.56 interruptgic: read32 [ff84200c] = 1e
@@ -836,21 +836,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:03.89 interruptgic: write32 [ff842010] = 1e
 00:00:03.89 interruptgic: read32 [ff84200c] = 1e
 00:00:03.90 interruptgic: write32 [ff842010] = 1e
-00:00:03.90 xhcimmiospace: write32 [104] = 1
-00:00:03.91 interruptgic: read32 [ff84200c] = af
-00:00:03.91 xhci: IRQ
-00:00:03.91 xhcimmiospace: read32 [24] = 8
-00:00:03.91 xhcimmiospace: write32 [24] = 8
-00:00:03.91 xhcimmiospace: read32 [220] = 3
-00:00:03.91 xhcimmiospace: write32 [220] = 3
-00:00:03.91 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:03.91 xhcimmiospace: write32 [238] = 6008d8
-00:00:03.91 xhcimmiospace: write32 [23c] = 4
-00:00:03.91 interruptgic: write32 [ff842010] = af
+00:00:03.90 interruptgic: read32 [ff84200c] = 1e
+00:00:03.91 interruptgic: write32 [ff842010] = 1e
 00:00:03.91 interruptgic: read32 [ff84200c] = 1e
 00:00:03.92 interruptgic: write32 [ff842010] = 1e
-00:00:03.92 interruptgic: read32 [ff84200c] = 1e
-00:00:03.93 interruptgic: write32 [ff842010] = 1e
+00:00:03.92 xhcimmiospace: write32 [104] = 1
+00:00:03.93 interruptgic: read32 [ff84200c] = af
+00:00:03.93 xhci: IRQ
+00:00:03.93 xhcimmiospace: read32 [24] = 8
+00:00:03.93 xhcimmiospace: write32 [24] = 8
+00:00:03.93 xhcimmiospace: read32 [220] = 3
+00:00:03.93 xhcimmiospace: write32 [220] = 3
+00:00:03.93 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:03.93 xhcimmiospace: write32 [238] = 6008d8
+00:00:03.93 xhcimmiospace: write32 [23c] = 4
+00:00:03.93 interruptgic: write32 [ff842010] = af
 00:00:03.93 interruptgic: read32 [ff84200c] = 1e
 00:00:03.94 interruptgic: write32 [ff842010] = 1e
 00:00:03.94 interruptgic: read32 [ff84200c] = 1e
@@ -901,21 +901,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:04.17 interruptgic: write32 [ff842010] = 1e
 00:00:04.17 interruptgic: read32 [ff84200c] = 1e
 00:00:04.18 interruptgic: write32 [ff842010] = 1e
-00:00:04.18 xhcimmiospace: write32 [104] = 1
-00:00:04.19 interruptgic: read32 [ff84200c] = af
-00:00:04.19 xhci: IRQ
-00:00:04.19 xhcimmiospace: read32 [24] = 8
-00:00:04.19 xhcimmiospace: write32 [24] = 8
-00:00:04.19 xhcimmiospace: read32 [220] = 3
-00:00:04.19 xhcimmiospace: write32 [220] = 3
-00:00:04.19 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:04.19 xhcimmiospace: write32 [238] = 6008e8
-00:00:04.19 xhcimmiospace: write32 [23c] = 4
-00:00:04.19 interruptgic: write32 [ff842010] = af
+00:00:04.18 interruptgic: read32 [ff84200c] = 1e
+00:00:04.19 interruptgic: write32 [ff842010] = 1e
 00:00:04.19 interruptgic: read32 [ff84200c] = 1e
 00:00:04.20 interruptgic: write32 [ff842010] = 1e
-00:00:04.20 interruptgic: read32 [ff84200c] = 1e
-00:00:04.21 interruptgic: write32 [ff842010] = 1e
+00:00:04.20 xhcimmiospace: write32 [104] = 1
+00:00:04.21 interruptgic: read32 [ff84200c] = af
+00:00:04.21 xhci: IRQ
+00:00:04.21 xhcimmiospace: read32 [24] = 8
+00:00:04.21 xhcimmiospace: write32 [24] = 8
+00:00:04.21 xhcimmiospace: read32 [220] = 3
+00:00:04.21 xhcimmiospace: write32 [220] = 3
+00:00:04.21 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:04.21 xhcimmiospace: write32 [238] = 6008e8
+00:00:04.21 xhcimmiospace: write32 [23c] = 4
+00:00:04.21 interruptgic: write32 [ff842010] = af
 00:00:04.21 interruptgic: read32 [ff84200c] = 1e
 00:00:04.22 interruptgic: write32 [ff842010] = 1e
 00:00:04.22 interruptgic: read32 [ff84200c] = 1e
@@ -968,21 +968,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:04.46 interruptgic: write32 [ff842010] = 1e
 00:00:04.46 interruptgic: read32 [ff84200c] = 1e
 00:00:04.47 interruptgic: write32 [ff842010] = 1e
-00:00:04.47 xhcimmiospace: write32 [104] = 1
-00:00:04.48 interruptgic: read32 [ff84200c] = af
-00:00:04.48 xhci: IRQ
-00:00:04.48 xhcimmiospace: read32 [24] = 8
-00:00:04.48 xhcimmiospace: write32 [24] = 8
-00:00:04.48 xhcimmiospace: read32 [220] = 3
-00:00:04.48 xhcimmiospace: write32 [220] = 3
-00:00:04.48 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:04.48 xhcimmiospace: write32 [238] = 6008f8
-00:00:04.48 xhcimmiospace: write32 [23c] = 4
-00:00:04.48 interruptgic: write32 [ff842010] = af
+00:00:04.47 interruptgic: read32 [ff84200c] = 1e
+00:00:04.48 interruptgic: write32 [ff842010] = 1e
 00:00:04.48 interruptgic: read32 [ff84200c] = 1e
 00:00:04.49 interruptgic: write32 [ff842010] = 1e
-00:00:04.49 interruptgic: read32 [ff84200c] = 1e
-00:00:04.50 interruptgic: write32 [ff842010] = 1e
+00:00:04.49 xhcimmiospace: write32 [104] = 1
+00:00:04.50 interruptgic: read32 [ff84200c] = af
+00:00:04.50 xhci: IRQ
+00:00:04.50 xhcimmiospace: read32 [24] = 8
+00:00:04.50 xhcimmiospace: write32 [24] = 8
+00:00:04.50 xhcimmiospace: read32 [220] = 3
+00:00:04.50 xhcimmiospace: write32 [220] = 3
+00:00:04.50 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:04.50 xhcimmiospace: write32 [238] = 6008f8
+00:00:04.50 xhcimmiospace: write32 [23c] = 4
+00:00:04.50 interruptgic: write32 [ff842010] = af
 00:00:04.50 interruptgic: read32 [ff84200c] = 1e
 00:00:04.51 interruptgic: write32 [ff842010] = 1e
 00:00:04.51 interruptgic: read32 [ff84200c] = 1e
@@ -1037,21 +1037,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:04.76 interruptgic: write32 [ff842010] = 1e
 00:00:04.76 interruptgic: read32 [ff84200c] = 1e
 00:00:04.77 interruptgic: write32 [ff842010] = 1e
-00:00:04.77 xhcimmiospace: write32 [104] = 1
-00:00:04.78 interruptgic: read32 [ff84200c] = af
-00:00:04.78 xhci: IRQ
-00:00:04.78 xhcimmiospace: read32 [24] = 8
-00:00:04.78 xhcimmiospace: write32 [24] = 8
-00:00:04.78 xhcimmiospace: read32 [220] = 3
-00:00:04.78 xhcimmiospace: write32 [220] = 3
-00:00:04.78 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:04.78 xhcimmiospace: write32 [238] = 600908
-00:00:04.78 xhcimmiospace: write32 [23c] = 4
-00:00:04.78 interruptgic: write32 [ff842010] = af
+00:00:04.77 interruptgic: read32 [ff84200c] = 1e
+00:00:04.78 interruptgic: write32 [ff842010] = 1e
 00:00:04.78 interruptgic: read32 [ff84200c] = 1e
 00:00:04.79 interruptgic: write32 [ff842010] = 1e
-00:00:04.79 interruptgic: read32 [ff84200c] = 1e
-00:00:04.80 interruptgic: write32 [ff842010] = 1e
+00:00:04.79 xhcimmiospace: write32 [104] = 1
+00:00:04.80 interruptgic: read32 [ff84200c] = af
+00:00:04.80 xhci: IRQ
+00:00:04.80 xhcimmiospace: read32 [24] = 8
+00:00:04.80 xhcimmiospace: write32 [24] = 8
+00:00:04.80 xhcimmiospace: read32 [220] = 3
+00:00:04.80 xhcimmiospace: write32 [220] = 3
+00:00:04.80 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:04.80 xhcimmiospace: write32 [238] = 600908
+00:00:04.80 xhcimmiospace: write32 [23c] = 4
+00:00:04.80 interruptgic: write32 [ff842010] = af
 00:00:04.80 interruptgic: read32 [ff84200c] = 1e
 00:00:04.81 interruptgic: write32 [ff842010] = 1e
 00:00:04.81 interruptgic: read32 [ff84200c] = 1e
@@ -1106,22 +1106,22 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:05.06 interruptgic: write32 [ff842010] = 1e
 00:00:05.06 interruptgic: read32 [ff84200c] = 1e
 00:00:05.07 interruptgic: write32 [ff842010] = 1e
-00:00:05.07 usbdev1: Device ven2109-3431, dev9-0-1 found (HS)
-00:00:05.08 xhcimmiospace: write32 [104] = 1
-00:00:05.08 interruptgic: read32 [ff84200c] = af
-00:00:05.08 xhci: IRQ
-00:00:05.08 xhcimmiospace: read32 [24] = 8
-00:00:05.08 xhcimmiospace: write32 [24] = 8
-00:00:05.08 xhcimmiospace: read32 [220] = 3
-00:00:05.08 xhcimmiospace: write32 [220] = 3
-00:00:05.08 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:05.08 xhcimmiospace: write32 [238] = 600918
-00:00:05.08 xhcimmiospace: write32 [23c] = 4
-00:00:05.08 interruptgic: write32 [ff842010] = af
+00:00:05.07 interruptgic: read32 [ff84200c] = 1e
+00:00:05.08 interruptgic: write32 [ff842010] = 1e
 00:00:05.08 interruptgic: read32 [ff84200c] = 1e
 00:00:05.09 interruptgic: write32 [ff842010] = 1e
-00:00:05.09 interruptgic: read32 [ff84200c] = 1e
-00:00:05.10 interruptgic: write32 [ff842010] = 1e
+00:00:05.09 usbdev1: Device ven2109-3431, dev9-0-1 found (HS)
+00:00:05.10 xhcimmiospace: write32 [104] = 1
+00:00:05.10 interruptgic: read32 [ff84200c] = af
+00:00:05.10 xhci: IRQ
+00:00:05.10 xhcimmiospace: read32 [24] = 8
+00:00:05.10 xhcimmiospace: write32 [24] = 8
+00:00:05.10 xhcimmiospace: read32 [220] = 3
+00:00:05.10 xhcimmiospace: write32 [220] = 3
+00:00:05.10 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:05.10 xhcimmiospace: write32 [238] = 600918
+00:00:05.10 xhcimmiospace: write32 [23c] = 4
+00:00:05.10 interruptgic: write32 [ff842010] = af
 00:00:05.10 interruptgic: read32 [ff84200c] = 1e
 00:00:05.11 interruptgic: write32 [ff842010] = 1e
 00:00:05.11 interruptgic: read32 [ff84200c] = 1e
@@ -1184,21 +1184,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:05.40 interruptgic: write32 [ff842010] = 1e
 00:00:05.40 interruptgic: read32 [ff84200c] = 1e
 00:00:05.41 interruptgic: write32 [ff842010] = 1e
-00:00:05.41 xhcimmiospace: write32 [104] = 1
-00:00:05.42 interruptgic: read32 [ff84200c] = af
-00:00:05.42 xhci: IRQ
-00:00:05.42 xhcimmiospace: read32 [24] = 8
-00:00:05.42 xhcimmiospace: write32 [24] = 8
-00:00:05.42 xhcimmiospace: read32 [220] = 3
-00:00:05.42 xhcimmiospace: write32 [220] = 3
-00:00:05.42 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:05.42 xhcimmiospace: write32 [238] = 600928
-00:00:05.42 xhcimmiospace: write32 [23c] = 4
-00:00:05.42 interruptgic: write32 [ff842010] = af
+00:00:05.41 interruptgic: read32 [ff84200c] = 1e
+00:00:05.42 interruptgic: write32 [ff842010] = 1e
 00:00:05.42 interruptgic: read32 [ff84200c] = 1e
 00:00:05.43 interruptgic: write32 [ff842010] = 1e
-00:00:05.43 interruptgic: read32 [ff84200c] = 1e
-00:00:05.44 interruptgic: write32 [ff842010] = 1e
+00:00:05.43 xhcimmiospace: write32 [104] = 1
+00:00:05.44 interruptgic: read32 [ff84200c] = af
+00:00:05.44 xhci: IRQ
+00:00:05.44 xhcimmiospace: read32 [24] = 8
+00:00:05.44 xhcimmiospace: write32 [24] = 8
+00:00:05.44 xhcimmiospace: read32 [220] = 3
+00:00:05.44 xhcimmiospace: write32 [220] = 3
+00:00:05.44 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:05.44 xhcimmiospace: write32 [238] = 600928
+00:00:05.44 xhcimmiospace: write32 [23c] = 4
+00:00:05.44 interruptgic: write32 [ff842010] = af
 00:00:05.44 interruptgic: read32 [ff84200c] = 1e
 00:00:05.45 interruptgic: write32 [ff842010] = 1e
 00:00:05.45 interruptgic: read32 [ff84200c] = 1e
@@ -1253,21 +1253,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:05.70 interruptgic: write32 [ff842010] = 1e
 00:00:05.70 interruptgic: read32 [ff84200c] = 1e
 00:00:05.71 interruptgic: write32 [ff842010] = 1e
-00:00:05.71 xhcimmiospace: write32 [104] = 1
-00:00:05.72 interruptgic: read32 [ff84200c] = af
-00:00:05.72 xhci: IRQ
-00:00:05.72 xhcimmiospace: read32 [24] = 8
-00:00:05.72 xhcimmiospace: write32 [24] = 8
-00:00:05.72 xhcimmiospace: read32 [220] = 3
-00:00:05.72 xhcimmiospace: write32 [220] = 3
-00:00:05.72 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:05.72 xhcimmiospace: write32 [238] = 600938
-00:00:05.72 xhcimmiospace: write32 [23c] = 4
-00:00:05.72 interruptgic: write32 [ff842010] = af
+00:00:05.71 interruptgic: read32 [ff84200c] = 1e
+00:00:05.72 interruptgic: write32 [ff842010] = 1e
 00:00:05.72 interruptgic: read32 [ff84200c] = 1e
 00:00:05.73 interruptgic: write32 [ff842010] = 1e
-00:00:05.73 interruptgic: read32 [ff84200c] = 1e
-00:00:05.74 interruptgic: write32 [ff842010] = 1e
+00:00:05.73 xhcimmiospace: write32 [104] = 1
+00:00:05.74 interruptgic: read32 [ff84200c] = af
+00:00:05.74 xhci: IRQ
+00:00:05.74 xhcimmiospace: read32 [24] = 8
+00:00:05.74 xhcimmiospace: write32 [24] = 8
+00:00:05.74 xhcimmiospace: read32 [220] = 3
+00:00:05.74 xhcimmiospace: write32 [220] = 3
+00:00:05.74 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:05.74 xhcimmiospace: write32 [238] = 600938
+00:00:05.74 xhcimmiospace: write32 [23c] = 4
+00:00:05.74 interruptgic: write32 [ff842010] = af
 00:00:05.74 interruptgic: read32 [ff84200c] = 1e
 00:00:05.75 interruptgic: write32 [ff842010] = 1e
 00:00:05.75 interruptgic: read32 [ff84200c] = 1e
@@ -1320,22 +1320,22 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:05.99 interruptgic: write32 [ff842010] = 1e
 00:00:05.99 interruptgic: read32 [ff84200c] = 1e
 00:00:06.00 interruptgic: write32 [ff842010] = 1e
-00:00:06.00 usbdev1: Product: USB2.0 Hub
-00:00:06.01 xhcimmiospace: write32 [104] = 1
-00:00:06.01 interruptgic: read32 [ff84200c] = af
-00:00:06.01 xhci: IRQ
-00:00:06.01 xhcimmiospace: read32 [24] = 8
-00:00:06.01 xhcimmiospace: write32 [24] = 8
-00:00:06.01 xhcimmiospace: read32 [220] = 3
-00:00:06.01 xhcimmiospace: write32 [220] = 3
-00:00:06.01 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:06.01 xhcimmiospace: write32 [238] = 600948
-00:00:06.01 xhcimmiospace: write32 [23c] = 4
-00:00:06.01 interruptgic: write32 [ff842010] = af
+00:00:06.00 interruptgic: read32 [ff84200c] = 1e
+00:00:06.01 interruptgic: write32 [ff842010] = 1e
 00:00:06.01 interruptgic: read32 [ff84200c] = 1e
 00:00:06.02 interruptgic: write32 [ff842010] = 1e
-00:00:06.02 interruptgic: read32 [ff84200c] = 1e
-00:00:06.03 interruptgic: write32 [ff842010] = 1e
+00:00:06.02 usbdev1: Product: USB2.0 Hub
+00:00:06.03 xhcimmiospace: write32 [104] = 1
+00:00:06.03 interruptgic: read32 [ff84200c] = af
+00:00:06.03 xhci: IRQ
+00:00:06.03 xhcimmiospace: read32 [24] = 8
+00:00:06.03 xhcimmiospace: write32 [24] = 8
+00:00:06.03 xhcimmiospace: read32 [220] = 3
+00:00:06.03 xhcimmiospace: write32 [220] = 3
+00:00:06.03 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:06.03 xhcimmiospace: write32 [238] = 600948
+00:00:06.03 xhcimmiospace: write32 [23c] = 4
+00:00:06.03 interruptgic: write32 [ff842010] = af
 00:00:06.03 interruptgic: read32 [ff84200c] = 1e
 00:00:06.04 interruptgic: write32 [ff842010] = 1e
 00:00:06.04 interruptgic: read32 [ff84200c] = 1e
@@ -1406,23 +1406,23 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:06.37 interruptgic: write32 [ff842010] = 1e
 00:00:06.37 interruptgic: read32 [ff84200c] = 1e
 00:00:06.38 interruptgic: write32 [ff842010] = 1e
-00:00:06.38 usbdev1: Interface int9-0-0 found
-00:00:06.39 usbdev1: Using device/interface int9-0-0
-00:00:06.39 xhcimmiospace: write32 [104] = 1
-00:00:06.39 interruptgic: read32 [ff84200c] = af
-00:00:06.39 xhci: IRQ
-00:00:06.39 xhcimmiospace: read32 [24] = 8
-00:00:06.39 xhcimmiospace: write32 [24] = 8
-00:00:06.39 xhcimmiospace: read32 [220] = 3
-00:00:06.39 xhcimmiospace: write32 [220] = 3
-00:00:06.39 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:06.39 xhcimmiospace: write32 [238] = 600958
-00:00:06.39 xhcimmiospace: write32 [23c] = 4
-00:00:06.39 interruptgic: write32 [ff842010] = af
+00:00:06.38 interruptgic: read32 [ff84200c] = 1e
+00:00:06.39 interruptgic: write32 [ff842010] = 1e
 00:00:06.39 interruptgic: read32 [ff84200c] = 1e
 00:00:06.40 interruptgic: write32 [ff842010] = 1e
-00:00:06.40 interruptgic: read32 [ff84200c] = 1e
-00:00:06.41 interruptgic: write32 [ff842010] = 1e
+00:00:06.40 usbdev1: Interface int9-0-0 found
+00:00:06.41 usbdev1: Using device/interface int9-0-0
+00:00:06.41 xhcimmiospace: write32 [104] = 1
+00:00:06.41 interruptgic: read32 [ff84200c] = af
+00:00:06.41 xhci: IRQ
+00:00:06.41 xhcimmiospace: read32 [24] = 8
+00:00:06.41 xhcimmiospace: write32 [24] = 8
+00:00:06.41 xhcimmiospace: read32 [220] = 3
+00:00:06.41 xhcimmiospace: write32 [220] = 3
+00:00:06.41 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:06.41 xhcimmiospace: write32 [238] = 600958
+00:00:06.41 xhcimmiospace: write32 [23c] = 4
+00:00:06.41 interruptgic: write32 [ff842010] = af
 00:00:06.41 interruptgic: read32 [ff84200c] = 1e
 00:00:06.42 interruptgic: write32 [ff842010] = 1e
 00:00:06.42 interruptgic: read32 [ff84200c] = 1e
@@ -1485,22 +1485,22 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:06.71 interruptgic: write32 [ff842010] = 1e
 00:00:06.71 interruptgic: read32 [ff84200c] = 1e
 00:00:06.72 interruptgic: write32 [ff842010] = 1e
-00:00:06.72 xhcicmd: Execute command 13 (control 0x1003400)
-00:00:06.73 xhcimmiospace: write32 [100] = 0
-00:00:06.73 interruptgic: read32 [ff84200c] = af
-00:00:06.73 xhci: IRQ
-00:00:06.73 xhcimmiospace: read32 [24] = 8
-00:00:06.73 xhcimmiospace: write32 [24] = 8
-00:00:06.73 xhcimmiospace: read32 [220] = 3
-00:00:06.73 xhcimmiospace: write32 [220] = 3
-00:00:06.73 xhcicmd: Command 13 completed with 1 (slot 1)
-00:00:06.73 xhcimmiospace: write32 [238] = 600968
-00:00:06.73 xhcimmiospace: write32 [23c] = 4
-00:00:06.73 interruptgic: write32 [ff842010] = af
+00:00:06.72 interruptgic: read32 [ff84200c] = 1e
+00:00:06.73 interruptgic: write32 [ff842010] = 1e
 00:00:06.73 interruptgic: read32 [ff84200c] = 1e
 00:00:06.74 interruptgic: write32 [ff842010] = 1e
-00:00:06.74 interruptgic: read32 [ff84200c] = 1e
-00:00:06.75 interruptgic: write32 [ff842010] = 1e
+00:00:06.74 xhcicmd: Execute command 13 (control 0x1003400)
+00:00:06.75 xhcimmiospace: write32 [100] = 0
+00:00:06.75 interruptgic: read32 [ff84200c] = af
+00:00:06.75 xhci: IRQ
+00:00:06.75 xhcimmiospace: read32 [24] = 8
+00:00:06.75 xhcimmiospace: write32 [24] = 8
+00:00:06.75 xhcimmiospace: read32 [220] = 3
+00:00:06.75 xhcimmiospace: write32 [220] = 3
+00:00:06.75 xhcicmd: Command 13 completed with 1 (slot 1)
+00:00:06.75 xhcimmiospace: write32 [238] = 600968
+00:00:06.75 xhcimmiospace: write32 [23c] = 4
+00:00:06.75 interruptgic: write32 [ff842010] = af
 00:00:06.75 interruptgic: read32 [ff84200c] = 1e
 00:00:06.76 interruptgic: write32 [ff842010] = 1e
 00:00:06.76 interruptgic: read32 [ff84200c] = 1e
@@ -1561,36 +1561,36 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:07.04 interruptgic: write32 [ff842010] = 1e
 00:00:07.04 interruptgic: read32 [ff84200c] = 1e
 00:00:07.05 interruptgic: write32 [ff842010] = 1e
-00:00:07.05 xhcimmiospace: read32 [420] = 40000e03
 00:00:07.05 interruptgic: read32 [ff84200c] = 1e
 00:00:07.06 interruptgic: write32 [ff842010] = 1e
 00:00:07.06 interruptgic: read32 [ff84200c] = 1e
 00:00:07.07 interruptgic: write32 [ff842010] = 1e
+00:00:07.07 xhcimmiospace: read32 [420] = 40000e03
 00:00:07.07 interruptgic: read32 [ff84200c] = 1e
 00:00:07.08 interruptgic: write32 [ff842010] = 1e
 00:00:07.08 interruptgic: read32 [ff84200c] = 1e
 00:00:07.09 interruptgic: write32 [ff842010] = 1e
-00:00:07.09 xhciroot: Port 1: Device initialized
-00:00:07.10 xhcimmiospace: read32 [430] = 2a0
-00:00:07.10 xhcimmiospace: read32 [440] = 2a0
-00:00:07.11 xhcimmiospace: read32 [450] = 2a0
-00:00:07.11 xhcimmiospace: read32 [460] = 2a0
-00:00:07.12 xhcicmd: Execute command 12 (control 0x1003000)
-00:00:07.12 xhcimmiospace: write32 [100] = 0
-00:00:07.12 interruptgic: read32 [ff84200c] = af
-00:00:07.12 xhci: IRQ
-00:00:07.12 xhcimmiospace: read32 [24] = 8
-00:00:07.12 xhcimmiospace: write32 [24] = 8
-00:00:07.12 xhcimmiospace: read32 [220] = 3
-00:00:07.12 xhcimmiospace: write32 [220] = 3
-00:00:07.12 xhcicmd: Command 12 completed with 1 (slot 1)
-00:00:07.12 xhcimmiospace: write32 [238] = 600978
-00:00:07.12 xhcimmiospace: write32 [23c] = 4
-00:00:07.12 interruptgic: write32 [ff842010] = af
-00:00:07.12 interruptgic: read32 [ff84200c] = 1e
-00:00:07.13 interruptgic: write32 [ff842010] = 1e
-00:00:07.13 interruptgic: read32 [ff84200c] = 1e
-00:00:07.14 interruptgic: write32 [ff842010] = 1e
+00:00:07.09 interruptgic: read32 [ff84200c] = 1e
+00:00:07.10 interruptgic: write32 [ff842010] = 1e
+00:00:07.10 interruptgic: read32 [ff84200c] = 1e
+00:00:07.11 interruptgic: write32 [ff842010] = 1e
+00:00:07.11 xhciroot: Port 1: Device initialized
+00:00:07.12 xhcimmiospace: read32 [430] = 2a0
+00:00:07.12 xhcimmiospace: read32 [440] = 2a0
+00:00:07.13 xhcimmiospace: read32 [450] = 2a0
+00:00:07.13 xhcimmiospace: read32 [460] = 2a0
+00:00:07.14 xhcicmd: Execute command 12 (control 0x1003000)
+00:00:07.14 xhcimmiospace: write32 [100] = 0
+00:00:07.14 interruptgic: read32 [ff84200c] = af
+00:00:07.14 xhci: IRQ
+00:00:07.14 xhcimmiospace: read32 [24] = 8
+00:00:07.14 xhcimmiospace: write32 [24] = 8
+00:00:07.14 xhcimmiospace: read32 [220] = 3
+00:00:07.14 xhcimmiospace: write32 [220] = 3
+00:00:07.14 xhcicmd: Command 12 completed with 1 (slot 1)
+00:00:07.14 xhcimmiospace: write32 [238] = 600978
+00:00:07.14 xhcimmiospace: write32 [23c] = 4
+00:00:07.14 interruptgic: write32 [ff842010] = af
 00:00:07.14 interruptgic: read32 [ff84200c] = 1e
 00:00:07.15 interruptgic: write32 [ff842010] = 1e
 00:00:07.15 interruptgic: read32 [ff84200c] = 1e
@@ -1651,21 +1651,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:07.43 interruptgic: write32 [ff842010] = 1e
 00:00:07.43 interruptgic: read32 [ff84200c] = 1e
 00:00:07.44 interruptgic: write32 [ff842010] = 1e
-00:00:07.44 xhcimmiospace: write32 [104] = 1
-00:00:07.45 interruptgic: read32 [ff84200c] = af
-00:00:07.45 xhci: IRQ
-00:00:07.45 xhcimmiospace: read32 [24] = 8
-00:00:07.45 xhcimmiospace: write32 [24] = 8
-00:00:07.45 xhcimmiospace: read32 [220] = 3
-00:00:07.45 xhcimmiospace: write32 [220] = 3
-00:00:07.45 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:07.45 xhcimmiospace: write32 [238] = 600988
-00:00:07.45 xhcimmiospace: write32 [23c] = 4
-00:00:07.45 interruptgic: write32 [ff842010] = af
+00:00:07.44 interruptgic: read32 [ff84200c] = 1e
+00:00:07.45 interruptgic: write32 [ff842010] = 1e
 00:00:07.45 interruptgic: read32 [ff84200c] = 1e
 00:00:07.46 interruptgic: write32 [ff842010] = 1e
-00:00:07.46 interruptgic: read32 [ff84200c] = 1e
-00:00:07.47 interruptgic: write32 [ff842010] = 1e
+00:00:07.46 xhcimmiospace: write32 [104] = 1
+00:00:07.47 interruptgic: read32 [ff84200c] = af
+00:00:07.47 xhci: IRQ
+00:00:07.47 xhcimmiospace: read32 [24] = 8
+00:00:07.47 xhcimmiospace: write32 [24] = 8
+00:00:07.47 xhcimmiospace: read32 [220] = 3
+00:00:07.47 xhcimmiospace: write32 [220] = 3
+00:00:07.47 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:07.47 xhcimmiospace: write32 [238] = 600988
+00:00:07.47 xhcimmiospace: write32 [23c] = 4
+00:00:07.47 interruptgic: write32 [ff842010] = af
 00:00:07.47 interruptgic: read32 [ff84200c] = 1e
 00:00:07.48 interruptgic: write32 [ff842010] = 1e
 00:00:07.48 interruptgic: read32 [ff84200c] = 1e
@@ -1720,21 +1720,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:07.73 interruptgic: write32 [ff842010] = 1e
 00:00:07.73 interruptgic: read32 [ff84200c] = 1e
 00:00:07.74 interruptgic: write32 [ff842010] = 1e
-00:00:07.74 xhcimmiospace: write32 [104] = 1
-00:00:07.75 interruptgic: read32 [ff84200c] = af
-00:00:07.75 xhci: IRQ
-00:00:07.75 xhcimmiospace: read32 [24] = 8
-00:00:07.75 xhcimmiospace: write32 [24] = 8
-00:00:07.75 xhcimmiospace: read32 [220] = 3
-00:00:07.75 xhcimmiospace: write32 [220] = 3
-00:00:07.75 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:07.75 xhcimmiospace: write32 [238] = 600998
-00:00:07.75 xhcimmiospace: write32 [23c] = 4
-00:00:07.75 interruptgic: write32 [ff842010] = af
+00:00:07.74 interruptgic: read32 [ff84200c] = 1e
+00:00:07.75 interruptgic: write32 [ff842010] = 1e
 00:00:07.75 interruptgic: read32 [ff84200c] = 1e
 00:00:07.76 interruptgic: write32 [ff842010] = 1e
-00:00:07.76 interruptgic: read32 [ff84200c] = 1e
-00:00:07.77 interruptgic: write32 [ff842010] = 1e
+00:00:07.76 xhcimmiospace: write32 [104] = 1
+00:00:07.77 interruptgic: read32 [ff84200c] = af
+00:00:07.77 xhci: IRQ
+00:00:07.77 xhcimmiospace: read32 [24] = 8
+00:00:07.77 xhcimmiospace: write32 [24] = 8
+00:00:07.77 xhcimmiospace: read32 [220] = 3
+00:00:07.77 xhcimmiospace: write32 [220] = 3
+00:00:07.77 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:07.77 xhcimmiospace: write32 [238] = 600998
+00:00:07.77 xhcimmiospace: write32 [23c] = 4
+00:00:07.77 interruptgic: write32 [ff842010] = af
 00:00:07.77 interruptgic: read32 [ff84200c] = 1e
 00:00:07.78 interruptgic: write32 [ff842010] = 1e
 00:00:07.78 interruptgic: read32 [ff84200c] = 1e
@@ -1789,21 +1789,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:08.03 interruptgic: write32 [ff842010] = 1e
 00:00:08.03 interruptgic: read32 [ff84200c] = 1e
 00:00:08.04 interruptgic: write32 [ff842010] = 1e
-00:00:08.04 xhcimmiospace: write32 [104] = 1
-00:00:08.05 interruptgic: read32 [ff84200c] = af
-00:00:08.05 xhci: IRQ
-00:00:08.05 xhcimmiospace: read32 [24] = 8
-00:00:08.05 xhcimmiospace: write32 [24] = 8
-00:00:08.05 xhcimmiospace: read32 [220] = 3
-00:00:08.05 xhcimmiospace: write32 [220] = 3
-00:00:08.05 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:08.05 xhcimmiospace: write32 [238] = 6009a8
-00:00:08.05 xhcimmiospace: write32 [23c] = 4
-00:00:08.05 interruptgic: write32 [ff842010] = af
+00:00:08.04 interruptgic: read32 [ff84200c] = 1e
+00:00:08.05 interruptgic: write32 [ff842010] = 1e
 00:00:08.05 interruptgic: read32 [ff84200c] = 1e
 00:00:08.06 interruptgic: write32 [ff842010] = 1e
-00:00:08.06 interruptgic: read32 [ff84200c] = 1e
-00:00:08.07 interruptgic: write32 [ff842010] = 1e
+00:00:08.06 xhcimmiospace: write32 [104] = 1
+00:00:08.07 interruptgic: read32 [ff84200c] = af
+00:00:08.07 xhci: IRQ
+00:00:08.07 xhcimmiospace: read32 [24] = 8
+00:00:08.07 xhcimmiospace: write32 [24] = 8
+00:00:08.07 xhcimmiospace: read32 [220] = 3
+00:00:08.07 xhcimmiospace: write32 [220] = 3
+00:00:08.07 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:08.07 xhcimmiospace: write32 [238] = 6009a8
+00:00:08.07 xhcimmiospace: write32 [23c] = 4
+00:00:08.07 interruptgic: write32 [ff842010] = af
 00:00:08.07 interruptgic: read32 [ff84200c] = 1e
 00:00:08.08 interruptgic: write32 [ff842010] = 1e
 00:00:08.08 interruptgic: read32 [ff84200c] = 1e
@@ -1856,23 +1856,23 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:08.32 interruptgic: write32 [ff842010] = 1e
 00:00:08.32 interruptgic: read32 [ff84200c] = 1e
 00:00:08.33 interruptgic: write32 [ff842010] = 1e
-00:00:08.33 xhcimmiospace: write32 [104] = 1
-00:00:08.34 interruptgic: read32 [ff84200c] = af
-00:00:08.34 xhci: IRQ
-00:00:08.34 xhcimmiospace: read32 [24] = 8
-00:00:08.34 xhcimmiospace: write32 [24] = 8
-00:00:08.34 xhcimmiospace: read32 [220] = 3
-00:00:08.34 xhcimmiospace: write32 [220] = 3
-00:00:08.34 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:08.34 xhcimmiospace: write32 [238] = 6009b8
-00:00:08.34 xhcimmiospace: write32 [23c] = 4
-00:00:08.34 interruptgic: write32 [ff842010] = af
+00:00:08.33 interruptgic: read32 [ff84200c] = 1e
+00:00:08.34 interruptgic: write32 [ff842010] = 1e
 00:00:08.34 interruptgic: read32 [ff84200c] = 1e
 00:00:08.35 interruptgic: write32 [ff842010] = 1e
 00:00:08.35 interruptgic: read32 [ff84200c] = 1e
 00:00:08.36 interruptgic: write32 [ff842010] = 1e
-00:00:08.36 interruptgic: read32 [ff84200c] = 1e
-00:00:08.37 interruptgic: write32 [ff842010] = 1e
+00:00:08.35 xhcimmiospace: write32 [104] = 1
+00:00:08.37 interruptgic: read32 [ff84200c] = af
+00:00:08.37 xhci: IRQ
+00:00:08.37 xhcimmiospace: read32 [24] = 8
+00:00:08.37 xhcimmiospace: write32 [24] = 8
+00:00:08.37 xhcimmiospace: read32 [220] = 3
+00:00:08.37 xhcimmiospace: write32 [220] = 3
+00:00:08.37 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:08.37 xhcimmiospace: write32 [238] = 6009b8
+00:00:08.37 xhcimmiospace: write32 [23c] = 4
+00:00:08.37 interruptgic: write32 [ff842010] = af
 00:00:08.37 interruptgic: read32 [ff84200c] = 1e
 00:00:08.38 interruptgic: write32 [ff842010] = 1e
 00:00:08.38 interruptgic: read32 [ff84200c] = 1e
@@ -2027,21 +2027,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:09.13 interruptgic: write32 [ff842010] = 1e
 00:00:09.13 interruptgic: read32 [ff84200c] = 1e
 00:00:09.14 interruptgic: write32 [ff842010] = 1e
-00:00:09.14 xhcimmiospace: write32 [104] = 1
-00:00:09.15 interruptgic: read32 [ff84200c] = af
-00:00:09.15 xhci: IRQ
-00:00:09.15 xhcimmiospace: read32 [24] = 8
-00:00:09.15 xhcimmiospace: write32 [24] = 8
-00:00:09.15 xhcimmiospace: read32 [220] = 3
-00:00:09.15 xhcimmiospace: write32 [220] = 3
-00:00:09.15 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:09.15 xhcimmiospace: write32 [238] = 6009c8
-00:00:09.15 xhcimmiospace: write32 [23c] = 4
-00:00:09.15 interruptgic: write32 [ff842010] = af
+00:00:09.14 interruptgic: read32 [ff84200c] = 1e
+00:00:09.15 interruptgic: write32 [ff842010] = 1e
 00:00:09.15 interruptgic: read32 [ff84200c] = 1e
 00:00:09.16 interruptgic: write32 [ff842010] = 1e
-00:00:09.16 interruptgic: read32 [ff84200c] = 1e
-00:00:09.17 interruptgic: write32 [ff842010] = 1e
+00:00:09.16 xhcimmiospace: write32 [104] = 1
+00:00:09.17 interruptgic: read32 [ff84200c] = af
+00:00:09.17 xhci: IRQ
+00:00:09.17 xhcimmiospace: read32 [24] = 8
+00:00:09.17 xhcimmiospace: write32 [24] = 8
+00:00:09.17 xhcimmiospace: read32 [220] = 3
+00:00:09.17 xhcimmiospace: write32 [220] = 3
+00:00:09.17 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:09.17 xhcimmiospace: write32 [238] = 6009c8
+00:00:09.17 xhcimmiospace: write32 [23c] = 4
+00:00:09.17 interruptgic: write32 [ff842010] = af
 00:00:09.17 interruptgic: read32 [ff84200c] = 1e
 00:00:09.18 interruptgic: write32 [ff842010] = 1e
 00:00:09.18 interruptgic: read32 [ff84200c] = 1e
@@ -2092,21 +2092,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:09.41 interruptgic: write32 [ff842010] = 1e
 00:00:09.41 interruptgic: read32 [ff84200c] = 1e
 00:00:09.42 interruptgic: write32 [ff842010] = 1e
-00:00:09.42 xhcimmiospace: write32 [104] = 1
-00:00:09.43 interruptgic: read32 [ff84200c] = af
-00:00:09.43 xhci: IRQ
-00:00:09.43 xhcimmiospace: read32 [24] = 8
-00:00:09.43 xhcimmiospace: write32 [24] = 8
-00:00:09.43 xhcimmiospace: read32 [220] = 3
-00:00:09.43 xhcimmiospace: write32 [220] = 3
-00:00:09.43 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:09.43 xhcimmiospace: write32 [238] = 6009d8
-00:00:09.43 xhcimmiospace: write32 [23c] = 4
-00:00:09.43 interruptgic: write32 [ff842010] = af
+00:00:09.42 interruptgic: read32 [ff84200c] = 1e
+00:00:09.43 interruptgic: write32 [ff842010] = 1e
 00:00:09.43 interruptgic: read32 [ff84200c] = 1e
 00:00:09.44 interruptgic: write32 [ff842010] = 1e
-00:00:09.44 interruptgic: read32 [ff84200c] = 1e
-00:00:09.45 interruptgic: write32 [ff842010] = 1e
+00:00:09.44 xhcimmiospace: write32 [104] = 1
+00:00:09.45 interruptgic: read32 [ff84200c] = af
+00:00:09.45 xhci: IRQ
+00:00:09.45 xhcimmiospace: read32 [24] = 8
+00:00:09.45 xhcimmiospace: write32 [24] = 8
+00:00:09.45 xhcimmiospace: read32 [220] = 3
+00:00:09.45 xhcimmiospace: write32 [220] = 3
+00:00:09.45 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:09.45 xhcimmiospace: write32 [238] = 6009d8
+00:00:09.45 xhcimmiospace: write32 [23c] = 4
+00:00:09.45 interruptgic: write32 [ff842010] = af
 00:00:09.45 interruptgic: read32 [ff84200c] = 1e
 00:00:09.46 interruptgic: write32 [ff842010] = 1e
 00:00:09.46 interruptgic: read32 [ff84200c] = 1e
@@ -2179,21 +2179,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:09.80 interruptgic: write32 [ff842010] = 1e
 00:00:09.80 interruptgic: read32 [ff84200c] = 1e
 00:00:09.81 interruptgic: write32 [ff842010] = 1e
-00:00:09.81 xhcimmiospace: write32 [104] = 1
-00:00:09.82 interruptgic: read32 [ff84200c] = af
-00:00:09.82 xhci: IRQ
-00:00:09.82 xhcimmiospace: read32 [24] = 8
-00:00:09.82 xhcimmiospace: write32 [24] = 8
-00:00:09.82 xhcimmiospace: read32 [220] = 3
-00:00:09.82 xhcimmiospace: write32 [220] = 3
-00:00:09.82 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:09.82 xhcimmiospace: write32 [238] = 6009e8
-00:00:09.82 xhcimmiospace: write32 [23c] = 4
-00:00:09.82 interruptgic: write32 [ff842010] = af
+00:00:09.81 interruptgic: read32 [ff84200c] = 1e
+00:00:09.82 interruptgic: write32 [ff842010] = 1e
 00:00:09.82 interruptgic: read32 [ff84200c] = 1e
 00:00:09.83 interruptgic: write32 [ff842010] = 1e
-00:00:09.83 interruptgic: read32 [ff84200c] = 1e
-00:00:09.84 interruptgic: write32 [ff842010] = 1e
+00:00:09.83 xhcimmiospace: write32 [104] = 1
+00:00:09.84 interruptgic: read32 [ff84200c] = af
+00:00:09.84 xhci: IRQ
+00:00:09.84 xhcimmiospace: read32 [24] = 8
+00:00:09.84 xhcimmiospace: write32 [24] = 8
+00:00:09.84 xhcimmiospace: read32 [220] = 3
+00:00:09.84 xhcimmiospace: write32 [220] = 3
+00:00:09.84 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:09.84 xhcimmiospace: write32 [238] = 6009e8
+00:00:09.84 xhcimmiospace: write32 [23c] = 4
+00:00:09.84 interruptgic: write32 [ff842010] = af
 00:00:09.84 interruptgic: read32 [ff84200c] = 1e
 00:00:09.85 interruptgic: write32 [ff842010] = 1e
 00:00:09.85 interruptgic: read32 [ff84200c] = 1e
@@ -2244,22 +2244,22 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:10.08 interruptgic: write32 [ff842010] = 1e
 00:00:10.08 interruptgic: read32 [ff84200c] = 1e
 00:00:10.09 interruptgic: write32 [ff842010] = 1e
-00:00:10.09 xhcicmd: Execute command 9 (control 0x2400)
-00:00:10.10 xhcimmiospace: write32 [100] = 0
-00:00:10.10 interruptgic: read32 [ff84200c] = af
-00:00:10.10 xhci: IRQ
-00:00:10.10 xhcimmiospace: read32 [24] = 8
-00:00:10.10 xhcimmiospace: write32 [24] = 8
-00:00:10.10 xhcimmiospace: read32 [220] = 3
-00:00:10.10 xhcimmiospace: write32 [220] = 3
-00:00:10.10 xhcicmd: Command 9 completed with 1 (slot 2)
-00:00:10.10 xhcimmiospace: write32 [238] = 6009f8
-00:00:10.10 xhcimmiospace: write32 [23c] = 4
-00:00:10.10 interruptgic: write32 [ff842010] = af
+00:00:10.09 interruptgic: read32 [ff84200c] = 1e
+00:00:10.10 interruptgic: write32 [ff842010] = 1e
 00:00:10.10 interruptgic: read32 [ff84200c] = 1e
 00:00:10.11 interruptgic: write32 [ff842010] = 1e
-00:00:10.11 interruptgic: read32 [ff84200c] = 1e
-00:00:10.12 interruptgic: write32 [ff842010] = 1e
+00:00:10.11 xhcicmd: Execute command 9 (control 0x2400)
+00:00:10.12 xhcimmiospace: write32 [100] = 0
+00:00:10.12 interruptgic: read32 [ff84200c] = af
+00:00:10.12 xhci: IRQ
+00:00:10.12 xhcimmiospace: read32 [24] = 8
+00:00:10.12 xhcimmiospace: write32 [24] = 8
+00:00:10.12 xhcimmiospace: read32 [220] = 3
+00:00:10.12 xhcimmiospace: write32 [220] = 3
+00:00:10.12 xhcicmd: Command 9 completed with 1 (slot 2)
+00:00:10.12 xhcimmiospace: write32 [238] = 6009f8
+00:00:10.12 xhcimmiospace: write32 [23c] = 4
+00:00:10.12 interruptgic: write32 [ff842010] = af
 00:00:10.12 interruptgic: read32 [ff84200c] = 1e
 00:00:10.13 interruptgic: write32 [ff842010] = 1e
 00:00:10.13 interruptgic: read32 [ff84200c] = 1e
@@ -2318,22 +2318,22 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:10.40 interruptgic: write32 [ff842010] = 1e
 00:00:10.40 interruptgic: read32 [ff84200c] = 1e
 00:00:10.41 interruptgic: write32 [ff842010] = 1e
-00:00:10.41 xhcicmd: Execute command 11 (control 0x2002C00)
-00:00:10.42 xhcimmiospace: write32 [100] = 0
-00:00:10.42 interruptgic: read32 [ff84200c] = af
-00:00:10.42 xhci: IRQ
-00:00:10.42 xhcimmiospace: read32 [24] = 8
-00:00:10.42 xhcimmiospace: write32 [24] = 8
-00:00:10.42 xhcimmiospace: read32 [220] = 3
-00:00:10.42 xhcimmiospace: write32 [220] = 3
-00:00:10.42 xhcicmd: Command 11 completed with 1 (slot 2)
-00:00:10.42 xhcimmiospace: write32 [238] = 600a08
-00:00:10.42 xhcimmiospace: write32 [23c] = 4
-00:00:10.42 interruptgic: write32 [ff842010] = af
+00:00:10.41 interruptgic: read32 [ff84200c] = 1e
+00:00:10.42 interruptgic: write32 [ff842010] = 1e
 00:00:10.42 interruptgic: read32 [ff84200c] = 1e
 00:00:10.43 interruptgic: write32 [ff842010] = 1e
-00:00:10.43 interruptgic: read32 [ff84200c] = 1e
-00:00:10.44 interruptgic: write32 [ff842010] = 1e
+00:00:10.43 xhcicmd: Execute command 11 (control 0x2002C00)
+00:00:10.44 xhcimmiospace: write32 [100] = 0
+00:00:10.44 interruptgic: read32 [ff84200c] = af
+00:00:10.44 xhci: IRQ
+00:00:10.44 xhcimmiospace: read32 [24] = 8
+00:00:10.44 xhcimmiospace: write32 [24] = 8
+00:00:10.44 xhcimmiospace: read32 [220] = 3
+00:00:10.44 xhcimmiospace: write32 [220] = 3
+00:00:10.44 xhcicmd: Command 11 completed with 1 (slot 2)
+00:00:10.44 xhcimmiospace: write32 [238] = 600a08
+00:00:10.44 xhcimmiospace: write32 [23c] = 4
+00:00:10.44 interruptgic: write32 [ff842010] = af
 00:00:10.44 interruptgic: read32 [ff84200c] = 1e
 00:00:10.45 interruptgic: write32 [ff842010] = 1e
 00:00:10.45 interruptgic: read32 [ff84200c] = 1e
@@ -2404,21 +2404,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:10.78 interruptgic: write32 [ff842010] = 1e
 00:00:10.78 interruptgic: read32 [ff84200c] = 1e
 00:00:10.79 interruptgic: write32 [ff842010] = 1e
-00:00:10.79 xhcimmiospace: write32 [108] = 1
-00:00:10.80 interruptgic: read32 [ff84200c] = af
-00:00:10.80 xhci: IRQ
-00:00:10.80 xhcimmiospace: read32 [24] = 8
-00:00:10.80 xhcimmiospace: write32 [24] = 8
-00:00:10.80 xhcimmiospace: read32 [220] = 3
-00:00:10.80 xhcimmiospace: write32 [220] = 3
-00:00:10.80 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:10.80 xhcimmiospace: write32 [238] = 600a18
-00:00:10.80 xhcimmiospace: write32 [23c] = 4
-00:00:10.80 interruptgic: write32 [ff842010] = af
+00:00:10.79 interruptgic: read32 [ff84200c] = 1e
+00:00:10.80 interruptgic: write32 [ff842010] = 1e
 00:00:10.80 interruptgic: read32 [ff84200c] = 1e
 00:00:10.81 interruptgic: write32 [ff842010] = 1e
-00:00:10.81 interruptgic: read32 [ff84200c] = 1e
-00:00:10.82 interruptgic: write32 [ff842010] = 1e
+00:00:10.81 xhcimmiospace: write32 [108] = 1
+00:00:10.82 interruptgic: read32 [ff84200c] = af
+00:00:10.82 xhci: IRQ
+00:00:10.82 xhcimmiospace: read32 [24] = 8
+00:00:10.82 xhcimmiospace: write32 [24] = 8
+00:00:10.82 xhcimmiospace: read32 [220] = 3
+00:00:10.82 xhcimmiospace: write32 [220] = 3
+00:00:10.82 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:10.82 xhcimmiospace: write32 [238] = 600a18
+00:00:10.82 xhcimmiospace: write32 [23c] = 4
+00:00:10.82 interruptgic: write32 [ff842010] = af
 00:00:10.82 interruptgic: read32 [ff84200c] = 1e
 00:00:10.83 interruptgic: write32 [ff842010] = 1e
 00:00:10.83 interruptgic: read32 [ff84200c] = 1e
@@ -2467,21 +2467,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:11.05 interruptgic: write32 [ff842010] = 1e
 00:00:11.05 interruptgic: read32 [ff84200c] = 1e
 00:00:11.06 interruptgic: write32 [ff842010] = 1e
-00:00:11.06 xhcimmiospace: write32 [108] = 1
-00:00:11.07 interruptgic: read32 [ff84200c] = af
-00:00:11.07 xhci: IRQ
-00:00:11.07 xhcimmiospace: read32 [24] = 8
-00:00:11.07 xhcimmiospace: write32 [24] = 8
-00:00:11.07 xhcimmiospace: read32 [220] = 3
-00:00:11.07 xhcimmiospace: write32 [220] = 3
-00:00:11.07 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:11.07 xhcimmiospace: write32 [238] = 600a28
-00:00:11.07 xhcimmiospace: write32 [23c] = 4
-00:00:11.07 interruptgic: write32 [ff842010] = af
+00:00:11.06 interruptgic: read32 [ff84200c] = 1e
+00:00:11.07 interruptgic: write32 [ff842010] = 1e
 00:00:11.07 interruptgic: read32 [ff84200c] = 1e
 00:00:11.08 interruptgic: write32 [ff842010] = 1e
-00:00:11.08 interruptgic: read32 [ff84200c] = 1e
-00:00:11.09 interruptgic: write32 [ff842010] = 1e
+00:00:11.08 xhcimmiospace: write32 [108] = 1
+00:00:11.09 interruptgic: read32 [ff84200c] = af
+00:00:11.09 xhci: IRQ
+00:00:11.09 xhcimmiospace: read32 [24] = 8
+00:00:11.09 xhcimmiospace: write32 [24] = 8
+00:00:11.09 xhcimmiospace: read32 [220] = 3
+00:00:11.09 xhcimmiospace: write32 [220] = 3
+00:00:11.09 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:11.09 xhcimmiospace: write32 [238] = 600a28
+00:00:11.09 xhcimmiospace: write32 [23c] = 4
+00:00:11.09 interruptgic: write32 [ff842010] = af
 00:00:11.09 interruptgic: read32 [ff84200c] = 1e
 00:00:11.10 interruptgic: write32 [ff842010] = 1e
 00:00:11.10 interruptgic: read32 [ff84200c] = 1e
@@ -2536,21 +2536,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:11.35 interruptgic: write32 [ff842010] = 1e
 00:00:11.35 interruptgic: read32 [ff84200c] = 1e
 00:00:11.36 interruptgic: write32 [ff842010] = 1e
-00:00:11.36 xhcimmiospace: write32 [108] = 1
-00:00:11.37 interruptgic: read32 [ff84200c] = af
-00:00:11.37 xhci: IRQ
-00:00:11.37 xhcimmiospace: read32 [24] = 8
-00:00:11.37 xhcimmiospace: write32 [24] = 8
-00:00:11.37 xhcimmiospace: read32 [220] = 3
-00:00:11.37 xhcimmiospace: write32 [220] = 3
-00:00:11.37 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:11.37 xhcimmiospace: write32 [238] = 600a38
-00:00:11.37 xhcimmiospace: write32 [23c] = 4
-00:00:11.37 interruptgic: write32 [ff842010] = af
+00:00:11.36 interruptgic: read32 [ff84200c] = 1e
+00:00:11.37 interruptgic: write32 [ff842010] = 1e
 00:00:11.37 interruptgic: read32 [ff84200c] = 1e
 00:00:11.38 interruptgic: write32 [ff842010] = 1e
-00:00:11.38 interruptgic: read32 [ff84200c] = 1e
-00:00:11.39 interruptgic: write32 [ff842010] = 1e
+00:00:11.38 xhcimmiospace: write32 [108] = 1
+00:00:11.39 interruptgic: read32 [ff84200c] = af
+00:00:11.39 xhci: IRQ
+00:00:11.39 xhcimmiospace: read32 [24] = 8
+00:00:11.39 xhcimmiospace: write32 [24] = 8
+00:00:11.39 xhcimmiospace: read32 [220] = 3
+00:00:11.39 xhcimmiospace: write32 [220] = 3
+00:00:11.39 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:11.39 xhcimmiospace: write32 [238] = 600a38
+00:00:11.39 xhcimmiospace: write32 [23c] = 4
+00:00:11.39 interruptgic: write32 [ff842010] = af
 00:00:11.39 interruptgic: read32 [ff84200c] = 1e
 00:00:11.40 interruptgic: write32 [ff842010] = 1e
 00:00:11.40 interruptgic: read32 [ff84200c] = 1e
@@ -2605,21 +2605,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:11.65 interruptgic: write32 [ff842010] = 1e
 00:00:11.65 interruptgic: read32 [ff84200c] = 1e
 00:00:11.66 interruptgic: write32 [ff842010] = 1e
-00:00:11.66 xhcimmiospace: write32 [108] = 1
-00:00:11.67 interruptgic: read32 [ff84200c] = af
-00:00:11.67 xhci: IRQ
-00:00:11.67 xhcimmiospace: read32 [24] = 8
-00:00:11.67 xhcimmiospace: write32 [24] = 8
-00:00:11.67 xhcimmiospace: read32 [220] = 3
-00:00:11.67 xhcimmiospace: write32 [220] = 3
-00:00:11.67 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:11.67 xhcimmiospace: write32 [238] = 600a48
-00:00:11.67 xhcimmiospace: write32 [23c] = 4
-00:00:11.67 interruptgic: write32 [ff842010] = af
+00:00:11.66 interruptgic: read32 [ff84200c] = 1e
+00:00:11.67 interruptgic: write32 [ff842010] = 1e
 00:00:11.67 interruptgic: read32 [ff84200c] = 1e
 00:00:11.68 interruptgic: write32 [ff842010] = 1e
-00:00:11.68 interruptgic: read32 [ff84200c] = 1e
-00:00:11.69 interruptgic: write32 [ff842010] = 1e
+00:00:11.68 xhcimmiospace: write32 [108] = 1
+00:00:11.69 interruptgic: read32 [ff84200c] = af
+00:00:11.69 xhci: IRQ
+00:00:11.69 xhcimmiospace: read32 [24] = 8
+00:00:11.69 xhcimmiospace: write32 [24] = 8
+00:00:11.69 xhcimmiospace: read32 [220] = 3
+00:00:11.69 xhcimmiospace: write32 [220] = 3
+00:00:11.69 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:11.69 xhcimmiospace: write32 [238] = 600a48
+00:00:11.69 xhcimmiospace: write32 [23c] = 4
+00:00:11.69 interruptgic: write32 [ff842010] = af
 00:00:11.69 interruptgic: read32 [ff84200c] = 1e
 00:00:11.70 interruptgic: write32 [ff842010] = 1e
 00:00:11.70 interruptgic: read32 [ff84200c] = 1e
@@ -2674,22 +2674,22 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:11.95 interruptgic: write32 [ff842010] = 1e
 00:00:11.95 interruptgic: read32 [ff84200c] = 1e
 00:00:11.96 interruptgic: write32 [ff842010] = 1e
-00:00:11.96 usbdev1-1: Device ven93a-2510 found (LS)
-00:00:11.97 xhcimmiospace: write32 [108] = 1
-00:00:11.97 interruptgic: read32 [ff84200c] = af
-00:00:11.97 xhci: IRQ
-00:00:11.97 xhcimmiospace: read32 [24] = 8
-00:00:11.97 xhcimmiospace: write32 [24] = 8
-00:00:11.97 xhcimmiospace: read32 [220] = 3
-00:00:11.97 xhcimmiospace: write32 [220] = 3
-00:00:11.97 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:11.97 xhcimmiospace: write32 [238] = 600a58
-00:00:11.97 xhcimmiospace: write32 [23c] = 4
-00:00:11.97 interruptgic: write32 [ff842010] = af
+00:00:11.96 interruptgic: read32 [ff84200c] = 1e
+00:00:11.97 interruptgic: write32 [ff842010] = 1e
 00:00:11.97 interruptgic: read32 [ff84200c] = 1e
 00:00:11.98 interruptgic: write32 [ff842010] = 1e
-00:00:11.98 interruptgic: read32 [ff84200c] = 1e
-00:00:11.99 interruptgic: write32 [ff842010] = 1e
+00:00:11.98 usbdev1-1: Device ven93a-2510 found (LS)
+00:00:11.99 xhcimmiospace: write32 [108] = 1
+00:00:11.99 interruptgic: read32 [ff84200c] = af
+00:00:11.99 xhci: IRQ
+00:00:11.99 xhcimmiospace: read32 [24] = 8
+00:00:11.99 xhcimmiospace: write32 [24] = 8
+00:00:11.99 xhcimmiospace: read32 [220] = 3
+00:00:11.99 xhcimmiospace: write32 [220] = 3
+00:00:11.99 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:11.99 xhcimmiospace: write32 [238] = 600a58
+00:00:11.99 xhcimmiospace: write32 [23c] = 4
+00:00:11.99 interruptgic: write32 [ff842010] = af
 00:00:11.99 interruptgic: read32 [ff84200c] = 1e
 00:00:12.00 interruptgic: write32 [ff842010] = 1e
 00:00:12.00 interruptgic: read32 [ff84200c] = 1e
@@ -2750,21 +2750,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:12.28 interruptgic: write32 [ff842010] = 1e
 00:00:12.28 interruptgic: read32 [ff84200c] = 1e
 00:00:12.29 interruptgic: write32 [ff842010] = 1e
-00:00:12.29 xhcimmiospace: write32 [108] = 1
-00:00:12.30 interruptgic: read32 [ff84200c] = af
-00:00:12.30 xhci: IRQ
-00:00:12.30 xhcimmiospace: read32 [24] = 8
-00:00:12.30 xhcimmiospace: write32 [24] = 8
-00:00:12.30 xhcimmiospace: read32 [220] = 3
-00:00:12.30 xhcimmiospace: write32 [220] = 3
-00:00:12.30 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:12.30 xhcimmiospace: write32 [238] = 600a68
-00:00:12.30 xhcimmiospace: write32 [23c] = 4
-00:00:12.30 interruptgic: write32 [ff842010] = af
+00:00:12.29 interruptgic: read32 [ff84200c] = 1e
+00:00:12.30 interruptgic: write32 [ff842010] = 1e
 00:00:12.30 interruptgic: read32 [ff84200c] = 1e
 00:00:12.31 interruptgic: write32 [ff842010] = 1e
-00:00:12.31 interruptgic: read32 [ff84200c] = 1e
-00:00:12.32 interruptgic: write32 [ff842010] = 1e
+00:00:12.31 xhcimmiospace: write32 [108] = 1
+00:00:12.32 interruptgic: read32 [ff84200c] = af
+00:00:12.32 xhci: IRQ
+00:00:12.32 xhcimmiospace: read32 [24] = 8
+00:00:12.32 xhcimmiospace: write32 [24] = 8
+00:00:12.32 xhcimmiospace: read32 [220] = 3
+00:00:12.32 xhcimmiospace: write32 [220] = 3
+00:00:12.32 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:12.32 xhcimmiospace: write32 [238] = 600a68
+00:00:12.32 xhcimmiospace: write32 [23c] = 4
+00:00:12.32 interruptgic: write32 [ff842010] = af
 00:00:12.32 interruptgic: read32 [ff84200c] = 1e
 00:00:12.33 interruptgic: write32 [ff842010] = 1e
 00:00:12.33 interruptgic: read32 [ff84200c] = 1e
@@ -2819,21 +2819,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:12.58 interruptgic: write32 [ff842010] = 1e
 00:00:12.58 interruptgic: read32 [ff84200c] = 1e
 00:00:12.59 interruptgic: write32 [ff842010] = 1e
-00:00:12.59 xhcimmiospace: write32 [108] = 1
-00:00:12.60 interruptgic: read32 [ff84200c] = af
-00:00:12.60 xhci: IRQ
-00:00:12.60 xhcimmiospace: read32 [24] = 8
-00:00:12.60 xhcimmiospace: write32 [24] = 8
-00:00:12.60 xhcimmiospace: read32 [220] = 3
-00:00:12.60 xhcimmiospace: write32 [220] = 3
-00:00:12.60 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:12.60 xhcimmiospace: write32 [238] = 600a78
-00:00:12.60 xhcimmiospace: write32 [23c] = 4
-00:00:12.60 interruptgic: write32 [ff842010] = af
+00:00:12.59 interruptgic: read32 [ff84200c] = 1e
+00:00:12.60 interruptgic: write32 [ff842010] = 1e
 00:00:12.60 interruptgic: read32 [ff84200c] = 1e
 00:00:12.61 interruptgic: write32 [ff842010] = 1e
-00:00:12.61 interruptgic: read32 [ff84200c] = 1e
-00:00:12.62 interruptgic: write32 [ff842010] = 1e
+00:00:12.61 xhcimmiospace: write32 [108] = 1
+00:00:12.62 interruptgic: read32 [ff84200c] = af
+00:00:12.62 xhci: IRQ
+00:00:12.62 xhcimmiospace: read32 [24] = 8
+00:00:12.62 xhcimmiospace: write32 [24] = 8
+00:00:12.62 xhcimmiospace: read32 [220] = 3
+00:00:12.62 xhcimmiospace: write32 [220] = 3
+00:00:12.62 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:12.62 xhcimmiospace: write32 [238] = 600a78
+00:00:12.62 xhcimmiospace: write32 [23c] = 4
+00:00:12.62 interruptgic: write32 [ff842010] = af
 00:00:12.62 interruptgic: read32 [ff84200c] = 1e
 00:00:12.63 interruptgic: write32 [ff842010] = 1e
 00:00:12.63 interruptgic: read32 [ff84200c] = 1e
@@ -2886,21 +2886,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:12.87 interruptgic: write32 [ff842010] = 1e
 00:00:12.87 interruptgic: read32 [ff84200c] = 1e
 00:00:12.88 interruptgic: write32 [ff842010] = 1e
-00:00:12.88 xhcimmiospace: write32 [108] = 1
-00:00:12.89 interruptgic: read32 [ff84200c] = af
-00:00:12.89 xhci: IRQ
-00:00:12.89 xhcimmiospace: read32 [24] = 8
-00:00:12.89 xhcimmiospace: write32 [24] = 8
-00:00:12.89 xhcimmiospace: read32 [220] = 3
-00:00:12.89 xhcimmiospace: write32 [220] = 3
-00:00:12.89 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:12.89 xhcimmiospace: write32 [238] = 600a88
-00:00:12.89 xhcimmiospace: write32 [23c] = 4
-00:00:12.89 interruptgic: write32 [ff842010] = af
+00:00:12.88 interruptgic: read32 [ff84200c] = 1e
+00:00:12.89 interruptgic: write32 [ff842010] = 1e
 00:00:12.89 interruptgic: read32 [ff84200c] = 1e
 00:00:12.90 interruptgic: write32 [ff842010] = 1e
-00:00:12.90 interruptgic: read32 [ff84200c] = 1e
-00:00:12.91 interruptgic: write32 [ff842010] = 1e
+00:00:12.90 xhcimmiospace: write32 [108] = 1
+00:00:12.91 interruptgic: read32 [ff84200c] = af
+00:00:12.91 xhci: IRQ
+00:00:12.91 xhcimmiospace: read32 [24] = 8
+00:00:12.91 xhcimmiospace: write32 [24] = 8
+00:00:12.91 xhcimmiospace: read32 [220] = 3
+00:00:12.91 xhcimmiospace: write32 [220] = 3
+00:00:12.91 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:12.91 xhcimmiospace: write32 [238] = 600a88
+00:00:12.91 xhcimmiospace: write32 [23c] = 4
+00:00:12.91 interruptgic: write32 [ff842010] = af
 00:00:12.91 interruptgic: read32 [ff84200c] = 1e
 00:00:12.92 interruptgic: write32 [ff842010] = 1e
 00:00:12.92 interruptgic: read32 [ff84200c] = 1e
@@ -2955,21 +2955,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:13.17 interruptgic: write32 [ff842010] = 1e
 00:00:13.17 interruptgic: read32 [ff84200c] = 1e
 00:00:13.18 interruptgic: write32 [ff842010] = 1e
-00:00:13.18 xhcimmiospace: write32 [108] = 1
-00:00:13.19 interruptgic: read32 [ff84200c] = af
-00:00:13.19 xhci: IRQ
-00:00:13.19 xhcimmiospace: read32 [24] = 8
-00:00:13.19 xhcimmiospace: write32 [24] = 8
-00:00:13.19 xhcimmiospace: read32 [220] = 3
-00:00:13.19 xhcimmiospace: write32 [220] = 3
-00:00:13.19 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:13.19 xhcimmiospace: write32 [238] = 600a98
-00:00:13.19 xhcimmiospace: write32 [23c] = 4
-00:00:13.19 interruptgic: write32 [ff842010] = af
+00:00:13.18 interruptgic: read32 [ff84200c] = 1e
+00:00:13.19 interruptgic: write32 [ff842010] = 1e
 00:00:13.19 interruptgic: read32 [ff84200c] = 1e
 00:00:13.20 interruptgic: write32 [ff842010] = 1e
-00:00:13.20 interruptgic: read32 [ff84200c] = 1e
-00:00:13.21 interruptgic: write32 [ff842010] = 1e
+00:00:13.20 xhcimmiospace: write32 [108] = 1
+00:00:13.21 interruptgic: read32 [ff84200c] = af
+00:00:13.21 xhci: IRQ
+00:00:13.21 xhcimmiospace: read32 [24] = 8
+00:00:13.21 xhcimmiospace: write32 [24] = 8
+00:00:13.21 xhcimmiospace: read32 [220] = 3
+00:00:13.21 xhcimmiospace: write32 [220] = 3
+00:00:13.21 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:13.21 xhcimmiospace: write32 [238] = 600a98
+00:00:13.21 xhcimmiospace: write32 [23c] = 4
+00:00:13.21 interruptgic: write32 [ff842010] = af
 00:00:13.21 interruptgic: read32 [ff84200c] = 1e
 00:00:13.22 interruptgic: write32 [ff842010] = 1e
 00:00:13.22 interruptgic: read32 [ff84200c] = 1e
@@ -3024,21 +3024,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:13.47 interruptgic: write32 [ff842010] = 1e
 00:00:13.47 interruptgic: read32 [ff84200c] = 1e
 00:00:13.48 interruptgic: write32 [ff842010] = 1e
-00:00:13.48 xhcimmiospace: write32 [108] = 1
-00:00:13.49 interruptgic: read32 [ff84200c] = af
-00:00:13.49 xhci: IRQ
-00:00:13.49 xhcimmiospace: read32 [24] = 8
-00:00:13.49 xhcimmiospace: write32 [24] = 8
-00:00:13.49 xhcimmiospace: read32 [220] = 3
-00:00:13.49 xhcimmiospace: write32 [220] = 3
-00:00:13.49 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:13.49 xhcimmiospace: write32 [238] = 600aa8
-00:00:13.49 xhcimmiospace: write32 [23c] = 4
-00:00:13.49 interruptgic: write32 [ff842010] = af
+00:00:13.48 interruptgic: read32 [ff84200c] = 1e
+00:00:13.49 interruptgic: write32 [ff842010] = 1e
 00:00:13.49 interruptgic: read32 [ff84200c] = 1e
 00:00:13.50 interruptgic: write32 [ff842010] = 1e
-00:00:13.50 interruptgic: read32 [ff84200c] = 1e
-00:00:13.51 interruptgic: write32 [ff842010] = 1e
+00:00:13.50 xhcimmiospace: write32 [108] = 1
+00:00:13.51 interruptgic: read32 [ff84200c] = af
+00:00:13.51 xhci: IRQ
+00:00:13.51 xhcimmiospace: read32 [24] = 8
+00:00:13.51 xhcimmiospace: write32 [24] = 8
+00:00:13.51 xhcimmiospace: read32 [220] = 3
+00:00:13.51 xhcimmiospace: write32 [220] = 3
+00:00:13.51 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:13.51 xhcimmiospace: write32 [238] = 600aa8
+00:00:13.51 xhcimmiospace: write32 [23c] = 4
+00:00:13.51 interruptgic: write32 [ff842010] = af
 00:00:13.51 interruptgic: read32 [ff84200c] = 1e
 00:00:13.52 interruptgic: write32 [ff842010] = 1e
 00:00:13.52 interruptgic: read32 [ff84200c] = 1e
@@ -3093,22 +3093,22 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:13.77 interruptgic: write32 [ff842010] = 1e
 00:00:13.77 interruptgic: read32 [ff84200c] = 1e
 00:00:13.78 interruptgic: write32 [ff842010] = 1e
-00:00:13.77 usbdev1-1: Product: PixArt USB Optical Mouse
-00:00:13.79 xhcimmiospace: write32 [108] = 1
+00:00:13.78 interruptgic: read32 [ff84200c] = 1e
+00:00:13.79 interruptgic: write32 [ff842010] = 1e
 00:00:13.79 interruptgic: read32 [ff84200c] = 1e
 00:00:13.80 interruptgic: write32 [ff842010] = 1e
-00:00:13.80 interruptgic: read32 [ff84200c] = af
-00:00:13.80 xhci: IRQ
-00:00:13.80 xhcimmiospace: read32 [24] = 8
-00:00:13.80 xhcimmiospace: write32 [24] = 8
-00:00:13.80 xhcimmiospace: read32 [220] = 3
-00:00:13.80 xhcimmiospace: write32 [220] = 3
-00:00:13.80 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:13.80 xhcimmiospace: write32 [238] = 600ab8
-00:00:13.80 xhcimmiospace: write32 [23c] = 4
-00:00:13.80 interruptgic: write32 [ff842010] = af
-00:00:13.80 interruptgic: read32 [ff84200c] = 1e
-00:00:13.81 interruptgic: write32 [ff842010] = 1e
+00:00:13.79 usbdev1-1: Product: PixArt USB Optical Mouse
+00:00:13.81 xhcimmiospace: write32 [108] = 1
+00:00:13.81 interruptgic: read32 [ff84200c] = af
+00:00:13.81 xhci: IRQ
+00:00:13.81 xhcimmiospace: read32 [24] = 8
+00:00:13.81 xhcimmiospace: write32 [24] = 8
+00:00:13.81 xhcimmiospace: read32 [220] = 3
+00:00:13.81 xhcimmiospace: write32 [220] = 3
+00:00:13.81 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:13.81 xhcimmiospace: write32 [238] = 600ab8
+00:00:13.81 xhcimmiospace: write32 [23c] = 4
+00:00:13.81 interruptgic: write32 [ff842010] = af
 00:00:13.81 interruptgic: read32 [ff84200c] = 1e
 00:00:13.82 interruptgic: write32 [ff842010] = 1e
 00:00:13.82 interruptgic: read32 [ff84200c] = 1e
@@ -3179,23 +3179,23 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:14.15 interruptgic: write32 [ff842010] = 1e
 00:00:14.15 interruptgic: read32 [ff84200c] = 1e
 00:00:14.16 interruptgic: write32 [ff842010] = 1e
-00:00:14.16 usbdev1-1: Interface int3-1-2 found
-00:00:14.17 usbdev1-1: Using device/interface int3-1-2
-00:00:14.17 xhcimmiospace: write32 [104] = 1
-00:00:14.18 interruptgic: read32 [ff84200c] = af
-00:00:14.18 xhci: IRQ
-00:00:14.18 xhcimmiospace: read32 [24] = 8
-00:00:14.18 xhcimmiospace: write32 [24] = 8
-00:00:14.18 xhcimmiospace: read32 [220] = 3
-00:00:14.18 xhcimmiospace: write32 [220] = 3
-00:00:14.18 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:14.18 xhcimmiospace: write32 [238] = 600ac8
-00:00:14.18 xhcimmiospace: write32 [23c] = 4
-00:00:14.18 interruptgic: write32 [ff842010] = af
-00:00:14.18 interruptgic: read32 [ff84200c] = 1e
-00:00:14.19 interruptgic: write32 [ff842010] = 1e
-00:00:14.19 interruptgic: read32 [ff84200c] = 1e
-00:00:14.20 interruptgic: write32 [ff842010] = 1e
+00:00:14.16 interruptgic: read32 [ff84200c] = 1e
+00:00:14.17 interruptgic: write32 [ff842010] = 1e
+00:00:14.17 interruptgic: read32 [ff84200c] = 1e
+00:00:14.18 interruptgic: write32 [ff842010] = 1e
+00:00:14.18 usbdev1-1: Interface int3-1-2 found
+00:00:14.19 usbdev1-1: Using device/interface int3-1-2
+00:00:14.19 xhcimmiospace: write32 [104] = 1
+00:00:14.20 interruptgic: read32 [ff84200c] = af
+00:00:14.20 xhci: IRQ
+00:00:14.20 xhcimmiospace: read32 [24] = 8
+00:00:14.20 xhcimmiospace: write32 [24] = 8
+00:00:14.20 xhcimmiospace: read32 [220] = 3
+00:00:14.20 xhcimmiospace: write32 [220] = 3
+00:00:14.20 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:14.20 xhcimmiospace: write32 [238] = 600ac8
+00:00:14.20 xhcimmiospace: write32 [23c] = 4
+00:00:14.20 interruptgic: write32 [ff842010] = af
 00:00:14.20 interruptgic: read32 [ff84200c] = 1e
 00:00:14.21 interruptgic: write32 [ff842010] = 1e
 00:00:14.21 interruptgic: read32 [ff84200c] = 1e
@@ -3244,21 +3244,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:14.43 interruptgic: write32 [ff842010] = 1e
 00:00:14.43 interruptgic: read32 [ff84200c] = 1e
 00:00:14.44 interruptgic: write32 [ff842010] = 1e
-00:00:14.44 xhcimmiospace: write32 [104] = 1
-00:00:14.45 interruptgic: read32 [ff84200c] = af
-00:00:14.45 xhci: IRQ
-00:00:14.45 xhcimmiospace: read32 [24] = 8
-00:00:14.45 xhcimmiospace: write32 [24] = 8
-00:00:14.45 xhcimmiospace: read32 [220] = 3
-00:00:14.45 xhcimmiospace: write32 [220] = 3
-00:00:14.45 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:14.45 xhcimmiospace: write32 [238] = 600ad8
-00:00:14.45 xhcimmiospace: write32 [23c] = 4
-00:00:14.45 interruptgic: write32 [ff842010] = af
+00:00:14.44 interruptgic: read32 [ff84200c] = 1e
+00:00:14.45 interruptgic: write32 [ff842010] = 1e
 00:00:14.45 interruptgic: read32 [ff84200c] = 1e
 00:00:14.46 interruptgic: write32 [ff842010] = 1e
-00:00:14.46 interruptgic: read32 [ff84200c] = 1e
-00:00:14.47 interruptgic: write32 [ff842010] = 1e
+00:00:14.46 xhcimmiospace: write32 [104] = 1
+00:00:14.47 interruptgic: read32 [ff84200c] = af
+00:00:14.47 xhci: IRQ
+00:00:14.47 xhcimmiospace: read32 [24] = 8
+00:00:14.47 xhcimmiospace: write32 [24] = 8
+00:00:14.47 xhcimmiospace: read32 [220] = 3
+00:00:14.47 xhcimmiospace: write32 [220] = 3
+00:00:14.47 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:14.47 xhcimmiospace: write32 [238] = 600ad8
+00:00:14.47 xhcimmiospace: write32 [23c] = 4
+00:00:14.47 interruptgic: write32 [ff842010] = af
 00:00:14.47 interruptgic: read32 [ff84200c] = 1e
 00:00:14.48 interruptgic: write32 [ff842010] = 1e
 00:00:14.48 interruptgic: read32 [ff84200c] = 1e
@@ -3313,21 +3313,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:14.73 interruptgic: write32 [ff842010] = 1e
 00:00:14.73 interruptgic: read32 [ff84200c] = 1e
 00:00:14.74 interruptgic: write32 [ff842010] = 1e
-00:00:14.74 xhcimmiospace: write32 [104] = 1
-00:00:14.75 interruptgic: read32 [ff84200c] = af
-00:00:14.75 xhci: IRQ
-00:00:14.75 xhcimmiospace: read32 [24] = 8
-00:00:14.75 xhcimmiospace: write32 [24] = 8
-00:00:14.75 xhcimmiospace: read32 [220] = 3
-00:00:14.75 xhcimmiospace: write32 [220] = 3
-00:00:14.75 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:14.75 xhcimmiospace: write32 [238] = 600ae8
-00:00:14.75 xhcimmiospace: write32 [23c] = 4
-00:00:14.75 interruptgic: write32 [ff842010] = af
+00:00:14.74 interruptgic: read32 [ff84200c] = 1e
+00:00:14.75 interruptgic: write32 [ff842010] = 1e
 00:00:14.75 interruptgic: read32 [ff84200c] = 1e
 00:00:14.76 interruptgic: write32 [ff842010] = 1e
-00:00:14.76 interruptgic: read32 [ff84200c] = 1e
-00:00:14.77 interruptgic: write32 [ff842010] = 1e
+00:00:14.76 xhcimmiospace: write32 [104] = 1
+00:00:14.77 interruptgic: read32 [ff84200c] = af
+00:00:14.77 xhci: IRQ
+00:00:14.77 xhcimmiospace: read32 [24] = 8
+00:00:14.77 xhcimmiospace: write32 [24] = 8
+00:00:14.77 xhcimmiospace: read32 [220] = 3
+00:00:14.77 xhcimmiospace: write32 [220] = 3
+00:00:14.77 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:14.77 xhcimmiospace: write32 [238] = 600ae8
+00:00:14.77 xhcimmiospace: write32 [23c] = 4
+00:00:14.77 interruptgic: write32 [ff842010] = af
 00:00:14.77 interruptgic: read32 [ff84200c] = 1e
 00:00:14.78 interruptgic: write32 [ff842010] = 1e
 00:00:14.78 interruptgic: read32 [ff84200c] = 1e
@@ -3380,21 +3380,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:15.02 interruptgic: write32 [ff842010] = 1e
 00:00:15.02 interruptgic: read32 [ff84200c] = 1e
 00:00:15.03 interruptgic: write32 [ff842010] = 1e
-00:00:15.03 xhcimmiospace: write32 [104] = 1
-00:00:15.04 interruptgic: read32 [ff84200c] = af
-00:00:15.04 xhci: IRQ
-00:00:15.04 xhcimmiospace: read32 [24] = 8
-00:00:15.04 xhcimmiospace: write32 [24] = 8
-00:00:15.04 xhcimmiospace: read32 [220] = 3
-00:00:15.04 xhcimmiospace: write32 [220] = 3
-00:00:15.04 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:15.04 xhcimmiospace: write32 [238] = 600af8
-00:00:15.04 xhcimmiospace: write32 [23c] = 4
-00:00:15.04 interruptgic: write32 [ff842010] = af
+00:00:15.03 interruptgic: read32 [ff84200c] = 1e
+00:00:15.04 interruptgic: write32 [ff842010] = 1e
 00:00:15.04 interruptgic: read32 [ff84200c] = 1e
 00:00:15.05 interruptgic: write32 [ff842010] = 1e
-00:00:15.05 interruptgic: read32 [ff84200c] = 1e
-00:00:15.06 interruptgic: write32 [ff842010] = 1e
+00:00:15.05 xhcimmiospace: write32 [104] = 1
+00:00:15.06 interruptgic: read32 [ff84200c] = af
+00:00:15.06 xhci: IRQ
+00:00:15.06 xhcimmiospace: read32 [24] = 8
+00:00:15.06 xhcimmiospace: write32 [24] = 8
+00:00:15.06 xhcimmiospace: read32 [220] = 3
+00:00:15.06 xhcimmiospace: write32 [220] = 3
+00:00:15.06 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:15.06 xhcimmiospace: write32 [238] = 600af8
+00:00:15.06 xhcimmiospace: write32 [23c] = 4
+00:00:15.06 interruptgic: write32 [ff842010] = af
 00:00:15.06 interruptgic: read32 [ff84200c] = 1e
 00:00:15.07 interruptgic: write32 [ff842010] = 1e
 00:00:15.07 interruptgic: read32 [ff84200c] = 1e
@@ -3469,21 +3469,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:15.42 interruptgic: write32 [ff842010] = 1e
 00:00:15.42 interruptgic: read32 [ff84200c] = 1e
 00:00:15.43 interruptgic: write32 [ff842010] = 1e
-00:00:15.43 xhcimmiospace: write32 [104] = 1
-00:00:15.44 interruptgic: read32 [ff84200c] = af
-00:00:15.44 xhci: IRQ
-00:00:15.44 xhcimmiospace: read32 [24] = 8
-00:00:15.44 xhcimmiospace: write32 [24] = 8
-00:00:15.44 xhcimmiospace: read32 [220] = 3
-00:00:15.44 xhcimmiospace: write32 [220] = 3
-00:00:15.44 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:15.44 xhcimmiospace: write32 [238] = 600b08
-00:00:15.44 xhcimmiospace: write32 [23c] = 4
-00:00:15.44 interruptgic: write32 [ff842010] = af
+00:00:15.43 interruptgic: read32 [ff84200c] = 1e
+00:00:15.44 interruptgic: write32 [ff842010] = 1e
 00:00:15.44 interruptgic: read32 [ff84200c] = 1e
 00:00:15.45 interruptgic: write32 [ff842010] = 1e
-00:00:15.45 interruptgic: read32 [ff84200c] = 1e
-00:00:15.46 interruptgic: write32 [ff842010] = 1e
+00:00:15.45 xhcimmiospace: write32 [104] = 1
+00:00:15.46 interruptgic: read32 [ff84200c] = af
+00:00:15.46 xhci: IRQ
+00:00:15.46 xhcimmiospace: read32 [24] = 8
+00:00:15.46 xhcimmiospace: write32 [24] = 8
+00:00:15.46 xhcimmiospace: read32 [220] = 3
+00:00:15.46 xhcimmiospace: write32 [220] = 3
+00:00:15.46 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:15.46 xhcimmiospace: write32 [238] = 600b08
+00:00:15.46 xhcimmiospace: write32 [23c] = 4
+00:00:15.46 interruptgic: write32 [ff842010] = af
 00:00:15.46 interruptgic: read32 [ff84200c] = 1e
 00:00:15.47 interruptgic: write32 [ff842010] = 1e
 00:00:15.47 interruptgic: read32 [ff84200c] = 1e
@@ -3532,22 +3532,22 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:15.69 interruptgic: write32 [ff842010] = 1e
 00:00:15.69 interruptgic: read32 [ff84200c] = 1e
 00:00:15.70 interruptgic: write32 [ff842010] = 1e
-00:00:15.70 xhcicmd: Execute command 9 (control 0x2400)
-00:00:15.71 xhcimmiospace: write32 [100] = 0
-00:00:15.71 interruptgic: read32 [ff84200c] = af
-00:00:15.71 xhci: IRQ
-00:00:15.71 xhcimmiospace: read32 [24] = 8
-00:00:15.71 xhcimmiospace: write32 [24] = 8
-00:00:15.71 xhcimmiospace: read32 [220] = 3
-00:00:15.71 xhcimmiospace: write32 [220] = 3
-00:00:15.71 xhcicmd: Command 9 completed with 1 (slot 3)
-00:00:15.71 xhcimmiospace: write32 [238] = 600b18
-00:00:15.71 xhcimmiospace: write32 [23c] = 4
-00:00:15.71 interruptgic: write32 [ff842010] = af
+00:00:15.70 interruptgic: read32 [ff84200c] = 1e
+00:00:15.71 interruptgic: write32 [ff842010] = 1e
 00:00:15.71 interruptgic: read32 [ff84200c] = 1e
 00:00:15.72 interruptgic: write32 [ff842010] = 1e
-00:00:15.72 interruptgic: read32 [ff84200c] = 1e
-00:00:15.73 interruptgic: write32 [ff842010] = 1e
+00:00:15.72 xhcicmd: Execute command 9 (control 0x2400)
+00:00:15.73 xhcimmiospace: write32 [100] = 0
+00:00:15.73 interruptgic: read32 [ff84200c] = af
+00:00:15.73 xhci: IRQ
+00:00:15.73 xhcimmiospace: read32 [24] = 8
+00:00:15.73 xhcimmiospace: write32 [24] = 8
+00:00:15.73 xhcimmiospace: read32 [220] = 3
+00:00:15.73 xhcimmiospace: write32 [220] = 3
+00:00:15.73 xhcicmd: Command 9 completed with 1 (slot 3)
+00:00:15.73 xhcimmiospace: write32 [238] = 600b18
+00:00:15.73 xhcimmiospace: write32 [23c] = 4
+00:00:15.73 interruptgic: write32 [ff842010] = af
 00:00:15.73 interruptgic: read32 [ff84200c] = 1e
 00:00:15.74 interruptgic: write32 [ff842010] = 1e
 00:00:15.74 interruptgic: read32 [ff84200c] = 1e
@@ -3608,22 +3608,22 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:16.02 interruptgic: write32 [ff842010] = 1e
 00:00:16.02 interruptgic: read32 [ff84200c] = 1e
 00:00:16.03 interruptgic: write32 [ff842010] = 1e
-00:00:16.03 xhcicmd: Execute command 11 (control 0x3002C00)
-00:00:16.04 xhcimmiospace: write32 [100] = 0
-00:00:16.04 interruptgic: read32 [ff84200c] = af
-00:00:16.04 xhci: IRQ
-00:00:16.04 xhcimmiospace: read32 [24] = 8
-00:00:16.04 xhcimmiospace: write32 [24] = 8
-00:00:16.04 xhcimmiospace: read32 [220] = 3
-00:00:16.04 xhcimmiospace: write32 [220] = 3
-00:00:16.04 xhcicmd: Command 11 completed with 1 (slot 3)
-00:00:16.04 xhcimmiospace: write32 [238] = 600b28
-00:00:16.04 xhcimmiospace: write32 [23c] = 4
-00:00:16.04 interruptgic: write32 [ff842010] = af
+00:00:16.03 interruptgic: read32 [ff84200c] = 1e
+00:00:16.04 interruptgic: write32 [ff842010] = 1e
 00:00:16.04 interruptgic: read32 [ff84200c] = 1e
 00:00:16.05 interruptgic: write32 [ff842010] = 1e
-00:00:16.05 interruptgic: read32 [ff84200c] = 1e
-00:00:16.06 interruptgic: write32 [ff842010] = 1e
+00:00:16.05 xhcicmd: Execute command 11 (control 0x3002C00)
+00:00:16.06 xhcimmiospace: write32 [100] = 0
+00:00:16.06 interruptgic: read32 [ff84200c] = af
+00:00:16.06 xhci: IRQ
+00:00:16.06 xhcimmiospace: read32 [24] = 8
+00:00:16.06 xhcimmiospace: write32 [24] = 8
+00:00:16.06 xhcimmiospace: read32 [220] = 3
+00:00:16.06 xhcimmiospace: write32 [220] = 3
+00:00:16.06 xhcicmd: Command 11 completed with 1 (slot 3)
+00:00:16.06 xhcimmiospace: write32 [238] = 600b28
+00:00:16.06 xhcimmiospace: write32 [23c] = 4
+00:00:16.06 interruptgic: write32 [ff842010] = af
 00:00:16.06 interruptgic: read32 [ff84200c] = 1e
 00:00:16.07 interruptgic: write32 [ff842010] = 1e
 00:00:16.07 interruptgic: read32 [ff84200c] = 1e
@@ -3694,21 +3694,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:16.40 interruptgic: write32 [ff842010] = 1e
 00:00:16.40 interruptgic: read32 [ff84200c] = 1e
 00:00:16.41 interruptgic: write32 [ff842010] = 1e
-00:00:16.41 xhcimmiospace: write32 [10c] = 1
-00:00:16.42 interruptgic: read32 [ff84200c] = af
-00:00:16.42 xhci: IRQ
-00:00:16.42 xhcimmiospace: read32 [24] = 8
-00:00:16.42 xhcimmiospace: write32 [24] = 8
-00:00:16.42 xhcimmiospace: read32 [220] = 3
-00:00:16.42 xhcimmiospace: write32 [220] = 3
-00:00:16.42 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:16.42 xhcimmiospace: write32 [238] = 600b38
-00:00:16.42 xhcimmiospace: write32 [23c] = 4
-00:00:16.42 interruptgic: write32 [ff842010] = af
+00:00:16.41 interruptgic: read32 [ff84200c] = 1e
+00:00:16.42 interruptgic: write32 [ff842010] = 1e
 00:00:16.42 interruptgic: read32 [ff84200c] = 1e
 00:00:16.43 interruptgic: write32 [ff842010] = 1e
-00:00:16.43 interruptgic: read32 [ff84200c] = 1e
-00:00:16.44 interruptgic: write32 [ff842010] = 1e
+00:00:16.43 xhcimmiospace: write32 [10c] = 1
+00:00:16.44 interruptgic: read32 [ff84200c] = af
+00:00:16.44 xhci: IRQ
+00:00:16.44 xhcimmiospace: read32 [24] = 8
+00:00:16.44 xhcimmiospace: write32 [24] = 8
+00:00:16.44 xhcimmiospace: read32 [220] = 3
+00:00:16.44 xhcimmiospace: write32 [220] = 3
+00:00:16.44 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:16.44 xhcimmiospace: write32 [238] = 600b38
+00:00:16.44 xhcimmiospace: write32 [23c] = 4
+00:00:16.44 interruptgic: write32 [ff842010] = af
 00:00:16.44 interruptgic: read32 [ff84200c] = 1e
 00:00:16.45 interruptgic: write32 [ff842010] = 1e
 00:00:16.45 interruptgic: read32 [ff84200c] = 1e
@@ -3757,23 +3757,23 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:16.67 interruptgic: write32 [ff842010] = 1e
 00:00:16.67 interruptgic: read32 [ff84200c] = 1e
 00:00:16.68 interruptgic: write32 [ff842010] = 1e
-00:00:16.68 xhcimmiospace: write32 [10c] = 1
+00:00:16.68 interruptgic: read32 [ff84200c] = 1e
+00:00:16.69 interruptgic: write32 [ff842010] = 1e
 00:00:16.69 interruptgic: read32 [ff84200c] = 1e
 00:00:16.70 interruptgic: write32 [ff842010] = 1e
-00:00:16.70 interruptgic: read32 [ff84200c] = af
-00:00:16.70 xhci: IRQ
-00:00:16.70 xhcimmiospace: read32 [24] = 8
-00:00:16.70 xhcimmiospace: write32 [24] = 8
-00:00:16.70 xhcimmiospace: read32 [220] = 3
-00:00:16.70 xhcimmiospace: write32 [220] = 3
-00:00:16.70 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:16.70 xhcimmiospace: write32 [238] = 600b48
-00:00:16.70 xhcimmiospace: write32 [23c] = 4
-00:00:16.70 interruptgic: write32 [ff842010] = af
-00:00:16.70 interruptgic: read32 [ff84200c] = 1e
-00:00:16.71 interruptgic: write32 [ff842010] = 1e
+00:00:16.70 xhcimmiospace: write32 [10c] = 1
 00:00:16.71 interruptgic: read32 [ff84200c] = 1e
 00:00:16.72 interruptgic: write32 [ff842010] = 1e
+00:00:16.72 interruptgic: read32 [ff84200c] = af
+00:00:16.72 xhci: IRQ
+00:00:16.72 xhcimmiospace: read32 [24] = 8
+00:00:16.72 xhcimmiospace: write32 [24] = 8
+00:00:16.72 xhcimmiospace: read32 [220] = 3
+00:00:16.72 xhcimmiospace: write32 [220] = 3
+00:00:16.72 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:16.72 xhcimmiospace: write32 [238] = 600b48
+00:00:16.72 xhcimmiospace: write32 [23c] = 4
+00:00:16.72 interruptgic: write32 [ff842010] = af
 00:00:16.72 interruptgic: read32 [ff84200c] = 1e
 00:00:16.73 interruptgic: write32 [ff842010] = 1e
 00:00:16.73 interruptgic: read32 [ff84200c] = 1e
@@ -3832,21 +3832,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:17.00 interruptgic: write32 [ff842010] = 1e
 00:00:17.00 interruptgic: read32 [ff84200c] = 1e
 00:00:17.01 interruptgic: write32 [ff842010] = 1e
-00:00:17.01 xhcimmiospace: write32 [10c] = 1
-00:00:17.02 interruptgic: read32 [ff84200c] = af
-00:00:17.02 xhci: IRQ
-00:00:17.02 xhcimmiospace: read32 [24] = 8
-00:00:17.02 xhcimmiospace: write32 [24] = 8
-00:00:17.02 xhcimmiospace: read32 [220] = 3
-00:00:17.02 xhcimmiospace: write32 [220] = 3
-00:00:17.02 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:17.02 xhcimmiospace: write32 [238] = 600b58
-00:00:17.02 xhcimmiospace: write32 [23c] = 4
-00:00:17.02 interruptgic: write32 [ff842010] = af
+00:00:17.01 interruptgic: read32 [ff84200c] = 1e
+00:00:17.02 interruptgic: write32 [ff842010] = 1e
 00:00:17.02 interruptgic: read32 [ff84200c] = 1e
 00:00:17.03 interruptgic: write32 [ff842010] = 1e
-00:00:17.03 interruptgic: read32 [ff84200c] = 1e
-00:00:17.04 interruptgic: write32 [ff842010] = 1e
+00:00:17.03 xhcimmiospace: write32 [10c] = 1
+00:00:17.04 interruptgic: read32 [ff84200c] = af
+00:00:17.04 xhci: IRQ
+00:00:17.04 xhcimmiospace: read32 [24] = 8
+00:00:17.04 xhcimmiospace: write32 [24] = 8
+00:00:17.04 xhcimmiospace: read32 [220] = 3
+00:00:17.04 xhcimmiospace: write32 [220] = 3
+00:00:17.04 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:17.04 xhcimmiospace: write32 [238] = 600b58
+00:00:17.04 xhcimmiospace: write32 [23c] = 4
+00:00:17.04 interruptgic: write32 [ff842010] = af
 00:00:17.04 interruptgic: read32 [ff84200c] = 1e
 00:00:17.05 interruptgic: write32 [ff842010] = 1e
 00:00:17.05 interruptgic: read32 [ff84200c] = 1e
@@ -3903,25 +3903,25 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:17.31 interruptgic: write32 [ff842010] = 1e
 00:00:17.31 interruptgic: read32 [ff84200c] = 1e
 00:00:17.32 interruptgic: write32 [ff842010] = 1e
-00:00:17.32 xhcimmiospace: write32 [10c] = 1
+00:00:17.32 interruptgic: read32 [ff84200c] = 1e
+00:00:17.33 interruptgic: write32 [ff842010] = 1e
 00:00:17.33 interruptgic: read32 [ff84200c] = 1e
 00:00:17.34 interruptgic: write32 [ff842010] = 1e
-00:00:17.34 interruptgic: read32 [ff84200c] = 1e
-00:00:17.35 interruptgic: write32 [ff842010] = 1e
-00:00:17.35 interruptgic: read32 [ff84200c] = af
-00:00:17.35 xhci: IRQ
-00:00:17.35 xhcimmiospace: read32 [24] = 8
-00:00:17.35 xhcimmiospace: write32 [24] = 8
-00:00:17.35 xhcimmiospace: read32 [220] = 3
-00:00:17.35 xhcimmiospace: write32 [220] = 3
-00:00:17.35 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:17.35 xhcimmiospace: write32 [238] = 600b68
-00:00:17.35 xhcimmiospace: write32 [23c] = 4
-00:00:17.35 interruptgic: write32 [ff842010] = af
+00:00:17.34 xhcimmiospace: write32 [10c] = 1
 00:00:17.35 interruptgic: read32 [ff84200c] = 1e
 00:00:17.36 interruptgic: write32 [ff842010] = 1e
 00:00:17.36 interruptgic: read32 [ff84200c] = 1e
 00:00:17.37 interruptgic: write32 [ff842010] = 1e
+00:00:17.37 interruptgic: read32 [ff84200c] = af
+00:00:17.37 xhci: IRQ
+00:00:17.37 xhcimmiospace: read32 [24] = 8
+00:00:17.37 xhcimmiospace: write32 [24] = 8
+00:00:17.37 xhcimmiospace: read32 [220] = 3
+00:00:17.37 xhcimmiospace: write32 [220] = 3
+00:00:17.37 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:17.37 xhcimmiospace: write32 [238] = 600b68
+00:00:17.37 xhcimmiospace: write32 [23c] = 4
+00:00:17.37 interruptgic: write32 [ff842010] = af
 00:00:17.37 interruptgic: read32 [ff84200c] = 1e
 00:00:17.38 interruptgic: write32 [ff842010] = 1e
 00:00:17.38 interruptgic: read32 [ff84200c] = 1e
@@ -3980,780 +3980,21 @@ logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 00:00:17.65 interruptgic: write32 [ff842010] = 1e
 00:00:17.65 interruptgic: read32 [ff84200c] = 1e
 00:00:17.66 interruptgic: write32 [ff842010] = 1e
-00:00:17.66 usbdev1-4: Device ven4d9-7 found (LS)
-00:00:17.67 xhcimmiospace: write32 [10c] = 1
+00:00:17.66 interruptgic: read32 [ff84200c] = 1e
+00:00:17.67 interruptgic: write32 [ff842010] = 1e
 00:00:17.67 interruptgic: read32 [ff84200c] = 1e
 00:00:17.68 interruptgic: write32 [ff842010] = 1e
-00:00:17.68 interruptgic: read32 [ff84200c] = af
-00:00:17.68 xhci: IRQ
-00:00:17.68 xhcimmiospace: read32 [24] = 8
-00:00:17.68 xhcimmiospace: write32 [24] = 8
-00:00:17.68 xhcimmiospace: read32 [220] = 3
-00:00:17.68 xhcimmiospace: write32 [220] = 3
-00:00:17.68 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:17.68 xhcimmiospace: write32 [238] = 600b78
-00:00:17.68 xhcimmiospace: write32 [23c] = 4
-00:00:17.68 interruptgic: write32 [ff842010] = af
-00:00:17.68 interruptgic: read32 [ff84200c] = 1e
-00:00:17.69 interruptgic: write32 [ff842010] = 1e
+00:00:17.68 usbdev1-4: Device ven4d9-7 found (LS)
+00:00:17.69 xhcimmiospace: write32 [10c] = 1
 00:00:17.69 interruptgic: read32 [ff84200c] = 1e
 00:00:17.70 interruptgic: write32 [ff842010] = 1e
-00:00:17.70 interruptgic: read32 [ff84200c] = 1e
-00:00:17.71 interruptgic: write32 [ff842010] = 1e
-00:00:17.71 interruptgic: read32 [ff84200c] = 1e
-00:00:17.72 interruptgic: write32 [ff842010] = 1e
-00:00:17.72 interruptgic: read32 [ff84200c] = 1e
-00:00:17.73 interruptgic: write32 [ff842010] = 1e
-00:00:17.73 interruptgic: read32 [ff84200c] = 1e
-00:00:17.74 interruptgic: write32 [ff842010] = 1e
-00:00:17.74 interruptgic: read32 [ff84200c] = 1e
-00:00:17.75 interruptgic: write32 [ff842010] = 1e
-00:00:17.75 interruptgic: read32 [ff84200c] = 1e
-00:00:17.76 interruptgic: write32 [ff842010] = 1e
-00:00:17.76 interruptgic: read32 [ff84200c] = 1e
-00:00:17.77 interruptgic: write32 [ff842010] = 1e
-00:00:17.77 interruptgic: read32 [ff84200c] = 1e
-00:00:17.78 interruptgic: write32 [ff842010] = 1e
-00:00:17.78 interruptgic: read32 [ff84200c] = 1e
-00:00:17.79 interruptgic: write32 [ff842010] = 1e
-00:00:17.79 interruptgic: read32 [ff84200c] = 1e
-00:00:17.80 interruptgic: write32 [ff842010] = 1e
-00:00:17.80 interruptgic: read32 [ff84200c] = 1e
-00:00:17.81 interruptgic: write32 [ff842010] = 1e
-00:00:17.81 interruptgic: read32 [ff84200c] = 1e
-00:00:17.82 interruptgic: write32 [ff842010] = 1e
-00:00:17.82 interruptgic: read32 [ff84200c] = 1e
-00:00:17.83 interruptgic: write32 [ff842010] = 1e
-00:00:17.83 interruptgic: read32 [ff84200c] = 1e
-00:00:17.84 interruptgic: write32 [ff842010] = 1e
-00:00:17.84 interruptgic: read32 [ff84200c] = 1e
-00:00:17.85 interruptgic: write32 [ff842010] = 1e
-00:00:17.85 interruptgic: read32 [ff84200c] = 1e
-00:00:17.86 interruptgic: write32 [ff842010] = 1e
-00:00:17.86 interruptgic: read32 [ff84200c] = 1e
-00:00:17.87 interruptgic: write32 [ff842010] = 1e
-00:00:17.87 interruptgic: read32 [ff84200c] = 1e
-00:00:17.88 interruptgic: write32 [ff842010] = 1e
-00:00:17.88 interruptgic: read32 [ff84200c] = 1e
-00:00:17.89 interruptgic: write32 [ff842010] = 1e
-00:00:17.89 interruptgic: read32 [ff84200c] = 1e
-00:00:17.90 interruptgic: write32 [ff842010] = 1e
-00:00:17.90 interruptgic: read32 [ff84200c] = 1e
-00:00:17.91 interruptgic: write32 [ff842010] = 1e
-00:00:17.91 interruptgic: read32 [ff84200c] = 1e
-00:00:17.92 interruptgic: write32 [ff842010] = 1e
-00:00:17.92 interruptgic: read32 [ff84200c] = 1e
-00:00:17.93 interruptgic: write32 [ff842010] = 1e
-00:00:17.93 interruptgic: read32 [ff84200c] = 1e
-00:00:17.94 interruptgic: write32 [ff842010] = 1e
-00:00:17.94 interruptgic: read32 [ff84200c] = 1e
-00:00:17.95 interruptgic: write32 [ff842010] = 1e
-00:00:17.95 interruptgic: read32 [ff84200c] = 1e
-00:00:17.96 interruptgic: write32 [ff842010] = 1e
-00:00:17.96 interruptgic: read32 [ff84200c] = 1e
-00:00:17.97 interruptgic: write32 [ff842010] = 1e
-00:00:17.97 interruptgic: read32 [ff84200c] = 1e
-00:00:17.98 interruptgic: write32 [ff842010] = 1e
-00:00:17.98 interruptgic: read32 [ff84200c] = 1e
-00:00:17.99 interruptgic: write32 [ff842010] = 1e
-00:00:17.99 xhcimmiospace: write32 [10c] = 1
-00:00:18.00 interruptgic: read32 [ff84200c] = af
-00:00:18.00 xhci: IRQ
-00:00:18.00 xhcimmiospace: read32 [24] = 8
-00:00:18.00 xhcimmiospace: write32 [24] = 8
-00:00:18.00 xhcimmiospace: read32 [220] = 3
-00:00:18.00 xhcimmiospace: write32 [220] = 3
-00:00:18.00 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:18.00 xhcimmiospace: write32 [238] = 600b88
-00:00:18.00 xhcimmiospace: write32 [23c] = 4
-00:00:18.00 interruptgic: write32 [ff842010] = af
-00:00:18.00 interruptgic: read32 [ff84200c] = 1e
-00:00:18.01 interruptgic: write32 [ff842010] = 1e
-00:00:18.01 interruptgic: read32 [ff84200c] = 1e
-00:00:18.02 interruptgic: write32 [ff842010] = 1e
-00:00:18.02 interruptgic: read32 [ff84200c] = 1e
-00:00:18.03 interruptgic: write32 [ff842010] = 1e
-00:00:18.03 interruptgic: read32 [ff84200c] = 1e
-00:00:18.04 interruptgic: write32 [ff842010] = 1e
-00:00:18.04 interruptgic: read32 [ff84200c] = 1e
-00:00:18.05 interruptgic: write32 [ff842010] = 1e
-00:00:18.05 interruptgic: read32 [ff84200c] = 1e
-00:00:18.06 interruptgic: write32 [ff842010] = 1e
-00:00:18.06 interruptgic: read32 [ff84200c] = 1e
-00:00:18.07 interruptgic: write32 [ff842010] = 1e
-00:00:18.07 interruptgic: read32 [ff84200c] = 1e
-00:00:18.08 interruptgic: write32 [ff842010] = 1e
-00:00:18.08 interruptgic: read32 [ff84200c] = 1e
-00:00:18.09 interruptgic: write32 [ff842010] = 1e
-00:00:18.09 interruptgic: read32 [ff84200c] = 1e
-00:00:18.10 interruptgic: write32 [ff842010] = 1e
-00:00:18.10 interruptgic: read32 [ff84200c] = 1e
-00:00:18.11 interruptgic: write32 [ff842010] = 1e
-00:00:18.11 interruptgic: read32 [ff84200c] = 1e
-00:00:18.12 interruptgic: write32 [ff842010] = 1e
-00:00:18.12 interruptgic: read32 [ff84200c] = 1e
-00:00:18.13 interruptgic: write32 [ff842010] = 1e
-00:00:18.13 interruptgic: read32 [ff84200c] = 1e
-00:00:18.14 interruptgic: write32 [ff842010] = 1e
-00:00:18.14 interruptgic: read32 [ff84200c] = 1e
-00:00:18.15 interruptgic: write32 [ff842010] = 1e
-00:00:18.15 interruptgic: read32 [ff84200c] = 1e
-00:00:18.16 interruptgic: write32 [ff842010] = 1e
-00:00:18.16 interruptgic: read32 [ff84200c] = 1e
-00:00:18.17 interruptgic: write32 [ff842010] = 1e
-00:00:18.17 interruptgic: read32 [ff84200c] = 1e
-00:00:18.18 interruptgic: write32 [ff842010] = 1e
-00:00:18.18 interruptgic: read32 [ff84200c] = 1e
-00:00:18.19 interruptgic: write32 [ff842010] = 1e
-00:00:18.19 interruptgic: read32 [ff84200c] = 1e
-00:00:18.20 interruptgic: write32 [ff842010] = 1e
-00:00:18.20 interruptgic: read32 [ff84200c] = 1e
-00:00:18.21 interruptgic: write32 [ff842010] = 1e
-00:00:18.21 interruptgic: read32 [ff84200c] = 1e
-00:00:18.22 interruptgic: write32 [ff842010] = 1e
-00:00:18.22 interruptgic: read32 [ff84200c] = 1e
-00:00:18.23 interruptgic: write32 [ff842010] = 1e
-00:00:18.23 interruptgic: read32 [ff84200c] = 1e
-00:00:18.24 interruptgic: write32 [ff842010] = 1e
-00:00:18.24 interruptgic: read32 [ff84200c] = 1e
-00:00:18.25 interruptgic: write32 [ff842010] = 1e
-00:00:18.25 interruptgic: read32 [ff84200c] = 1e
-00:00:18.26 interruptgic: write32 [ff842010] = 1e
-00:00:18.26 interruptgic: read32 [ff84200c] = 1e
-00:00:18.27 interruptgic: write32 [ff842010] = 1e
-00:00:18.27 interruptgic: read32 [ff84200c] = 1e
-00:00:18.28 interruptgic: write32 [ff842010] = 1e
-00:00:18.28 interruptgic: read32 [ff84200c] = 1e
-00:00:18.29 interruptgic: write32 [ff842010] = 1e
-00:00:18.29 interruptgic: read32 [ff84200c] = 1e
-00:00:18.30 interruptgic: write32 [ff842010] = 1e
-00:00:18.30 xhcimmiospace: write32 [10c] = 1
-00:00:18.31 interruptgic: read32 [ff84200c] = af
-00:00:18.31 xhci: IRQ
-00:00:18.31 xhcimmiospace: read32 [24] = 8
-00:00:18.31 xhcimmiospace: write32 [24] = 8
-00:00:18.31 xhcimmiospace: read32 [220] = 3
-00:00:18.31 xhcimmiospace: write32 [220] = 3
-00:00:18.31 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:18.31 xhcimmiospace: write32 [238] = 600b98
-00:00:18.31 xhcimmiospace: write32 [23c] = 4
-00:00:18.31 interruptgic: write32 [ff842010] = af
-00:00:18.31 interruptgic: read32 [ff84200c] = 1e
-00:00:18.32 interruptgic: write32 [ff842010] = 1e
-00:00:18.32 interruptgic: read32 [ff84200c] = 1e
-00:00:18.33 interruptgic: write32 [ff842010] = 1e
-00:00:18.33 interruptgic: read32 [ff84200c] = 1e
-00:00:18.34 interruptgic: write32 [ff842010] = 1e
-00:00:18.34 interruptgic: read32 [ff84200c] = 1e
-00:00:18.35 interruptgic: write32 [ff842010] = 1e
-00:00:18.35 interruptgic: read32 [ff84200c] = 1e
-00:00:18.36 interruptgic: write32 [ff842010] = 1e
-00:00:18.36 interruptgic: read32 [ff84200c] = 1e
-00:00:18.37 interruptgic: write32 [ff842010] = 1e
-00:00:18.37 interruptgic: read32 [ff84200c] = 1e
-00:00:18.38 interruptgic: write32 [ff842010] = 1e
-00:00:18.38 interruptgic: read32 [ff84200c] = 1e
-00:00:18.39 interruptgic: write32 [ff842010] = 1e
-00:00:18.39 interruptgic: read32 [ff84200c] = 1e
-00:00:18.40 interruptgic: write32 [ff842010] = 1e
-00:00:18.40 interruptgic: read32 [ff84200c] = 1e
-00:00:18.41 interruptgic: write32 [ff842010] = 1e
-00:00:18.41 interruptgic: read32 [ff84200c] = 1e
-00:00:18.42 interruptgic: write32 [ff842010] = 1e
-00:00:18.42 interruptgic: read32 [ff84200c] = 1e
-00:00:18.43 interruptgic: write32 [ff842010] = 1e
-00:00:18.43 interruptgic: read32 [ff84200c] = 1e
-00:00:18.44 interruptgic: write32 [ff842010] = 1e
-00:00:18.44 interruptgic: read32 [ff84200c] = 1e
-00:00:18.45 interruptgic: write32 [ff842010] = 1e
-00:00:18.45 interruptgic: read32 [ff84200c] = 1e
-00:00:18.46 interruptgic: write32 [ff842010] = 1e
-00:00:18.46 interruptgic: read32 [ff84200c] = 1e
-00:00:18.47 interruptgic: write32 [ff842010] = 1e
-00:00:18.47 interruptgic: read32 [ff84200c] = 1e
-00:00:18.48 interruptgic: write32 [ff842010] = 1e
-00:00:18.48 interruptgic: read32 [ff84200c] = 1e
-00:00:18.49 interruptgic: write32 [ff842010] = 1e
-00:00:18.49 interruptgic: read32 [ff84200c] = 1e
-00:00:18.50 interruptgic: write32 [ff842010] = 1e
-00:00:18.50 interruptgic: read32 [ff84200c] = 1e
-00:00:18.51 interruptgic: write32 [ff842010] = 1e
-00:00:18.51 interruptgic: read32 [ff84200c] = 1e
-00:00:18.52 interruptgic: write32 [ff842010] = 1e
-00:00:18.52 interruptgic: read32 [ff84200c] = 1e
-00:00:18.53 interruptgic: write32 [ff842010] = 1e
-00:00:18.53 interruptgic: read32 [ff84200c] = 1e
-00:00:18.54 interruptgic: write32 [ff842010] = 1e
-00:00:18.54 interruptgic: read32 [ff84200c] = 1e
-00:00:18.55 interruptgic: write32 [ff842010] = 1e
-00:00:18.55 interruptgic: read32 [ff84200c] = 1e
-00:00:18.56 interruptgic: write32 [ff842010] = 1e
-00:00:18.56 interruptgic: read32 [ff84200c] = 1e
-00:00:18.57 interruptgic: write32 [ff842010] = 1e
-00:00:18.57 interruptgic: read32 [ff84200c] = 1e
-00:00:18.58 interruptgic: write32 [ff842010] = 1e
-00:00:18.58 interruptgic: read32 [ff84200c] = 1e
-00:00:18.59 interruptgic: write32 [ff842010] = 1e
-00:00:18.59 interruptgic: read32 [ff84200c] = 1e
-00:00:18.60 interruptgic: write32 [ff842010] = 1e
-00:00:18.60 xhcimmiospace: write32 [10c] = 1
-00:00:18.61 interruptgic: read32 [ff84200c] = af
-00:00:18.61 xhci: IRQ
-00:00:18.61 xhcimmiospace: read32 [24] = 8
-00:00:18.61 xhcimmiospace: write32 [24] = 8
-00:00:18.61 xhcimmiospace: read32 [220] = 3
-00:00:18.61 xhcimmiospace: write32 [220] = 3
-00:00:18.61 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:18.61 xhcimmiospace: write32 [238] = 600ba8
-00:00:18.61 xhcimmiospace: write32 [23c] = 4
-00:00:18.61 interruptgic: write32 [ff842010] = af
-00:00:18.61 interruptgic: read32 [ff84200c] = 1e
-00:00:18.62 interruptgic: write32 [ff842010] = 1e
-00:00:18.62 interruptgic: read32 [ff84200c] = 1e
-00:00:18.63 interruptgic: write32 [ff842010] = 1e
-00:00:18.63 interruptgic: read32 [ff84200c] = 1e
-00:00:18.64 interruptgic: write32 [ff842010] = 1e
-00:00:18.64 interruptgic: read32 [ff84200c] = 1e
-00:00:18.65 interruptgic: write32 [ff842010] = 1e
-00:00:18.65 interruptgic: read32 [ff84200c] = 1e
-00:00:18.66 interruptgic: write32 [ff842010] = 1e
-00:00:18.66 interruptgic: read32 [ff84200c] = 1e
-00:00:18.67 interruptgic: write32 [ff842010] = 1e
-00:00:18.67 interruptgic: read32 [ff84200c] = 1e
-00:00:18.68 interruptgic: write32 [ff842010] = 1e
-00:00:18.68 interruptgic: read32 [ff84200c] = 1e
-00:00:18.69 interruptgic: write32 [ff842010] = 1e
-00:00:18.69 interruptgic: read32 [ff84200c] = 1e
-00:00:18.70 interruptgic: write32 [ff842010] = 1e
-00:00:18.70 interruptgic: read32 [ff84200c] = 1e
-00:00:18.71 interruptgic: write32 [ff842010] = 1e
-00:00:18.71 interruptgic: read32 [ff84200c] = 1e
-00:00:18.72 interruptgic: write32 [ff842010] = 1e
-00:00:18.72 interruptgic: read32 [ff84200c] = 1e
-00:00:18.73 interruptgic: write32 [ff842010] = 1e
-00:00:18.73 interruptgic: read32 [ff84200c] = 1e
-00:00:18.74 interruptgic: write32 [ff842010] = 1e
-00:00:18.74 interruptgic: read32 [ff84200c] = 1e
-00:00:18.75 interruptgic: write32 [ff842010] = 1e
-00:00:18.75 interruptgic: read32 [ff84200c] = 1e
-00:00:18.76 interruptgic: write32 [ff842010] = 1e
-00:00:18.76 interruptgic: read32 [ff84200c] = 1e
-00:00:18.77 interruptgic: write32 [ff842010] = 1e
-00:00:18.77 interruptgic: read32 [ff84200c] = 1e
-00:00:18.78 interruptgic: write32 [ff842010] = 1e
-00:00:18.78 interruptgic: read32 [ff84200c] = 1e
-00:00:18.79 interruptgic: write32 [ff842010] = 1e
-00:00:18.79 interruptgic: read32 [ff84200c] = 1e
-00:00:18.80 interruptgic: write32 [ff842010] = 1e
-00:00:18.80 interruptgic: read32 [ff84200c] = 1e
-00:00:18.81 interruptgic: write32 [ff842010] = 1e
-00:00:18.81 interruptgic: read32 [ff84200c] = 1e
-00:00:18.82 interruptgic: write32 [ff842010] = 1e
-00:00:18.82 interruptgic: read32 [ff84200c] = 1e
-00:00:18.83 interruptgic: write32 [ff842010] = 1e
-00:00:18.83 interruptgic: read32 [ff84200c] = 1e
-00:00:18.84 interruptgic: write32 [ff842010] = 1e
-00:00:18.84 interruptgic: read32 [ff84200c] = 1e
-00:00:18.85 interruptgic: write32 [ff842010] = 1e
-00:00:18.85 interruptgic: read32 [ff84200c] = 1e
-00:00:18.86 interruptgic: write32 [ff842010] = 1e
-00:00:18.86 interruptgic: read32 [ff84200c] = 1e
-00:00:18.87 interruptgic: write32 [ff842010] = 1e
-00:00:18.87 interruptgic: read32 [ff84200c] = 1e
-00:00:18.88 interruptgic: write32 [ff842010] = 1e
-00:00:18.88 interruptgic: read32 [ff84200c] = 1e
-00:00:18.89 interruptgic: write32 [ff842010] = 1e
-00:00:18.89 interruptgic: read32 [ff84200c] = 1e
-00:00:18.90 interruptgic: write32 [ff842010] = 1e
-00:00:18.90 xhcimmiospace: write32 [10c] = 1
-00:00:18.91 interruptgic: read32 [ff84200c] = 1e
-00:00:18.92 interruptgic: write32 [ff842010] = 1e
-00:00:18.92 interruptgic: read32 [ff84200c] = 1e
-00:00:18.93 interruptgic: write32 [ff842010] = 1e
-00:00:18.93 interruptgic: read32 [ff84200c] = af
-00:00:18.93 xhci: IRQ
-00:00:18.93 xhcimmiospace: read32 [24] = 8
-00:00:18.93 xhcimmiospace: write32 [24] = 8
-00:00:18.93 xhcimmiospace: read32 [220] = 3
-00:00:18.93 xhcimmiospace: write32 [220] = 3
-00:00:18.93 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:18.93 xhcimmiospace: write32 [238] = 600bb8
-00:00:18.93 xhcimmiospace: write32 [23c] = 4
-00:00:18.93 interruptgic: write32 [ff842010] = af
-00:00:18.93 interruptgic: read32 [ff84200c] = 1e
-00:00:18.94 interruptgic: write32 [ff842010] = 1e
-00:00:18.94 interruptgic: read32 [ff84200c] = 1e
-00:00:18.95 interruptgic: write32 [ff842010] = 1e
-00:00:18.95 interruptgic: read32 [ff84200c] = 1e
-00:00:18.96 interruptgic: write32 [ff842010] = 1e
-00:00:18.96 interruptgic: read32 [ff84200c] = 1e
-00:00:18.97 interruptgic: write32 [ff842010] = 1e
-00:00:18.97 interruptgic: read32 [ff84200c] = 1e
-00:00:18.98 interruptgic: write32 [ff842010] = 1e
-00:00:18.98 interruptgic: read32 [ff84200c] = 1e
-00:00:18.99 interruptgic: write32 [ff842010] = 1e
-00:00:18.99 interruptgic: read32 [ff84200c] = 1e
-00:00:19.00 interruptgic: write32 [ff842010] = 1e
-00:00:19.00 interruptgic: read32 [ff84200c] = 1e
-00:00:19.01 interruptgic: write32 [ff842010] = 1e
-00:00:19.01 interruptgic: read32 [ff84200c] = 1e
-00:00:19.02 interruptgic: write32 [ff842010] = 1e
-00:00:19.02 interruptgic: read32 [ff84200c] = 1e
-00:00:19.03 interruptgic: write32 [ff842010] = 1e
-00:00:19.03 interruptgic: read32 [ff84200c] = 1e
-00:00:19.04 interruptgic: write32 [ff842010] = 1e
-00:00:19.04 interruptgic: read32 [ff84200c] = 1e
-00:00:19.05 interruptgic: write32 [ff842010] = 1e
-00:00:19.05 interruptgic: read32 [ff84200c] = 1e
-00:00:19.06 interruptgic: write32 [ff842010] = 1e
-00:00:19.06 interruptgic: read32 [ff84200c] = 1e
-00:00:19.07 interruptgic: write32 [ff842010] = 1e
-00:00:19.07 interruptgic: read32 [ff84200c] = 1e
-00:00:19.08 interruptgic: write32 [ff842010] = 1e
-00:00:19.08 interruptgic: read32 [ff84200c] = 1e
-00:00:19.09 interruptgic: write32 [ff842010] = 1e
-00:00:19.09 interruptgic: read32 [ff84200c] = 1e
-00:00:19.10 interruptgic: write32 [ff842010] = 1e
-00:00:19.10 interruptgic: read32 [ff84200c] = 1e
-00:00:19.11 interruptgic: write32 [ff842010] = 1e
-00:00:19.11 interruptgic: read32 [ff84200c] = 1e
-00:00:19.12 interruptgic: write32 [ff842010] = 1e
-00:00:19.12 interruptgic: read32 [ff84200c] = 1e
-00:00:19.13 interruptgic: write32 [ff842010] = 1e
-00:00:19.13 interruptgic: read32 [ff84200c] = 1e
-00:00:19.14 interruptgic: write32 [ff842010] = 1e
-00:00:19.14 interruptgic: read32 [ff84200c] = 1e
-00:00:19.15 interruptgic: write32 [ff842010] = 1e
-00:00:19.15 interruptgic: read32 [ff84200c] = 1e
-00:00:19.16 interruptgic: write32 [ff842010] = 1e
-00:00:19.16 interruptgic: read32 [ff84200c] = 1e
-00:00:19.17 interruptgic: write32 [ff842010] = 1e
-00:00:19.17 interruptgic: read32 [ff84200c] = 1e
-00:00:19.18 interruptgic: write32 [ff842010] = 1e
-00:00:19.18 interruptgic: read32 [ff84200c] = 1e
-00:00:19.19 interruptgic: write32 [ff842010] = 1e
-00:00:19.19 interruptgic: read32 [ff84200c] = 1e
-00:00:19.20 interruptgic: write32 [ff842010] = 1e
-00:00:19.20 interruptgic: read32 [ff84200c] = 1e
-00:00:19.21 interruptgic: write32 [ff842010] = 1e
-00:00:19.21 interruptgic: read32 [ff84200c] = 1e
-00:00:19.22 interruptgic: write32 [ff842010] = 1e
-00:00:19.22 interruptgic: read32 [ff84200c] = 1e
-00:00:19.23 interruptgic: write32 [ff842010] = 1e
-00:00:19.23 interruptgic: read32 [ff84200c] = 1e
-00:00:19.24 interruptgic: write32 [ff842010] = 1e
-00:00:19.24 usbdev1-4: Product:   Raspberry Pi Internal Keyboard
-00:00:19.25 xhcimmiospace: write32 [10c] = 1
-00:00:19.25 interruptgic: read32 [ff84200c] = 1e
-00:00:19.26 interruptgic: write32 [ff842010] = 1e
-00:00:19.26 interruptgic: read32 [ff84200c] = af
-00:00:19.26 xhci: IRQ
-00:00:19.26 xhcimmiospace: read32 [24] = 8
-00:00:19.26 xhcimmiospace: write32 [24] = 8
-00:00:19.26 xhcimmiospace: read32 [220] = 3
-00:00:19.26 xhcimmiospace: write32 [220] = 3
-00:00:19.26 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:19.26 xhcimmiospace: write32 [238] = 600bc8
-00:00:19.26 xhcimmiospace: write32 [23c] = 4
-00:00:19.26 interruptgic: write32 [ff842010] = af
-00:00:19.26 interruptgic: read32 [ff84200c] = 1e
-00:00:19.27 interruptgic: write32 [ff842010] = 1e
-00:00:19.27 interruptgic: read32 [ff84200c] = 1e
-00:00:19.28 interruptgic: write32 [ff842010] = 1e
-00:00:19.28 interruptgic: read32 [ff84200c] = 1e
-00:00:19.29 interruptgic: write32 [ff842010] = 1e
-00:00:19.29 interruptgic: read32 [ff84200c] = 1e
-00:00:19.30 interruptgic: write32 [ff842010] = 1e
-00:00:19.30 interruptgic: read32 [ff84200c] = 1e
-00:00:19.31 interruptgic: write32 [ff842010] = 1e
-00:00:19.31 interruptgic: read32 [ff84200c] = 1e
-00:00:19.32 interruptgic: write32 [ff842010] = 1e
-00:00:19.32 interruptgic: read32 [ff84200c] = 1e
-00:00:19.33 interruptgic: write32 [ff842010] = 1e
-00:00:19.33 interruptgic: read32 [ff84200c] = 1e
-00:00:19.34 interruptgic: write32 [ff842010] = 1e
-00:00:19.34 interruptgic: read32 [ff84200c] = 1e
-00:00:19.35 interruptgic: write32 [ff842010] = 1e
-00:00:19.35 interruptgic: read32 [ff84200c] = 1e
-00:00:19.36 interruptgic: write32 [ff842010] = 1e
-00:00:19.36 interruptgic: read32 [ff84200c] = 1e
-00:00:19.37 interruptgic: write32 [ff842010] = 1e
-00:00:19.37 interruptgic: read32 [ff84200c] = 1e
-00:00:19.38 interruptgic: write32 [ff842010] = 1e
-00:00:19.38 interruptgic: read32 [ff84200c] = 1e
-00:00:19.39 interruptgic: write32 [ff842010] = 1e
-00:00:19.39 interruptgic: read32 [ff84200c] = 1e
-00:00:19.40 interruptgic: write32 [ff842010] = 1e
-00:00:19.40 interruptgic: read32 [ff84200c] = 1e
-00:00:19.41 interruptgic: write32 [ff842010] = 1e
-00:00:19.41 interruptgic: read32 [ff84200c] = 1e
-00:00:19.42 interruptgic: write32 [ff842010] = 1e
-00:00:19.42 interruptgic: read32 [ff84200c] = 1e
-00:00:19.43 interruptgic: write32 [ff842010] = 1e
-00:00:19.43 interruptgic: read32 [ff84200c] = 1e
-00:00:19.44 interruptgic: write32 [ff842010] = 1e
-00:00:19.44 interruptgic: read32 [ff84200c] = 1e
-00:00:19.45 interruptgic: write32 [ff842010] = 1e
-00:00:19.45 interruptgic: read32 [ff84200c] = 1e
-00:00:19.46 interruptgic: write32 [ff842010] = 1e
-00:00:19.46 interruptgic: read32 [ff84200c] = 1e
-00:00:19.47 interruptgic: write32 [ff842010] = 1e
-00:00:19.47 interruptgic: read32 [ff84200c] = 1e
-00:00:19.48 interruptgic: write32 [ff842010] = 1e
-00:00:19.48 interruptgic: read32 [ff84200c] = 1e
-00:00:19.49 interruptgic: write32 [ff842010] = 1e
-00:00:19.49 interruptgic: read32 [ff84200c] = 1e
-00:00:19.50 interruptgic: write32 [ff842010] = 1e
-00:00:19.50 interruptgic: read32 [ff84200c] = 1e
-00:00:19.51 interruptgic: write32 [ff842010] = 1e
-00:00:19.51 interruptgic: read32 [ff84200c] = 1e
-00:00:19.52 interruptgic: write32 [ff842010] = 1e
-00:00:19.52 interruptgic: read32 [ff84200c] = 1e
-00:00:19.53 interruptgic: write32 [ff842010] = 1e
-00:00:19.53 interruptgic: read32 [ff84200c] = 1e
-00:00:19.54 interruptgic: write32 [ff842010] = 1e
-00:00:19.54 interruptgic: read32 [ff84200c] = 1e
-00:00:19.55 interruptgic: write32 [ff842010] = 1e
-00:00:19.55 interruptgic: read32 [ff84200c] = 1e
-00:00:19.56 interruptgic: write32 [ff842010] = 1e
-00:00:19.56 interruptgic: read32 [ff84200c] = 1e
-00:00:19.57 interruptgic: write32 [ff842010] = 1e
-00:00:19.57 interruptgic: read32 [ff84200c] = 1e
-00:00:19.58 interruptgic: write32 [ff842010] = 1e
-00:00:19.58 interruptgic: read32 [ff84200c] = 1e
-00:00:19.59 interruptgic: write32 [ff842010] = 1e
-00:00:19.59 interruptgic: read32 [ff84200c] = 1e
-00:00:19.60 interruptgic: write32 [ff842010] = 1e
-00:00:19.60 interruptgic: read32 [ff84200c] = 1e
-00:00:19.61 interruptgic: write32 [ff842010] = 1e
-00:00:19.61 interruptgic: read32 [ff84200c] = 1e
-00:00:19.62 interruptgic: write32 [ff842010] = 1e
-00:00:19.62 interruptgic: read32 [ff84200c] = 1e
-00:00:19.63 interruptgic: write32 [ff842010] = 1e
-00:00:19.63 usbdev1-4: Interface int3-1-1 found
-00:00:19.64 usbdev1-4: Using device/interface int3-1-1
-00:00:19.64 usbdev1-4: Interface int3-0-0 found
-00:00:19.65 xhcimmiospace: write32 [10c] = 1
-00:00:19.65 interruptgic: read32 [ff84200c] = 1e
-00:00:19.66 interruptgic: write32 [ff842010] = 1e
-00:00:19.66 interruptgic: read32 [ff84200c] = 1e
-00:00:19.67 interruptgic: write32 [ff842010] = 1e
-00:00:19.67 interruptgic: read32 [ff84200c] = af
-00:00:19.67 xhci: IRQ
-00:00:19.67 xhcimmiospace: read32 [24] = 8
-00:00:19.67 xhcimmiospace: write32 [24] = 8
-00:00:19.67 xhcimmiospace: read32 [220] = 3
-00:00:19.67 xhcimmiospace: write32 [220] = 3
-00:00:19.67 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:19.67 xhcimmiospace: write32 [238] = 600bd8
-00:00:19.67 xhcimmiospace: write32 [23c] = 4
-00:00:19.67 interruptgic: write32 [ff842010] = af
-00:00:19.67 interruptgic: read32 [ff84200c] = 1e
-00:00:19.68 interruptgic: write32 [ff842010] = 1e
-00:00:19.68 interruptgic: read32 [ff84200c] = 1e
-00:00:19.69 interruptgic: write32 [ff842010] = 1e
-00:00:19.69 interruptgic: read32 [ff84200c] = 1e
-00:00:19.70 interruptgic: write32 [ff842010] = 1e
-00:00:19.70 interruptgic: read32 [ff84200c] = 1e
-00:00:19.71 interruptgic: write32 [ff842010] = 1e
-00:00:19.71 interruptgic: read32 [ff84200c] = 1e
-00:00:19.72 interruptgic: write32 [ff842010] = 1e
-00:00:19.72 interruptgic: read32 [ff84200c] = 1e
-00:00:19.73 interruptgic: write32 [ff842010] = 1e
-00:00:19.73 interruptgic: read32 [ff84200c] = 1e
-00:00:19.74 interruptgic: write32 [ff842010] = 1e
-00:00:19.74 interruptgic: read32 [ff84200c] = 1e
-00:00:19.75 interruptgic: write32 [ff842010] = 1e
-00:00:19.75 interruptgic: read32 [ff84200c] = 1e
-00:00:19.76 interruptgic: write32 [ff842010] = 1e
-00:00:19.76 interruptgic: read32 [ff84200c] = 1e
-00:00:19.77 interruptgic: write32 [ff842010] = 1e
-00:00:19.77 interruptgic: read32 [ff84200c] = 1e
-00:00:19.78 interruptgic: write32 [ff842010] = 1e
-00:00:19.78 interruptgic: read32 [ff84200c] = 1e
-00:00:19.79 interruptgic: write32 [ff842010] = 1e
-00:00:19.79 interruptgic: read32 [ff84200c] = 1e
-00:00:19.80 interruptgic: write32 [ff842010] = 1e
-00:00:19.80 interruptgic: read32 [ff84200c] = 1e
-00:00:19.81 interruptgic: write32 [ff842010] = 1e
-00:00:19.81 interruptgic: read32 [ff84200c] = 1e
-00:00:19.82 interruptgic: write32 [ff842010] = 1e
-00:00:19.82 interruptgic: read32 [ff84200c] = 1e
-00:00:19.83 interruptgic: write32 [ff842010] = 1e
-00:00:19.83 interruptgic: read32 [ff84200c] = 1e
-00:00:19.84 interruptgic: write32 [ff842010] = 1e
-00:00:19.84 interruptgic: read32 [ff84200c] = 1e
-00:00:19.85 interruptgic: write32 [ff842010] = 1e
-00:00:19.85 interruptgic: read32 [ff84200c] = 1e
-00:00:19.86 interruptgic: write32 [ff842010] = 1e
-00:00:19.86 interruptgic: read32 [ff84200c] = 1e
-00:00:19.87 interruptgic: write32 [ff842010] = 1e
-00:00:19.87 interruptgic: read32 [ff84200c] = 1e
-00:00:19.88 interruptgic: write32 [ff842010] = 1e
-00:00:19.88 interruptgic: read32 [ff84200c] = 1e
-00:00:19.89 interruptgic: write32 [ff842010] = 1e
-00:00:19.89 interruptgic: read32 [ff84200c] = 1e
-00:00:19.90 interruptgic: write32 [ff842010] = 1e
-00:00:19.90 interruptgic: read32 [ff84200c] = 1e
-00:00:19.91 interruptgic: write32 [ff842010] = 1e
-00:00:19.91 interruptgic: read32 [ff84200c] = 1e
-00:00:19.92 interruptgic: write32 [ff842010] = 1e
-00:00:19.92 interruptgic: read32 [ff84200c] = 1e
-00:00:19.93 interruptgic: write32 [ff842010] = 1e
-00:00:19.93 interruptgic: read32 [ff84200c] = 1e
-00:00:19.94 interruptgic: write32 [ff842010] = 1e
-00:00:19.94 interruptgic: read32 [ff84200c] = 1e
-00:00:19.95 interruptgic: write32 [ff842010] = 1e
-00:00:19.95 interruptgic: read32 [ff84200c] = 1e
-00:00:19.96 interruptgic: write32 [ff842010] = 1e
-00:00:19.96 interruptgic: read32 [ff84200c] = 1e
-00:00:19.97 interruptgic: write32 [ff842010] = 1e
-00:00:19.97 interruptgic: read32 [ff84200c] = 1e
-00:00:19.98 interruptgic: write32 [ff842010] = 1e
-00:00:19.98 usbdev1-4: Using device/interface int3-0-0
-00:00:19.99 xhcimmiospace: write32 [108] = 1
-00:00:19.99 interruptgic: read32 [ff84200c] = 1e
-00:00:20.00 interruptgic: write32 [ff842010] = 1e
-00:00:20.00 interruptgic: read32 [ff84200c] = af
-00:00:20.00 xhci: IRQ
-00:00:20.00 xhcimmiospace: read32 [24] = 8
-00:00:20.00 xhcimmiospace: write32 [24] = 8
-00:00:20.00 xhcimmiospace: read32 [220] = 3
-00:00:20.00 xhcimmiospace: write32 [220] = 3
-00:00:20.00 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:20.00 xhcimmiospace: write32 [238] = 600be8
-00:00:20.00 xhcimmiospace: write32 [23c] = 4
-00:00:20.00 interruptgic: write32 [ff842010] = af
-00:00:20.00 interruptgic: read32 [ff84200c] = 1e
-00:00:20.01 interruptgic: write32 [ff842010] = 1e
-00:00:20.01 interruptgic: read32 [ff84200c] = 1e
-00:00:20.02 interruptgic: write32 [ff842010] = 1e
-00:00:20.02 interruptgic: read32 [ff84200c] = 1e
-00:00:20.03 interruptgic: write32 [ff842010] = 1e
-00:00:20.03 interruptgic: read32 [ff84200c] = 1e
-00:00:20.04 interruptgic: write32 [ff842010] = 1e
-00:00:20.04 interruptgic: read32 [ff84200c] = 1e
-00:00:20.05 interruptgic: write32 [ff842010] = 1e
-00:00:20.05 interruptgic: read32 [ff84200c] = 1e
-00:00:20.06 interruptgic: write32 [ff842010] = 1e
-00:00:20.06 interruptgic: read32 [ff84200c] = 1e
-00:00:20.07 interruptgic: write32 [ff842010] = 1e
-00:00:20.07 interruptgic: read32 [ff84200c] = 1e
-00:00:20.08 interruptgic: write32 [ff842010] = 1e
-00:00:20.08 interruptgic: read32 [ff84200c] = 1e
-00:00:20.09 interruptgic: write32 [ff842010] = 1e
-00:00:20.09 interruptgic: read32 [ff84200c] = 1e
-00:00:20.10 interruptgic: write32 [ff842010] = 1e
-00:00:20.10 interruptgic: read32 [ff84200c] = 1e
-00:00:20.11 interruptgic: write32 [ff842010] = 1e
-00:00:20.11 interruptgic: read32 [ff84200c] = 1e
-00:00:20.12 interruptgic: write32 [ff842010] = 1e
-00:00:20.12 interruptgic: read32 [ff84200c] = 1e
-00:00:20.13 interruptgic: write32 [ff842010] = 1e
-00:00:20.13 interruptgic: read32 [ff84200c] = 1e
-00:00:20.14 interruptgic: write32 [ff842010] = 1e
-00:00:20.14 interruptgic: read32 [ff84200c] = 1e
-00:00:20.15 interruptgic: write32 [ff842010] = 1e
-00:00:20.15 interruptgic: read32 [ff84200c] = 1e
-00:00:20.16 interruptgic: write32 [ff842010] = 1e
-00:00:20.16 interruptgic: read32 [ff84200c] = 1e
-00:00:20.17 interruptgic: write32 [ff842010] = 1e
-00:00:20.17 interruptgic: read32 [ff84200c] = 1e
-00:00:20.18 interruptgic: write32 [ff842010] = 1e
-00:00:20.18 interruptgic: read32 [ff84200c] = 1e
-00:00:20.19 interruptgic: write32 [ff842010] = 1e
-00:00:20.19 interruptgic: read32 [ff84200c] = 1e
-00:00:20.20 interruptgic: write32 [ff842010] = 1e
-00:00:20.20 interruptgic: read32 [ff84200c] = 1e
-00:00:20.21 interruptgic: write32 [ff842010] = 1e
-00:00:20.21 interruptgic: read32 [ff84200c] = 1e
-00:00:20.22 interruptgic: write32 [ff842010] = 1e
-00:00:20.22 interruptgic: read32 [ff84200c] = 1e
-00:00:20.23 interruptgic: write32 [ff842010] = 1e
-00:00:20.23 interruptgic: read32 [ff84200c] = 1e
-00:00:20.24 interruptgic: write32 [ff842010] = 1e
-00:00:20.24 interruptgic: read32 [ff84200c] = 1e
-00:00:20.25 interruptgic: write32 [ff842010] = 1e
-00:00:20.25 interruptgic: read32 [ff84200c] = 1e
-00:00:20.26 interruptgic: write32 [ff842010] = 1e
-00:00:20.26 interruptgic: read32 [ff84200c] = 1e
-00:00:20.27 interruptgic: write32 [ff842010] = 1e
-00:00:20.27 interruptgic: read32 [ff84200c] = 1e
-00:00:20.28 interruptgic: write32 [ff842010] = 1e
-00:00:20.28 interruptgic: read32 [ff84200c] = 1e
-00:00:20.29 interruptgic: write32 [ff842010] = 1e
-00:00:20.29 interruptgic: read32 [ff84200c] = 1e
-00:00:20.30 interruptgic: write32 [ff842010] = 1e
-00:00:20.30 interruptgic: read32 [ff84200c] = 1e
-00:00:20.31 interruptgic: write32 [ff842010] = 1e
-00:00:20.31 xhcicmd: Execute command 12 (control 0x2003000)
-00:00:20.32 xhcimmiospace: write32 [100] = 0
-00:00:20.32 interruptgic: read32 [ff84200c] = af
-00:00:20.32 xhci: IRQ
-00:00:20.32 xhcimmiospace: read32 [24] = 8
-00:00:20.32 xhcimmiospace: write32 [24] = 8
-00:00:20.32 xhcimmiospace: read32 [220] = 3
-00:00:20.32 xhcimmiospace: write32 [220] = 3
-00:00:20.32 xhcicmd: Command 12 completed with 1 (slot 2)
-00:00:20.32 xhcimmiospace: write32 [238] = 600bf8
-00:00:20.32 xhcimmiospace: write32 [23c] = 4
-00:00:20.32 interruptgic: write32 [ff842010] = af
-00:00:20.32 interruptgic: read32 [ff84200c] = 1e
-00:00:20.33 interruptgic: write32 [ff842010] = 1e
-00:00:20.33 interruptgic: read32 [ff84200c] = 1e
-00:00:20.34 interruptgic: write32 [ff842010] = 1e
-00:00:20.34 interruptgic: read32 [ff84200c] = 1e
-00:00:20.35 interruptgic: write32 [ff842010] = 1e
-00:00:20.35 interruptgic: read32 [ff84200c] = 1e
-00:00:20.36 interruptgic: write32 [ff842010] = 1e
-00:00:20.36 interruptgic: read32 [ff84200c] = 1e
-00:00:20.37 interruptgic: write32 [ff842010] = 1e
-00:00:20.37 interruptgic: read32 [ff84200c] = 1e
-00:00:20.38 interruptgic: write32 [ff842010] = 1e
-00:00:20.38 interruptgic: read32 [ff84200c] = 1e
-00:00:20.39 interruptgic: write32 [ff842010] = 1e
-00:00:20.39 interruptgic: read32 [ff84200c] = 1e
-00:00:20.40 interruptgic: write32 [ff842010] = 1e
-00:00:20.40 interruptgic: read32 [ff84200c] = 1e
-00:00:20.41 interruptgic: write32 [ff842010] = 1e
-00:00:20.41 interruptgic: read32 [ff84200c] = 1e
-00:00:20.42 interruptgic: write32 [ff842010] = 1e
-00:00:20.42 interruptgic: read32 [ff84200c] = 1e
-00:00:20.43 interruptgic: write32 [ff842010] = 1e
-00:00:20.43 interruptgic: read32 [ff84200c] = 1e
-00:00:20.44 interruptgic: write32 [ff842010] = 1e
-00:00:20.44 interruptgic: read32 [ff84200c] = 1e
-00:00:20.45 interruptgic: write32 [ff842010] = 1e
-00:00:20.45 interruptgic: read32 [ff84200c] = 1e
-00:00:20.46 interruptgic: write32 [ff842010] = 1e
-00:00:20.46 interruptgic: read32 [ff84200c] = 1e
-00:00:20.47 interruptgic: write32 [ff842010] = 1e
-00:00:20.47 interruptgic: read32 [ff84200c] = 1e
-00:00:20.48 interruptgic: write32 [ff842010] = 1e
-00:00:20.48 interruptgic: read32 [ff84200c] = 1e
-00:00:20.49 interruptgic: write32 [ff842010] = 1e
-00:00:20.49 interruptgic: read32 [ff84200c] = 1e
-00:00:20.50 interruptgic: write32 [ff842010] = 1e
-00:00:20.50 interruptgic: read32 [ff84200c] = 1e
-00:00:20.51 interruptgic: write32 [ff842010] = 1e
-00:00:20.51 interruptgic: read32 [ff84200c] = 1e
-00:00:20.52 interruptgic: write32 [ff842010] = 1e
-00:00:20.52 interruptgic: read32 [ff84200c] = 1e
-00:00:20.53 interruptgic: write32 [ff842010] = 1e
-00:00:20.53 interruptgic: read32 [ff84200c] = 1e
-00:00:20.54 interruptgic: write32 [ff842010] = 1e
-00:00:20.54 interruptgic: read32 [ff84200c] = 1e
-00:00:20.55 interruptgic: write32 [ff842010] = 1e
-00:00:20.55 interruptgic: read32 [ff84200c] = 1e
-00:00:20.56 interruptgic: write32 [ff842010] = 1e
-00:00:20.56 interruptgic: read32 [ff84200c] = 1e
-00:00:20.57 interruptgic: write32 [ff842010] = 1e
-00:00:20.57 interruptgic: read32 [ff84200c] = 1e
-00:00:20.58 interruptgic: write32 [ff842010] = 1e
-00:00:20.58 interruptgic: read32 [ff84200c] = 1e
-00:00:20.59 interruptgic: write32 [ff842010] = 1e
-00:00:20.59 interruptgic: read32 [ff84200c] = 1e
-00:00:20.60 interruptgic: write32 [ff842010] = 1e
-00:00:20.60 interruptgic: read32 [ff84200c] = 1e
-00:00:20.61 interruptgic: write32 [ff842010] = 1e
-00:00:20.61 interruptgic: read32 [ff84200c] = 1e
-00:00:20.62 interruptgic: write32 [ff842010] = 1e
-00:00:20.62 interruptgic: read32 [ff84200c] = 1e
-00:00:20.63 interruptgic: write32 [ff842010] = 1e
-00:00:20.63 interruptgic: read32 [ff84200c] = 1e
-00:00:20.64 interruptgic: write32 [ff842010] = 1e
-00:00:20.64 xhcimmiospace: write32 [108] = 1
-00:00:20.65 interruptgic: read32 [ff84200c] = af
-00:00:20.65 xhci: IRQ
-00:00:20.65 xhcimmiospace: read32 [24] = 8
-00:00:20.65 xhcimmiospace: write32 [24] = 8
-00:00:20.65 xhcimmiospace: read32 [220] = 3
-00:00:20.65 xhcimmiospace: write32 [220] = 3
-00:00:20.65 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:20.65 xhcimmiospace: write32 [238] = 600c08
-00:00:20.65 xhcimmiospace: write32 [23c] = 4
-00:00:20.65 interruptgic: write32 [ff842010] = af
-00:00:20.65 interruptgic: read32 [ff84200c] = 1e
-00:00:20.66 interruptgic: write32 [ff842010] = 1e
-00:00:20.66 interruptgic: read32 [ff84200c] = 1e
-00:00:20.67 interruptgic: write32 [ff842010] = 1e
-00:00:20.67 interruptgic: read32 [ff84200c] = 1e
-00:00:20.68 interruptgic: write32 [ff842010] = 1e
-00:00:20.68 interruptgic: read32 [ff84200c] = 1e
-00:00:20.69 interruptgic: write32 [ff842010] = 1e
-00:00:20.69 interruptgic: read32 [ff84200c] = 1e
-00:00:20.70 interruptgic: write32 [ff842010] = 1e
-00:00:20.70 interruptgic: read32 [ff84200c] = 1e
-00:00:20.71 interruptgic: write32 [ff842010] = 1e
-00:00:20.71 interruptgic: read32 [ff84200c] = 1e
-00:00:20.72 interruptgic: write32 [ff842010] = 1e
-00:00:20.72 interruptgic: read32 [ff84200c] = 1e
-00:00:20.73 interruptgic: write32 [ff842010] = 1e
-00:00:20.73 interruptgic: read32 [ff84200c] = 1e
-00:00:20.74 interruptgic: write32 [ff842010] = 1e
-00:00:20.74 interruptgic: read32 [ff84200c] = 1e
-00:00:20.75 interruptgic: write32 [ff842010] = 1e
-00:00:20.75 interruptgic: read32 [ff84200c] = 1e
-00:00:20.76 interruptgic: write32 [ff842010] = 1e
-00:00:20.76 interruptgic: read32 [ff84200c] = 1e
-00:00:20.77 interruptgic: write32 [ff842010] = 1e
-00:00:20.77 interruptgic: read32 [ff84200c] = 1e
-00:00:20.78 interruptgic: write32 [ff842010] = 1e
-00:00:20.78 interruptgic: read32 [ff84200c] = 1e
-00:00:20.79 interruptgic: write32 [ff842010] = 1e
-00:00:20.79 interruptgic: read32 [ff84200c] = 1e
-00:00:20.80 interruptgic: write32 [ff842010] = 1e
-00:00:20.80 interruptgic: read32 [ff84200c] = 1e
-00:00:20.81 interruptgic: write32 [ff842010] = 1e
-00:00:20.81 interruptgic: read32 [ff84200c] = 1e
-00:00:20.82 interruptgic: write32 [ff842010] = 1e
-00:00:20.82 interruptgic: read32 [ff84200c] = 1e
-00:00:20.83 interruptgic: write32 [ff842010] = 1e
-00:00:20.83 interruptgic: read32 [ff84200c] = 1e
-00:00:20.84 interruptgic: write32 [ff842010] = 1e
-00:00:20.84 interruptgic: read32 [ff84200c] = 1e
-00:00:20.85 interruptgic: write32 [ff842010] = 1e
-00:00:20.85 interruptgic: read32 [ff84200c] = 1e
-00:00:20.86 interruptgic: write32 [ff842010] = 1e
-00:00:20.86 interruptgic: read32 [ff84200c] = 1e
-00:00:20.87 interruptgic: write32 [ff842010] = 1e
-00:00:20.87 interruptgic: read32 [ff84200c] = 1e
-00:00:20.88 interruptgic: write32 [ff842010] = 1e
-00:00:20.88 interruptgic: read32 [ff84200c] = 1e
-00:00:20.89 interruptgic: write32 [ff842010] = 1e
-00:00:20.89 interruptgic: read32 [ff84200c] = 1e
-00:00:20.90 interruptgic: write32 [ff842010] = 1e
-00:00:20.90 interruptgic: read32 [ff84200c] = 1e
-00:00:20.91 interruptgic: write32 [ff842010] = 1e
-00:00:20.91 interruptgic: read32 [ff84200c] = 1e
-00:00:20.92 interruptgic: write32 [ff842010] = 1e
-00:00:20.92 interruptgic: read32 [ff84200c] = 1e
-00:00:20.93 interruptgic: write32 [ff842010] = 1e
-00:00:20.93 interruptgic: read32 [ff84200c] = 1e
-00:00:20.94 interruptgic: write32 [ff842010] = 1e
-00:00:20.94 xhcimmiospace: write32 [108] = 3
-00:00:20.95 usbhub: Port 1: Device configured
-00:00:20.95 xhcicmd: Execute command 12 (control 0x3003000)
-00:00:20.96 xhcimmiospace: write32 [100] = 0
-00:00:20.96 interruptgic: read32 [ff84200c] = af
-00:00:20.96 xhci: IRQ
-00:00:20.96 xhcimmiospace: read32 [24] = 8
-00:00:20.96 xhcimmiospace: write32 [24] = 8
-00:00:20.96 xhcimmiospace: read32 [220] = 3
-00:00:20.96 xhcimmiospace: write32 [220] = 3
-00:00:20.96 xhcicmd: Command 12 completed with 1 (slot 3)
-00:00:20.96 xhcimmiospace: write32 [238] = 600c18
-00:00:20.96 xhcimmiospace: write32 [23c] = 4
-00:00:20.96 interruptgic: write32 [ff842010] = af
-00:00:20.96 interruptgic: read32 [ff84200c] = 1e
-00:00:20.97 interruptgic: write32 [ff842010] = 1e
-00:00:20.97 interruptgic: read32 [ff84200c] = 1e
-00:00:20.98 interruptgic: write32 [ff842010] = 1e
-00:00:20.98 interruptgic: read32 [ff84200c] = 1e
-00:00:20.99 interruptgic: write32 [ff842010] = 1e
-00:00:20.99 interruptgic: read32 [ff84200c] = 1e
-00:00:21.00 interruptgic: write32 [ff842010] = 1e
-00:00:21.00 interruptgic: read32 [ff84200c] = 1e
-00:00:21.01 interruptgic: write32 [ff842010] = 1e
-00:00:21.01 interruptgic: read32 [ff84200c] = 1e
-00:00:21.02 interruptgic: write32 [ff842010] = 1e
+00:00:17.70 interruptgic: read32 [ff84200c] = af
+00:00:17.70 xhci: IRQ
+00:00:17.70 xhcimmiospace: read32 [24] = 8
+00:00:17.70 xhcimmiospace: write32 [24] = 8
+00:00:17.70 xhcimmiospace: read32 [220] = 3
+00:00:17.70 xhcimmiospace: write32 [220] = 3
+00:00:17.70 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:17.70 xhcimmiospace: write32 [238] = 600b78
+00:00:17.70 xhcimmiospace: write32 [23c] = 4
+00:00:17.70 interruptgic: write32 [ff842010] = af
