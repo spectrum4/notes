@@ -16,42 +16,42 @@ cat dmesg.log.2 | grep '\(Read\|Write\)' | grep '/pci/' | sed 's/^\[ *\([0-9]*\)
   base=none
   if [ $((addr -x4)) -ge 0 ] && [ $((addr - x4)) -lt 8192 ]; then
     base=x4
-	offset=$((addr - x4))
+    offset=$((addr - x4))
   fi
   if [ $((addr -x10)) -ge 0 ] && [ $((addr - x10)) -lt 8192 ]; then
     base=x10
-	offset=$((addr - x10))
+    offset=$((addr - x10))
   fi
   if [ $((addr -x13)) -ge 0 ] && [ $((addr - x13)) -lt 8192 ]; then
     base=x13
-	offset=$((addr - x13))
+    offset=$((addr - x13))
   fi
   if [ $((addr -x14)) -ge 0 ] && [ $((addr - x14)) -lt 8192 ]; then
     base=x14
-	offset=$((addr - x14))
+    offset=$((addr - x14))
   fi
 
   if [ "${base}" == "none" ]; then
     printf "offset too big for 0x%x\n" "${addr}"
-	exit 4
+    exit 4
   fi
 
   case "${n}" in
     8)
       suffix="b"
-	  reg="w"
+      reg="w"
       ;;
     16)
       suffix="h"
-	  reg="w"
+      reg="w"
       ;;
     32)
       suffix="w"
-	  reg="w"
+      reg="w"
       ;;
     *)
       echo "Unknown bits: ${rw}"
-	  exit 2
+      exit 2
       ;;
   esac
 
@@ -59,7 +59,7 @@ cat dmesg.log.2 | grep '\(Read\|Write\)' | grep '/pci/' | sed 's/^\[ *\([0-9]*\)
   delay=$((timestamp-oldtimestamp))
   if [ $delay -ge 100 ]; then
     echo "ldr x0, =${delay}"
-	echo "bl  wait_usec"
+    echo "bl  wait_usec"
   fi
 
   case "${rw}" in
