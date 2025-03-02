@@ -58,7 +58,7 @@ cat dmesg.log.2 | grep '\(Read\|Write\)' | grep '/pci/' | sed 's/^\[ *\([0-9]*\)
   echo
   delay=$((timestamp-oldtimestamp))
   if [ $delay -ge 100 ]; then
-    echo "ldr x0, =#${delay}"
+    echo "ldr x0, =${delay}"
 	echo "bl  wait_usec"
   fi
 
