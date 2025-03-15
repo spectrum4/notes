@@ -1354,11 +1354,30 @@ apt-get update
 apt-get upgrade
 apt install git bc bison flex libssl-dev make libc6-dev libncurses5-dev crossbuild-essential-arm64
 export KERNEL=kernel8
+git clone git@github.com:petemoore/linux.git
+cd linux
+git checkout rpi-5.15.y
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcm2711_defconfig
 sed -i 's/^\(CONFIG_LOCALVERSION=.*\)"/\1-pmoore"/' .config
 sed -i 's/-pmoore-pmoore/-pmoore/' .config
 sed -i 's/^# CONFIG_WERROR is not set/CONFIG_WERROR=y/' .config
 sed -i '425,488s/=y/=n/' .config
+
+function set-config {
+  var="${1}"
+  val="${2}"
+  if ! grep -q "^${var}=${val}$" .config; then
+    sed -i "s/^${var}=/# &/" .config
+    echo "${var}=${val}" >> .config
+  fi
+}
+
+set-config CONFIG_DEBUG_KERNEL y
+set-config CONFIG_DEBUG_INFO y
+set-config CONFIG_DEBUG_INFO_REDUCED n
+set-config CONFIG_DEBUG_INFO_DWARF5 y
+set-config CONFIG_FRAME_POINTER y
+
 # make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j Image modules dtbs
 make -j8 Image modules dtbs
 objdump -d vmlinux > kernel.s
