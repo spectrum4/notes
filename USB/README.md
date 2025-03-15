@@ -1356,7 +1356,7 @@ apt install git bc bison flex libssl-dev make libc6-dev libncurses5-dev crossbui
 export KERNEL=kernel8
 git clone git@github.com:petemoore/linux.git
 cd linux
-git checkout rpi-5.15.y
+git switch -c rpi-5.15.y --track origin/rpi-5.15.y
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcm2711_defconfig
 sed -i 's/^\(CONFIG_LOCALVERSION=.*\)"/\1-pmoore"/' .config
 sed -i 's/-pmoore-pmoore/-pmoore/' .config
