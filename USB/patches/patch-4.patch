@@ -1,0 +1,31 @@
+From 50d98782bc02753aa96d530f95760e4f4fd44af2 Mon Sep 17 00:00:00 2001
+From: Pete Moore <pmoore@mozilla.com>
+Date: Sat, 25 Feb 2023 10:22:46 +0100
+Subject: [PATCH] don't wrap readl/writel macros in vc4_hvs_dump_state function
+
+---
+ drivers/gpu/drm/vc4/vc4_hvs.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/gpu/drm/vc4/vc4_hvs.c b/drivers/gpu/drm/vc4/vc4_hvs.c
+index e6987365b1b3..0dea7ec690c1 100644
+--- a/drivers/gpu/drm/vc4/vc4_hvs.c
++++ b/drivers/gpu/drm/vc4/vc4_hvs.c
+@@ -82,10 +82,10 @@ void vc4_hvs_dump_state(struct vc4_hvs *hvs)
+ 	for (i = 0; i < 64; i += 4) {
+ 		DRM_INFO("0x%08x (%s): 0x%08x 0x%08x 0x%08x 0x%08x\n",
+ 			 i * 4, i < HVS_BOOTLOADER_DLIST_END ? "B" : "D",
+-			 pete_readl("drivers/gpu/drm/vc4/vc4_hvs.c:85", (u32 __iomem *)hvs->dlist + i + 0),
+-			 pete_readl("drivers/gpu/drm/vc4/vc4_hvs.c:86", (u32 __iomem *)hvs->dlist + i + 1),
+-			 pete_readl("drivers/gpu/drm/vc4/vc4_hvs.c:87", (u32 __iomem *)hvs->dlist + i + 2),
+-			 pete_readl("drivers/gpu/drm/vc4/vc4_hvs.c:88", (u32 __iomem *)hvs->dlist + i + 3));
++			 readl((u32 __iomem *)hvs->dlist + i + 0),
++			 readl((u32 __iomem *)hvs->dlist + i + 1),
++			 readl((u32 __iomem *)hvs->dlist + i + 2),
++			 readl((u32 __iomem *)hvs->dlist + i + 3));
+ 	}
+ 
+ 	drm_dev_exit(idx);
+-- 
+2.47.0
+

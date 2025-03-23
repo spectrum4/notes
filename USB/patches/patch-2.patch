@@ -1,0 +1,38 @@
+From 5e6ccb7c66a9ad4f354a35f79fa02fb11ab445a4 Mon Sep 17 00:00:00 2001
+From: Pete Moore <pmoore@mozilla.com>
+Date: Sun, 26 Feb 2023 13:32:57 +0100
+Subject: [PATCH] Added wrappers
+
+---
+ arch/arm64/include/asm/io.h | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
+index 3995652daf81..e45069913c67 100644
+--- a/arch/arm64/include/asm/io.h
++++ b/arch/arm64/include/asm/io.h
+@@ -142,6 +142,21 @@ static inline u64 __raw_readq(const volatile void __iomem *addr)
+ #define writel(v,c)		({ __iowmb(); writel_relaxed((v),(c)); })
+ #define writeq(v,c)		({ __iowmb(); writeq_relaxed((v),(c)); })
+ 
++///////////////////////////////////////////////////////////////
++//
++// Added by pmoore for rpi400 debugging...
++#define pete_readb(loc, addr) ({ u8 value = readb((addr)); printk(KERN_INFO "%s Read 8 bits [0x%px]=%#0x\n", (loc), (void*)(addr), (value)); value;})
++#define pete_readw(loc, addr) ({ u16 value = readw((addr)); printk(KERN_INFO "%s Read 16 bits [0x%px]=%#0x\n", (loc), (void*)(addr), (value)); value;})
++#define pete_readl(loc, addr) ({ u32 value = readl((addr)); printk(KERN_INFO "%s Read 32 bits [0x%px]=%#0x\n", (loc), (void*)(addr), (value)); value;})
++#define pete_readq(loc, addr) ({ u64 value = readq((addr)); printk(KERN_INFO "%s Read 64 bits [0x%px]=%#018llx\n", (loc), (void*)(addr), (value)); value;})
++//
++#define pete_writeb(loc, value, addr) ({ printk(KERN_INFO "%s Write 8 bits [0x%px]=%#0x\n", (loc), (void*)(addr), (__force u8)(value)); writeb((value), (addr));})
++#define pete_writew(loc, value, addr) ({ printk(KERN_INFO "%s Write 16 bits [0x%px]=%#0x\n", (loc), (void*)(addr), (__force u16)(value)); writew((value), (addr));})
++#define pete_writel(loc, value, addr) ({ printk(KERN_INFO "%s Write 32 bits [0x%px]=%#0x\n", (loc), (void*)(addr), (__force u32)(value)); writel((value), (addr));})
++#define pete_writeq(loc, value, addr) ({ printk(KERN_INFO "%s Write 64 bits [0x%px]=%#018llx\n", (loc), (void*)(addr), (__force u64)(value)); writeq((value), (addr));})
++//
++///////////////////////////////////////////////////////////////
++
+ /*
+  *  I/O port access primitives.
+  */
+-- 
+2.47.0
+

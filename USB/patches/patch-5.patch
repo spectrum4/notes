@@ -1,0 +1,33 @@
+From 4676f5a02e6cf35951ed25ce883c1f6d7f541f61 Mon Sep 17 00:00:00 2001
+From: Pete Moore <pmoore@mozilla.com>
+Date: Thu, 27 Mar 2025 21:55:08 +0100
+Subject: [PATCH] Dump stack in pci_generic_config_read,
+ pci_generic_config_write
+
+---
+ drivers/pci/access.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/pci/access.c b/drivers/pci/access.c
+index b342c3fcccd0..431aaafa7ae7 100644
+--- a/drivers/pci/access.c
++++ b/drivers/pci/access.c
+@@ -91,6 +91,7 @@ int pci_generic_config_read(struct pci_bus *bus, unsigned int devfn,
+ 		*val = pete_readw("drivers/pci/access.c:91", addr);
+ 	else
+ 		*val = pete_readl("drivers/pci/access.c:93", addr);
++	dump_stack();
+ 
+ 	return PCIBIOS_SUCCESSFUL;
+ }
+@@ -111,6 +112,7 @@ int pci_generic_config_write(struct pci_bus *bus, unsigned int devfn,
+ 		pete_writew("drivers/pci/access.c:111", val, addr);
+ 	else
+ 		pete_writel("drivers/pci/access.c:113", val, addr);
++	dump_stack();
+ 
+ 	return PCIBIOS_SUCCESSFUL;
+ }
+-- 
+2.47.0
+
