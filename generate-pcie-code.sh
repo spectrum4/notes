@@ -3,12 +3,12 @@
 cd "$(dirname "${0}")"
 
 oldtimestamp=0
-cat dmesg.log.2 | grep '\(Read\|Write\)' | grep '/pci/' | while read line; do
+cat dmesg.log.3 | grep '\(Read\|Write\)' | grep '/pci/' | while read line; do
   echo "${line}" | sed 's/^\[ *\([0-9]*\)\.\([0-9]*\)\]\(.*\)\[\([^ ]*\)\]=\(.*\)/\1\2 \3 \4 \5/' | while read timestamp b rw n bits vaddr val; do
   if [ $oldtimestamp == 0 ]; then
     oldtimestamp=$timestamp
   fi
-  addr=$((vaddr + 0x30f3b90000))
+  addr=$((vaddr + 0x30f3b80000))
   x10=$((0xfffffff0fd500000))
    x4=$((0xfffffff0fd504000))
   x13=$((0xfffffff0fd508000))

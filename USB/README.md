@@ -1379,8 +1379,11 @@ set-config CONFIG_DEBUG_INFO_DWARF5 y
 set-config CONFIG_FRAME_POINTER y
 
 # make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j Image modules dtbs
-make -j8 Image modules dtbs
+make -j8 Image.gz modules dtbs
 objdump -d vmlinux > kernel.s
+
+# kernel8.img can be copied from arch/arm64/boot/Image.gz
+# Use with https://downloads.raspberrypi.com/raspios_arm64/images/raspios_arm64-2023-02-22/
 
 docker start -i $(docker ps -q -l)
 docker start -i rpikernel
