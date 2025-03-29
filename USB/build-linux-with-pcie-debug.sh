@@ -4,10 +4,6 @@ set -eu
 set -o pipefail
 export SHELLOPTS
 
-g() {
-  git -C "${REPO_PATH}" "$@"
-}
-
 cd "$(dirname "${0}")"
 SCRIPT_DIR="$(pwd)"
 
@@ -47,34 +43,40 @@ else
 fi
 
 if [ -d "${REPO_PATH}" ]; then
+
+  cd "${REPO_PATH}"
+
   echo "⚠️ Directory '${REPO_PATH}' already exists."
   echo "🚀 Fetching latest commits..."
-  g fetch origin
+  git fetch origin
 
   echo "🔄 Aborting any in-progress Git operations (if any)..."
-  g am --abort 2>/dev/null || true
-  g rebase --abort 2>/dev/null || true
-  g cherry-pick --abort 2>/dev/null || true
-  g merge --abort 2>/dev/null || true
+  git am --abort 2>/dev/null || true
+  git rebase --abort 2>/dev/null || true
+  git cherry-pick --abort 2>/dev/null || true
+  git merge --abort 2>/dev/null || true
 
   echo "🔁 Resetting working directory..."
-  g reset --hard
+  git reset --hard
 
   echo "🧹 Cleaning untracked and ignored files..."
-  g clean -fdx
+  git clean -fdx
 
   echo "✅ Repository reset to a clean state."
 else
   echo "🚀 Cloning github.com/raspberrypi/linux into ${REPO_PATH} ..."
   git clone git@github.com:raspberrypi/linux.git "${REPO_PATH}"
+  cd "${REPO_PATH}"
 fi
 
 echo "🚀 Checking out branch ${BRANCH_NAME}..."
-g switch "${BRANCH_NAME}" || g switch -c "${BRANCH_NAME}" --track "origin/${BRANCH_NAME}"
+git switch "${BRANCH_NAME}" || git switch -c "${BRANCH_NAME}" --track "origin/${BRANCH_NAME}"
+
+echo "🔁 Resetting working directory..."
+git reset --hard origin/rpi-6.6.y
 
 # Apply patch 1 and 2
-g am "${SCRIPT_DIR}/patches/patch-1.patch" "${SCRIPT_DIR}/patches/patch-1.patch"
-g am "${SCRIPT_DIR}/patches/patch-1.patch" "${SCRIPT_DIR}/patches/patch-2.patch"
+git am "${SCRIPT_DIR}/patches/patch-1.patch" "${SCRIPT_DIR}/patches/patch-2.patch"
 
 # Generate dynamic commit
 
@@ -106,5 +108,4 @@ g am "${SCRIPT_DIR}/patches/patch-1.patch" "${SCRIPT_DIR}/patches/patch-2.patch"
 # echo "✅ Applied dynamic commit."
 
 # Apply patch 4 and 5
-g am "${SCRIPT_DIR}/patches/patch-4.patch" "${SCRIPT_DIR}/patches/patch-4.patch"
-g am "${SCRIPT_DIR}/patches/patch-4.patch" "${SCRIPT_DIR}/patches/patch-5.patch"
+git am "${SCRIPT_DIR}/patches/patch-4.patch" "${SCRIPT_DIR}/patches/patch-5.patch"
