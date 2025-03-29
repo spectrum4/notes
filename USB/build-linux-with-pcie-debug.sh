@@ -1,10 +1,19 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -eu
+set -o pipefail
+export SHELLOPTS
+
+g() {
+  git -C "${REPO_PATH}" "$@"
+}
 
 cd "$(dirname "${0}")"
 SCRIPT_DIR="$(pwd)"
 
 # Set desired volume name
 VOLUME_NAME="casesensitive"
+REPO_PATH="/Volumes/${VOLUME_NAME}/linux"
 
 # Set raspberry pi linux repo branch name
 BRANCH_NAME="rpi-6.6.y"
@@ -37,22 +46,35 @@ else
   fi
 fi
 
-if [ -d "/Volumes/${VOLUME_NAME}/linux" ]; then
-  echo "⚠️ Directory '/Volumes/${VOLUME_NAME}/linux' already exists."
+if [ -d "${REPO_PATH}" ]; then
+  echo "⚠️ Directory '${REPO_PATH}' already exists."
   echo "🚀 Fetching latest commits..."
-  git fetch origin
+  g fetch origin
+
+  echo "🔄 Aborting any in-progress Git operations (if any)..."
+  g am --abort 2>/dev/null || true
+  g rebase --abort 2>/dev/null || true
+  g cherry-pick --abort 2>/dev/null || true
+  g merge --abort 2>/dev/null || true
+
+  echo "🔁 Resetting working directory..."
+  g reset --hard
+
+  echo "🧹 Cleaning untracked and ignored files..."
+  g clean -fdx
+
+  echo "✅ Repository reset to a clean state."
 else
-  echo "🚀 Cloning github.com/raspberrypi/linux into /Volumes/${VOLUME_NAME}/linux ..."
-  git clone git@github.com:raspberrypi/linux.git "/Volumes/${VOLUME_NAME}/linux"
+  echo "🚀 Cloning github.com/raspberrypi/linux into ${REPO_PATH} ..."
+  git clone git@github.com:raspberrypi/linux.git "${REPO_PATH}"
 fi
 
-cd "/Volumes/${VOLUME_NAME}/linux"
-
 echo "🚀 Checking out branch ${BRANCH_NAME}..."
-git switch "${BRANCH_NAME}" || git switch -c "${BRANCH_NAME}" --track "origin/${BRANCH_NAME}"
+g switch "${BRANCH_NAME}" || g switch -c "${BRANCH_NAME}" --track "origin/${BRANCH_NAME}"
 
 # Apply patch 1 and 2
-git am "${SCRIPT_DIR}/patches/patch-1.patch" "${SCRIPT_DIR}/patches/patch-2.patch"
+g am "${SCRIPT_DIR}/patches/patch-1.patch" "${SCRIPT_DIR}/patches/patch-1.patch"
+g am "${SCRIPT_DIR}/patches/patch-1.patch" "${SCRIPT_DIR}/patches/patch-2.patch"
 
 # Generate dynamic commit
 
@@ -84,5 +106,5 @@ git am "${SCRIPT_DIR}/patches/patch-1.patch" "${SCRIPT_DIR}/patches/patch-2.patc
 # echo "✅ Applied dynamic commit."
 
 # Apply patch 4 and 5
-git am "${SCRIPT_DIR}/patches/patch-4.patch" "${SCRIPT_DIR}/patches/patch-5.patch"
-
+g am "${SCRIPT_DIR}/patches/patch-4.patch" "${SCRIPT_DIR}/patches/patch-4.patch"
+g am "${SCRIPT_DIR}/patches/patch-4.patch" "${SCRIPT_DIR}/patches/patch-5.patch"
