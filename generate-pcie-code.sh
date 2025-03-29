@@ -3,7 +3,8 @@
 cd "$(dirname "${0}")"
 
 oldtimestamp=0
-cat dmesg.log.2 | grep '\(Read\|Write\)' | grep '/pci/' | sed 's/^\[ *\([0-9]*\)\.\([0-9]*\)\]\(.*\)\[\([^ ]*\)\]=\(.*\)/\1\2 \3 \4 \5/' | while read timestamp b rw n bits vaddr val; do
+cat dmesg.log.2 | grep '\(Read\|Write\)' | grep '/pci/' | while read line; do
+  echo "${line}" | sed 's/^\[ *\([0-9]*\)\.\([0-9]*\)\]\(.*\)\[\([^ ]*\)\]=\(.*\)/\1\2 \3 \4 \5/' | while read timestamp b rw n bits vaddr val; do
   if [ $oldtimestamp == 0 ]; then
     oldtimestamp=$timestamp
   fi
@@ -58,17 +59,19 @@ cat dmesg.log.2 | grep '\(Read\|Write\)' | grep '/pci/' | sed 's/^\[ *\([0-9]*\)
   echo
   delay=$((timestamp-oldtimestamp))
   if [ $delay -ge 100 ]; then
-    echo "ldr x0, =${delay}"
-    echo "bl  wait_usec"
+    echo "ldr     x0, =${delay}"
+    echo "bl      wait_usec"
   fi
 
   case "${rw}" in
     Read)
-      printf "ldr${suffix}i ${reg}1, ${base}, #0x%x\n" "${offset}"
+      echo "// ${line}"
+      printf "ldr${suffix}i   ${reg}1, ${base}, #0x%x\n" "${offset}"
       ;;
     Write)
-      echo "ldr x1, =${val}"
-      printf "str${suffix}i ${reg}1, ${base}, #0x%x\n" "${offset}"
+      echo "// ${line}"
+      echo "ldr     x1, =${val}"
+      printf "str${suffix}i   ${reg}1, ${base}, #0x%x\n" "${offset}"
       ;;
     *)
       echo "Unknown read/write: ${rw}"
@@ -76,4 +79,5 @@ cat dmesg.log.2 | grep '\(Read\|Write\)' | grep '/pci/' | sed 's/^\[ *\([0-9]*\)
       ;;
   esac
   oldtimestamp=$timestamp
+  done
 done
