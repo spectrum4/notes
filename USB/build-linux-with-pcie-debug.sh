@@ -73,39 +73,39 @@ echo "🚀 Checking out branch ${BRANCH_NAME}..."
 git switch "${BRANCH_NAME}" || git switch -c "${BRANCH_NAME}" --track "origin/${BRANCH_NAME}"
 
 echo "🔁 Resetting working directory..."
-git reset --hard origin/rpi-6.6.y
+git reset --hard origin/rpi-5.15.y
 
 # Apply patch 1 and 2
 git am "${SCRIPT_DIR}/patches/patch-1.patch" "${SCRIPT_DIR}/patches/patch-2.patch"
 
 # Generate dynamic commit
 
-# for width in l w b q; do
-#   git grep -l "\(read\|write\)${width}" | grep '\.\(c\|h\)$' | while read -r file; do
-#     if ! grep -q "pete_\(read\|write\)${width}" "$file"; then
-#       echo "processing $file..."
-#       sed "s/\bread${width}(/pete_&/g" "$file" \
-#       | sed "s/\bwrite${width}(/pete_&/g" \
-#       | sed "s/_pete_read${width}/_read${width}/g" \
-#       | sed "s/_pete_write${width}/_write${width}/g" > y
-# 
-#       grep -n "pete_\(read\|write\)${width}" y | sed 's/:.*//' | while read -r line; do
-#         sed "${line}s%pete_read${width}(%&\"${file}:${line}\", %g" y \
-#         | sed "${line}s%pete_write${width}(%&\"${file}:${line}\", %g" > x
-#         mv x y
-#       done
-# 
-#       mv y "$file"
+for width in l w b q; do
+  git grep -l "\(read\|write\)${width}" | grep '\.\(c\|h\)$' | while read -r file; do
+    if ! grep -q "pete_\(read\|write\)${width}" "$file"; then
+      echo "processing $file..."
+      sed "s/\bread${width}(/pete_&/g" "$file" \
+      | sed "s/\bwrite${width}(/pete_&/g" \
+      | sed "s/_pete_read${width}/_read${width}/g" \
+      | sed "s/_pete_write${width}/_write${width}/g" > y
+
+      grep -n "pete_\(read\|write\)${width}" y | sed 's/:.*//' | while read -r line; do
+        sed "${line}s%pete_read${width}(%&\"${file}:${line}\", %g" y \
+        | sed "${line}s%pete_write${width}(%&\"${file}:${line}\", %g" > x
+        mv x y
+      done
+
+      mv y "$file"
     fi
-#   done
-# done
+  done
+done
 
-# git add -u
-# git commit -m "Use wrappers (see full commit for bash one-liner)
+git add -u
+git commit -m "Use wrappers (see full commit for bash one-liner)
 
-# Executed under Linux, using GNU sed (does not work with macOS sed!!)"
+Executed under Linux, using GNU sed (does not work with macOS sed!!)"
 
-# echo "✅ Applied dynamic commit."
+echo "✅ Applied dynamic commit."
 
-# Apply patch 4 and 5
+Apply patch 4 and 5
 git am "${SCRIPT_DIR}/patches/patch-4.patch" "${SCRIPT_DIR}/patches/patch-5.patch"
