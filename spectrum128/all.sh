@@ -1,5 +1,8 @@
 #!/bin/bash -eu
 
+# It looks like this was an early version of the build process for the
+# spectrum4 project, before switching to tup. No longer used.
+
 # This bash script builds spectrum4 kernel and places all files for SD card
 # under 'dist' directory. To specify a custom toolchain for assembling/linking
 # etc, export environment variable TOOLCHAIN_PREFIX.

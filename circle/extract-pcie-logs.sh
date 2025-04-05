@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# It looks like this converts circle logs and spectrum4 logs to a consistent
+# format so that MMIO read/writes can be compared directly using `vim -d`.
+
 cd "$(dirname "${0}")"
 
 cat circle.log | grep pcie | sed 's/\r//g' | sed 's/\[/[0x/' | sed 's/ = /=0x00000000000000000000/' \

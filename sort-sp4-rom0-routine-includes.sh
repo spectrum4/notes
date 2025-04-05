@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# It looks like this attempts to reproduce the correct order for including rom
+# routines in spectrum4 to match spectrum 128k. Presumably so that it is
+# easier to compare and contrast them.
+
 cd /Users/pmoore/git/spectrum4/src/spectrum4/roms
 
 for rom in 0 1; do

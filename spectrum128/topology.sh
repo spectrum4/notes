@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This looks like an initial attempt to find all of the labels used in Spectrum 128K.
+
 cd "$(dirname "${0}")"
 
 for ROM in 0 1; do

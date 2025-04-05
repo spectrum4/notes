@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# This takes serial logging output from Spectrum +4 and extracts memory dumps
+# of PCI configuration space, and converts it to the format used by lspci, so
+# that lspci can decode it and provide textual description of the PCI
+# configuration state.
+
 function dump {
   basegrep="${1}"
   c=0

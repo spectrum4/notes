@@ -1,5 +1,7 @@
 #!/bin/bash -eu
 
+# This performs some fix up of co_temp_5 test - I have no idea what anymore.
+
 set -x
 
 cd ~/git/spectrum4

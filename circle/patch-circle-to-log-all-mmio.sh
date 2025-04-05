@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# This adds logging to all circle c++ files, setting the log prefix to the name
+# of the cpp file, I believe.  I probably did this to compare the MMIO
+# read/writes with Linux.
+
 CIRCLE_DIR=~/git/circle
 cd "${CIRCLE_DIR}"
 find lib -name '*.cpp' | while read cppfile; do

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# This outputs spectrum4 and linux pcie logs in the same format so that they
+# can be directly compared.
+
 cd "$(dirname "${0}")"
 
 cat dmesg.log.3 | grep '\(Read\|Write\)' | grep '/pci/' | sed 's/^\[ *\([0-9]*\)\.\([0-9]*\)\]\(.*\)\[\([^ ]*\)\]=0x\(.*\)/\1\2 \3 \4 00000000\5/' | tr 'RW' 'rw' | while read timestamp b rw n bits vaddr val; do

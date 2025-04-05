@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# It looks like this code attempts to estimate how far I am through the
+# Spectrum4 project by working out which labels (L35FB ....) have been
+# implemented out of all the routines that need to be implemented.
+
 cd "$(dirname "${0}")"
 ./convert.sh >/dev/null
 REMAINING_LINES=$(cat *.s | sed 's/#.*//' | sed 's/\/\/.*//' | sed 's/[[:space:]]*$//' | sed '/^$/d' | sed 's/^[LX][0-9A-F][0-9A-F][0-9A-F][0-9A-F]:/      /' | sed 's/^[A-Z_0-9]*:$//' | wc -l | sed 's/ //g')

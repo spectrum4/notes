@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Looks like I never got very far here, this looks entirely useless.
+
 cd "$(dirname "${0}")"
 
 mkdir -p ../spectrum4/spectrum128k

@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# This takes dmesg logs from a Linux kernel that has been patched with my MMIO
+# read/write logging and converts it to assembly code to replay the
+# read/writes, including the timing of them, based on log timestamps in the
+# logs. This could then be filtered based on the reads/writes of interest and
+# used in spectrum4, with comments added by hand (e.g.
+# src/spectrum4/kernel/pcie.s).
+
 cd "$(dirname "${0}")"
 
 oldtimestamp=0

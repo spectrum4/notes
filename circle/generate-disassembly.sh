@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# This script generates a disassembly of the 08-usbkeyboard demo which comes
+# with github.com/rsta2/circle project.
+
 # Note: this is an approximation to the steps that were actually taken when
 # kernel8-rpi4.c21f2efdad86c1062f255fbf891135a2a356713e.lst was originally
 # created, which I seem to have not captured at the time. These steps seem to

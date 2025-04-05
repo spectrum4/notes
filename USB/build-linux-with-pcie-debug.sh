@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+# This script is a work in progress to apply patches to the linux kernel, so
+# that it will log its MMIO accesses in dmesg logs. It essentially produces the
+# commits seen here:
+#   https://github.com/petemoore/linux/commits/rpi-5.15.y-debug-pcie-usb/
+#
+# It is designed to be run on macOS, because that is what I use.
+
 set -eu
 set -o pipefail
 export SHELLOPTS

@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# My goodness, what did I do here? Is this some bizarre formatting fix? I don't remember.
+# It looks like i am looking for the first X characters of a line which aren't a comment
+# character, followed by spaces, and then adapting the number of spaces. Probably this is
+# to line up comments, e.g.
+#      code here                 // comment here
+#      more code here            // this probably makes sure comment starts at same char
+#      last bit of code             // to fix a comment that is misaligned like this one is
+
 cd "$(dirname "${0}")"
 
 for file in Spectrum128_ROM{0_BugFixed,1}; do

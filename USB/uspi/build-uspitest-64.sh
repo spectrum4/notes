@@ -1,5 +1,8 @@
 #!/bin/bash -xve
 
+# It looks like this was an attempt to build rsta2 uspi project, which is no
+# longer relevant, since USB support now lives in rsta2/circle instead.
+
 NEW_DIR=$(mktemp -d)
 cd "${NEW_DIR}"
 curl -sL 'https://releases.linaro.org/components/toolchain/binaries/latest-7/aarch64-elf/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-elf.tar.xz' | tar xvfJ -

@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# It looks like this script is for generating an SD card image of a spectrum4
+# release. It looks like it was never finished because there is a docker run
+# command that just runs bash, but the rest of the script runs under linux so
+# probably needs to run inside that docker container. In any case, Raspberry Pi
+# Imaging tool works with zip files, so probably not even needed.
+
 cd ~/git/spectrum4
 lint.sh
 tup -k
