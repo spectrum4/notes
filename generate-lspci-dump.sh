@@ -28,4 +28,4 @@ cd "$(dirname "${0}")"
   dump 0fd500
   echo '01:00.0 USB controller: VIA Technologies, Inc. VL805 USB 3.0 Host Controller (rev 01)'
   dump 0fd508
-} > spectrum4-hex.txt
+} > spectrum4-new-hex.txt
