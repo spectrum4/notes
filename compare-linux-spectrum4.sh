@@ -24,4 +24,8 @@ cat dmesg.log.3 | grep '\(Read\|Write\)' | grep '/pci/' | sed 's/^\[ *\([0-9]*\)
   esac
 done > linux
 
-vim -d screenlog.0.new-firmware-full linux
+# vim -d screenlog.0.new-firmware-full linux
+
+grep write linux > linux.writes
+grep write screenlog.0.new-firmware-full | grep 0xfffffff0fd50 > spectrum4.writes
+vim -d spectrum4.writes linux.writes
