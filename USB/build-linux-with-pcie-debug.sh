@@ -34,7 +34,7 @@ echo "✅ Found APFS container: $main_disk"
 
 # Step 2: Check if volume already exists
 if diskutil list "$main_disk" | grep -q "${VOLUME_NAME}"; then
-  echo "⚠️ Volume '${VOLUME_NAME}' already exists in $main_disk."
+  echo "⚠️  Volume '${VOLUME_NAME}' already exists in $main_disk."
 else
 
   # Step 3: Create the case-sensitive volume
@@ -53,7 +53,7 @@ if [ -d "${REPO_PATH}" ]; then
 
   cd "${REPO_PATH}"
 
-  echo "⚠️ Directory '${REPO_PATH}' already exists."
+  echo "⚠️  Directory '${REPO_PATH}' already exists."
   echo "🚀 Fetching latest commits..."
   git fetch origin
 
@@ -159,9 +159,10 @@ objdump -d vmlinux > kernel.s
 RPI_BASE_URL="https://downloads.raspberrypi.com/raspios_arm64/images/raspios_arm64-2023-02-22"
 RPI_TAR="2023-02-21-raspios-bullseye-arm64.img.xz"
 RPI_CHECKSUM="${RPI_TAR}.sha256"
-RPI_SIG="${RPI_CHECKSUM}.sig"
+RPI_SIG="${RPI_TAR}.sig"
 
 PATCH_WORKDIR="${SCRIPT_DIR}/patched_image"
+rm -rf "$PATCH_WORKDIR"
 mkdir -p "$PATCH_WORKDIR"
 cd "$PATCH_WORKDIR"
 
@@ -170,11 +171,15 @@ curl -fsSL -O "${RPI_BASE_URL}/${RPI_TAR}"
 curl -fsSL -O "${RPI_BASE_URL}/${RPI_CHECKSUM}"
 curl -fsSL -O "${RPI_BASE_URL}/${RPI_SIG}"
 
-echo "🔑 Importing Raspberry Pi GPG key..."
-gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys C6DBD00C1937B5B9
+echo "🔑 Downloading and importing Raspberry Pi GPG key..."
+# This key seems not to be the one used that signed the image
+# curl -fsSL https://archive.raspberrypi.org/debian/raspberrypi.gpg.key -o rpi.gpg
+# Assume this one is ok instead...
+curl -fsSL 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x54c3dd610d9d1b4af82a37758738cd6b956f460c' -o rpi.gpg
+gpg --import rpi.gpg || true
 
 echo "🔐 Verifying GPG signature of the checksum file..."
-gpg --verify "$RPI_SIG" "$RPI_CHECKSUM"
+gpg --verify "$RPI_SIG" "$RPI_TAR"
 
 echo "🔍 Verifying SHA256 checksum of the image..."
 sha256sum -c "$RPI_CHECKSUM"
@@ -190,12 +195,8 @@ echo "🗂 Mounting partitions from the image to replace kernel8.img..."
 BOOT_MOUNT="${PATCH_WORKDIR}/boot"
 mkdir -p "$BOOT_MOUNT"
 
-# Get partition offset for the first partition (boot)
-SECTOR_SIZE=512
-BOOT_OFFSET=$(fdisk -l "$IMG_FILE" | grep FAT32 | awk '{print $2 * '"$SECTOR_SIZE"'}')
-
-echo "🔧 Mounting boot partition from image..."
-sudo hdiutil attach -section ${BOOT_OFFSET} -imagekey diskimage-class=CRawDiskImage "$IMG_FILE" -mountpoint "$BOOT_MOUNT"
+echo "🔍 Mounting image using hdiutil..."
+hdiutil attach "$IMG_FILE" -mountpoint "$BOOT_MOUNT"
 
 echo "📝 Replacing kernel8.img with built Image.gz..."
 cp "${REPO_PATH}/arch/arm64/boot/Image.gz" "${BOOT_MOUNT}/kernel8.img"

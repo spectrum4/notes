@@ -1,2 +1,4 @@
 *.o
 *.elf
+USB/patched_image
+rpi.gpg
