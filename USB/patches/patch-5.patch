@@ -13,17 +13,17 @@ index b342c3fcccd0..431aaafa7ae7 100644
 --- a/drivers/pci/access.c
 +++ b/drivers/pci/access.c
 @@ -91,6 +91,7 @@ int pci_generic_config_read(struct pci_bus *bus, unsigned int devfn,
- 		*val = pete_readw("drivers/pci/access.c:91", addr);
+ 		*val = readw(addr);
  	else
- 		*val = pete_readl("drivers/pci/access.c:93", addr);
+ 		*val = readl(addr);
 +	dump_stack();
  
  	return PCIBIOS_SUCCESSFUL;
  }
 @@ -111,6 +112,7 @@ int pci_generic_config_write(struct pci_bus *bus, unsigned int devfn,
- 		pete_writew("drivers/pci/access.c:111", val, addr);
+ 		writew(val, addr);
  	else
- 		pete_writel("drivers/pci/access.c:113", val, addr);
+ 		writel(val, addr);
 +	dump_stack();
  
  	return PCIBIOS_SUCCESSFUL;

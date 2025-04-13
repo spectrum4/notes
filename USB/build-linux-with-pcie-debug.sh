@@ -84,38 +84,78 @@ git reset --hard "origin/${BRANCH_NAME}"
 
 # Apply patch 1 and 2
 git am "${SCRIPT_DIR}/patches/patch-1.patch" "${SCRIPT_DIR}/patches/patch-2.patch"
+git am "${SCRIPT_DIR}/patches/patch-5.patch"
 
 # Generate dynamic commit ...
-# TODO: needs to be done inside a docker container
+docker run -v /Volumes/casesensitive/linux:/linux -w /linux --rm -ti ubuntu /bin/bash -c '
+apt-get update
+apt-get install -y git
+for width in l w b q; do
+  git grep -l "\\(read\\|write\\)${width}" | grep "\\.\\(c\\|h\\)\$" | while read -r file; do
+    if ! grep -q "pete_\(read\|write\)${width}" "$file"; then
+      echo "processing $file..."
+      sed "s/\bread${width}(/pete_&/g" "$file" \
+      | sed "s/\bwrite${width}(/pete_&/g" \
+      | sed "s/_pete_read${width}/_read${width}/g" \
+      | sed "s/_pete_write${width}/_write${width}/g" > y
 
-# for width in l w b q; do
-#   git grep -l "\(read\|write\)${width}" | grep '\.\(c\|h\)$' | while read -r file; do
-#     if ! grep -q "pete_\(read\|write\)${width}" "$file"; then
-#       echo "processing $file..."
-#       sed "s/\bread${width}(/pete_&/g" "$file" \
-#       | sed "s/\bwrite${width}(/pete_&/g" \
-#       | sed "s/_pete_read${width}/_read${width}/g" \
-#       | sed "s/_pete_write${width}/_write${width}/g" > y
-# 
-#       grep -n "pete_\(read\|write\)${width}" y | sed 's/:.*//' | while read -r line; do
-#         sed "${line}s%pete_read${width}(%&\"${file}:${line}\", %g" y \
-#         | sed "${line}s%pete_write${width}(%&\"${file}:${line}\", %g" > x
-#         mv x y
-#       done
-# 
-#       mv y "$file"
-#     fi
-#   done
-# done
-# 
-# git add -u
-# git commit -m "Use wrappers (see full commit for bash one-liner)
-# 
-# Executed under Linux, using GNU sed (does not work with macOS sed!!)"
-# 
-# echo "✅ Applied dynamic commit."
+      grep -n "pete_\(read\|write\)${width}" y | sed "s/:.*//" | while read -r line; do
+        sed "${line}s%pete_read${width}(%&\"${file}:${line}\", %g" y \
+        | sed "${line}s%pete_write${width}(%&\"${file}:${line}\", %g" > x
+        mv x y
+      done
 
-# TODO: Uncomment below when section above completed (this section depends on above patch)
+      mv y "${file}"
+    fi
+  done
+done
+'
 
-# # Apply patch 4 and 5
-# git am "${SCRIPT_DIR}/patches/patch-4.patch" "${SCRIPT_DIR}/patches/patch-5.patch"
+git add -u
+git commit -m "Use wrappers (see full commit for bash one-liner)
+
+Executed under Linux, using GNU sed (does not work with macOS sed!!)
+
+git checkout -f; for width in l w b q; do git grep -l '\\(read\\|write\\)'\"\${width}\" | grep '\\.\\(c\\|h\\)\$' | while read file; do if ! grep -q 'pete_\\(read\\|write\\)'\"\${width}\" \"\${file}\"; then echo \"processing \${file}...\"; cat \"\${file}\" | sed 's/\\bread'\${width}'(/pete_&/g' | sed 's/\\bwrite'\${width}'(/pete_&/g' | sed 's/_pete_read'\${width}'/_read'\${width}'/g' | sed 's/_pete_write'\${width}'/_write'\${width}'/g' > y; cat y | grep -n 'pete_\\(read\\|write\\)'\${width} | sed 's/:.*//' | while read line; do cat y | sed \"\${line}s%pete_read\${width}(%&\\\"\${file}:\${line}\\\", %g\" | sed \"\${line}s%pete_write\${width}(%&\\\"\${file}:\${line}\\\", %g\" > x; mv x y; done; mv y \"\${file}\"; fi; done; done"
+
+echo "✅ Applied dynamic commit."
+
+# Apply patch 4 and 5
+git am "${SCRIPT_DIR}/patches/patch-4.patch"
+
+
+exit 0
+
+docker run -v /Volumes/casesensitive/linux:/linux -w /linux --rm -ti ubuntu /bin/bash -c '
+apt-get update
+apt-get upgrade
+apt install git bc bison flex libssl-dev make libc6-dev libncurses5-dev crossbuild-essential-arm64
+export KERNEL=kernel8
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcm2711_defconfig
+sed -i "s/^\\(CONFIG_LOCALVERSION=.*\\)\\"/\\1-pmoore\\"/" .config
+sed -i "s/-pmoore-pmoore/-pmoore/" .config
+sed -i "s/^# CONFIG_WERROR is not set/CONFIG_WERROR=y/" .config
+sed -i "/^# ARMv8\\.1 architectural features/,/^# end of Kernel Features/ s/=\\y/=n/" .config
+
+function set-config {
+  var="${1}"
+  val="${2}"
+  if ! grep -q "^${var}=${val}$" .config; then
+    sed -i "s/^${var}=/# &/" .config
+    echo "${var}=${val}" >> .config
+  fi
+}
+
+set-config CONFIG_DEBUG_KERNEL y
+set-config CONFIG_DEBUG_INFO y
+set-config CONFIG_DEBUG_INFO_REDUCED n
+set-config CONFIG_DEBUG_INFO_DWARF5 y
+set-config CONFIG_FRAME_POINTER y
+
+# make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j Image modules dtbs
+make -j8 Image.gz modules dtbs
+objdump -d vmlinux > kernel.s
+
+# kernel8.img can be copied from arch/arm64/boot/Image.gz
+# Use with https://downloads.raspberrypi.com/raspios_arm64/images/raspios_arm64-2023-02-22/
+'
