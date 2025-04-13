@@ -131,7 +131,7 @@ apt install -y git bc bison flex libssl-dev make libc6-dev libncurses5-dev cross
 export KERNEL=kernel8
 make bcm2711_defconfig
 
-sed -i "s/^\\(CONFIG_LOCALVERSION=.*\\)\\"/\\1-pmoore\\"/" .config
+sed -i "s/^\\(CONFIG_LOCALVERSION=.*\\)\"/\\1-pmoore\"/" .config
 sed -i "/^# ARMv8\\.1 architectural features/,/^# end of Kernel Features/ s/=\\y/=n/" .config
 
 scripts/config --enable CONFIG_WERROR
