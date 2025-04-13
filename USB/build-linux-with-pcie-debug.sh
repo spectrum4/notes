@@ -71,7 +71,7 @@ if [ -d "${REPO_PATH}" ]; then
 
   echo "✅ Repository reset to a clean state."
 else
-  echo "🚀 Cloning github.com/raspberrypi/linux into ${REPO_PATH} ..."
+  echo "🚀 Cloning github.com/raspberrypi/linux into ${REPO_PATH}..."
   git clone git@github.com:raspberrypi/linux.git "${REPO_PATH}"
   cd "${REPO_PATH}"
 fi
@@ -82,11 +82,10 @@ git switch "${BRANCH_NAME}" || git switch -c "${BRANCH_NAME}" --track "origin/${
 echo "🔁 Resetting working directory..."
 git reset --hard "origin/${BRANCH_NAME}"
 
-# Apply patch 1 and 2
-git am "${SCRIPT_DIR}/patches/patch-1.patch" "${SCRIPT_DIR}/patches/patch-2.patch"
-git am "${SCRIPT_DIR}/patches/patch-5.patch"
+# Apply patches 1-3
+git am "${SCRIPT_DIR}"/patches/patch-{1,2,3}.patch
 
-# Generate dynamic commit ...
+# Generate dynamic commit
 docker run -v /Volumes/casesensitive/linux:/linux -w /linux --rm -ti ubuntu /bin/bash -c '
 apt-get update
 apt-get install -y git
@@ -120,40 +119,32 @@ git checkout -f; for width in l w b q; do git grep -l '\\(read\\|write\\)'\"\${w
 
 echo "✅ Applied dynamic commit."
 
-# Apply patch 4 and 5
+# Apply patch 4
 git am "${SCRIPT_DIR}/patches/patch-4.patch"
 
-
-exit 0
-
 docker run -v /Volumes/casesensitive/linux:/linux -w /linux --rm -ti ubuntu /bin/bash -c '
+set -xveu
+set -o pipefail
 apt-get update
-apt-get upgrade
-apt install git bc bison flex libssl-dev make libc6-dev libncurses5-dev crossbuild-essential-arm64
+apt-get upgrade -y
+apt install -y git bc bison flex libssl-dev make libc6-dev libncurses5-dev crossbuild-essential-arm64
 export KERNEL=kernel8
-make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcm2711_defconfig
+make bcm2711_defconfig
+
 sed -i "s/^\\(CONFIG_LOCALVERSION=.*\\)\\"/\\1-pmoore\\"/" .config
-sed -i "s/-pmoore-pmoore/-pmoore/" .config
-sed -i "s/^# CONFIG_WERROR is not set/CONFIG_WERROR=y/" .config
 sed -i "/^# ARMv8\\.1 architectural features/,/^# end of Kernel Features/ s/=\\y/=n/" .config
 
-function set-config {
-  var="${1}"
-  val="${2}"
-  if ! grep -q "^${var}=${val}$" .config; then
-    sed -i "s/^${var}=/# &/" .config
-    echo "${var}=${val}" >> .config
-  fi
-}
+scripts/config --enable CONFIG_WERROR
 
-set-config CONFIG_DEBUG_KERNEL y
-set-config CONFIG_DEBUG_INFO y
-set-config CONFIG_DEBUG_INFO_REDUCED n
-set-config CONFIG_DEBUG_INFO_DWARF5 y
-set-config CONFIG_FRAME_POINTER y
+scripts/config --enable  CONFIG_DEBUG_KERNEL
+scripts/config --enable  CONFIG_DEBUG_INFO
+scripts/config --disable CONFIG_DEBUG_INFO_REDUCED
+scripts/config --enable  CONFIG_DEBUG_INFO_DWARF5
+scripts/config --enable  CONFIG_FRAME_POINTER
 
-# make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j Image modules dtbs
-make -j8 Image.gz modules dtbs
+make olddefconfig
+
+make -j8 Image.gz modules dtbs V=1
 objdump -d vmlinux > kernel.s
 
 # kernel8.img can be copied from arch/arm64/boot/Image.gz
