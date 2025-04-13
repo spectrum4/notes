@@ -150,3 +150,108 @@ objdump -d vmlinux > kernel.s
 # kernel8.img can be copied from arch/arm64/boot/Image.gz
 # Use with https://downloads.raspberrypi.com/raspios_arm64/images/raspios_arm64-2023-02-22/
 '
+
+# -------------------------------
+# Post-build: Patch Raspberry Pi image
+# -------------------------------
+
+# Define image source and file names
+RPI_BASE_URL="https://downloads.raspberrypi.com/raspios_arm64/images/raspios_arm64-2023-02-22"
+RPI_TAR="2023-02-21-raspios-bullseye-arm64.img.xz"
+RPI_CHECKSUM="${RPI_TAR}.sha256"
+RPI_SIG="${RPI_CHECKSUM}.sig"
+
+PATCH_WORKDIR="${SCRIPT_DIR}/patched_image"
+mkdir -p "$PATCH_WORKDIR"
+cd "$PATCH_WORKDIR"
+
+echo "📥 Downloading Raspberry Pi OS image and verification files..."
+curl -fsSL -O "${RPI_BASE_URL}/${RPI_TAR}"
+curl -fsSL -O "${RPI_BASE_URL}/${RPI_CHECKSUM}"
+curl -fsSL -O "${RPI_BASE_URL}/${RPI_SIG}"
+
+echo "🔑 Importing Raspberry Pi GPG key..."
+gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys C6DBD00C1937B5B9
+
+echo "🔐 Verifying GPG signature of the checksum file..."
+gpg --verify "$RPI_SIG" "$RPI_CHECKSUM"
+
+echo "🔍 Verifying SHA256 checksum of the image..."
+sha256sum -c "$RPI_CHECKSUM"
+
+echo "📦 Extracting the .img file from the .xz archive..."
+xz -dk "$RPI_TAR"  # Produces .img file in place
+
+IMG_FILE="${RPI_TAR%.xz}"
+
+echo "🗂 Mounting partitions from the image to replace kernel8.img..."
+
+# Create mount points
+BOOT_MOUNT="${PATCH_WORKDIR}/boot"
+mkdir -p "$BOOT_MOUNT"
+
+# Get partition offset for the first partition (boot)
+SECTOR_SIZE=512
+BOOT_OFFSET=$(fdisk -l "$IMG_FILE" | grep FAT32 | awk '{print $2 * '"$SECTOR_SIZE"'}')
+
+echo "🔧 Mounting boot partition from image..."
+sudo hdiutil attach -section ${BOOT_OFFSET} -imagekey diskimage-class=CRawDiskImage "$IMG_FILE" -mountpoint "$BOOT_MOUNT"
+
+echo "📝 Replacing kernel8.img with built Image.gz..."
+cp "${REPO_PATH}/arch/arm64/boot/Image.gz" "${BOOT_MOUNT}/kernel8.img"
+
+# 📝 Editing cmdline.txt to add log_buf_len=64M if not present
+CMDLINE_FILE="${BOOT_MOUNT}/cmdline.txt"
+if grep -q "log_buf_len=" "$CMDLINE_FILE"; then
+    echo "ℹ️  log_buf_len already set in cmdline.txt"
+else
+    echo "🛠 Adding log_buf_len=64M to cmdline.txt"
+    # cmdline.txt is a single line — append the parameter to the end
+    echo "$(cat "$CMDLINE_FILE") log_buf_len=64M" > "$CMDLINE_FILE"
+fi
+
+echo "✅ Replacement done. Detaching image..."
+hdiutil detach "$BOOT_MOUNT"
+
+echo "🎉 Raspberry Pi image patched successfully!"
+
+# -------------------------------
+# Optional: Flash to SD card
+# -------------------------------
+
+echo "💽 Listing available disks (external usually at the bottom):"
+diskutil list
+
+echo ""
+echo "⚠️  Look for your SD card above — usually named something like 'UNTITLED' or 'NO NAME',"
+echo "    and typically mounted as /dev/disk3, /dev/disk4, etc."
+echo ""
+
+read -p "Enter the disk identifier of your SD card (e.g. disk3): " SD_DISK
+
+if [[ ! "$SD_DISK" =~ ^disk[0-9]+$ ]]; then
+  echo "❌ Invalid disk identifier."
+  exit 1
+fi
+
+echo "💡 You chose: /dev/$SD_DISK"
+read -p "Are you sure you want to write to /dev/$SD_DISK? This will erase all data on it. (yes/no): " confirm
+
+if [[ "$confirm" != "yes" ]]; then
+  echo "❌ Aborting."
+  exit 1
+fi
+
+# Unmount the disk
+echo "🔌 Unmounting /dev/$SD_DISK..."
+diskutil unmountDisk /dev/$SD_DISK
+
+# Write the image to SD card
+echo "✍️  Writing image to /dev/r$SD_DISK using dd (this may take a while)..."
+sudo dd if="$IMG_FILE" of="/dev/r$SD_DISK" bs=4m conv=sync status=progress
+
+# Eject the SD card
+echo "💨 Ejecting SD card..."
+diskutil eject /dev/$SD_DISK
+
+echo "✅ SD card flashed and ejected successfully!"
