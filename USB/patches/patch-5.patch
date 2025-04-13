@@ -1,0 +1,28 @@
+From 370afefaea3447dbb9ea3d552fe4e94a9d98e449 Mon Sep 17 00:00:00 2001
+From: Pete Moore <pmoore@mozilla.com>
+Date: Fri, 18 Apr 2025 20:58:50 +0200
+Subject: [PATCH] Fix include/net/bond_alb.h to work with gcc 13
+ (-Wenum-int-mismatch)
+
+---
+ include/net/bond_alb.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/include/net/bond_alb.h b/include/net/bond_alb.h
+index 191c36afa1f4..9dc082b2d543 100644
+--- a/include/net/bond_alb.h
++++ b/include/net/bond_alb.h
+@@ -156,8 +156,8 @@ int bond_alb_init_slave(struct bonding *bond, struct slave *slave);
+ void bond_alb_deinit_slave(struct bonding *bond, struct slave *slave);
+ void bond_alb_handle_link_change(struct bonding *bond, struct slave *slave, char link);
+ void bond_alb_handle_active_change(struct bonding *bond, struct slave *new_slave);
+-int bond_alb_xmit(struct sk_buff *skb, struct net_device *bond_dev);
+-int bond_tlb_xmit(struct sk_buff *skb, struct net_device *bond_dev);
++netdev_tx_t bond_alb_xmit(struct sk_buff *skb, struct net_device *bond_dev);
++netdev_tx_t bond_tlb_xmit(struct sk_buff *skb, struct net_device *bond_dev);
+ struct slave *bond_xmit_alb_slave_get(struct bonding *bond,
+ 				      struct sk_buff *skb);
+ struct slave *bond_xmit_tlb_slave_get(struct bonding *bond,
+-- 
+2.47.0
+

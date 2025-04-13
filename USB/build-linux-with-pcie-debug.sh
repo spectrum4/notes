@@ -119,8 +119,8 @@ git checkout -f; for width in l w b q; do git grep -l '\\(read\\|write\\)'\"\${w
 
 echo "✅ Applied dynamic commit."
 
-# Apply patch 4
-git am "${SCRIPT_DIR}/patches/patch-4.patch"
+# Apply patch 4-6
+git am "${SCRIPT_DIR}"/patches/patch-{4,5,6}.patch
 
 docker run -v /Volumes/casesensitive/linux:/linux -w /linux --rm -ti ubuntu /bin/bash -c '
 set -xveu
