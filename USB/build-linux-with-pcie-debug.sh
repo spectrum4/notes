@@ -201,6 +201,54 @@ hdiutil attach "$IMG_FILE" -mountpoint "$BOOT_MOUNT"
 echo "📝 Replacing kernel8.img with built Image.gz..."
 cp "${REPO_PATH}/arch/arm64/boot/Image.gz" "${BOOT_MOUNT}/kernel8.img"
 
+# 🌲 Copy DTBs
+echo "🌲 Copying DTBs to boot partition..."
+cp -r "${REPO_PATH}/arch/arm64/boot/dts/broadcom/"*.dtb "${BOOT_MOUNT}/" || echo "No broadcom DTBs found."
+cp -r "${REPO_PATH}/arch/arm64/boot/dts/overlays/"*.dtb* "${BOOT_MOUNT}/" || echo "No overlays directory found."
+
+# 🐳 Docker-based kernel module installation into rootfs
+echo "📦 Installing kernel modules to image rootfs using Docker..."
+
+DOCKER_IMAGE="debian:bullseye"
+IMG_ABS_PATH="$(cd "$(dirname "$IMG_FILE")"; pwd)/$(basename "$IMG_FILE")"
+
+docker run --rm --privileged -v "${IMG_ABS_PATH}:/image.img" -v "${REPO_PATH}:/src" "$DOCKER_IMAGE" bash -c '
+  set -e
+  apt-get update && apt-get install -y kmod mount parted util-linux e2fsprogs build-essential
+  LOOPDEV=$(losetup -f --show /image.img)
+  echo "🔁 Using loop device: $LOOPDEV"
+
+  # Use parted to find rootfs offset
+  ROOT_OFFSET=$(parted /image.img -ms unit s print | grep ext4 | cut -d: -f2 | sed "s/s//")
+  ROOT_OFFSET_BYTES=$((ROOT_OFFSET * 512))
+  echo "📏 Root filesystem starts at byte offset: $ROOT_OFFSET_BYTES"
+
+  mkdir /mnt/rootfs
+  mount -o offset=$ROOT_OFFSET_BYTES $LOOPDEV /mnt/rootfs
+
+  echo "📦 Installing modules to /mnt/rootfs..."
+  cd /src
+  make INSTALL_MOD_PATH=/mnt/rootfs modules_install
+
+  echo "🔌 Unmounting rootfs..."
+  umount /mnt/rootfs
+  losetup -d $LOOPDEV
+'
+
+# 🛠 Inject Raspberry Pi OS preconfiguration files
+echo "🔐 Creating userconf.txt for user pmoore..."
+echo 'pmoore:$6$S.tggBpaqCTr32Un$qY1nf3meW45FMNHGNhAqL8KpsObCa.wJtW1bYEw3chAPH7yNnKz3qi7SKEeuTfyoAREOFmOSATvk.QhQ8aZSW.' > "${BOOT_MOUNT}/userconf.txt"
+
+echo "🗺 Creating firstrun.sh for locale/timezone/keyboard..."
+cat > "${BOOT_MOUNT}/firstrun.sh" <<EOF
+#!/bin/bash
+raspi-config nonint do_change_locale en_US.UTF-8
+raspi-config nonint do_configure_keyboard us
+raspi-config nonint do_change_timezone Europe/Berlin
+EOF
+
+chmod +x "${BOOT_MOUNT}/firstrun.sh"
+
 # 📝 Editing cmdline.txt to add log_buf_len=64M if not present
 CMDLINE_FILE="${BOOT_MOUNT}/cmdline.txt"
 if grep -q "log_buf_len=" "$CMDLINE_FILE"; then
