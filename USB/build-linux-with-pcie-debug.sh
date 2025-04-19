@@ -130,7 +130,7 @@ apt-get update
 apt-get upgrade -y
 apt install -y git bc bison flex libssl-dev make libc6-dev libncurses5-dev crossbuild-essential-arm64
 export KERNEL=kernel8
-make bcm2711_defconfig
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcm2711_defconfig
 
 sed -i "s/^\\(CONFIG_LOCALVERSION=.*\\)\"/\\1-pmoore\"/" .config
 sed -i "/^# ARMv8\\.1 architectural features/,/^# end of Kernel Features/ s/=\\y/=n/" .config
@@ -143,9 +143,9 @@ scripts/config --disable CONFIG_DEBUG_INFO_REDUCED
 scripts/config --enable  CONFIG_DEBUG_INFO_DWARF5
 scripts/config --enable  CONFIG_FRAME_POINTER
 
-make olddefconfig
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- olddefconfig
 
-make -j8 Image.gz modules dtbs V=1
+make -j8 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- Image.gz modules dtbs V=1
 objdump -d vmlinux > kernel.s
 
 # kernel8.img can be copied from arch/arm64/boot/Image.gz
@@ -229,7 +229,7 @@ docker run --rm --privileged -v "${IMG_ABS_PATH}:/image.img" -v "${REPO_PATH}:/s
 
   echo "📦 Installing modules to /mnt/rootfs..."
   cd /src
-  make INSTALL_MOD_PATH=/mnt/rootfs modules_install
+  make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- INSTALL_MOD_PATH=/mnt/rootfs modules_install
 
   echo "🔌 Unmounting rootfs..."
   umount /mnt/rootfs
