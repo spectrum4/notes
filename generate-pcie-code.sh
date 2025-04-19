@@ -10,7 +10,7 @@
 cd "$(dirname "${0}")"
 
 oldtimestamp=0
-cat dmesg.log.3 | grep '\(Read\|Write\)' | grep '/pci/' | while read line; do
+cat dmesg.log | grep '\(Read\|Write\)' | grep '/pci/' | while read line; do
   echo "${line}" | sed 's/^\[ *\([0-9]*\)\.\([0-9]*\)\]\(.*\)\[\([^ ]*\)\]=\(.*\)/\1\2 \3 \4 \5/' | while read timestamp b rw n bits vaddr val; do
   if [ $oldtimestamp == 0 ]; then
     oldtimestamp=$timestamp
