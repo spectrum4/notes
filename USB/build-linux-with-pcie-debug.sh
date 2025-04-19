@@ -119,8 +119,8 @@ git checkout -f; for width in l w b q; do git grep -l '\\(read\\|write\\)'\"\${w
 
 echo "✅ Applied dynamic commit."
 
-# Apply patch 4-6
-git am "${SCRIPT_DIR}"/patches/patch-{4,5,6}.patch
+# Apply patch 4-7
+git am "${SCRIPT_DIR}"/patches/patch-{4,5,6,7}.patch
 
 docker run -v /Volumes/casesensitive/linux:/linux -w /linux --rm -ti ubuntu /bin/bash -c '
 set -xveu
@@ -240,23 +240,16 @@ echo "🔐 Creating userconf.txt for user pmoore..."
 echo 'pmoore:$6$S.tggBpaqCTr32Un$qY1nf3meW45FMNHGNhAqL8KpsObCa.wJtW1bYEw3chAPH7yNnKz3qi7SKEeuTfyoAREOFmOSATvk.QhQ8aZSW.' > "${BOOT_MOUNT}/userconf.txt"
 
 echo "🗺 Creating firstrun.sh for locale/timezone/keyboard..."
-cat > "${BOOT_MOUNT}/firstrun.sh" <<EOF
-#!/bin/bash
-raspi-config nonint do_change_locale en_US.UTF-8
-raspi-config nonint do_configure_keyboard us
-raspi-config nonint do_change_timezone Europe/Berlin
-EOF
-
-chmod +x "${BOOT_MOUNT}/firstrun.sh"
+cp "${SCRIPT_DIR}/firstrun.sh" "${BOOT_MOUNT}/firstrun.sh"
 
 # 📝 Editing cmdline.txt to add log_buf_len=64M if not present
 CMDLINE_FILE="${BOOT_MOUNT}/cmdline.txt"
 if grep -q "log_buf_len=" "$CMDLINE_FILE"; then
     echo "ℹ️  log_buf_len already set in cmdline.txt"
 else
-    echo "🛠 Adding log_buf_len=64M to cmdline.txt"
+    echo "🛠 Adding options to cmdline.txt"
     # cmdline.txt is a single line — append the parameter to the end
-    echo "$(cat "$CMDLINE_FILE") log_buf_len=64M" > "$CMDLINE_FILE"
+    echo "$(cat "$CMDLINE_FILE") systemd.run=/boot/firstrun.sh systemd.run_success_action=reboot systemd.unit=kernel-command-line.target log_buf_len=64M" > "$CMDLINE_FILE"
 fi
 
 echo "✅ Replacement done. Detaching image..."
