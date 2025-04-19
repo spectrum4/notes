@@ -218,7 +218,7 @@ echo 0 > /sys/kernel/debug/tracing/tracing_on
 cat /sys/kernel/debug/tracing/trace > /tmp/trace.log
 exec switch_root /newroot /sbin/init' > init.sh
 
-echo "file ${REPO_PATH}/init.sh /src/init.sh 0755 0 0" > cpio.fs
+echo "file ${REPO_PATH}/init.sh /init.sh 0755 0 0" > cpio.fs
 git clean -fdx -- usr
 make -C usr gen_init_cpio
 usr/gen_init_cpio cpio.fs > "${BOOT_MOUNT}/initramfs.cpio"
