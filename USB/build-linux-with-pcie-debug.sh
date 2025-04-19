@@ -238,7 +238,7 @@ docker run --rm --privileged -v "${IMG_ABS_PATH}:/image.img" -v "${REPO_PATH}:/s
 
 # 🛠 Inject Raspberry Pi OS preconfiguration files
 echo "🔐 Creating userconf.txt for user pmoore..."
-echo 'pmoore:$6$S.tggBpaqCTr32Un$qY1nf3meW45FMNHGNhAqL8KpsObCa.wJtW1bYEw3chAPH7yNnKz3qi7SKEeuTfyoAREOFmOSATvk.QhQ8aZSW.' > "${BOOT_MOUNT}/userconf.txt"
+echo 'pmoore:$6$Zc4ZFXhq10jt16iZ$qWwyk0XKveceRB1iTYpD5mEyiloDVULkvtx7vxbouHQzh5hWNAD2MtL.xWfErytyr6CgOOBuTunYhRtLhZtnA.' > "${BOOT_MOUNT}/userconf.txt"
 
 echo "🗺 Creating firstrun.sh for locale/timezone/keyboard..."
 cp "${SCRIPT_DIR}/firstrun.sh" "${BOOT_MOUNT}/firstrun.sh"
