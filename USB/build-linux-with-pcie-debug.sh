@@ -250,7 +250,7 @@ if grep -q "log_buf_len=" "$CMDLINE_FILE"; then
 else
     echo "🛠 Adding options to cmdline.txt"
     # cmdline.txt is a single line — append the parameter to the end
-    echo "$(cat "$CMDLINE_FILE") systemd.run=/boot/firstrun.sh systemd.run_success_action=reboot systemd.unit=kernel-command-line.target log_buf_len=64M" > "$CMDLINE_FILE"
+    echo "$(cat "$CMDLINE_FILE") log_buf_len=64M systemd.run=/boot/firstrun.sh systemd.run_success_action=reboot systemd.unit=kernel-command-line.target" > "$CMDLINE_FILE"
 fi
 
 echo "✅ Replacement done. Detaching image..."
