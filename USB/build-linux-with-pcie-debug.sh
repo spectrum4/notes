@@ -265,7 +265,7 @@ echo "💽 Listing available disks (external usually at the bottom):"
 diskutil list
 
 echo ""
-echo "⚠️  Look for your SD card above — usually named something like 'UNTITLED' or 'NO NAME',"
+echo "⚠️  Look for your SD card above - likely the lowest in the list,"
 echo "    and typically mounted as /dev/disk3, /dev/disk4, etc."
 echo ""
 
