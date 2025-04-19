@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-# This script is a work in progress to apply patches to the linux kernel, so
-# that it will log its MMIO accesses in dmesg logs. It essentially produces the
-# commits seen here:
+# This script prepares an SD card with Raspberry Pi OS with a modified kernel
+# that logs all MMIO accesses in dmesg logs. The modified kernel commits can be
+# seen here:
+#
 #   https://github.com/petemoore/linux/commits/rpi-5.15.y-debug-pcie-usb/
 #
 # It is designed to be run on macOS, because that is what I use.
