@@ -1,30 +1,21 @@
-From 0f36b351bf6aae4731548dcf7cbeb8b7a3017e23 Mon Sep 17 00:00:00 2001
-From: Jonathan Bell <jonathan@raspberrypi.com>
-Date: Tue, 15 Apr 2025 14:19:31 +0100
-Subject: [PATCH] PCI: quirks: work around VL805 firmware ASPM meddling
+From 053a409cf44edef3f85988aad6651577af59d1a7 Mon Sep 17 00:00:00 2001
+From: Pete Moore <pmoore@mozilla.com>
+Date: Sat, 19 Apr 2025 09:12:34 +0200
+Subject: [PATCH] See
+ https://github.com/raspberrypi/linux/commit/1af55c553f3b793667e8adf834e1e59deb23d8c0
 
-Certain versions of the VL805 firmware manipulate the endpoint Link
-Control register to toggle ASPM on/off based on workload, but these
-versions also report 0 in the Device Capability Acceptable Latency field
-leaving the RC with ASPM disabled.
-
-As it turns out, this EP has a broken L0s implementation so a) override
-L1 latency to a sensible value and b) mask L0s.
-
-Signed-off-by: Jonathan Bell <jonathan@raspberrypi.com>
 ---
  drivers/pci/quirks.c | 16 ++++++++++++++++
  1 file changed, 16 insertions(+)
 
 diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
-index 064067d9c8b5..98ab59be374f 100644
+index 74a7ff62aaa8..698aa53b616b 100644
 --- a/drivers/pci/quirks.c
 +++ b/drivers/pci/quirks.c
-@@ -6225,6 +6225,22 @@ DECLARE_PCI_FIXUP_HEADER(PCI_VENDOR_ID_INTEL, 0x56b0, aspm_l1_acceptable_latency
- DECLARE_PCI_FIXUP_HEADER(PCI_VENDOR_ID_INTEL, 0x56b1, aspm_l1_acceptable_latency);
- DECLARE_PCI_FIXUP_HEADER(PCI_VENDOR_ID_INTEL, 0x56c0, aspm_l1_acceptable_latency);
- DECLARE_PCI_FIXUP_HEADER(PCI_VENDOR_ID_INTEL, 0x56c1, aspm_l1_acceptable_latency);
-+
+@@ -2384,6 +2384,22 @@ static void quirk_disable_aspm_l0s_l1(struct pci_dev *dev)
+ 	pci_disable_link_state(dev, PCIE_LINK_STATE_L0S | PCIE_LINK_STATE_L1);
+ }
+ 
 +/*
 + * VL805 firmware can report 0 in the L0s/L1 Acceptable Latency fields.
 + * This is shorter than its own exit latency so ASPM for the link partner
@@ -40,9 +31,10 @@ index 064067d9c8b5..98ab59be374f 100644
 +	pci_info(dev, "ASPM: VL805 fixup applied\n");
 +}
 +DECLARE_PCI_FIXUP_HEADER(PCI_VENDOR_ID_VIA, 0x3483, vl805_aspm_fixup);
- #endif
- 
- #ifdef CONFIG_PCIE_DPC
++
+ /*
+  * ASM1083/1085 PCIe-PCI bridge devices cause AER timeout errors on the
+  * upstream PCIe root port when ASPM is enabled. At least L0s mode is affected;
 -- 
 2.47.0
 
