@@ -243,14 +243,14 @@ echo 'pmoore:$6$Zc4ZFXhq10jt16iZ$qWwyk0XKveceRB1iTYpD5mEyiloDVULkvtx7vxbouHQzh5h
 echo "🗺 Creating firstrun.sh for locale/timezone/keyboard..."
 cp "${SCRIPT_DIR}/firstrun.sh" "${BOOT_MOUNT}/firstrun.sh"
 
-# 📝 Editing cmdline.txt to add log_buf_len=64M if not present
+# 📝 Editing cmdline.txt to add log_buf_len=128M if not present
 CMDLINE_FILE="${BOOT_MOUNT}/cmdline.txt"
 if grep -q "log_buf_len=" "$CMDLINE_FILE"; then
     echo "ℹ️  log_buf_len already set in cmdline.txt"
 else
     echo "🛠 Adding options to cmdline.txt"
     # cmdline.txt is a single line — append the parameter to the end
-    echo "$(cat "$CMDLINE_FILE") log_buf_len=64M systemd.run=/boot/firstrun.sh systemd.run_success_action=reboot systemd.unit=kernel-command-line.target" > "$CMDLINE_FILE"
+    echo "$(cat "$CMDLINE_FILE") log_buf_len=128M systemd.run=/boot/firstrun.sh systemd.run_success_action=reboot systemd.unit=kernel-command-line.target" > "$CMDLINE_FILE"
 fi
 
 echo "✅ Replacement done. Detaching image..."
