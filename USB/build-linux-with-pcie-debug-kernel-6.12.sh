@@ -173,20 +173,6 @@ echo "📦 Installing kernel modules to image rootfs using Docker..."
 DOCKER_IMAGE="debian:bullseye"
 IMG_ABS_PATH="$(cd "$(dirname "$IMG_FILE")"; pwd)/$(basename "$IMG_FILE")"
 
-echo '#!/bin/sh
-mount -t tmpfs none /tmp
-mount -t debugfs none /sys/kernel/debug
-echo 32768 > /sys/kernel/debug/tracing/buffer_size_kb
-echo 1 > /sys/kernel/debug/tracing/options/stacktrace
-echo 1 > /sys/kernel/debug/tracing/events/rwmmio/rwmmio/enable
-echo 1 > /sys/kernel/debug/tracing/tracing_on
-sleep 30
-echo 0 > /sys/kernel/debug/tracing/tracing_on
-cat /sys/kernel/debug/tracing/trace > /tmp/trace.log
-exec switch_root /newroot /sbin/init' > "${REPO_PATH}/init.sh"
-
-echo 'file init.sh /src/init.sh 0755 0 0' > "${REPO_PATH}/cpio.fs"
-
 docker run --rm --privileged -v "${IMG_ABS_PATH}:/image.img" -v "${REPO_PATH}:/src" "$DOCKER_IMAGE" bash -c '
   set -e
   apt-get update && apt-get install -y kmod mount parted util-linux e2fsprogs build-essential
@@ -219,6 +205,20 @@ cp "${SCRIPT_DIR}/firstrun.sh" "${BOOT_MOUNT}/firstrun.sh"
 
 echo "🗺 Creating initramfs.cpio file..."
 pushd "${REPO_PATH}"
+
+echo '#!/bin/sh
+mount -t tmpfs none /tmp
+mount -t debugfs none /sys/kernel/debug
+echo 32768 > /sys/kernel/debug/tracing/buffer_size_kb
+echo 1 > /sys/kernel/debug/tracing/options/stacktrace
+echo 1 > /sys/kernel/debug/tracing/events/rwmmio/rwmmio/enable
+echo 1 > /sys/kernel/debug/tracing/tracing_on
+sleep 30
+echo 0 > /sys/kernel/debug/tracing/tracing_on
+cat /sys/kernel/debug/tracing/trace > /tmp/trace.log
+exec switch_root /newroot /sbin/init' > init.sh
+
+echo "file ${REPO_PATH}/init.sh /src/init.sh 0755 0 0" > cpio.fs
 git clean -fdx -- usr
 make -C usr gen_init_cpio
 usr/gen_init_cpio cpio.fs > "${BOOT_MOUNT}/initramfs.cpio"
