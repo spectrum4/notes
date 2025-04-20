@@ -9,7 +9,7 @@ function dump {
   basegrep="${1}"
   c=0
   echo -n 0
-  cat screenlog.0.new-firmware-full | grep "^ ${basegrep}" | while read a b; do
+  cat screenlog.0 | grep "^ ${basegrep}" | while read a b; do
     echo "${b}" | sed 's/^\(...............................................\) /\1 \n/' | sed 's/\r//' | sed 's/  *$//' | while read line; do
       printf "%x: " $c
       c=$((c+16))

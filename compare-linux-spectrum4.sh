@@ -25,7 +25,7 @@ cat dmesg.log | grep '\(Read\|Write\)' | grep 0xffffffc08224 | sed 's/^\[ *\([0-
 done > linux.all
 
 grep write linux.all > linux.writes
-grep write screenlog.0.new-firmware-full | grep 0xfffffff0fd50 > spectrum4.writes
+grep write screenlog.0 | grep 0xfffffff0fd50 > spectrum4.writes
 vim -d linux.writes spectrum4.writes
-grep 0xfffffff0fd50 screenlog.0.new-firmware-full > spectrum4.all
+grep 0xfffffff0fd50 screenlog.0 > spectrum4.all
 vim -d linux.all spectrum4.all

@@ -1,7 +1,7 @@
 write [0xfffffff0fd509210]=0x00000003
 write [0xfffffff0fd509210]=0x00000001
 write [0xfffffff0fd504204]=0x00200000
-write [0xfffffff0fd504008]=0x88003000
+write [0xfffffff0fd504008]=0x88003480
 write [0xfffffff0fd504034]=0x00000011
 write [0xfffffff0fd504038]=0x00000004
 write [0xfffffff0fd50402c]=0x00000000
