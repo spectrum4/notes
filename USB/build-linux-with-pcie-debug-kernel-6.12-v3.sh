@@ -83,8 +83,8 @@ git switch "${BRANCH_NAME}" || git switch -c "${BRANCH_NAME}" --track "origin/${
 echo "🔁 Resetting working directory..."
 git reset --hard "origin/${BRANCH_NAME}"
 
-# Apply patches 3, 8
-git am "${SCRIPT_DIR}"/patches/patch-{3,8}.patch
+# Apply patches 3, 9
+git am "${SCRIPT_DIR}"/patches/patch-{3,9}.patch
 
 docker run -v "${REPO_PATH}:/linux" -w /linux --rm -ti ubuntu /bin/bash -c '
 set -xveu
