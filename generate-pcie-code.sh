@@ -87,4 +87,4 @@ cat dmesg.log | grep '\(Read\|Write\)' | grep 0xffffffc08224 | while read line; 
   esac
   oldtimestamp=$timestamp
   done
-done
+done | tee generated-pcie-code.s
