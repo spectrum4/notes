@@ -15,13 +15,6 @@ export SHELLOPTS
 cd "$(dirname "${0}")"
 SCRIPT_DIR="$(pwd)"
 
-# Set desired volume name
-VOLUME_NAME="casesensitive"
-REPO_PATH="/Volumes/${VOLUME_NAME}/linux"
-
-# Set raspberry pi linux repo branch name
-BRANCH_NAME="rpi-6.12.y"
-
 # Step 1: Find the APFS container for the main macOS volume
 main_disk=$(diskutil info "Macintosh HD" | awk -F: '/APFS Container/ {gsub(/^[ \t]+/, "", $2); print $2}')
 
@@ -32,6 +25,9 @@ if [ -z "$main_disk" ]; then
 fi
 
 echo "✅ Found APFS container: $main_disk"
+
+VOLUME_NAME="casesensitive"
+REPO_PATH="/Volumes/${VOLUME_NAME}/linux"
 
 # Step 2: Check if volume already exists
 if diskutil list "$main_disk" | grep -q "${VOLUME_NAME}"; then
@@ -77,6 +73,9 @@ else
   cd "${REPO_PATH}"
 fi
 
+# Set raspberry pi linux repo branch name
+BRANCH_NAME="rpi-6.12.y"
+
 echo "🚀 Checking out branch ${BRANCH_NAME}..."
 git switch "${BRANCH_NAME}" || git switch -c "${BRANCH_NAME}" --track "origin/${BRANCH_NAME}"
 
@@ -86,7 +85,20 @@ git reset --hard "origin/${BRANCH_NAME}"
 # Apply patches 3, 9
 git am "${SCRIPT_DIR}"/patches/patch-{3,9}.patch
 
-docker run -v "${REPO_PATH}:/linux" -w /linux --rm -ti ubuntu /bin/bash -c '
+CONTAINER_NAME=rpikernel
+DOCKER_IMAGE="ubuntu:latest"
+WORKDIR="/linux"
+
+# Ensure any old container with the same name is removed
+docker rm -f "$CONTAINER_NAME" 2>/dev/null || true
+
+# Create the container
+docker create -v "${REPO_PATH}:${WORKDIR}" -w "${WORKDIR}" --name "$CONTAINER_NAME" -ti "$DOCKER_IMAGE" /bin/bash
+
+# Start the container
+docker start "$CONTAINER_NAME"
+
+BUILD_SCRIPT='
 set -xveu
 set -o pipefail
 apt-get update
@@ -105,6 +117,7 @@ scripts/config --enable  CONFIG_DEBUG_INFO
 scripts/config --disable CONFIG_DEBUG_INFO_REDUCED
 scripts/config --enable  CONFIG_DEBUG_INFO_DWARF5
 scripts/config --enable  CONFIG_FRAME_POINTER
+scripts/config --disable CONFIG_NVHE_EL2_DEBUG
 
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- olddefconfig
 
@@ -114,6 +127,19 @@ aarch64-linux-gnu-objdump -d vmlinux > kernel.s
 # kernel8.img can be copied from arch/arm64/boot/Image.gz
 # Use with https://downloads.raspberrypi.com/raspios_arm64/images/raspios_arm64-2023-02-22/
 '
+
+# Run the build
+if docker exec -i "$CONTAINER_NAME" /bin/bash -c "$BUILD_SCRIPT"; then
+  echo "✅ Build succeeded. Cleaning up..."
+  docker rm -f "$CONTAINER_NAME" > /dev/null
+else
+  echo "❌ Build failed."
+  echo "You can resume debugging with:"
+  echo "    docker exec -it $CONTAINER_NAME /bin/bash"
+  echo "Or inspect logs using:"
+  echo "    docker logs $CONTAINER_NAME"
+  exit 1
+fi
 
 # -------------------------------
 # Post-build: Patch Raspberry Pi image
@@ -173,7 +199,6 @@ cp -r "${REPO_PATH}/arch/arm64/boot/dts/overlays/"*.dtb* "${BOOT_MOUNT}/" || ech
 # 🐳 Docker-based kernel module installation into rootfs
 echo "📦 Installing kernel modules to image rootfs using Docker..."
 
-DOCKER_IMAGE="debian:bullseye"
 IMG_ABS_PATH="$(cd "$(dirname "$IMG_FILE")"; pwd)/$(basename "$IMG_FILE")"
 
 docker run --rm --privileged -v "${IMG_ABS_PATH}:/image.img" -v "${REPO_PATH}:/src" "$DOCKER_IMAGE" bash -c '
