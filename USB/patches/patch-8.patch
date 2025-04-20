@@ -1,0 +1,56 @@
+From 87a7270e86028d4e025c2270d32a492992212f9d Mon Sep 17 00:00:00 2001
+From: Pete Moore <pmoore@mozilla.com>
+Date: Sun, 20 Apr 2025 11:16:14 +0200
+Subject: [PATCH] Log pci mmio read/writes
+
+---
+ drivers/pci/access.c | 20 ++++++++++++++------
+ 1 file changed, 14 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/pci/access.c b/drivers/pci/access.c
+index dd7ff8ab505f..3189834bd3fc 100644
+--- a/drivers/pci/access.c
++++ b/drivers/pci/access.c
+@@ -94,12 +94,16 @@ int pci_generic_config_read(struct pci_bus *bus, unsigned int devfn,
+ 	if (!addr)
+ 		return PCIBIOS_DEVICE_NOT_FOUND;
+ 
+-	if (size == 1)
++	if (size == 1) {
+ 		*val = readb(addr);
+-	else if (size == 2)
++		printk(KERN_INFO "Read 8 bits [0x%px]=%#0x\n", (void*)(addr), *val);
++	} else if (size == 2) {
+ 		*val = readw(addr);
+-	else
++		printk(KERN_INFO "Read 16 bits [0x%px]=%#0x\n", (void*)(addr), *val);
++	} else {
+ 		*val = readl(addr);
++		printk(KERN_INFO "Read 32 bits [0x%px]=%#0x\n", (void*)(addr), *val);
++	}
+ 	dump_stack();
+ 
+ 	return PCIBIOS_SUCCESSFUL;
+@@ -115,12 +119,16 @@ int pci_generic_config_write(struct pci_bus *bus, unsigned int devfn,
+ 	if (!addr)
+ 		return PCIBIOS_DEVICE_NOT_FOUND;
+ 
+-	if (size == 1)
++	if (size == 1) {
+ 		writeb(val, addr);
+-	else if (size == 2)
++		printk(KERN_INFO "Write 8 bits [0x%px]=%#0x\n", (void*)(addr), (__force u8)(*val));
++	} else if (size == 2) {
+ 		writew(val, addr);
+-	else
++		printk(KERN_INFO "Write 16 bits [0x%px]=%#0x\n", (void*)(addr), (__force u16)(*val));
++	} else {
+ 		writel(val, addr);
++		printk(KERN_INFO "Write 32 bits [0x%px]=%#0x\n", (void*)(addr), (__force u32)(*val));
++	}
+ 	dump_stack();
+ 
+ 	return PCIBIOS_SUCCESSFUL;
+-- 
+2.47.0
+
