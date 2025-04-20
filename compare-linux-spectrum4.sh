@@ -26,8 +26,8 @@ done > linux
 
 # vim -d screenlog.0.new-firmware-full linux
 
-grep write linux | sort -u > linux.writes
-grep write screenlog.0.new-firmware-full | grep 0xfffffff0fd50 | sort -u > spectrum4.writes
+grep write linux > linux.writes
+grep write screenlog.0.new-firmware-full | grep 0xfffffff0fd50 > spectrum4.writes
 vim -d spectrum4.writes linux.writes
 grep 0xfffffff0fd50 screenlog.0.new-firmware-full > spectrum4.all
 vim -d spectrum4.all linux
