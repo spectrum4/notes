@@ -83,6 +83,9 @@ git switch "${BRANCH_NAME}" || git switch -c "${BRANCH_NAME}" --track "origin/${
 echo "🔁 Resetting working directory..."
 git reset --hard "origin/${BRANCH_NAME}"
 
+# Apply patch 3
+git am "${SCRIPT_DIR}"/patches/patch-3.patch
+
 docker run -v "${REPO_PATH}:/linux" -w /linux --rm -ti ubuntu /bin/bash -c '
 set -xveu
 set -o pipefail
@@ -102,6 +105,10 @@ scripts/config --enable CONFIG_TRACE_MMIO_ACCESS
 scripts/config --enable CONFIG_KALLSYMS
 scripts/config --enable CONFIG_KALLSYMS_ALL
 scripts/config --enable CONFIG_STACKTRACE
+scripts/config --enable CONFIG_ARM64_PTDUMP_DEBUGFS
+scripts/config --enable CONFIG_IOREMAP_DEBUGFS
+scripts/config --enable CONFIG_IO_STRICT_DEVMEM
+scripts/config --enable CONFIG_BOOT_CONFIG=y
 
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- olddefconfig
 
