@@ -28,7 +28,7 @@ cd "$(dirname "${0}")"
   dump 0fd500
   echo '01:00.0 USB controller: VIA Technologies, Inc. VL805 USB 3.0 Host Controller (rev 01)'
   dump 0fd508
-} > spectrum4-new-hex.txt
-docker run --privileged -v $(pwd):/notes -w /notes -t --rm ubuntu /bin/bash -c 'apt-get update -y && apt-get upgrade -y && apt-get install -y pciutils && lspci -vvv -F spectrum4-new-hex.txt 2>/dev/null > spectrum4-new-decoded.txt && lspci -vvv -F linux-hex.txt 2>/dev/null > linux-decoded.txt && echo "All done"'
-vim -d spectrum4-new-decoded.txt linux-decoded.txt
-vim -d spectrum4-new-hex.txt linux-hex.txt
+} > spectrum4-hex.txt
+docker run --privileged -v $(pwd):/notes -w /notes -t --rm ubuntu /bin/bash -c 'apt-get update -y && apt-get upgrade -y && apt-get install -y pciutils && lspci -vvv -F spectrum4-hex.txt 2>/dev/null > spectrum4-decoded.txt && lspci -vvv -F linux-hex.txt 2>/dev/null > linux-decoded.txt && echo "All done"'
+vim -d spectrum4-decoded.txt linux-decoded.txt
+vim -d spectrum4-hex.txt linux-hex.txt
