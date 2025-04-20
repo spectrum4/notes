@@ -5,9 +5,8 @@
 
 cd "$(dirname "${0}")"
 
-# cat dmesg.log | grep '\(Read\|Write\)' | grep '/pci/' | sed 's/^\[ *\([0-9]*\)\.\([0-9]*\)\]\(.*\)\[\([^ ]*\)\]=0x\(.*\)/\1\2 \3 \4 00000000\5/' | tr 'RW' 'rw' | while read timestamp b rw n bits vaddr val; do
-cat USB/pcie.trace | sed 's/.*_post_//' | sed 's/:.*width=/ /' | sed 's/val=0x/000000000000000/' | sed 's/addr=//' | while read rw n val vaddr; do
-  addr=$((vaddr + 0x307b1e0000))
+cat dmesg.log | grep '\(Read\|Write\)' | grep 0xffffffc08224 | sed 's/^\[ *\([0-9]*\)\.\([0-9]*\)\]\(.*\)\[\([^ ]*\)\]=0x\(.*\)/\1\2 \3 \4 00000000\5/' | tr 'RW' 'rw' | while read timestamp rw n bits vaddr val; do
+  addr=$((vaddr + 0x307b2c0000))
   case "${n}" in
     8)
       printf "${rw} [0x%x]=0x${val: -2}\n" "${addr}"
