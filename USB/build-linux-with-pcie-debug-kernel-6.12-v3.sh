@@ -20,7 +20,7 @@ VOLUME_NAME="casesensitive"
 REPO_PATH="/Volumes/${VOLUME_NAME}/linux"
 
 # Set raspberry pi linux repo branch name
-BRANCH_NAME="rpi-5.15.y"
+BRANCH_NAME="rpi-6.12.y"
 
 # Step 1: Find the APFS container for the main macOS volume
 main_disk=$(diskutil info "Macintosh HD" | awk -F: '/APFS Container/ {gsub(/^[ \t]+/, "", $2); print $2}')
@@ -83,47 +83,10 @@ git switch "${BRANCH_NAME}" || git switch -c "${BRANCH_NAME}" --track "origin/${
 echo "🔁 Resetting working directory..."
 git reset --hard "origin/${BRANCH_NAME}"
 
-# Apply patches 1-3
-git am "${SCRIPT_DIR}"/patches/patch-{1,2,3}.patch
+# Apply patches 3, 8
+git am "${SCRIPT_DIR}"/patches/patch-{3,8}.patch
 
-# Generate dynamic commit
-docker run -v /Volumes/casesensitive/linux:/linux -w /linux --rm -ti ubuntu /bin/bash -c '
-apt-get update
-apt-get install -y git
-for width in l w b q; do
-  git grep -l "\\(read\\|write\\)${width}" | grep "\\.\\(c\\|h\\)\$" | while read -r file; do
-    if ! grep -q "pete_\(read\|write\)${width}" "$file"; then
-      echo "processing $file..."
-      sed "s/\bread${width}(/pete_&/g" "$file" \
-      | sed "s/\bwrite${width}(/pete_&/g" \
-      | sed "s/_pete_read${width}/_read${width}/g" \
-      | sed "s/_pete_write${width}/_write${width}/g" > y
-
-      grep -n "pete_\(read\|write\)${width}" y | sed "s/:.*//" | while read -r line; do
-        sed "${line}s%pete_read${width}(%&\"${file}:${line}\", %g" y \
-        | sed "${line}s%pete_write${width}(%&\"${file}:${line}\", %g" > x
-        mv x y
-      done
-
-      mv y "${file}"
-    fi
-  done
-done
-'
-
-git add -u
-git commit -m "Use wrappers (see full commit for bash one-liner)
-
-Executed under Linux, using GNU sed (does not work with macOS sed!!)
-
-git checkout -f; for width in l w b q; do git grep -l '\\(read\\|write\\)'\"\${width}\" | grep '\\.\\(c\\|h\\)\$' | while read file; do if ! grep -q 'pete_\\(read\\|write\\)'\"\${width}\" \"\${file}\"; then echo \"processing \${file}...\"; cat \"\${file}\" | sed 's/\\bread'\${width}'(/pete_&/g' | sed 's/\\bwrite'\${width}'(/pete_&/g' | sed 's/_pete_read'\${width}'/_read'\${width}'/g' | sed 's/_pete_write'\${width}'/_write'\${width}'/g' > y; cat y | grep -n 'pete_\\(read\\|write\\)'\${width} | sed 's/:.*//' | while read line; do cat y | sed \"\${line}s%pete_read\${width}(%&\\\"\${file}:\${line}\\\", %g\" | sed \"\${line}s%pete_write\${width}(%&\\\"\${file}:\${line}\\\", %g\" > x; mv x y; done; mv y \"\${file}\"; fi; done; done"
-
-echo "✅ Applied dynamic commit."
-
-# Apply patch 4-7
-git am "${SCRIPT_DIR}"/patches/patch-{4,5,6,7}.patch
-
-docker run -v /Volumes/casesensitive/linux:/linux -w /linux --rm -ti ubuntu /bin/bash -c '
+docker run -v "${REPO_PATH}:/linux" -w /linux --rm -ti ubuntu /bin/bash -c '
 set -xveu
 set -o pipefail
 apt-get update
@@ -136,7 +99,7 @@ sed -i "s/^\\(CONFIG_LOCALVERSION=.*\\)\"/\\1-pmoore\"/" .config
 sed -i "/^# ARMv8\\.1 architectural features/,/^# end of Kernel Features/ s/=\\y/=n/" .config
 
 scripts/config --enable  CONFIG_WERROR
-
+scripts/config --enable  CONFIG_STACKTRACE
 scripts/config --enable  CONFIG_DEBUG_KERNEL
 scripts/config --enable  CONFIG_DEBUG_INFO
 scripts/config --disable CONFIG_DEBUG_INFO_REDUCED
@@ -157,8 +120,8 @@ aarch64-linux-gnu-objdump -d vmlinux > kernel.s
 # -------------------------------
 
 # Define image source and file names
-RPI_BASE_URL="https://downloads.raspberrypi.com/raspios_arm64/images/raspios_arm64-2023-02-22"
-RPI_TAR="2023-02-21-raspios-bullseye-arm64.img.xz"
+RPI_BASE_URL="https://downloads.raspberrypi.com/raspios_arm64/images/raspios_arm64-2024-11-19"
+RPI_TAR="2024-11-19-raspios-bookworm-arm64.img.xz"
 RPI_CHECKSUM="${RPI_TAR}.sha256"
 RPI_SIG="${RPI_TAR}.sig"
 
