@@ -19,7 +19,7 @@
 		DevCtl:	CorrErr- NonFatalErr- FatalErr- UnsupReq-
 			RlxdOrd+ ExtTag- PhantFunc- AuxPwr+ NoSnoop+
 			MaxPayload 128 bytes, MaxReadReq 512 bytes
-		DevSta:	CorrErr+ NonFatalErr- FatalErr- UnsupReq- AuxPwr- TransPend-
+		DevSta:	CorrErr- NonFatalErr- FatalErr- UnsupReq- AuxPwr- TransPend-
 		LnkCap:	Port #0, Speed 5GT/s, Width x1, ASPM L0s L1, Exit Latency L0s <1us, L1 <2us
 			ClockPM+ Surprise- LLActRep- BwNot+ ASPMOptComp+
 		LnkCtl:	ASPM L0s L1 Enabled; RCB 64 bytes, Disabled- CommClk+
@@ -48,7 +48,7 @@
 		UESta:	DLP- SDES- TLP- FCP- CmpltTO- CmpltAbrt- UnxCmplt- RxOF- MalfTLP- ECRC- UnsupReq- ACSViol-
 		UEMsk:	DLP- SDES- TLP- FCP- CmpltTO- CmpltAbrt- UnxCmplt- RxOF- MalfTLP- ECRC- UnsupReq- ACSViol-
 		UESvrt:	DLP+ SDES+ TLP- FCP+ CmpltTO- CmpltAbrt- UnxCmplt- RxOF+ MalfTLP+ ECRC- UnsupReq- ACSViol-
-		CESta:	RxErr- BadTLP- BadDLLP- Rollover- Timeout+ AdvNonFatalErr-
+		CESta:	RxErr- BadTLP- BadDLLP- Rollover- Timeout- AdvNonFatalErr-
 		CEMsk:	RxErr- BadTLP- BadDLLP- Rollover- Timeout- AdvNonFatalErr+
 		AERCap:	First Error Pointer: 00, ECRCGenCap- ECRCGenEn- ECRCChkCap- ECRCChkEn-
 			MultHdrRecCap- MultHdrRecEn- TLPPfxPres- HdrLogCap-
