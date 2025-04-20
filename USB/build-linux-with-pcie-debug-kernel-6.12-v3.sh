@@ -117,7 +117,7 @@ scripts/config --enable  CONFIG_DEBUG_INFO
 scripts/config --disable CONFIG_DEBUG_INFO_REDUCED
 scripts/config --enable  CONFIG_DEBUG_INFO_DWARF5
 scripts/config --enable  CONFIG_FRAME_POINTER
-scripts/config --disable CONFIG_NVHE_EL2_DEBUG
+scripts/config --disable CONFIG_KVM
 
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- olddefconfig
 
