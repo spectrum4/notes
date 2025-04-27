@@ -121,7 +121,7 @@ scripts/config --disable CONFIG_KVM
 
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- olddefconfig
 
-make -j8 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- Image.gz modules dtbs V=1
+make -j8 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- CFLAGS=-save-temps=obj Image.gz modules dtbs V=1
 aarch64-linux-gnu-objdump -d vmlinux > kernel.s
 
 # kernel8.img can be copied from arch/arm64/boot/Image.gz
