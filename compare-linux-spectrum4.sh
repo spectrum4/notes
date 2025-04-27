@@ -7,12 +7,11 @@ cd "$(dirname "${0}")"
 
 base=$(cat dmesg.log | sed -n 's/.*Read 32 bits \[\(.*\)\]=0x00000000271114e4/\1/p' | sort -u)
 offset=$((0xfffffff0fd500000 - base))
-match=$(printf '%x\n' $base | sed 's/....$//')
+match=$(printf '0x%x\n' $base | sed 's/....$//')
 
-cat dmesg.log | grep '\(Read\|Write|\VL805\)' | while read line; do
-  echo "${line}" | grep 'VL805' || \
-  do
-    echo "${line}" | grep -F "$match" | sed 's/^\[ *\([0-9]*\)\.\([0-9]*\)\]\(.*\)\[\([^ ]*\)\]=0x\(.*\)/\1\2 \3 \4 00000000\5/' | tr 'RW' 'rw' | while read timestamp rw n bits vaddr val; do
+cat dmesg.log | grep "\\(Read.*${match}\\|Write.*${match}\\|VL805\\)" | while read line; do
+  echo "${line}" | grep "\(VL805\)" || \
+  echo "${line}" | sed 's/^\[ *\([0-9]*\)\.\([0-9]*\)\]\(.*\)\[\([^ ]*\)\]=0x\(.*\)/\1\2 \3 \4 00000000\5/' | tr 'RW' 'rw' | while read timestamp rw n bits vaddr val; do
     addr=$((vaddr + offset))
     case "${n}" in
       8)

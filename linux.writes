@@ -165,4 +165,3 @@ write [0xfffffff0fd508004]=0x0546
 write [0xfffffff0fd509000]=0x00100000
 write [0xfffffff0fd508092]=0x00a5
 write [0xfffffff0fd504508]=0x00000001
-write [0xfffffff0fd509000]=0x00100000
