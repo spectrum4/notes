@@ -1,0 +1,33 @@
+From 1e938be0051fee1ec1fdb7faab21da862e3a7eb6 Mon Sep 17 00:00:00 2001
+From: Pete Moore <pmoore@mozilla.com>
+Date: Fri, 2 May 2025 20:29:08 +0200
+Subject: [PATCH] Log VL805 resets
+
+---
+ drivers/reset/reset-raspberrypi.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/drivers/reset/reset-raspberrypi.c b/drivers/reset/reset-raspberrypi.c
+index fa23db554bcf..6a7610c37810 100644
+--- a/drivers/reset/reset-raspberrypi.c
++++ b/drivers/reset/reset-raspberrypi.c
+@@ -49,13 +49,16 @@ static int rpi_reset_reset(struct reset_controller_dev *rcdev, unsigned long id)
+ 		 * advance.
+ 		 */
+ 		dev_addr = 0x100000;
++		printk(KERN_INFO "Resetting VL805 firmware\n");
+ 		ret = rpi_firmware_property(priv->fw, RPI_FIRMWARE_NOTIFY_XHCI_RESET,
+ 					    &dev_addr, sizeof(dev_addr));
+ 		if (ret)
+ 			return ret;
+ 
++		printk(KERN_INFO "Waiting for VL805 to start up\n");
+ 		/* Wait for vl805 to startup */
+ 		usleep_range(200, 1000);
++		printk(KERN_INFO "Waiting complete\n");
+ 		break;
+ 
+ 	default:
+-- 
+2.47.0
+
