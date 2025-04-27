@@ -22,7 +22,7 @@
 		DevSta:	CorrErr- NonFatalErr- FatalErr- UnsupReq- AuxPwr- TransPend-
 		LnkCap:	Port #0, Speed 5GT/s, Width x1, ASPM L0s L1, Exit Latency L0s <1us, L1 <2us
 			ClockPM+ Surprise- LLActRep- BwNot+ ASPMOptComp+
-		LnkCtl:	ASPM L0s L1 Enabled; RCB 64 bytes, Disabled- CommClk+
+		LnkCtl:	ASPM L1 Enabled; RCB 64 bytes, Disabled- CommClk+
 			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
 		LnkSta:	Speed 5GT/s, Width x1
 			TrErr- Train- SlotClk+ DLActive- BWMgmt+ ABWMgmt+
@@ -53,7 +53,7 @@
 		AERCap:	First Error Pointer: 00, ECRCGenCap- ECRCGenEn- ECRCChkCap- ECRCChkEn-
 			MultHdrRecCap- MultHdrRecEn- TLPPfxPres- HdrLogCap-
 		HeaderLog: 00000000 00000000 00000000 00000000
-		RootCmd: CERptEn- NFERptEn- FERptEn-
+		RootCmd: CERptEn+ NFERptEn+ FERptEn+
 		RootSta: CERcvd- MultCERcvd- UERcvd- MultUERcvd-
 			 FirstFatal- NonFatalMsg- FatalMsg- IntMsg 0
 		ErrorSrc: ERR_COR: 0000 ERR_FATAL/NONFATAL: 0000
