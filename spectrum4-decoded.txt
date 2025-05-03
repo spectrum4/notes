@@ -25,7 +25,7 @@
 		LnkCtl:	ASPM L1 Enabled; RCB 64 bytes, Disabled- CommClk+
 			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
 		LnkSta:	Speed 5GT/s, Width x1
-			TrErr- Train- SlotClk+ DLActive- BWMgmt+ ABWMgmt+
+			TrErr- Train- SlotClk+ DLActive- BWMgmt- ABWMgmt+
 		RootCap: CRSVisible+
 		RootCtl: ErrCorrectable- ErrNon-Fatal- ErrFatal- PMEIntEna- CRSVisible-
 		RootSta: PME ReqID 0000, PMEStatus- PMEPending-
@@ -73,7 +73,7 @@
 	Interrupt: pin A routed to IRQ 62
 	Region 0: Memory at c0000000 (64-bit, non-prefetchable)
 	Capabilities: [80] Power Management version 3
-		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0+,D1-,D2-,D3hot+,D3cold-)
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=375mA PME(D0+,D1-,D2-,D3hot-,D3cold+)
 		Status: D0 NoSoftRst- PME-Enable- DSel=0 DScale=0 PME-
 	Capabilities: [90] MSI: Enable+ Count=1/4 Maskable- 64bit+
 		Address: 00000000fffffffc  Data: 6540
@@ -86,7 +86,7 @@
 		DevSta:	CorrErr+ NonFatalErr- FatalErr- UnsupReq+ AuxPwr+ TransPend-
 		LnkCap:	Port #0, Speed 5GT/s, Width x1, ASPM L0s L1, Exit Latency L0s <2us, L1 <16us
 			ClockPM+ Surprise- LLActRep- BwNot- ASPMOptComp-
-		LnkCtl:	ASPM Disabled; RCB 64 bytes, Disabled- CommClk+
+		LnkCtl:	ASPM L0s L1 Enabled; RCB 64 bytes, Disabled- CommClk+
 			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
 		LnkSta:	Speed 5GT/s, Width x1
 			TrErr- Train- SlotClk+ DLActive- BWMgmt- ABWMgmt-
