@@ -2,7 +2,7 @@
 	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
 	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
 	Latency: 0
-	Interrupt: pin A routed to IRQ 0
+	Interrupt: pin A routed to IRQ 27
 	Bus: primary=00, secondary=01, subordinate=01, sec-latency=0
 	I/O behind bridge: 0000-0fff [size=4K] [16-bit]
 	Memory behind bridge: c0000000-c00fffff [size=1M] [32-bit]
@@ -27,7 +27,7 @@
 		LnkSta:	Speed 5GT/s, Width x1
 			TrErr- Train- SlotClk+ DLActive- BWMgmt- ABWMgmt+
 		RootCap: CRSVisible+
-		RootCtl: ErrCorrectable- ErrNon-Fatal- ErrFatal- PMEIntEna- CRSVisible-
+		RootCtl: ErrCorrectable- ErrNon-Fatal- ErrFatal- PMEIntEna+ CRSVisible+
 		RootSta: PME ReqID 0000, PMEStatus- PMEPending-
 		DevCap2: Completion Timeout: Range ABCD, TimeoutDis+ NROPrPrP- LTR+
 			 10BitTagComp- 10BitTagReq- OBFF Via WAKE#, ExtFmt- EETLPPrefix-
@@ -70,7 +70,7 @@
 	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr+ Stepping- SERR+ FastB2B- DisINTx+
 	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
 	Latency: 0, Cache Line Size: 64 bytes
-	Interrupt: pin A routed to IRQ 62
+	Interrupt: pin A routed to IRQ 27
 	Region 0: Memory at c0000000 (64-bit, non-prefetchable)
 	Capabilities: [80] Power Management version 3
 		Flags: PMEClk- DSI- D1- D2- AuxCurrent=375mA PME(D0+,D1-,D2-,D3hot-,D3cold+)
