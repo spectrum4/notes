@@ -33,6 +33,9 @@ done | uniq > linux.all
 
 grep write linux.all | uniq > linux.writes
 grep write screenlog.0 | grep 0xfffffff0fd50 | uniq > spectrum4.writes
+# cat linux.writes | sort -u > linux.writes.sorted
+# cat spectrum4.writes | sort -u > spectrum4.writes.sorted
+vim -d linux.writes.sorted spectrum4.writes.sorted
 vim -d linux.writes spectrum4.writes
 grep 0xfffffff0fd50 screenlog.0 | uniq > spectrum4.all
 vim -d linux.all spectrum4.all
