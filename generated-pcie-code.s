@@ -2752,8 +2752,6 @@ strwi   w1, x14, #0x0
 ldr     x1, =0x000000000000001b
 strbi   w1, x13, #0x3c
 
-// [    1.919670] Resetting VL805 firmware
-
 // [    1.965882] Read 32 bits [0xffffffc0822a4068]=0x00000000000000b0
 ldrwi   w1, x4, #0x68
 
