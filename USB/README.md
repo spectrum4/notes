@@ -1906,3 +1906,30 @@ static struct pci_dev *pci_scan_device(struct pci_bus *bus, int devfn)
  */
 int pci_setup_device(struct pci_dev *dev)
 ```
+
+
+
+# GIC configuration
+
+These reads/writes are captures in dmesg.log
+
+### Reads
+
+```
+Read 32 bits [0xffffffc081582000]     GICC_CTLR
+Read 32 bits [0xffffffc08158200c]     GICC_IAR
+Read 32 bits [0xffffffc0815820fc]     GICC_IIDR
+```
+
+### Writes
+
+```
+Write 32 bits [0xffffffc081582000]    GICC_CTLR
+Write 32 bits [0xffffffc081582004]    GICC_PMR
+Write 32 bits [0xffffffc081582010]    GICC_EOIR
+Write 32 bits [0xffffffc0815820d0]    GICC_APR0
+Write 32 bits [0xffffffc0815820d4]    GICC_APR1
+Write 32 bits [0xffffffc0815820d8]    GICC_APR2
+Write 32 bits [0xffffffc0815820dc]    GICC_APR3
+Write 32 bits [0xffffffc081583000]    GICC_DIR
+```
