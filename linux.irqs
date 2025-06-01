@@ -1,0 +1,245 @@
+pmoore@rpi400:~ $ sudo dmesg | grep -F '0xffffffc081582010' | sed 's/^...............//' | sort -u
+Write 32 bits [0xffffffc081582010]=0x0000000000000000
+Write 32 bits [0xffffffc081582010]=0x0000000000000001
+Write 32 bits [0xffffffc081582010]=0x0000000000000005
+Write 32 bits [0xffffffc081582010]=0x000000000000001e
+Write 32 bits [0xffffffc081582010]=0x0000000000000041
+Write 32 bits [0xffffffc081582010]=0x000000000000006a
+Write 32 bits [0xffffffc081582010]=0x0000000000000081
+Write 32 bits [0xffffffc081582010]=0x000000000000008e
+Write 32 bits [0xffffffc081582010]=0x000000000000009e
+Write 32 bits [0xffffffc081582010]=0x00000000000000b4
+Write 32 bits [0xffffffc081582010]=0x00000000000000bd
+Write 32 bits [0xffffffc081582010]=0x00000000000000be
+Write 32 bits [0xffffffc081582010]=0x0000000000000400
+Write 32 bits [0xffffffc081582010]=0x0000000000000401
+Write 32 bits [0xffffffc081582010]=0x0000000000000405
+Write 32 bits [0xffffffc081582010]=0x0000000000000800
+Write 32 bits [0xffffffc081582010]=0x0000000000000801
+Write 32 bits [0xffffffc081582010]=0x0000000000000805
+Write 32 bits [0xffffffc081582010]=0x0000000000000c00
+Write 32 bits [0xffffffc081582010]=0x0000000000000c01
+Write 32 bits [0xffffffc081582010]=0x0000000000000c05
+pmoore@rpi400:~ $ cat /proc/interrupts 
+           CPU0       CPU1       CPU2       CPU3       
+ 11:     126617     123276     125329     142504     GICv2  30 Level     arch_timer
+ 14:      13432          0          0          0     GICv2  65 Level     fe00b880.mailbox
+ 15:        275          0          0          0     GICv2 114 Level     DMA IRQ
+ 21:          0          0          0          0     GICv2 122 Level     DMA IRQ
+ 22:          0          0          0          0     GICv2 123 Level     DMA IRQ
+ 27:          0          0          0          0     GICv2 175 Level     PCIe PME, aerdrv
+ 28:       5785          0          0          0     GICv2 189 Level     eth0
+ 29:       1609          0          0          0     GICv2 190 Level     eth0
+ 30:       1223          0          0          0  BRCM STB PCIe MSI 524288 Edge      xhci_hcd
+ 34:         72          0          0          0     GICv2  66 Level     VCHIQ doorbell
+ 35:          0          0          0          0     GICv2  48 Level     arm-pmu
+ 36:          0          0          0          0     GICv2  49 Level     arm-pmu
+ 37:          0          0          0          0     GICv2  50 Level     arm-pmu
+ 38:          0          0          0          0     GICv2  51 Level     arm-pmu
+ 39:        363          0          0          0     GICv2 153 Level     uart-pl011
+ 40:      56249          0          0          0     GICv2 158 Level     mmc1, mmc0
+ 41:          0          0          0          0     GICv2 130 Level     feb00000.codec
+ 42:       1902          0          0          0     GICv2 106 Level     v3d
+ 43:       2174          0          0          0     GICv2 129 Level     vc4 hvs
+ 44:          0          0          0          0  interrupt-controller@7ef00100   4 Level     vc4 hdmi hpd connected
+ 45:          0          0          0          0  interrupt-controller@7ef00100   5 Level     vc4 hdmi hpd disconnected
+ 46:          0          0          0          0  interrupt-controller@7ef00100   1 Level     vc4 hdmi cec rx
+ 47:          0          0          0          0  interrupt-controller@7ef00100   0 Level     vc4 hdmi cec tx
+ 48:          0          0          0          0  interrupt-controller@7ef00100  10 Level     vc4 hdmi hpd connected
+ 49:          0          0          0          0  interrupt-controller@7ef00100  11 Level     vc4 hdmi hpd disconnected
+ 50:          0          0          0          0  interrupt-controller@7ef00100   7 Level     vc4 hdmi cec rx
+ 51:          0          0          0          0  interrupt-controller@7ef00100   8 Level     vc4 hdmi cec tx
+ 52:          0          0          0          0     GICv2 107 Level     fe004000.txp
+ 53:          0          0          0          0     GICv2 141 Level     vc4 crtc
+ 54:       1869          0          0          0     GICv2 142 Level     vc4 crtc, vc4 crtc
+ 55:          0          0          0          0     GICv2 133 Level     vc4 crtc
+ 56:          0          0          0          0     GICv2 138 Level     vc4 crtc
+IPI0:       878        932        704        922       Rescheduling interrupts
+IPI1:     48755      82956      56645      87116       Function call interrupts
+IPI2:         0          0          0          0       CPU stop interrupts
+IPI3:         0          0          0          0       CPU stop NMIs
+IPI4:         0          0          0          0       Timer broadcast interrupts
+IPI5:       207        295        215        193       IRQ work interrupts
+IPI6:         0          0          0          0       CPU backtrace interrupts
+IPI7:         0          0          0          0       KGDB roundup interrupts
+Err:          0
+pmoore@rpi400:~ $ 
+
+
+
+
+
+pmoore@rpi400:~ $ for file in /sys/kernel/debug/irq/irqs/*; do echo $file; cat $file | grep hwirq; echo; done
+/sys/kernel/debug/irq/irqs/1
+ hwirq:   0x0
+
+/sys/kernel/debug/irq/irqs/10
+ hwirq:   0x1d
+
+/sys/kernel/debug/irq/irqs/11
+ hwirq:   0x1e
+
+/sys/kernel/debug/irq/irqs/12
+ hwirq:   0x1b
+
+/sys/kernel/debug/irq/irqs/13
+ hwirq:   0x1a
+
+/sys/kernel/debug/irq/irqs/14
+ hwirq:   0x41
+
+/sys/kernel/debug/irq/irqs/15
+ hwirq:   0x72
+
+/sys/kernel/debug/irq/irqs/16
+ hwirq:   0x74
+
+/sys/kernel/debug/irq/irqs/17
+ hwirq:   0x75
+
+/sys/kernel/debug/irq/irqs/18
+ hwirq:   0x76
+
+/sys/kernel/debug/irq/irqs/19
+ hwirq:   0x77
+
+/sys/kernel/debug/irq/irqs/2
+ hwirq:   0x1
+
+/sys/kernel/debug/irq/irqs/20
+ hwirq:   0x78
+
+/sys/kernel/debug/irq/irqs/21
+ hwirq:   0x7a
+
+/sys/kernel/debug/irq/irqs/22
+ hwirq:   0x7b
+
+/sys/kernel/debug/irq/irqs/23
+ hwirq:   0x80
+
+/sys/kernel/debug/irq/irqs/24
+ hwirq:   0x91
+
+/sys/kernel/debug/irq/irqs/25
+ hwirq:   0x92
+
+/sys/kernel/debug/irq/irqs/26
+ hwirq:   0xb4
+
+/sys/kernel/debug/irq/irqs/27
+ hwirq:   0xaf
+
+/sys/kernel/debug/irq/irqs/28
+ hwirq:   0xbd
+
+/sys/kernel/debug/irq/irqs/29
+ hwirq:   0xbe
+
+/sys/kernel/debug/irq/irqs/3
+ hwirq:   0x2
+
+/sys/kernel/debug/irq/irqs/30
+ hwirq:   0x80000
+     hwirq:   0x0
+
+/sys/kernel/debug/irq/irqs/31
+ hwirq:   0x80001
+     hwirq:   0x1
+
+/sys/kernel/debug/irq/irqs/32
+ hwirq:   0x80002
+     hwirq:   0x2
+
+/sys/kernel/debug/irq/irqs/33
+ hwirq:   0x80003
+     hwirq:   0x3
+
+/sys/kernel/debug/irq/irqs/34
+ hwirq:   0x42
+
+/sys/kernel/debug/irq/irqs/35
+ hwirq:   0x30
+
+/sys/kernel/debug/irq/irqs/36
+ hwirq:   0x31
+
+/sys/kernel/debug/irq/irqs/37
+ hwirq:   0x32
+
+/sys/kernel/debug/irq/irqs/38
+ hwirq:   0x33
+
+/sys/kernel/debug/irq/irqs/39
+ hwirq:   0x99
+
+/sys/kernel/debug/irq/irqs/4
+ hwirq:   0x3
+
+/sys/kernel/debug/irq/irqs/40
+ hwirq:   0x9e
+
+/sys/kernel/debug/irq/irqs/41
+ hwirq:   0x82
+
+/sys/kernel/debug/irq/irqs/42
+ hwirq:   0x6a
+
+/sys/kernel/debug/irq/irqs/43
+ hwirq:   0x81
+
+/sys/kernel/debug/irq/irqs/44
+ hwirq:   0x4
+
+/sys/kernel/debug/irq/irqs/45
+ hwirq:   0x5
+
+/sys/kernel/debug/irq/irqs/46
+ hwirq:   0x1
+
+/sys/kernel/debug/irq/irqs/47
+ hwirq:   0x0
+
+/sys/kernel/debug/irq/irqs/48
+ hwirq:   0xa
+
+/sys/kernel/debug/irq/irqs/49
+ hwirq:   0xb
+
+/sys/kernel/debug/irq/irqs/5
+ hwirq:   0x4
+
+/sys/kernel/debug/irq/irqs/50
+ hwirq:   0x7
+
+/sys/kernel/debug/irq/irqs/51
+ hwirq:   0x8
+
+/sys/kernel/debug/irq/irqs/52
+ hwirq:   0x6b
+
+/sys/kernel/debug/irq/irqs/53
+ hwirq:   0x8d
+
+/sys/kernel/debug/irq/irqs/54
+ hwirq:   0x8e
+
+/sys/kernel/debug/irq/irqs/55
+ hwirq:   0x85
+
+/sys/kernel/debug/irq/irqs/56
+ hwirq:   0x8a
+
+/sys/kernel/debug/irq/irqs/6
+ hwirq:   0x5
+
+/sys/kernel/debug/irq/irqs/7
+ hwirq:   0x6
+
+/sys/kernel/debug/irq/irqs/8
+ hwirq:   0x7
+
+/sys/kernel/debug/irq/irqs/9
+ hwirq:   0x19
+
+pmoore@rpi400:~ $ 
