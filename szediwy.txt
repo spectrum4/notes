@@ -1,0 +1,482 @@
+extern void delay(unsigned long);
+extern void put32(unsigned long, unsigned int);
+extern unsigned int get32(unsigned long);
+extern unsigned int get_el();
+typedef __builtin_va_list __gnuc_va_list;
+typedef __gnuc_va_list va_list;
+void init_printf(void* putp,void (*putf) (void*,char));
+void tfp_printf(char *fmt, ...);
+void tfp_sprintf(char* s,char *fmt, ...);
+void tfp_format(void* putp,void (*putf) (void*,char),char *fmt, va_list va);
+void test (char c);
+void timer_init ( void );
+void handle_timer_irq ( void );
+void local_timer_init (void);
+void handle_local_timer_irq (void);
+const char *entry_error_messages[] = {
+ "SYNC_INVALID_EL1t",
+ "IRQ_INVALID_EL1t",
+ "FIQ_INVALID_EL1t",
+ "ERROR_INVALID_EL1T",
+ "SYNC_INVALID_EL1h",
+ "IRQ_INVALID_EL1h",
+ "FIQ_INVALID_EL1h",
+ "ERROR_INVALID_EL1h",
+ "SYNC_INVALID_EL0_64",
+ "IRQ_INVALID_EL0_64",
+ "FIQ_INVALID_EL0_64",
+ "ERROR_INVALID_EL0_64",
+ "SYNC_INVALID_EL0_32",
+ "IRQ_INVALID_EL0_32",
+ "FIQ_INVALID_EL0_32",
+ "ERROR_INVALID_EL0_32"
+};
+void enable_interrupt(unsigned int irq) {
+ unsigned int n = irq / 32;
+ unsigned int offset = irq % 32;
+ unsigned int enableRegister = ((0xFF840000 +0x00001000)+0x00000100) + (4*n);
+ put32(enableRegister, 1 << offset);
+}
+void assign_target(unsigned int irq, unsigned int cpu) {
+ unsigned int n = irq / 4;
+ unsigned int offset = irq % 4;
+ unsigned int targetRegister = ((0xFF840000 +0x00001000)+0x00000800) + (4*n);
+ put32(targetRegister, get32(targetRegister) | (1 << (offset*8)));
+}
+void enable_interrupt_controller() {
+ assign_target((0x61), 0);
+ enable_interrupt((0x61));
+ assign_target((0x35), 0);
+ enable_interrupt((0x35));
+}
+void show_invalid_entry_message(int type, unsigned long esr, unsigned long address)
+{
+ tfp_printf("%s, ESR: %x, address: %x\r\n", entry_error_messages[type], esr, address);
+}
+void handle_irq(void)
+{
+ unsigned int irqAckRegister = get32(((0xFF840000 +0x00002000)+0x0000000C));
+ unsigned int irq = irqAckRegister & 0x2FF;
+ switch (irq) {
+  case ((0x61)):
+   handle_timer_irq();
+   put32(((0xFF840000 +0x00002000)+0x00000010), irqAckRegister);
+   break;
+  case ((0x35)):
+   handle_local_timer_irq();
+   put32(((0xFF840000 +0x00002000)+0x00000010), irqAckRegister);
+   break;
+  default:
+   tfp_printf("Unknown pending irq: %x\r\n", irq);
+ }
+}
+typedef __builtin_va_list __gnuc_va_list;
+typedef __gnuc_va_list va_list;
+void init_printf(void* putp,void (*putf) (void*,char));
+void tfp_printf(char *fmt, ...);
+void tfp_sprintf(char* s,char *fmt, ...);
+void tfp_format(void* putp,void (*putf) (void*,char),char *fmt, va_list va);
+void test (char c);
+void timer_init ( void );
+void handle_timer_irq ( void );
+void local_timer_init (void);
+void handle_local_timer_irq (void);
+extern void delay(unsigned long);
+extern void put32(unsigned long, unsigned int);
+extern unsigned int get32(unsigned long);
+extern unsigned int get_el();
+void uart_init(void);
+char uart_recv(void);
+void uart_send(char c);
+void uart_send_string(char *str);
+void putc(void *p, char c);
+void enable_interrupt_controller( void );
+void enable_interrupt(unsigned int irq);
+void assign_target(unsigned int irq, unsigned int cpu);
+void irq_vector_init( void );
+void enable_irq( void );
+void disable_irq( void );
+void kernel_main(unsigned long processor_index)
+{
+ static unsigned int current_processor_index = 0;
+ if (processor_index == 0)
+ {
+  uart_init();
+  init_printf(0, putc);
+  tfp_printf("irq_vector_init\r\n");
+  irq_vector_init();
+  tfp_printf("timer_init\r\n");
+  timer_init();
+  tfp_printf("local_timer_init\r\n");
+  local_timer_init();
+  tfp_printf("enable_interrupt_controller\r\n");
+  enable_interrupt_controller();
+  tfp_printf("enable_irq\r\n");
+  enable_irq();
+ }
+ while (processor_index != current_processor_index)
+  ;
+ int exception_level = get_el();
+ tfp_printf("{CPU: %d, Exception level: %d}\r\n", processor_index, exception_level);
+ current_processor_index++;
+ if (processor_index == 0)
+ {
+  while (current_processor_index != 4)
+   ;
+  for (;;)
+  {
+   uart_send(uart_recv());
+  }
+ }
+}
+extern void delay(unsigned long);
+extern void put32(unsigned long, unsigned int);
+extern unsigned int get32(unsigned long);
+extern unsigned int get_el();
+typedef __builtin_va_list __gnuc_va_list;
+typedef __gnuc_va_list va_list;
+void init_printf(void* putp,void (*putf) (void*,char));
+void tfp_printf(char *fmt, ...);
+void tfp_sprintf(char* s,char *fmt, ...);
+void tfp_format(void* putp,void (*putf) (void*,char),char *fmt, va_list va);
+void test (char c);
+const unsigned int interval = 200000;
+unsigned int curVal = 0;
+void timer_init ( void )
+{
+ curVal = get32((0xFE000000 +0x00003004));
+ curVal += interval;
+ put32((0xFE000000 +0x00003010), curVal);
+}
+void handle_timer_irq( void )
+{
+ curVal += interval;
+ put32((0xFE000000 +0x00003010), curVal);
+ put32((0xFE000000 +0x00003000), (1 << 1));
+ tfp_printf("Timer interrupt received\n\r");
+}
+void handle_local_timer_irq( void )
+{
+ tfp_printf("LOCAL_TIMER_IRQ received\n\r");
+ put32((0xFF800000 + 0x38), (3<<30));
+}
+void local_timer_init (void) {
+ put32((0xFF800000 + 0x34), (3<<28) | (3*(54000000)));
+}
+.globl irq_vector_init
+irq_vector_init:
+	adr	x0, vectors		    // load VBAR_EL1 with virtual
+	msr	vbar_el1, x0     
+	ret
+
+.globl enable_irq
+enable_irq:
+	msr daifclr, #0b0010    
+	ret
+
+.globl disable_irq
+disable_irq:
+	msr	daifset, #0b0010
+	ret.globl put32
+put32:
+	str w1,[x0]
+	ret
+
+.globl get32
+get32:
+	ldr w0,[x0]
+	ret
+
+.globl delay
+delay:
+	subs x0, x0, #1
+	bne delay
+	ret
+
+.globl get_el
+get_el:
+    mrs x0, CurrentEL
+    lsr x0, x0, #2
+    ret#include "entry.h"
+
+.macro handle_invalid_entry type
+	kernel_entry
+	mov	x0, #\type
+	mrs	x1, esr_el1
+	mrs	x2, elr_el1
+	bl	show_invalid_entry_message
+	b	err_hang
+.endm
+
+.macro	ventry	label
+	.align	7
+	b	\label
+.endm
+
+.macro	kernel_entry
+	sub	sp, sp, #S_FRAME_SIZE
+	stp	x0, x1, [sp, #16 * 0]
+	stp	x2, x3, [sp, #16 * 1]
+	stp	x4, x5, [sp, #16 * 2]
+	stp	x6, x7, [sp, #16 * 3]
+	stp	x8, x9, [sp, #16 * 4]
+	stp	x10, x11, [sp, #16 * 5]
+	stp	x12, x13, [sp, #16 * 6]
+	stp	x14, x15, [sp, #16 * 7]
+	stp	x16, x17, [sp, #16 * 8]
+	stp	x18, x19, [sp, #16 * 9]
+	stp	x20, x21, [sp, #16 * 10]
+	stp	x22, x23, [sp, #16 * 11]
+	stp	x24, x25, [sp, #16 * 12]
+	stp	x26, x27, [sp, #16 * 13]
+	stp	x28, x29, [sp, #16 * 14]
+	str	x30, [sp, #16 * 15] 
+.endm
+
+.macro	kernel_exit
+	ldp	x0, x1, [sp, #16 * 0]
+	ldp	x2, x3, [sp, #16 * 1]
+	ldp	x4, x5, [sp, #16 * 2]
+	ldp	x6, x7, [sp, #16 * 3]
+	ldp	x8, x9, [sp, #16 * 4]
+	ldp	x10, x11, [sp, #16 * 5]
+	ldp	x12, x13, [sp, #16 * 6]
+	ldp	x14, x15, [sp, #16 * 7]
+	ldp	x16, x17, [sp, #16 * 8]
+	ldp	x18, x19, [sp, #16 * 9]
+	ldp	x20, x21, [sp, #16 * 10]
+	ldp	x22, x23, [sp, #16 * 11]
+	ldp	x24, x25, [sp, #16 * 12]
+	ldp	x26, x27, [sp, #16 * 13]
+	ldp	x28, x29, [sp, #16 * 14]
+	ldr	x30, [sp, #16 * 15] 
+	add	sp, sp, #S_FRAME_SIZE		
+	eret
+.endm
+
+
+/*
+ * Exception vectors.
+ */
+.align	11
+.globl vectors 
+vectors:
+	ventry	sync_invalid_el1t			// Synchronous EL1t
+	ventry	irq_invalid_el1t			// IRQ EL1t
+	ventry	fiq_invalid_el1t			// FIQ EL1t
+	ventry	error_invalid_el1t			// Error EL1t
+
+	ventry	sync_invalid_el1h			// Synchronous EL1h
+	ventry	el1_irq					    // IRQ EL1h
+	ventry	fiq_invalid_el1h			// FIQ EL1h
+	ventry	error_invalid_el1h			// Error EL1h
+
+	ventry	sync_invalid_el0_64			// Synchronous 64-bit EL0
+	ventry	irq_invalid_el0_64			// IRQ 64-bit EL0
+	ventry	fiq_invalid_el0_64			// FIQ 64-bit EL0
+    ventry	error_invalid_el0_64		// Error 64-bit EL0
+
+	ventry	sync_invalid_el0_32			// Synchronous 32-bit EL0
+	ventry	irq_invalid_el0_32			// IRQ 32-bit EL0
+	ventry	fiq_invalid_el0_32			// FIQ 32-bit EL0
+	ventry	error_invalid_el0_32		// Error 32-bit EL0
+
+sync_invalid_el1t:
+	handle_invalid_entry  SYNC_INVALID_EL1t
+
+irq_invalid_el1t:
+	handle_invalid_entry  IRQ_INVALID_EL1t
+
+fiq_invalid_el1t:
+	handle_invalid_entry  FIQ_INVALID_EL1t
+
+error_invalid_el1t:
+	handle_invalid_entry  ERROR_INVALID_EL1t
+
+sync_invalid_el1h:
+	handle_invalid_entry  SYNC_INVALID_EL1h
+
+fiq_invalid_el1h:
+	handle_invalid_entry  FIQ_INVALID_EL1h
+
+error_invalid_el1h:
+	handle_invalid_entry  ERROR_INVALID_EL1h
+
+sync_invalid_el0_64:
+	handle_invalid_entry  SYNC_INVALID_EL0_64
+
+irq_invalid_el0_64:
+	handle_invalid_entry  IRQ_INVALID_EL0_64
+
+fiq_invalid_el0_64:
+	handle_invalid_entry  FIQ_INVALID_EL0_64
+
+error_invalid_el0_64:
+	handle_invalid_entry  ERROR_INVALID_EL0_64
+
+sync_invalid_el0_32:
+	handle_invalid_entry  SYNC_INVALID_EL0_32
+
+irq_invalid_el0_32:
+	handle_invalid_entry  IRQ_INVALID_EL0_32
+
+fiq_invalid_el0_32:
+	handle_invalid_entry  FIQ_INVALID_EL0_32
+
+error_invalid_el0_32:
+	handle_invalid_entry  ERROR_INVALID_EL0_32
+
+el1_irq:    
+	kernel_entry 
+	bl	handle_irq
+	kernel_exit 
+
+.globl err_hang
+err_hang: b err_hang#include "mm.h"
+#include "sysregs.h"
+
+.section ".text.boot"
+
+.globl _start
+_start:
+	mrs	x0, mpidr_el1
+	and	x0, x0, #0x3
+	cbz	x0, init_bss
+	/* If processor id is not 0 then pending lock processor
+	 * (wait for `sev` instruction)
+	 */
+	wfe
+	b	master
+
+proc_hang:
+	b 	proc_hang
+
+init_bss:
+	adr	x0, bss_begin
+	adr	x1, bss_end
+	sub	x1, x1, x0
+	bl 	memzero
+
+	sev
+
+	/***********************************************************************/
+	/* 	Enable the other cores 											   
+	   	link: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/arm64/booting.rst?h=v5.3#n255
+	
+		The boot loader is expected to enter the kernel on each CPU in the
+		following manner:
+
+		- The primary CPU must jump directly to the first instruction of the
+		kernel image.  The device tree blob passed by this CPU must contain
+		an 'enable-method' property for each cpu node.  The supported
+		enable-methods are described below.
+
+		It is expected that the bootloader will generate these device tree
+		properties and insert them into the blob prior to kernel entry.
+
+		- CPUs with a "spin-table" enable-method must have a 'cpu-release-addr'
+		property in their cpu node.  This property identifies a
+		naturally-aligned 64-bit zero-initalised memory location.
+
+		These CPUs should spin outside of the kernel in a reserved area of
+		memory (communicated to the kernel by a /memreserve/ region in the
+		device tree) polling their cpu-release-addr location, which must be
+		contained in the reserved region.  A wfe instruction may be inserted
+		to reduce the overhead of the busy-loop and a sev will be issued by
+		the primary CPU.  When a read of the location pointed to by the
+		cpu-release-addr returns a non-zero value, the CPU must jump to this
+		value.  The value will be written as a single 64-bit little-endian
+		value, so CPUs must convert the read value to their native endianness
+		before jumping to it.
+
+		- CPUs with a "psci" enable method should remain outside of
+		the kernel (i.e. outside of the regions of memory described to the
+		kernel in the memory node, or in a reserved area of memory described
+		to the kernel by a /memreserve/ region in the device tree).  The
+		kernel will issue CPU_ON calls as described in ARM document number ARM
+		DEN 0022A ("Power State Coordination Interface System Software on ARM
+		processors") to bring CPUs into the kernel.
+
+		The device tree should contain a 'psci' node, as described in
+		Documentation/devicetree/bindings/arm/psci.yaml.
+
+		- Secondary CPU general-purpose register settings
+		x0 = 0 (reserved for future use)
+		x1 = 0 (reserved for future use)
+		x2 = 0 (reserved for future use)
+		x3 = 0 (reserved for future use)
+	*/
+
+	/* cpu0: cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a72";
+			reg = <0>;
+			enable-method = "spin-table";
+			cpu-release-addr = <0x0 0x000000d8>;
+		};
+
+		cpu1: cpu@1 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a72";
+			reg = <1>;
+			enable-method = "spin-table";
+			cpu-release-addr = <0x0 0x000000e0>;
+		};
+
+		cpu2: cpu@2 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a72";
+			reg = <2>;
+			enable-method = "spin-table";
+			cpu-release-addr = <0x0 0x000000e8>;
+		};
+
+		cpu3: cpu@3 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a72";
+			reg = <3>;
+			enable-method = "spin-table";
+			cpu-release-addr = <0x0 0x000000f0>;
+		}; */
+	/****************************************************/	
+	mov x0, #0
+	adr x0, configure_el1
+
+	mov x1, #0xe0
+	str x0, [x1]
+	mov x1, #0xe8
+	str x0, [x1]	
+	mov x1, #0xf0
+	str x0, [x1]
+
+configure_el1:
+	ldr	x0, =SCTLR_VALUE_MMU_DISABLED
+	msr	sctlr_el1, x0
+
+	ldr	x0, =HCR_VALUE
+	msr	hcr_el2, x0
+
+
+	ldr x0, =CPACR_EL1_MASK
+	msr cpacr_el1, x0
+
+  	ldr    x0, =SPSR_VALUE
+    msr    spsr_el2, x0
+
+	adr    x0, master
+    msr    elr_el2, x0
+
+	eret
+
+master:
+	mrs	x0, mpidr_el1
+	and	x0, x0, #0x3
+
+	mov	x1, #SECTION_SIZE
+	mul	x1, x1, x0
+	add	x1, x1, #LOW_MEMORY
+	mov	sp, x1
+
+	bl	kernel_main
+	b 	proc_hang	
+
