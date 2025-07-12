@@ -1933,3 +1933,51 @@ Write 32 bits [0xffffffc0815820d8]    GICC_APR2
 Write 32 bits [0xffffffc0815820dc]    GICC_APR3
 Write 32 bits [0xffffffc081583000]    GICC_DIR
 ```
+
+### Circle writes
+
+```
+write32 (GICD_CTLR, GICD_CTLR_DISABLE);
+		write32 (GICD_ICENABLER0 + 4*n, ~0);
+		write32 (GICD_ICPENDR0   + 4*n, ~0);
+		write32 (GICD_ICACTIVER0 + 4*n, ~0);
+
+		write32 (GICD_IPRIORITYR0 + 4*n,   GICD_IPRIORITYR_DEFAULT
+						 | GICD_IPRIORITYR_DEFAULT << 8
+						 | GICD_IPRIORITYR_DEFAULT << 16
+						 | GICD_IPRIORITYR_DEFAULT << 24);
+
+		write32 (GICD_ITARGETSR0 + 4*n,   GICD_ITARGETSR_CORE0
+						| GICD_ITARGETSR_CORE0 << 8
+						| GICD_ITARGETSR_CORE0 << 16
+						| GICD_ITARGETSR_CORE0 << 24);
+
+        write32 (GICD_ICFGR0 + 4*n, 0);
+
+write32 (GICD_CTLR, GICD_CTLR_ENABLE);
+
+write32 (GICC_PMR, GICC_PMR_PRIORITY);
+write32 (GICC_CTLR, GICC_CTLR_ENABLE);
+
+        write32 (GICD_ISENABLER0 + 4 * (nIRQ / 32), 1 << (nIRQ % 32));
+
+
+
+```
+
+These are the linux / spectrum4 differences:
+
+linux:     0x0ff841000: 0x00000001 // GICD_CTLR - non-secure banked copy - interrupts forwarded (Group 1)
+spectrum4: 0x0ff841000: 0x00000000 // GICD_CTLR - Distributor disabled
+
+0x0ff841100-0x0ff841114: GICD_ISENABLER0/1/2/3/4/5
+0x0ff841180-0x0ff841194: GICD_ICENABLER0/1/2/3/4/5
+
+0x0ff841400-0x0ff8414fc: GICD_IPRIORITYR00-3f
+
+GICD_ITARGETSRn
+GICD_ICFGR08 (interrupt 128, 0x80) => edge-triggered
+0x0ff841d00 GICD_PPISR (PPI interrupt 31, 0x1f nLEGACYIRQ active in spectrum4, inactive in linux)
+GICD_SPISR3 / GICD_SPISR5 
+
+0x0ff842000: GICC_CTLR EOImodeNS: 0b1 in linux, 0b0 in spectrum4

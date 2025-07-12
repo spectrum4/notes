@@ -41092,32 +41092,39 @@ Disassembly of section .text:
    a6de8:	a90153f3 	stp	x19, x20, [sp, #16]
    a6dec:	aa0003f3 	mov	x19, x0
    a6df0:	f9400000 	ldr	x0, [x0]
-   a6df4:	b40004c0 	cbz	x0, a6e8c <CTimer::Initialize()+0xac>
+   a6df4:	b40004c0 	cbz	x0, a6e8c <CTimer::Initialize()+0xac>          // assertion failure
+
+
    a6df8:	aa1303e3 	mov	x3, x19
-   a6dfc:	528003c1 	mov	w1, #0x1e                  	// #30
+   a6dfc:	528003c1 	mov	w1, #0x1e                  	// #30             // connect interrupt 30 (0x1e)
    a6e00:	90000002 	adrp	x2, a6000 <halt+0x10>
    a6e04:	91340042 	add	x2, x2, #0xd00
    a6e08:	94000fc6 	bl	aad20 <CInterruptSystem::ConnectIRQ(unsigned int, void (*)(void*), void*)>
-   a6e0c:	d53be001 	mrs	x1, cntfrq_el0
+
+
+   a6e0c:	d53be001 	mrs	x1, cntfrq_el0                                 // x1 = clock freq
    a6e10:	d28b8520 	mov	x0, #0x5c29                	// #23593
    a6e14:	f2b851e0 	movk	x0, #0xc28f, lsl #16
    a6e18:	f2c51ea0 	movk	x0, #0x28f5, lsl #32
-   a6e1c:	f2f1eb80 	movk	x0, #0x8f5c, lsl #48
+   a6e1c:	f2f1eb80 	movk	x0, #0x8f5c, lsl #48                       // x0 = 0x8f5c28f5c28f5c29
    a6e20:	d291eb82 	mov	x2, #0x8f5c                	// #36700
-   a6e24:	f2beb842 	movk	x2, #0xf5c2, lsl #16
-   a6e28:	9b007c20 	mul	x0, x1, x0
+   a6e24:	f2beb842 	movk	x2, #0xf5c2, lsl #16                       // x2 = 0xf5c28f5c
+   a6e28:	9b007c20 	mul	x0, x1, x0                                     // x0 = clock_freq * 0x8f5c28f5c28f5c29
    a6e2c:	f2cb8502 	movk	x2, #0x5c28, lsl #32
-   a6e30:	f2e051e2 	movk	x2, #0x28f, lsl #48
-   a6e34:	93c00800 	ror	x0, x0, #2
+   a6e30:	f2e051e2 	movk	x2, #0x28f, lsl #48                        // x2 = 0x028f5c28f5c28f5c
+   a6e34:	93c00800 	ror	x0, x0, #2                                     // x0 = (clock_freq * 0x8f5c28f5c28f5c2a)/4 + 2^62 * ((clock_freq * 0x8f5c28f5c28f5c2a) % 3)
+
    a6e38:	eb02001f 	cmp	x0, x2
-   a6e3c:	54000348 	b.hi	a6ea4 <CTimer::Initialize()+0xc4>  // b.pmore
+   a6e3c:	54000348 	b.hi	a6ea4 <CTimer::Initialize()+0xc4>  // b.pmore      // assertion failed
+
+
    a6e40:	d29eb860 	mov	x0, #0xf5c3                	// #62915
    a6e44:	f2ab8500 	movk	x0, #0x5c28, lsl #16
    a6e48:	d342fc21 	lsr	x1, x1, #2
    a6e4c:	f2d851e0 	movk	x0, #0xc28f, lsl #32
    a6e50:	f2e51ea0 	movk	x0, #0x28f5, lsl #48
    a6e54:	9bc07c21 	umulh	x1, x1, x0
-   a6e58:	d342fc21 	lsr	x1, x1, #2
+   a6e58:	d342fc21 	lsr	x1, x1, #2                                     // x1 = clock freq / 100
    a6e5c:	b9000a61 	str	w1, [x19, #8]
    a6e60:	d53be020 	mrs	x0, cntpct_el0
    a6e64:	8b214001 	add	x1, x0, w1, uxtw
@@ -41130,12 +41137,17 @@ Disassembly of section .text:
    a6e80:	a94153f3 	ldp	x19, x20, [sp, #16]
    a6e84:	a8c27bfd 	ldp	x29, x30, [sp], #32
    a6e88:	d65f03c0 	ret
+
+
+
+
    a6e8c:	f0000061 	adrp	x1, b5000 <_etext+0x4158>
    a6e90:	f0000060 	adrp	x0, b5000 <_etext+0x4158>
    a6e94:	91104021 	add	x1, x1, #0x410
    a6e98:	9110c000 	add	x0, x0, #0x430
    a6e9c:	52800c82 	mov	w2, #0x64                  	// #100
    a6ea0:	97ffdba8 	bl	9dd40 <assertion_failed>
+
    a6ea4:	f0000061 	adrp	x1, b5000 <_etext+0x4158>
    a6ea8:	f0000060 	adrp	x0, b5000 <_etext+0x4158>
    a6eac:	91104021 	add	x1, x1, #0x410
