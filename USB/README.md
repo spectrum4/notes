@@ -1981,3 +1981,96 @@ GICD_ICFGR08 (interrupt 128, 0x80) => edge-triggered
 GICD_SPISR3 / GICD_SPISR5 
 
 0x0ff842000: GICC_CTLR EOImodeNS: 0b1 in linux, 0b0 in spectrum4
+
+
+# XHCI setup in circle
+
+1) Init PCIe Host Bridge
+2) Mailbox request (tag 0x30058) to reset xHC
+3) Connect MSI
+
+    assert (msi->rev >= BRCM_PCIE_HW_REV_33);
+    /*
+     * ffe0 -- least sig 5 bits are 0 indicating 32 msgs
+     * 6540 -- this is our arbitrary unique data value
+     */
+    u32 data_val = 0xffe06540;
+
+    /*
+     * Make sure we are not masking MSIs. Note that MSIs can be masked,
+     * but that occurs on the PCIe EP device
+     */
+    bcm_writel(0xffffffff, msi->intr_base + MASK_CLR);
+
+    u32 msi_lo = lower_32_bits(msi->target_addr);
+    u32 msi_hi = upper_32_bits(msi->target_addr);
+    /*
+     * The 0 bit of PCIE_MISC_MSI_BAR_CONFIG_LO is repurposed to MSI
+     * enable, which we set to 1.
+     */
+    bcm_writel(msi_lo | 1, msi->base + PCIE_MISC_MSI_BAR_CONFIG_LO);
+    bcm_writel(msi_hi, msi->base + PCIE_MISC_MSI_BAR_CONFIG_HI);
+    bcm_writel(data_val, msi->base + PCIE_MISC_MSI_DATA_CONFIG);
+
+4) Enable Device 0xC0330
+
+    write8 (conf + PCI_CACHE_LINE_SIZE, 64/4);    // TODO: get this from cache config
+
+    write32 (conf + PCI_BASE_ADDRESS_0,   lower_32_bits (MEM_PCIE_RANGE_PCIE_START)
+                        | PCI_BASE_ADDRESS_MEM_TYPE_64);
+    write32 (conf + PCI_BASE_ADDRESS_1, upper_32_bits (MEM_PCIE_RANGE_PCIE_START));
+
+    uintptr msi_conf = find_pci_capability (conf, PCI_CAP_ID_MSI);
+    if (!msi_conf)
+        return -1;
+
+    write32 (msi_conf + PCI_MSI_ADDRESS_LO, lower_32_bits (m_msi_target_addr));
+    write32 (msi_conf + PCI_MSI_ADDRESS_HI, upper_32_bits (m_msi_target_addr));
+    write16 (msi_conf + PCI_MSI_DATA_64, 0x6540);
+
+    u8 uchQueueSize = (read8 (msi_conf + PCI_MSI_FLAGS) & PCI_MSI_FLAGS_QMASK) >> 1;
+    write8 (msi_conf + PCI_MSI_FLAGS,   PCI_MSI_FLAGS_ENABLE
+                      | PCI_MSI_FLAGS_64BIT
+                      | uchQueueSize << 4);
+
+    write16 (conf + PCI_COMMAND,   PCI_COMMAND_MEMORY
+                     | PCI_COMMAND_MASTER
+                     | PCI_COMMAND_PARITY
+                     | PCI_COMMAND_SERR
+                     | PCI_COMMAND_INTX_DISABLE);
+
+
+
+
+5) Check read16[0x6_0000_0002] = 0x100
+6) Ensure 32 (number of slots) <= read32(cap(0x04))&0xff (max slots)
+7) Ensure 5 (number of ports) >= read32(cap(0x04))&0xff000000 (max ports)
+8) Ensure read32(cap(0x08))&0xf8000000 (max scratchpads) read32(cap(0x10) ....
+9) Call HWReset()
+
+ if ( !m_pMMIO->op_wait32 (0x04, (1 << 11), 0, 100000)
+     || !m_pMMIO->op_wait32 (0x04, (1 << 0),
+        (1 << 0), 100000))
+ {
+  return false;
+ }
+ m_pMMIO->op_write32 (0x00, m_pMMIO->op_read32 (0x00)
+       | (1 << 1));
+ if (!m_pMMIO->op_wait32 (0x00, (1 << 1), 0, 20000))
+ {
+  return false;
+ }
+ ( __builtin_expect (!!(!(m_pMMIO->op_read32 (0x04) & (1 << 11))), 1) ? ((void) 0) : assertion_failed ("!(m_pMMIO->op_read32 (XHCI_REG_OP_USBSTS) & XHCI_REG_OP_USBSTS_CNR)", "xhcidevice.cpp", 471));
+ return true;
+
+10) Ensure read32(cap(0x08)) (page size stuff)
+11) Create slot manager
+12) Create event manager
+13) Create command manager
+14) Check all 3 managers are valid
+15) Allocate scratch pad buffers
+16) Init scratch pad array
+17) Call AssignScratchpadBufferArray
+18) Create Root Hub
+19) Start controller (USBCMD): set INTE bit, set RUN-STOP bit
+20) init root hub
