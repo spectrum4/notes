@@ -1026,7 +1026,66 @@ Endpoint Context 1 IN
 0x00000000 0b00000000000000000000000000000000
 0x00000000 0b00000000000000000000000000000000
 
-EP State = 1
+EP State = 1 (Running)
+Mult = 0
+MaxPStreams = 0
+LSA = 0
+Interval = 11 (=> 256 ms)
+Max ESIT Payload = 1
+CErr = 3
+EP Type = 7
+HID = 0
+Max Burst Size = 0
+Max Packet Size = 1
+DCS = 1
+TR Dequeue Pointer = 0x400623900
+Aberage TRB length = 16
+
+
+
+
+
+inputcontext: Dumping 0x420 bytes starting at 0x933000
+
+Input Control Context
+
+inputcontext: 3000: 00 00 00 00 03 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3010: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+
+A0: 1
+A1: 1
+
+
+Slot Context
+
+inputcontext: 3020: 00 00 30 08 00 00 01 00-00 00 00 00 00 00 00 00
+inputcontext: 3030: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+
+0x08300000 0b00001 0 0 0 0011 00000000000000000000
+0x00010000 0b00000000 00000001 0000000000000000
+
+Context Entries = 1
+Hub = 0
+MTT (Multiple TT support) = 0 (disabled)
+Speed = 3
+Route String = 0
+Number of Ports = 0
+Root Hub Port Number = 1
+
+
+
+Endpoint Context
+
+inputcontext: 3040: 00 00 00 00 26 00 40 00-81 28 62 00 04 00 00 00
+inputcontext: 3050: 08 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+
+0x00000000 0b00000000 00000000 0 00000 00 00000 000
+0x00400026 0b0000000001000000 00000000 0 0 100 11 0
+0x00622881 0b0000000001100010001010001000 000 1
+0x00000004 0b00000000000000000000000000000100
+0x00000008 0b0000000000000000 0000000000001000
+
+EP State = 0 (Disabled)
 Mult = 0
 MaxPStreams = 0
 LSA = 0
