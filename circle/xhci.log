@@ -43,6 +43,73 @@ xhciroot: Port 1 status is 0x40200E03
 xhcicmd: Execute command 9 (control 0x2400)
 xhci: MSI0
 xhcicmd: Command 9 completed with 1 (slot 1)
+inputcontext: Dumping 0x420 bytes starting at 0x933000
+inputcontext: 3000: 00 00 00 00 03 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3010: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3020: 00 00 30 08 00 00 01 00-00 00 00 00 00 00 00 00
+inputcontext: 3030: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3040: 00 00 00 00 26 00 40 00-81 28 62 00 04 00 00 00
+inputcontext: 3050: 08 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3060: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3070: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3080: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3090: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 30A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 30B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 30C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 30D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 30E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 30F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3100: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3110: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3120: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3130: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3140: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3150: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3160: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3170: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3180: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3190: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 31A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 31B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 31C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 31D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 31E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 31F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3200: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3210: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3220: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3230: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3240: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3250: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3260: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3270: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3280: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3290: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 32A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 32B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 32C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 32D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 32E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 32F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3300: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3310: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3320: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3330: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3340: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3350: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3360: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3370: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3380: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3390: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 33A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 33B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 33C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 33D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 33E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 33F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3400: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3410: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcicmd: Execute command 11 (control 0x1002C00)
 xhci: MSI0
 xhcicmd: Command 11 completed with 1 (slot 1)
@@ -91,6 +158,73 @@ xhciep: Transfer event on endpoint 1 (completion 1, length 0)
 xhcicmd: Execute command 9 (control 0x2400)
 xhci: MSI0
 xhcicmd: Command 9 completed with 1 (slot 2)
+inputcontext: Dumping 0x420 bytes starting at 0x933000
+inputcontext: 3000: 00 00 00 00 03 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3010: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3020: 04 00 20 08 00 00 01 00-01 04 00 00 00 00 00 00
+inputcontext: 3030: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3040: 00 00 00 00 26 00 08 00-41 41 62 00 04 00 00 00
+inputcontext: 3050: 08 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3060: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3070: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3080: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3090: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 30A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 30B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 30C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 30D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 30E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 30F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3100: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3110: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3120: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3130: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3140: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3150: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3160: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3170: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3180: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3190: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 31A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 31B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 31C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 31D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 31E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 31F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3200: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3210: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3220: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3230: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3240: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3250: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3260: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3270: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3280: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3290: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 32A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 32B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 32C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 32D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 32E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 32F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3300: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3310: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3320: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3330: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3340: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3350: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3360: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3370: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3380: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3390: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 33A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 33B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 33C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 33D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 33E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 33F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3400: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+inputcontext: 3410: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcicmd: Execute command 11 (control 0x2002C00)
 xhci: MSI0
 xhcicmd: Command 11 completed with 1 (slot 2)
@@ -117,6 +251,7 @@ xhciep: Transfer event on endpoint 1 (completion 1, length 0)
 xhci: MSI0
 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
 xhci: MSI0
+xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
 usbhub: Port 4: Device configured
 xhci: MSI0
@@ -130,8 +265,6 @@ xhciep: Transfer event on endpoint 1 (completion 1, length 0)
 xhci: MSI0
 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
 xhciroot: Port 1: Device configured
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 xhciroot: Port 1: Status 0x40000E03, Info 0x0
 xhcidev: Dumping 0x100 bytes starting at 0x6230C0
 xhcidev: 30C0: 00 00 30 18 00 00 01 00-00 00 00 00 01 00 00 18
@@ -144,8 +277,6 @@ xhcidev: 3120: 01 00 0B 00 3E 00 01 00-01 39 62 00 04 00 00 00
 xhcidev: 3130: 10 00 01 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcidev: 3140: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcidev: 3150: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 xhcidev: 3160: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcidev: 3170: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcidev: 3180: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
@@ -161,19 +292,21 @@ xhciep: 28B0: 80 06 00 01 00 00 12 00-08 00 00 00 41 08 03 00
 xhciep: 28C0: C0 0B 93 00 04 00 00 00-12 00 00 00 01 0C 01 00
 xhciep: 28D0: 00 00 00 00 00 00 00 00-00 00 00 00 21 10 00 00
 xhciep: 28E0: 80 06 00 02 00 00 09 00-08 00 00 00 41 08 03 00
-xhciep: 28F0: 40 1D 93 00 04 00 00 00-09 00 00 00 01 0C 01 00
+xhciep: 28F0: C0 1D 93 00 04 00 00 00-09 00 00 00 01 0C 01 00
 xhciep: 2900: 00 00 00 00 00 00 00 00-00 00 00 00 21 10 00 00
 xhciep: 2910: 80 06 00 02 00 00 19 00-08 00 00 00 41 08 03 00
-xhciep: 2920: 40 1D 93 00 04 00 00 00-19 00 00 00 01 0C 01 00
+xhciep: 2920: C0 1D 93 00 04 00 00 00-19 00 00 00 01 0C 01 00
 xhciep: 2930: 00 00 00 00 00 00 00 00-00 00 00 00 21 10 00 00
 xhciep: 2940: A0 06 00 29 00 00 09 00-08 00 00 00 41 08 03 00
-xhciep: 2950: 00 05 93 00 04 00 00 00-09 00 00 00 01 0C 01 00
+xhciep: 2950: 80 05 93 00 04 00 00 00-09 00 00 00 01 0C 01 00
 xhciep: 2960: 00 00 00 00 00 00 00 00-00 00 00 00 21 10 00 00
 xhciep: 2970: 00 09 01 00 00 00 00 00-08 00 00 00 41 08 00 00
 xhciep: 2980: 00 00 00 00 00 00 00 00-00 00 00 00 21 10 01 00
 xhciep: 2990: 23 03 08 00 01 00 00 00-08 00 00 00 41 08 00 00
 xhciep: 29A0: 00 00 00 00 00 00 00 00-00 00 00 00 21 10 01 00
 xhciep: 29B0: 23 03 08 00 02 00 00 00-08 00 00 00 41 08 00 00
+xhci: MSI0
+xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 xhciep: 29C0: 00 00 00 00 00 00 00 00-00 00 00 00 21 10 01 00
 xhciep: 29D0: 23 03 08 00 03 00 00 00-08 00 00 00 41 08 00 00
 xhciep: 29E0: 00 00 00 00 00 00 00 00-00 00 00 00 21 10 01 00
@@ -202,6 +335,8 @@ xhciep: 2B40: 00 00 00 00 00 00 00 00-00 00 00 00 21 10 00 00
 xhciep: 2B50: A3 00 00 00 01 00 04 00-08 00 00 00 41 08 03 00
 xhciep: 2B60: 80 81 93 00 04 00 00 00-04 00 00 00 01 0C 01 00
 xhciep: 2B70: 00 00 00 00 00 00 00 00-00 00 00 00 21 10 00 00
+xhci: MSI0
+xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 xhciep: 2B80: A3 00 00 00 02 00 04 00-08 00 00 00 41 08 03 00
 xhciep: 2B90: 80 82 93 00 04 00 00 00-04 00 00 00 01 0C 01 00
 xhciep: 2BA0: 00 00 00 00 00 00 00 00-00 00 00 00 21 10 00 00
@@ -224,8 +359,6 @@ xhciep: Dumping 0x400 bytes starting at 0x623900
 xhciep: 3900: 40 AE 93 00 04 00 00 00-01 00 00 00 21 04 00 00
 xhciep: 3910: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhciep: 3920: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 xhciep: 3930: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhciep: 3940: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhciep: 3950: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
@@ -282,6 +415,8 @@ xhciep: 3C70: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhciep: 3C80: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhciep: 3C90: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhciep: 3CA0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+xhci: MSI0
+xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 xhciep: 3CB0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhciep: 3CC0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhciep: 3CD0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
@@ -291,7 +426,7 @@ xhciroot: Port 2: Status 0x2A0, Info 0x0
 xhciroot: Port 3: Status 0x2A0, Info 0x0
 xhciroot: Port 4: Status 0x2A0, Info 0x0
 xhciroot: Port 5: Status 0x2A0, Info 0x0
-xhcievt: Count 64, Dequeue 41, Cycle 1
+xhcievt: Count 64, Dequeue 42, Cycle 1
 xhcievt: Dumping 0x400 bytes starting at 0x600880
 xhcievt: 0880: 00 00 00 01 00 00 00 00-00 00 00 01 01 88 00 00
 xhcievt: 0890: 00 00 00 01 00 00 00 00-00 00 00 01 01 88 00 00
@@ -305,8 +440,6 @@ xhcievt: 0900: 60 29 62 00 04 00 00 00-00 00 00 01 01 80 01 01
 xhcievt: 0910: 20 19 60 00 04 00 00 00-00 00 00 01 01 84 00 01
 xhcievt: 0920: 80 29 62 00 04 00 00 00-00 00 00 01 01 80 01 01
 xhcievt: 0930: 30 19 60 00 04 00 00 00-00 00 00 01 01 84 00 01
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 xhcievt: 0940: A0 29 62 00 04 00 00 00-00 00 00 01 01 80 01 01
 xhcievt: 0950: C0 29 62 00 04 00 00 00-00 00 00 01 01 80 01 01
 xhcievt: 0960: E0 29 62 00 04 00 00 00-00 00 00 01 01 80 01 01
@@ -327,14 +460,14 @@ xhcievt: 0A40: 10 42 62 00 04 00 00 00-00 00 00 01 01 80 01 02
 xhcievt: 0A50: 60 19 60 00 04 00 00 00-00 00 00 01 01 84 00 02
 xhcievt: 0A60: 30 42 62 00 04 00 00 00-00 00 00 01 01 80 01 02
 xhcievt: 0A70: 60 42 62 00 04 00 00 00-00 00 00 01 01 80 01 02
-xhcievt: 0A80: 90 42 62 00 04 00 00 00-00 00 00 01 01 80 01 02
-xhcievt: 0A90: 40 2B 62 00 04 00 00 00-00 00 00 01 01 80 01 01
-xhcievt: 0AA0: 70 2B 62 00 04 00 00 00-00 00 00 01 01 80 01 01
-xhcievt: 0AB0: A0 2B 62 00 04 00 00 00-00 00 00 01 01 80 01 01
-xhcievt: 0AC0: D0 2B 62 00 04 00 00 00-00 00 00 01 01 80 01 01
-xhcievt: 0AD0: 00 2C 62 00 04 00 00 00-00 00 00 01 01 80 01 01
-xhcievt: 0AE0: 00 39 62 00 04 00 00 00-00 00 00 01 01 80 03 01
-xhcievt: 0AF0: C0 51 62 00 04 00 00 00-00 00 00 01 01 80 03 02
+xhcievt: 0A80: C0 51 62 00 04 00 00 00-00 00 00 01 01 80 03 02
+xhcievt: 0A90: 90 42 62 00 04 00 00 00-00 00 00 01 01 80 01 02
+xhcievt: 0AA0: 40 2B 62 00 04 00 00 00-00 00 00 01 01 80 01 01
+xhcievt: 0AB0: 70 2B 62 00 04 00 00 00-00 00 00 01 01 80 01 01
+xhcievt: 0AC0: A0 2B 62 00 04 00 00 00-00 00 00 01 01 80 01 01
+xhcievt: 0AD0: D0 2B 62 00 04 00 00 00-00 00 00 01 01 80 01 01
+xhcievt: 0AE0: 00 2C 62 00 04 00 00 00-00 00 00 01 01 80 01 01
+xhcievt: 0AF0: 00 39 62 00 04 00 00 00-00 00 00 01 01 80 03 01
 xhcievt: 0B00: D0 51 62 00 04 00 00 00-00 00 00 01 01 80 03 02
 xhcievt: 0B10: E0 51 62 00 04 00 00 00-00 00 00 01 01 80 03 02
 xhcievt: 0B20: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
@@ -363,6 +496,8 @@ xhcicmd: Count 64, Enqueue 7, Cycle 1
 xhcicmd: Dumping 0x400 bytes starting at 0x601900
 xhcicmd: 1900: 00 00 00 00 00 00 00 00-00 00 00 00 01 24 00 00
 xhcicmd: 1910: 00 30 93 00 04 00 00 00-00 00 00 00 01 2C 00 01
+xhci: MSI0
+xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 xhcicmd: 1920: 00 30 93 00 04 00 00 00-00 00 00 00 01 34 00 01
 xhcicmd: 1930: 00 30 93 00 04 00 00 00-00 00 00 00 01 30 00 01
 xhcicmd: 1940: 00 00 00 00 00 00 00 00-00 00 00 00 01 24 00 00
@@ -384,8 +519,6 @@ xhcicmd: 1A30: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcicmd: 1A40: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcicmd: 1A50: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcicmd: 1A60: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 xhcicmd: 1A70: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcicmd: 1A80: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcicmd: 1A90: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
@@ -441,6 +574,8 @@ xhcidcbaa: 00D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcidcbaa: 00E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcidcbaa: 00F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcidcbaa: 0100: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+xhci: MSI0
+xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 xhcidcbaa: 0110: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcidcbaa: 0120: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcidcbaa: 0130: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
@@ -455,7 +590,7 @@ xhciop: 0040: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhciop: 0050: 40 00 60 00 04 00 00 00-20 00 00 00 00 00 00 00
 xhciir0: Dumping 0x20 bytes starting at 0x600000220
 xhciir0: 0220: 02 00 00 00 F4 01 00 00-01 00 00 00 00 00 00 00
-xhciir0: 0230: C0 10 60 00 04 00 00 00-30 0B 60 00 04 00 00 00
+xhciir0: 0230: C0 10 60 00 04 00 00 00-40 0B 60 00 04 00 00 00
 pcie: Bridge status is 0x10
 pcie: Device status is 0x10
 xhci: 2921 KB shared memory free
@@ -464,8 +599,6 @@ xhcidev: Dumping 0x100 bytes starting at 0x6230C0
 xhcidev: 30C0: 00 00 30 18 00 00 01 00-00 00 00 00 01 00 00 18
 xhcidev: 30D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcidev: 30E0: 01 00 00 00 26 00 40 00-81 28 62 00 04 00 00 00
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 xhcidev: 30F0: 08 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcidev: 3100: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcidev: 3110: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
@@ -488,13 +621,13 @@ xhciep: 28B0: 80 06 00 01 00 00 12 00-08 00 00 00 41 08 03 00
 xhciep: 28C0: C0 0B 93 00 04 00 00 00-12 00 00 00 01 0C 01 00
 xhciep: 28D0: 00 00 00 00 00 00 00 00-00 00 00 00 21 10 00 00
 xhciep: 28E0: 80 06 00 02 00 00 09 00-08 00 00 00 41 08 03 00
-xhciep: 28F0: 40 1D 93 00 04 00 00 00-09 00 00 00 01 0C 01 00
+xhciep: 28F0: C0 1D 93 00 04 00 00 00-09 00 00 00 01 0C 01 00
 xhciep: 2900: 00 00 00 00 00 00 00 00-00 00 00 00 21 10 00 00
 xhciep: 2910: 80 06 00 02 00 00 19 00-08 00 00 00 41 08 03 00
-xhciep: 2920: 40 1D 93 00 04 00 00 00-19 00 00 00 01 0C 01 00
+xhciep: 2920: C0 1D 93 00 04 00 00 00-19 00 00 00 01 0C 01 00
 xhciep: 2930: 00 00 00 00 00 00 00 00-00 00 00 00 21 10 00 00
 xhciep: 2940: A0 06 00 29 00 00 09 00-08 00 00 00 41 08 03 00
-xhciep: 2950: 00 05 93 00 04 00 00 00-09 00 00 00 01 0C 01 00
+xhciep: 2950: 80 05 93 00 04 00 00 00-09 00 00 00 01 0C 01 00
 xhciep: 2960: 00 00 00 00 00 00 00 00-00 00 00 00 21 10 00 00
 xhciep: 2970: 00 09 01 00 00 00 00 00-08 00 00 00 41 08 00 00
 xhciep: 2980: 00 00 00 00 00 00 00 00-00 00 00 00 21 10 01 00
@@ -522,6 +655,8 @@ xhciep: 2AD0: 23 03 04 00 04 00 00 00-08 00 00 00 41 08 00 00
 xhciep: 2AE0: 00 00 00 00 00 00 00 00-00 00 00 00 21 10 01 00
 xhciep: 2AF0: A3 00 00 00 04 00 04 00-08 00 00 00 41 08 03 00
 xhciep: 2B00: C0 89 93 00 04 00 00 00-04 00 00 00 01 0C 01 00
+xhci: MSI0
+xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 xhciep: 2B10: 00 00 00 00 00 00 00 00-00 00 00 00 21 10 00 00
 xhciep: 2B20: A0 00 00 00 00 00 04 00-08 00 00 00 41 08 03 00
 xhciep: 2B30: 40 AE 93 00 04 00 00 00-04 00 00 00 01 0C 01 00
@@ -544,8 +679,6 @@ xhciep: 2C30: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhciep: 2C40: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhciep: 2C50: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhciep: 2C60: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 xhciep: 2C70: 80 28 62 00 04 00 00 00-00 00 00 00 02 18 00 00
 xhciep: Endpoint 3 (addr 0x81, attr 0x3, maxpkt 1, interval 11)
 xhciep: Count 64, Enqueue 1, Cycle 1
@@ -600,6 +733,8 @@ xhciep: 3BE0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhciep: 3BF0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhciep: 3C00: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhciep: 3C10: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+xhci: MSI0
+xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 xhciep: 3C20: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhciep: 3C30: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhciep: 3C40: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
@@ -618,13 +753,11 @@ xhciroot: Port 2: Status 0x2A0, Info 0x0
 xhciroot: Port 3: Status 0x2A0, Info 0x0
 xhciroot: Port 4: Status 0x2A0, Info 0x0
 xhciroot: Port 5: Status 0x2A0, Info 0x0
-xhcievt: Count 64, Dequeue 45, Cycle 1
+xhcievt: Count 64, Dequeue 46, Cycle 1
 xhcievt: Dumping 0x400 bytes starting at 0x600880
 xhcievt: 0880: 00 00 00 01 00 00 00 00-00 00 00 01 01 88 00 00
 xhcievt: 0890: 00 00 00 01 00 00 00 00-00 00 00 01 01 88 00 00
 xhcievt: 08A0: 00 19 60 00 04 00 00 00-00 00 00 01 01 84 00 01
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 xhcievt: 08B0: 10 19 60 00 04 00 00 00-00 00 00 01 01 84 00 01
 xhcievt: 08C0: A0 28 62 00 04 00 00 00-00 00 00 01 01 80 01 01
 xhcievt: 08D0: D0 28 62 00 04 00 00 00-00 00 00 01 01 80 01 01
@@ -654,14 +787,14 @@ xhcievt: 0A40: 10 42 62 00 04 00 00 00-00 00 00 01 01 80 01 02
 xhcievt: 0A50: 60 19 60 00 04 00 00 00-00 00 00 01 01 84 00 02
 xhcievt: 0A60: 30 42 62 00 04 00 00 00-00 00 00 01 01 80 01 02
 xhcievt: 0A70: 60 42 62 00 04 00 00 00-00 00 00 01 01 80 01 02
-xhcievt: 0A80: 90 42 62 00 04 00 00 00-00 00 00 01 01 80 01 02
-xhcievt: 0A90: 40 2B 62 00 04 00 00 00-00 00 00 01 01 80 01 01
-xhcievt: 0AA0: 70 2B 62 00 04 00 00 00-00 00 00 01 01 80 01 01
-xhcievt: 0AB0: A0 2B 62 00 04 00 00 00-00 00 00 01 01 80 01 01
-xhcievt: 0AC0: D0 2B 62 00 04 00 00 00-00 00 00 01 01 80 01 01
-xhcievt: 0AD0: 00 2C 62 00 04 00 00 00-00 00 00 01 01 80 01 01
-xhcievt: 0AE0: 00 39 62 00 04 00 00 00-00 00 00 01 01 80 03 01
-xhcievt: 0AF0: C0 51 62 00 04 00 00 00-00 00 00 01 01 80 03 02
+xhcievt: 0A80: C0 51 62 00 04 00 00 00-00 00 00 01 01 80 03 02
+xhcievt: 0A90: 90 42 62 00 04 00 00 00-00 00 00 01 01 80 01 02
+xhcievt: 0AA0: 40 2B 62 00 04 00 00 00-00 00 00 01 01 80 01 01
+xhcievt: 0AB0: 70 2B 62 00 04 00 00 00-00 00 00 01 01 80 01 01
+xhcievt: 0AC0: A0 2B 62 00 04 00 00 00-00 00 00 01 01 80 01 01
+xhcievt: 0AD0: D0 2B 62 00 04 00 00 00-00 00 00 01 01 80 01 01
+xhcievt: 0AE0: 00 2C 62 00 04 00 00 00-00 00 00 01 01 80 01 01
+xhcievt: 0AF0: 00 39 62 00 04 00 00 00-00 00 00 01 01 80 03 01
 xhcievt: 0B00: D0 51 62 00 04 00 00 00-00 00 00 01 01 80 03 02
 xhcievt: 0B10: E0 51 62 00 04 00 00 00-00 00 00 01 01 80 03 02
 xhcievt: 0B20: F0 51 62 00 04 00 00 00-00 00 00 01 01 80 03 02
@@ -680,6 +813,8 @@ xhcievt: 0BE0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcievt: 0BF0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcievt: 0C00: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcievt: 0C10: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+xhci: MSI0
+xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 xhcievt: 0C20: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcievt: 0C30: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcievt: 0C40: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
@@ -702,8 +837,6 @@ xhcicmd: 19A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcicmd: 19B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcicmd: 19C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcicmd: 19D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 xhcicmd: 19E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcicmd: 19F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcicmd: 1A00: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
@@ -759,6 +892,8 @@ xhcidcbaa: 0040: 40 20 62 00 04 00 00 00-C0 30 62 00 04 00 00 00
 xhcidcbaa: 0050: 80 49 62 00 04 00 00 00-00 00 00 00 00 00 00 00
 xhcidcbaa: 0060: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcidcbaa: 0070: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+xhci: MSI0
+xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 xhcidcbaa: 0080: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcidcbaa: 0090: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhcidcbaa: 00A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
@@ -780,15 +915,13 @@ xhciop: 0020: 05 00 00 00 00 00 00 00-01 00 00 00 00 00 00 00
 xhciop: 0030: 00 00 00 00 00 00 00 00-08 00 00 00 00 00 00 00
 xhciop: 0040: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
 xhciop: 0050: 40 00 60 00 04 00 00 00-20 00 00 00 00 00 00 00
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 xhciir0: Dumping 0x20 bytes starting at 0x600000220
 xhciir0: 0220: 02 00 00 00 F4 01 00 00-01 00 00 00 00 00 00 00
 xhciir0: 0230: C0 10 60 00 04 00 00 00-80 0B 60 00 04 00 00 00
 pcie: Bridge status is 0x10
 pcie: Device status is 0x10
 xhci: 2921 KB shared memory free
-kernel: Compile time: Sep 18 2025 10:48:44
+kernel: Compile time: Sep 18 2025 22:28:37
 kernel: Please attach an USB keyboard, if not already done!
 xhci: MSI0
 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
@@ -797,182 +930,6 @@ xhciep: Transfer event on endpoint 1 (completion 1, length 0)
 xhci: MSI0
 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
 kernel: Just type something!
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
-xhci: MSI0
-xhciep: Transfer event on endpoint 3 (completion 1, length 0)
 
 
 
