@@ -1,328 +1,5 @@
 logger: Circle 48 started on Raspberry Pi 400 4GB (AArch64)
 logger: Revision code is c03130, compiler has been GCC 11.3.1
-interruptgic: write32 [ff841100] = 40000000
-interruptgic: read32 [ff84200c] = 1e
-00:00:00.01 interruptgic: write32 [ff842010] = 1e
-00:00:00.01 interruptgic: read32 [ff84200c] = 1e
-00:00:00.02 interruptgic: write32 [ff842010] = 1e
-00:00:00.02 interruptgic: read32 [ff84200c] = 1e
-00:00:00.03 interruptgic: write32 [ff842010] = 1e
-00:00:00.03 interruptgic: read32 [ff84200c] = 1e
-00:00:00.04 interruptgic: write32 [ff842010] = 1e
-00:00:00.04 interruptgic: read32 [ff84200c] = 1e
-00:00:00.05 interruptgic: write32 [ff842010] = 1e
-00:00:00.05 interruptgic: read32 [ff84200c] = 1e
-00:00:00.06 interruptgic: write32 [ff842010] = 1e
-00:00:00.06 interruptgic: read32 [ff84200c] = 1e
-00:00:00.07 interruptgic: write32 [ff842010] = 1e
-00:00:00.07 interruptgic: read32 [ff84200c] = 1e
-00:00:00.08 interruptgic: write32 [ff842010] = 1e
-00:00:00.08 interruptgic: read32 [ff84200c] = 1e
-00:00:00.09 interruptgic: write32 [ff842010] = 1e
-00:00:00.09 interruptgic: read32 [ff84200c] = 1e
-00:00:00.10 interruptgic: write32 [ff842010] = 1e
-00:00:00.10 interruptgic: read32 [ff84200c] = 1e
-00:00:00.11 interruptgic: write32 [ff842010] = 1e
-00:00:00.11 interruptgic: read32 [ff84200c] = 1e
-00:00:00.12 interruptgic: write32 [ff842010] = 1e
-00:00:00.12 interruptgic: read32 [ff84200c] = 1e
-00:00:00.13 interruptgic: write32 [ff842010] = 1e
-00:00:00.13 interruptgic: read32 [ff84200c] = 1e
-00:00:00.14 interruptgic: write32 [ff842010] = 1e
-00:00:00.14 interruptgic: read32 [ff84200c] = 1e
-00:00:00.15 interruptgic: write32 [ff842010] = 1e
-00:00:00.15 interruptgic: read32 [ff84200c] = 1e
-00:00:00.16 interruptgic: write32 [ff842010] = 1e
-00:00:00.16 interruptgic: read32 [ff84200c] = 1e
-00:00:00.17 interruptgic: write32 [ff842010] = 1e
-00:00:00.17 interruptgic: read32 [ff84200c] = 1e
-00:00:00.18 interruptgic: write32 [ff842010] = 1e
-00:00:00.18 interruptgic: read32 [ff84200c] = 1e
-00:00:00.19 interruptgic: write32 [ff842010] = 1e
-00:00:00.19 interruptgic: read32 [ff84200c] = 1e
-00:00:00.20 interruptgic: write32 [ff842010] = 1e
-00:00:00.20 interruptgic: read32 [ff84200c] = 1e
-00:00:00.21 interruptgic: write32 [ff842010] = 1e
-00:00:00.21 interruptgic: read32 [ff84200c] = 1e
-00:00:00.22 interruptgic: write32 [ff842010] = 1e
-00:00:00.22 interruptgic: read32 [ff84200c] = 1e
-00:00:00.23 interruptgic: write32 [ff842010] = 1e
-00:00:00.23 interruptgic: read32 [ff84200c] = 1e
-00:00:00.24 interruptgic: write32 [ff842010] = 1e
-00:00:00.24 interruptgic: read32 [ff84200c] = 1e
-00:00:00.25 interruptgic: write32 [ff842010] = 1e
-00:00:00.25 interruptgic: read32 [ff84200c] = 1e
-00:00:00.26 interruptgic: write32 [ff842010] = 1e
-00:00:00.26 interruptgic: read32 [ff84200c] = 1e
-00:00:00.27 interruptgic: write32 [ff842010] = 1e
-00:00:00.27 interruptgic: read32 [ff84200c] = 1e
-00:00:00.28 interruptgic: write32 [ff842010] = 1e
-00:00:00.28 interruptgic: read32 [ff84200c] = 1e
-00:00:00.29 interruptgic: write32 [ff842010] = 1e
-00:00:00.29 interruptgic: read32 [ff84200c] = 1e
-00:00:00.30 interruptgic: write32 [ff842010] = 1e
-00:00:00.30 interruptgic: read32 [ff84200c] = 1e
-00:00:00.31 interruptgic: write32 [ff842010] = 1e
-00:00:00.31 interruptgic: read32 [ff84200c] = 1e
-00:00:00.32 interruptgic: write32 [ff842010] = 1e
-00:00:00.32 interruptgic: read32 [ff84200c] = 1e
-00:00:00.33 interruptgic: write32 [ff842010] = 1e
-00:00:00.33 interruptgic: read32 [ff84200c] = 1e
-00:00:00.34 interruptgic: write32 [ff842010] = 1e
-00:00:00.34 interruptgic: read32 [ff84200c] = 1e
-00:00:00.35 interruptgic: write32 [ff842010] = 1e
-00:00:00.35 interruptgic: read32 [ff84200c] = 1e
-00:00:00.36 interruptgic: write32 [ff842010] = 1e
-00:00:00.36 interruptgic: read32 [ff84200c] = 1e
-00:00:00.37 interruptgic: write32 [ff842010] = 1e
-00:00:00.37 interruptgic: read32 [ff84200c] = 1e
-00:00:00.38 interruptgic: write32 [ff842010] = 1e
-00:00:00.38 interruptgic: read32 [ff84200c] = 1e
-00:00:00.39 interruptgic: write32 [ff842010] = 1e
-00:00:00.39 interruptgic: read32 [ff84200c] = 1e
-00:00:00.40 interruptgic: write32 [ff842010] = 1e
-00:00:00.40 interruptgic: read32 [ff84200c] = 1e
-00:00:00.41 interruptgic: write32 [ff842010] = 1e
-00:00:00.41 interruptgic: read32 [ff84200c] = 1e
-00:00:00.42 interruptgic: write32 [ff842010] = 1e
-00:00:00.42 interruptgic: read32 [ff84200c] = 1e
-00:00:00.43 interruptgic: write32 [ff842010] = 1e
-00:00:00.43 interruptgic: read32 [ff84200c] = 1e
-00:00:00.44 interruptgic: write32 [ff842010] = 1e
-00:00:00.44 interruptgic: read32 [ff84200c] = 1e
-00:00:00.45 interruptgic: write32 [ff842010] = 1e
-00:00:00.45 interruptgic: read32 [ff84200c] = 1e
-00:00:00.46 interruptgic: write32 [ff842010] = 1e
-00:00:00.46 interruptgic: read32 [ff84200c] = 1e
-00:00:00.47 interruptgic: write32 [ff842010] = 1e
-00:00:00.47 interruptgic: read32 [ff84200c] = 1e
-00:00:00.48 interruptgic: write32 [ff842010] = 1e
-00:00:00.48 interruptgic: read32 [ff84200c] = 1e
-00:00:00.49 interruptgic: write32 [ff842010] = 1e
-00:00:00.49 interruptgic: read32 [ff84200c] = 1e
-00:00:00.50 interruptgic: write32 [ff842010] = 1e
-00:00:00.50 interruptgic: read32 [ff84200c] = 1e
-00:00:00.51 interruptgic: write32 [ff842010] = 1e
-00:00:00.51 interruptgic: read32 [ff84200c] = 1e
-00:00:00.52 interruptgic: write32 [ff842010] = 1e
-00:00:00.52 interruptgic: read32 [ff84200c] = 1e
-00:00:00.53 interruptgic: write32 [ff842010] = 1e
-00:00:00.53 interruptgic: read32 [ff84200c] = 1e
-00:00:00.54 interruptgic: write32 [ff842010] = 1e
-00:00:00.54 interruptgic: read32 [ff84200c] = 1e
-00:00:00.55 interruptgic: write32 [ff842010] = 1e
-00:00:00.55 interruptgic: read32 [ff84200c] = 1e
-00:00:00.56 interruptgic: write32 [ff842010] = 1e
-00:00:00.56 interruptgic: read32 [ff84200c] = 1e
-00:00:00.57 interruptgic: write32 [ff842010] = 1e
-00:00:00.57 interruptgic: read32 [ff84200c] = 1e
-00:00:00.58 interruptgic: write32 [ff842010] = 1e
-00:00:00.58 interruptgic: read32 [ff84200c] = 1e
-00:00:00.59 interruptgic: write32 [ff842010] = 1e
-00:00:00.59 interruptgic: read32 [ff84200c] = 1e
-00:00:00.60 interruptgic: write32 [ff842010] = 1e
-00:00:00.60 interruptgic: read32 [ff84200c] = 1e
-00:00:00.61 interruptgic: write32 [ff842010] = 1e
-00:00:00.61 interruptgic: read32 [ff84200c] = 1e
-00:00:00.62 interruptgic: write32 [ff842010] = 1e
-00:00:00.62 interruptgic: read32 [ff84200c] = 1e
-00:00:00.63 interruptgic: write32 [ff842010] = 1e
-00:00:00.63 interruptgic: read32 [ff84200c] = 1e
-00:00:00.64 interruptgic: write32 [ff842010] = 1e
-00:00:00.64 interruptgic: read32 [ff84200c] = 1e
-00:00:00.65 interruptgic: write32 [ff842010] = 1e
-00:00:00.65 interruptgic: read32 [ff84200c] = 1e
-00:00:00.66 interruptgic: write32 [ff842010] = 1e
-00:00:00.66 interruptgic: read32 [ff84200c] = 1e
-00:00:00.67 interruptgic: write32 [ff842010] = 1e
-00:00:00.67 interruptgic: read32 [ff84200c] = 1e
-00:00:00.68 interruptgic: write32 [ff842010] = 1e
-00:00:00.68 interruptgic: read32 [ff84200c] = 1e
-00:00:00.69 interruptgic: write32 [ff842010] = 1e
-00:00:00.69 interruptgic: read32 [ff84200c] = 1e
-00:00:00.70 interruptgic: write32 [ff842010] = 1e
-00:00:00.70 interruptgic: read32 [ff84200c] = 1e
-00:00:00.71 interruptgic: write32 [ff842010] = 1e
-00:00:00.71 interruptgic: read32 [ff84200c] = 1e
-00:00:00.72 interruptgic: write32 [ff842010] = 1e
-00:00:00.72 interruptgic: read32 [ff84200c] = 1e
-00:00:00.73 interruptgic: write32 [ff842010] = 1e
-00:00:00.73 interruptgic: read32 [ff84200c] = 1e
-00:00:00.74 interruptgic: write32 [ff842010] = 1e
-00:00:00.74 interruptgic: read32 [ff84200c] = 1e
-00:00:00.75 interruptgic: write32 [ff842010] = 1e
-00:00:00.75 interruptgic: read32 [ff84200c] = 1e
-00:00:00.76 interruptgic: write32 [ff842010] = 1e
-00:00:00.76 interruptgic: read32 [ff84200c] = 1e
-00:00:00.77 interruptgic: write32 [ff842010] = 1e
-00:00:00.77 interruptgic: read32 [ff84200c] = 1e
-00:00:00.78 interruptgic: write32 [ff842010] = 1e
-00:00:00.78 interruptgic: read32 [ff84200c] = 1e
-00:00:00.79 interruptgic: write32 [ff842010] = 1e
-00:00:00.79 interruptgic: read32 [ff84200c] = 1e
-00:00:00.80 interruptgic: write32 [ff842010] = 1e
-00:00:00.80 interruptgic: read32 [ff84200c] = 1e
-00:00:00.81 interruptgic: write32 [ff842010] = 1e
-00:00:00.81 interruptgic: read32 [ff84200c] = 1e
-00:00:00.82 interruptgic: write32 [ff842010] = 1e
-00:00:00.82 interruptgic: read32 [ff84200c] = 1e
-00:00:00.83 interruptgic: write32 [ff842010] = 1e
-00:00:00.83 interruptgic: read32 [ff84200c] = 1e
-00:00:00.84 interruptgic: write32 [ff842010] = 1e
-00:00:00.84 interruptgic: read32 [ff84200c] = 1e
-00:00:00.85 interruptgic: write32 [ff842010] = 1e
-00:00:00.85 interruptgic: read32 [ff84200c] = 1e
-00:00:00.86 interruptgic: write32 [ff842010] = 1e
-00:00:00.86 interruptgic: read32 [ff84200c] = 1e
-00:00:00.87 interruptgic: write32 [ff842010] = 1e
-00:00:00.87 interruptgic: read32 [ff84200c] = 1e
-00:00:00.88 interruptgic: write32 [ff842010] = 1e
-00:00:00.88 interruptgic: read32 [ff84200c] = 1e
-00:00:00.89 interruptgic: write32 [ff842010] = 1e
-00:00:00.89 interruptgic: read32 [ff84200c] = 1e
-00:00:00.90 interruptgic: write32 [ff842010] = 1e
-00:00:00.90 interruptgic: read32 [ff84200c] = 1e
-00:00:00.91 interruptgic: write32 [ff842010] = 1e
-00:00:00.91 interruptgic: read32 [ff84200c] = 1e
-00:00:00.92 interruptgic: write32 [ff842010] = 1e
-00:00:00.92 interruptgic: read32 [ff84200c] = 1e
-00:00:00.93 interruptgic: write32 [ff842010] = 1e
-00:00:00.93 interruptgic: read32 [ff84200c] = 1e
-00:00:00.94 interruptgic: write32 [ff842010] = 1e
-00:00:00.94 interruptgic: read32 [ff84200c] = 1e
-00:00:00.95 interruptgic: write32 [ff842010] = 1e
-00:00:00.95 interruptgic: read32 [ff84200c] = 1e
-00:00:00.96 interruptgic: write32 [ff842010] = 1e
-00:00:00.96 interruptgic: read32 [ff84200c] = 1e
-00:00:00.97 interruptgic: write32 [ff842010] = 1e
-00:00:00.97 interruptgic: read32 [ff84200c] = 1e
-00:00:00.98 interruptgic: write32 [ff842010] = 1e
-00:00:00.98 interruptgic: read32 [ff84200c] = 1e
-00:00:00.99 interruptgic: write32 [ff842010] = 1e
-00:00:00.99 interruptgic: read32 [ff84200c] = 1e
-00:00:01.00 interruptgic: write32 [ff842010] = 1e
-00:00:01.00 interruptgic: read32 [ff84200c] = 1e
-00:00:01.01 interruptgic: write32 [ff842010] = 1e
-00:00:01.01 interruptgic: read32 [ff84200c] = 1e
-00:00:01.02 interruptgic: write32 [ff842010] = 1e
-00:00:01.02 interruptgic: read32 [ff84200c] = 1e
-00:00:01.03 interruptgic: write32 [ff842010] = 1e
-00:00:01.03 interruptgic: read32 [ff84200c] = 1e
-00:00:01.04 interruptgic: write32 [ff842010] = 1e
-00:00:01.04 interruptgic: read32 [ff84200c] = 1e
-00:00:01.05 interruptgic: write32 [ff842010] = 1e
-00:00:01.05 interruptgic: read32 [ff84200c] = 1e
-00:00:01.06 interruptgic: write32 [ff842010] = 1e
-00:00:01.06 interruptgic: read32 [ff84200c] = 1e
-00:00:01.07 interruptgic: write32 [ff842010] = 1e
-00:00:01.07 interruptgic: read32 [ff84200c] = 1e
-00:00:01.08 interruptgic: write32 [ff842010] = 1e
-00:00:01.08 interruptgic: read32 [ff84200c] = 1e
-00:00:01.09 interruptgic: write32 [ff842010] = 1e
-00:00:01.09 interruptgic: read32 [ff84200c] = 1e
-00:00:01.10 interruptgic: write32 [ff842010] = 1e
-00:00:01.10 interruptgic: read32 [ff84200c] = 1e
-00:00:01.11 interruptgic: write32 [ff842010] = 1e
-00:00:01.11 interruptgic: read32 [ff84200c] = 1e
-00:00:01.12 interruptgic: write32 [ff842010] = 1e
-00:00:01.12 interruptgic: read32 [ff84200c] = 1e
-00:00:01.13 interruptgic: write32 [ff842010] = 1e
-00:00:01.13 interruptgic: read32 [ff84200c] = 1e
-00:00:01.14 interruptgic: write32 [ff842010] = 1e
-00:00:01.14 interruptgic: read32 [ff84200c] = 1e
-00:00:01.15 interruptgic: write32 [ff842010] = 1e
-00:00:01.15 interruptgic: read32 [ff84200c] = 1e
-00:00:01.16 interruptgic: write32 [ff842010] = 1e
-00:00:01.16 interruptgic: read32 [ff84200c] = 1e
-00:00:01.17 interruptgic: write32 [ff842010] = 1e
-00:00:01.17 interruptgic: read32 [ff84200c] = 1e
-00:00:01.18 interruptgic: write32 [ff842010] = 1e
-00:00:01.18 interruptgic: read32 [ff84200c] = 1e
-00:00:01.19 interruptgic: write32 [ff842010] = 1e
-00:00:01.19 interruptgic: read32 [ff84200c] = 1e
-00:00:01.20 interruptgic: write32 [ff842010] = 1e
-00:00:01.20 interruptgic: read32 [ff84200c] = 1e
-00:00:01.21 interruptgic: write32 [ff842010] = 1e
-00:00:01.21 interruptgic: read32 [ff84200c] = 1e
-00:00:01.22 interruptgic: write32 [ff842010] = 1e
-00:00:01.22 interruptgic: read32 [ff84200c] = 1e
-00:00:01.23 interruptgic: write32 [ff842010] = 1e
-00:00:01.23 interruptgic: read32 [ff84200c] = 1e
-00:00:01.24 interruptgic: write32 [ff842010] = 1e
-00:00:01.24 interruptgic: read32 [ff84200c] = 1e
-00:00:01.25 interruptgic: write32 [ff842010] = 1e
-00:00:01.25 interruptgic: read32 [ff84200c] = 1e
-00:00:01.26 interruptgic: write32 [ff842010] = 1e
-00:00:01.26 interruptgic: read32 [ff84200c] = 1e
-00:00:01.27 interruptgic: write32 [ff842010] = 1e
-00:00:01.27 interruptgic: read32 [ff84200c] = 1e
-00:00:01.28 interruptgic: write32 [ff842010] = 1e
-00:00:01.28 interruptgic: read32 [ff84200c] = 1e
-00:00:01.29 interruptgic: write32 [ff842010] = 1e
-00:00:01.29 interruptgic: read32 [ff84200c] = 1e
-00:00:01.30 interruptgic: write32 [ff842010] = 1e
-00:00:01.30 interruptgic: read32 [ff84200c] = 1e
-00:00:01.31 interruptgic: write32 [ff842010] = 1e
-00:00:01.31 interruptgic: read32 [ff84200c] = 1e
-00:00:01.32 interruptgic: write32 [ff842010] = 1e
-00:00:01.32 interruptgic: read32 [ff84200c] = 1e
-00:00:01.33 interruptgic: write32 [ff842010] = 1e
-00:00:01.33 interruptgic: read32 [ff84200c] = 1e
-00:00:01.34 interruptgic: write32 [ff842010] = 1e
-00:00:01.34 interruptgic: read32 [ff84200c] = 1e
-00:00:01.35 interruptgic: write32 [ff842010] = 1e
-00:00:01.35 interruptgic: read32 [ff84200c] = 1e
-00:00:01.36 interruptgic: write32 [ff842010] = 1e
-00:00:01.36 interruptgic: read32 [ff84200c] = 1e
-00:00:01.37 interruptgic: write32 [ff842010] = 1e
-00:00:01.37 interruptgic: read32 [ff84200c] = 1e
-00:00:01.38 interruptgic: write32 [ff842010] = 1e
-00:00:01.38 interruptgic: read32 [ff84200c] = 1e
-00:00:01.39 interruptgic: write32 [ff842010] = 1e
-00:00:01.39 interruptgic: read32 [ff84200c] = 1e
-00:00:01.40 interruptgic: write32 [ff842010] = 1e
-00:00:01.40 interruptgic: read32 [ff84200c] = 1e
-00:00:01.41 interruptgic: write32 [ff842010] = 1e
-00:00:01.41 interruptgic: read32 [ff84200c] = 1e
-00:00:01.42 interruptgic: write32 [ff842010] = 1e
-00:00:01.42 interruptgic: read32 [ff84200c] = 1e
-00:00:01.43 interruptgic: write32 [ff842010] = 1e
-00:00:01.43 interruptgic: read32 [ff84200c] = 1e
-00:00:01.44 interruptgic: write32 [ff842010] = 1e
-00:00:01.44 interruptgic: read32 [ff84200c] = 1e
-00:00:01.45 interruptgic: write32 [ff842010] = 1e
-00:00:01.45 interruptgic: read32 [ff84200c] = 1e
-00:00:01.46 interruptgic: write32 [ff842010] = 1e
-00:00:01.46 interruptgic: read32 [ff84200c] = 1e
-00:00:01.47 interruptgic: write32 [ff842010] = 1e
-00:00:01.47 interruptgic: read32 [ff84200c] = 1e
-00:00:01.48 interruptgic: write32 [ff842010] = 1e
-00:00:01.48 interruptgic: read32 [ff84200c] = 1e
-00:00:01.49 interruptgic: write32 [ff842010] = 1e
-00:00:01.49 interruptgic: read32 [ff84200c] = 1e
-00:00:01.50 interruptgic: write32 [ff842010] = 1e
-00:00:01.50 interruptgic: read32 [ff84200c] = 1e
-00:00:01.51 interruptgic: write32 [ff842010] = 1e
-00:00:01.51 interruptgic: read32 [ff84200c] = 1e
-00:00:01.52 interruptgic: write32 [ff842010] = 1e
-00:00:01.52 interruptgic: read32 [ff84200c] = 1e
-00:00:01.53 interruptgic: write32 [ff842010] = 1e
-00:00:01.53 interruptgic: read32 [ff84200c] = 1e
-00:00:01.54 interruptgic: write32 [ff842010] = 1e
-00:00:01.54 interruptgic: read32 [ff84200c] = 1e
-00:00:01.55 interruptgic: write32 [ff842010] = 1e
-00:00:01.55 interruptgic: read32 [ff84200c] = 1e
-00:00:01.56 interruptgic: write32 [ff842010] = 1e
-00:00:01.56 interruptgic: read32 [ff84200c] = 1e
-00:00:01.57 interruptgic: write32 [ff842010] = 1e
-00:00:01.57 interruptgic: read32 [ff84200c] = 1e
-00:00:01.58 interruptgic: write32 [ff842010] = 1e
-00:00:01.58 interruptgic: read32 [ff84200c] = 1e
-00:00:01.59 interruptgic: write32 [ff842010] = 1e
-00:00:01.59 interruptgic: read32 [ff84200c] = 1e
-00:00:01.60 interruptgic: write32 [ff842010] = 1e
-00:00:01.60 interruptgic: read32 [ff84200c] = 1e
-00:00:01.61 interruptgic: write32 [ff842010] = 1e
 00:00:01.61 timer: SpeedFactor is 0.62
 00:00:01.61 bcmpciehostbridge: read32 [fd509210] = 3
 00:00:01.62 bcmpciehostbridge: write32 [fd509210] = 3
@@ -358,26 +35,6 @@ interruptgic: read32 [ff84200c] = 1e
 00:00:01.77 bcmpciehostbridge: read32 [fd509210] = 1
 00:00:01.77 bcmpciehostbridge: write32 [fd509210] = 0
 00:00:01.78 bcmpciehostbridge: read32 [fd509210] = 0
-00:00:01.78 interruptgic: read32 [ff84200c] = 1e
-00:00:01.79 interruptgic: write32 [ff842010] = 1e
-00:00:01.79 interruptgic: read32 [ff84200c] = 1e
-00:00:01.80 interruptgic: write32 [ff842010] = 1e
-00:00:01.80 interruptgic: read32 [ff84200c] = 1e
-00:00:01.81 interruptgic: write32 [ff842010] = 1e
-00:00:01.81 interruptgic: read32 [ff84200c] = 1e
-00:00:01.82 interruptgic: write32 [ff842010] = 1e
-00:00:01.82 interruptgic: read32 [ff84200c] = 1e
-00:00:01.83 interruptgic: write32 [ff842010] = 1e
-00:00:01.83 interruptgic: read32 [ff84200c] = 1e
-00:00:01.84 interruptgic: write32 [ff842010] = 1e
-00:00:01.84 interruptgic: read32 [ff84200c] = 1e
-00:00:01.85 interruptgic: write32 [ff842010] = 1e
-00:00:01.85 interruptgic: read32 [ff84200c] = 1e
-00:00:01.86 interruptgic: write32 [ff842010] = 1e
-00:00:01.86 interruptgic: read32 [ff84200c] = 1e
-00:00:01.87 interruptgic: write32 [ff842010] = 1e
-00:00:01.87 interruptgic: read32 [ff84200c] = 1e
-00:00:01.88 interruptgic: write32 [ff842010] = 1e
 00:00:01.88 bcmpciehostbridge: read32 [fd504068] = b0
 00:00:01.89 bcmpciehostbridge: read32 [fd504068] = b0
 00:00:01.89 bcmpciehostbridge: read32 [fd504068] = b0
@@ -413,588 +70,818 @@ interruptgic: read32 [ff84200c] = 1e
 00:00:02.04 bcmpciehostbridge: read8 [fd5000ac] = 10
 00:00:02.04 bcmpciehostbridge: write8 [fd5000c8] = 10
 00:00:02.05 bcmpciehostbridge: write16 [fd500004] = 146
-00:00:02.05 bcmmailbox: read32 [fe00b898] = 40000000
-00:00:02.06 bcmmailbox: read32 [fe00b8b8] = 40000000
-00:00:02.06 bcmmailbox: write32 [fe00b8a0] = c0500008
+00:00:02.05 bcm-tags: Copied 16 bytes to pBuffer->Tags at address 0x500008:
+00:00:02.06 bcm-tags: pTags[0x0] = 0x00030058
+00:00:02.06 bcm-tags: pTags[0x4] = 0x00000004
+00:00:02.07 bcm-tags: pTags[0x8] = 0x00000004
+00:00:02.07 bcm-tags: pTags[0xc] = 0x00100000
 00:00:02.07 bcmmailbox: read32 [fe00b898] = 40000000
-00:00:02.07 bcmmailbox: read32 [fe00b898] = 40000000
-00:00:02.07 bcmmailbox: read32 [fe00b898] = 40000000
-00:00:02.08 bcmmailbox: read32 [fe00b898] = 40000000
-00:00:02.08 bcmmailbox: read32 [fe00b898] = 40000000
+00:00:02.08 bcmmailbox: read32 [fe00b8b8] = 40000000
+00:00:02.08 bcmmailbox: write32 [fe00b8a0] = c0500008
 00:00:02.09 bcmmailbox: read32 [fe00b898] = 40000000
 00:00:02.09 bcmmailbox: read32 [fe00b898] = 40000000
 00:00:02.10 bcmmailbox: read32 [fe00b898] = 40000000
 00:00:02.10 bcmmailbox: read32 [fe00b898] = 40000000
 00:00:02.11 bcmmailbox: read32 [fe00b898] = 40000000
-00:00:02.11 bcmmailbox: read32 [fe00b898] = 1
-00:00:02.12 bcmmailbox: read32 [fe00b880] = c0500008
-00:00:02.12 bcmpciehostbridge: write32 [fd509000] = 100000
-00:00:02.13 bcmpciehostbridge: read32 [fd508008] = c033001
-00:00:02.13 bcmpciehostbridge: read8 [fd50800e] = 0
-00:00:02.14 bcmpciehostbridge: write8 [fd50800c] = 10
-00:00:02.14 bcmpciehostbridge: write32 [fd508010] = c0000004
-00:00:02.15 bcmpciehostbridge: write32 [fd508014] = 0
-00:00:02.15 bcmpciehostbridge: read8 [fd50803d] = 1
-00:00:02.16 bcmpciehostbridge: write16 [fd508004] = 146
-00:00:02.16 xhci: read16 [2] = 100
-00:00:02.16 xhcimmiospace: read8 [0] = 20
-00:00:02.17 xhcimmiospace: read32 [14] = 100
-00:00:02.17 xhcimmiospace: read32 [18] = 200
-00:00:02.18 xhcimmiospace: read32 [4] = 5000420
-00:00:02.18 xhcimmiospace: read32 [8] = fc000031
-00:00:02.18 xhcimmiospace: read32 [c] = e70004
-00:00:02.19 xhcimmiospace: read32 [10] = 2841eb
-00:00:02.19 xhci: 32 slots, 5 ports, 31 scratchpad bufs
-00:00:02.20 xhcimmiospace: read32 [24] = 1
-00:00:02.20 xhcimmiospace: read32 [20] = 0
-00:00:02.20 xhcimmiospace: write32 [20] = 2
-00:00:02.21 xhcimmiospace: read32 [20] = 2
-00:00:02.21 xhcimmiospace: read32 [20] = 0
-00:00:02.22 xhcimmiospace: read32 [24] = 11
-00:00:02.22 xhcimmiospace: read32 [28] = 1
-00:00:02.22 xhcimmiospace: read32 [58] = 0
-00:00:02.23 xhcimmiospace: write32 [58] = 20
-00:00:02.23 xhcimmiospace: write32 [50] = 600040
-00:00:02.24 xhcimmiospace: write32 [54] = 4
-00:00:02.24 xhcimmiospace: write32 [228] = 1
-00:00:02.24 xhcimmiospace: write32 [230] = 6018c0
-00:00:02.25 xhcimmiospace: write32 [234] = 4
-00:00:02.25 xhcimmiospace: write32 [238] = 600880
-00:00:02.26 xhcimmiospace: write32 [23c] = 4
-00:00:02.26 xhcimmiospace: write32 [224] = 1f4
-00:00:02.27 xhcimmiospace: read32 [220] = 0
-00:00:02.27 xhcimmiospace: write32 [220] = 2
-00:00:02.27 xhcimmiospace: write32 [38] = 602101
-00:00:02.28 xhcimmiospace: write32 [3c] = 4
-00:00:02.28 interruptgic: write32 [ff841114] = 8000
-00:00:02.29 xhcimmiospace: read32 [20] = 0
-00:00:02.29 xhcimmiospace: write32 [20] = 4
-00:00:02.29 xhcimmiospace: read32 [20] = 4
-00:00:02.30 xhcimmiospace: write32 [20] = 5
-00:00:02.30 interruptgic: read32 [ff84200c] = af
-00:00:02.30 xhci: IRQ
-00:00:02.30 xhcimmiospace: read32 [24] = 18
-00:00:02.30 xhcimmiospace: write32 [24] = 18
-00:00:02.30 xhcimmiospace: read32 [220] = 3
-00:00:02.30 xhcimmiospace: write32 [220] = 3
-00:00:02.30 xhcimmiospace: read32 [420] = 400202e1
-00:00:02.30 xhciroot: Port 1 status is 0x400202E1
-00:00:02.30 xhcimmiospace: write32 [420] = 400202e1
-00:00:02.30 xhcimmiospace: write32 [238] = 600898
-00:00:02.30 xhcimmiospace: write32 [23c] = 4
-00:00:02.30 interruptgic: write32 [ff842010] = af
-00:00:02.30 interruptgic: read32 [ff84200c] = 1e
-00:00:02.31 interruptgic: write32 [ff842010] = 1e
-00:00:02.31 interruptgic: read32 [ff84200c] = 1e
-00:00:02.32 interruptgic: write32 [ff842010] = 1e
-00:00:02.32 interruptgic: read32 [ff84200c] = 1e
-00:00:02.33 interruptgic: write32 [ff842010] = 1e
-00:00:02.33 interruptgic: read32 [ff84200c] = 1e
-00:00:02.34 interruptgic: write32 [ff842010] = 1e
-00:00:02.34 interruptgic: read32 [ff84200c] = 1e
-00:00:02.35 interruptgic: write32 [ff842010] = 1e
-00:00:02.35 interruptgic: read32 [ff84200c] = 1e
-00:00:02.36 interruptgic: write32 [ff842010] = 1e
-00:00:02.36 interruptgic: read32 [ff84200c] = 1e
-00:00:02.37 interruptgic: write32 [ff842010] = 1e
-00:00:02.37 interruptgic: read32 [ff84200c] = 1e
-00:00:02.38 interruptgic: write32 [ff842010] = 1e
-00:00:02.38 interruptgic: read32 [ff84200c] = 1e
-00:00:02.39 interruptgic: write32 [ff842010] = 1e
-00:00:02.39 interruptgic: read32 [ff84200c] = 1e
-00:00:02.40 interruptgic: write32 [ff842010] = 1e
-00:00:02.40 interruptgic: read32 [ff84200c] = 1e
-00:00:02.41 interruptgic: write32 [ff842010] = 1e
-00:00:02.41 interruptgic: read32 [ff84200c] = 1e
-00:00:02.42 interruptgic: write32 [ff842010] = 1e
-00:00:02.42 interruptgic: read32 [ff84200c] = 1e
-00:00:02.43 interruptgic: write32 [ff842010] = 1e
-00:00:02.43 interruptgic: read32 [ff84200c] = 1e
-00:00:02.44 interruptgic: write32 [ff842010] = 1e
-00:00:02.44 interruptgic: read32 [ff84200c] = 1e
-00:00:02.45 interruptgic: write32 [ff842010] = 1e
-00:00:02.45 interruptgic: read32 [ff84200c] = 1e
-00:00:02.46 interruptgic: write32 [ff842010] = 1e
-00:00:02.46 interruptgic: read32 [ff84200c] = 1e
-00:00:02.47 interruptgic: write32 [ff842010] = 1e
-00:00:02.47 interruptgic: read32 [ff84200c] = 1e
-00:00:02.48 interruptgic: write32 [ff842010] = 1e
-00:00:02.48 interruptgic: read32 [ff84200c] = 1e
-00:00:02.49 interruptgic: write32 [ff842010] = 1e
-00:00:02.49 interruptgic: read32 [ff84200c] = 1e
-00:00:02.50 interruptgic: write32 [ff842010] = 1e
-00:00:02.50 interruptgic: read32 [ff84200c] = 1e
-00:00:02.51 interruptgic: write32 [ff842010] = 1e
-00:00:02.51 interruptgic: read32 [ff84200c] = 1e
-00:00:02.52 interruptgic: write32 [ff842010] = 1e
-00:00:02.52 interruptgic: read32 [ff84200c] = 1e
-00:00:02.53 interruptgic: write32 [ff842010] = 1e
-00:00:02.53 interruptgic: read32 [ff84200c] = 1e
-00:00:02.54 interruptgic: write32 [ff842010] = 1e
-00:00:02.54 interruptgic: read32 [ff84200c] = 1e
-00:00:02.55 interruptgic: write32 [ff842010] = 1e
-00:00:02.55 interruptgic: read32 [ff84200c] = 1e
-00:00:02.56 interruptgic: write32 [ff842010] = 1e
-00:00:02.56 interruptgic: read32 [ff84200c] = 1e
-00:00:02.57 interruptgic: write32 [ff842010] = 1e
-00:00:02.57 interruptgic: read32 [ff84200c] = 1e
-00:00:02.58 interruptgic: write32 [ff842010] = 1e
-00:00:02.58 interruptgic: read32 [ff84200c] = 1e
-00:00:02.59 interruptgic: write32 [ff842010] = 1e
-00:00:02.59 interruptgic: read32 [ff84200c] = 1e
-00:00:02.60 interruptgic: write32 [ff842010] = 1e
-00:00:02.60 interruptgic: read32 [ff84200c] = 1e
-00:00:02.61 interruptgic: write32 [ff842010] = 1e
-00:00:02.61 interruptgic: read32 [ff84200c] = 1e
-00:00:02.62 interruptgic: write32 [ff842010] = 1e
-00:00:02.62 interruptgic: read32 [ff84200c] = 1e
-00:00:02.63 interruptgic: write32 [ff842010] = 1e
-00:00:02.63 interruptgic: read32 [ff84200c] = 1e
-00:00:02.64 interruptgic: write32 [ff842010] = 1e
-00:00:02.64 interruptgic: read32 [ff84200c] = 1e
-00:00:02.65 interruptgic: write32 [ff842010] = 1e
-00:00:02.65 interruptgic: read32 [ff84200c] = 1e
-00:00:02.66 interruptgic: write32 [ff842010] = 1e
-00:00:02.66 interruptgic: read32 [ff84200c] = 1e
-00:00:02.67 interruptgic: write32 [ff842010] = 1e
-00:00:02.67 xhcimmiospace: read32 [420] = 400002e1
-00:00:02.68 xhcimmiospace: read32 [420] = 400002e1
-00:00:02.68 xhcimmiospace: write32 [420] = 400002f1
-00:00:02.68 interruptgic: read32 [ff84200c] = 1e
-00:00:02.69 interruptgic: write32 [ff842010] = 1e
-00:00:02.69 interruptgic: read32 [ff84200c] = 1e
-00:00:02.70 interruptgic: write32 [ff842010] = 1e
-00:00:02.70 interruptgic: read32 [ff84200c] = 1e
-00:00:02.71 interruptgic: write32 [ff842010] = 1e
-00:00:02.71 interruptgic: read32 [ff84200c] = af
-00:00:02.71 xhci: IRQ
-00:00:02.71 xhcimmiospace: read32 [24] = 18
-00:00:02.71 xhcimmiospace: write32 [24] = 18
-00:00:02.71 xhcimmiospace: read32 [220] = 3
-00:00:02.71 xhcimmiospace: write32 [220] = 3
-00:00:02.71 xhcimmiospace: read32 [420] = 40200e03
-00:00:02.71 xhciroot: Port 1 status is 0x40200E03
-00:00:02.71 xhcimmiospace: write32 [420] = 40200e01
-00:00:02.71 xhcimmiospace: write32 [238] = 6008a8
-00:00:02.71 xhcimmiospace: write32 [23c] = 4
-00:00:02.71 interruptgic: write32 [ff842010] = af
-00:00:02.71 interruptgic: read32 [ff84200c] = 1e
-00:00:02.72 interruptgic: write32 [ff842010] = 1e
-00:00:02.72 interruptgic: read32 [ff84200c] = 1e
-00:00:02.73 interruptgic: write32 [ff842010] = 1e
-00:00:02.73 interruptgic: read32 [ff84200c] = 1e
-00:00:02.74 interruptgic: write32 [ff842010] = 1e
-00:00:02.74 interruptgic: read32 [ff84200c] = 1e
-00:00:02.75 interruptgic: write32 [ff842010] = 1e
-00:00:02.75 interruptgic: read32 [ff84200c] = 1e
-00:00:02.76 interruptgic: write32 [ff842010] = 1e
-00:00:02.76 interruptgic: read32 [ff84200c] = 1e
-00:00:02.77 interruptgic: write32 [ff842010] = 1e
-00:00:02.77 interruptgic: read32 [ff84200c] = 1e
-00:00:02.78 interruptgic: write32 [ff842010] = 1e
-00:00:02.78 interruptgic: read32 [ff84200c] = 1e
-00:00:02.79 interruptgic: write32 [ff842010] = 1e
-00:00:02.79 interruptgic: read32 [ff84200c] = 1e
-00:00:02.80 interruptgic: write32 [ff842010] = 1e
-00:00:02.80 interruptgic: read32 [ff84200c] = 1e
-00:00:02.81 interruptgic: write32 [ff842010] = 1e
-00:00:02.81 interruptgic: read32 [ff84200c] = 1e
-00:00:02.82 interruptgic: write32 [ff842010] = 1e
-00:00:02.82 interruptgic: read32 [ff84200c] = 1e
-00:00:02.83 interruptgic: write32 [ff842010] = 1e
-00:00:02.83 interruptgic: read32 [ff84200c] = 1e
-00:00:02.84 interruptgic: write32 [ff842010] = 1e
-00:00:02.84 interruptgic: read32 [ff84200c] = 1e
-00:00:02.85 interruptgic: write32 [ff842010] = 1e
-00:00:02.85 interruptgic: read32 [ff84200c] = 1e
-00:00:02.86 interruptgic: write32 [ff842010] = 1e
-00:00:02.86 interruptgic: read32 [ff84200c] = 1e
-00:00:02.87 interruptgic: write32 [ff842010] = 1e
-00:00:02.87 interruptgic: read32 [ff84200c] = 1e
-00:00:02.88 interruptgic: write32 [ff842010] = 1e
-00:00:02.88 interruptgic: read32 [ff84200c] = 1e
-00:00:02.89 interruptgic: write32 [ff842010] = 1e
-00:00:02.89 interruptgic: read32 [ff84200c] = 1e
-00:00:02.90 interruptgic: write32 [ff842010] = 1e
-00:00:02.90 interruptgic: read32 [ff84200c] = 1e
-00:00:02.91 interruptgic: write32 [ff842010] = 1e
-00:00:02.91 interruptgic: read32 [ff84200c] = 1e
-00:00:02.92 interruptgic: write32 [ff842010] = 1e
-00:00:02.92 interruptgic: read32 [ff84200c] = 1e
-00:00:02.93 interruptgic: write32 [ff842010] = 1e
-00:00:02.93 interruptgic: read32 [ff84200c] = 1e
-00:00:02.94 interruptgic: write32 [ff842010] = 1e
-00:00:02.94 interruptgic: read32 [ff84200c] = 1e
-00:00:02.95 interruptgic: write32 [ff842010] = 1e
-00:00:02.95 interruptgic: read32 [ff84200c] = 1e
-00:00:02.96 interruptgic: write32 [ff842010] = 1e
-00:00:02.96 interruptgic: read32 [ff84200c] = 1e
-00:00:02.97 interruptgic: write32 [ff842010] = 1e
-00:00:02.97 interruptgic: read32 [ff84200c] = 1e
-00:00:02.98 interruptgic: write32 [ff842010] = 1e
-00:00:02.98 interruptgic: read32 [ff84200c] = 1e
-00:00:02.99 interruptgic: write32 [ff842010] = 1e
-00:00:02.99 interruptgic: read32 [ff84200c] = 1e
-00:00:03.00 interruptgic: write32 [ff842010] = 1e
-00:00:03.00 interruptgic: read32 [ff84200c] = 1e
-00:00:03.01 interruptgic: write32 [ff842010] = 1e
-00:00:03.01 interruptgic: read32 [ff84200c] = 1e
-00:00:03.02 interruptgic: write32 [ff842010] = 1e
-00:00:03.02 interruptgic: read32 [ff84200c] = 1e
-00:00:03.03 interruptgic: write32 [ff842010] = 1e
-00:00:03.03 interruptgic: read32 [ff84200c] = 1e
-00:00:03.04 interruptgic: write32 [ff842010] = 1e
-00:00:03.04 interruptgic: read32 [ff84200c] = 1e
-00:00:03.05 interruptgic: write32 [ff842010] = 1e
-00:00:03.05 interruptgic: read32 [ff84200c] = 1e
-00:00:03.06 interruptgic: write32 [ff842010] = 1e
-00:00:03.06 interruptgic: read32 [ff84200c] = 1e
-00:00:03.07 interruptgic: write32 [ff842010] = 1e
-00:00:03.07 interruptgic: read32 [ff84200c] = 1e
-00:00:03.08 interruptgic: write32 [ff842010] = 1e
-00:00:03.08 interruptgic: read32 [ff84200c] = 1e
-00:00:03.09 interruptgic: write32 [ff842010] = 1e
-00:00:03.09 interruptgic: read32 [ff84200c] = 1e
-00:00:03.10 interruptgic: write32 [ff842010] = 1e
-00:00:03.10 xhcimmiospace: read32 [420] = 40000e03
-00:00:03.11 interruptgic: read32 [ff84200c] = 1e
-00:00:03.12 interruptgic: write32 [ff842010] = 1e
-00:00:03.12 interruptgic: read32 [ff84200c] = 1e
-00:00:03.13 interruptgic: write32 [ff842010] = 1e
-00:00:03.13 interruptgic: read32 [ff84200c] = 1e
-00:00:03.14 interruptgic: write32 [ff842010] = 1e
-00:00:03.14 interruptgic: read32 [ff84200c] = 1e
-00:00:03.15 interruptgic: write32 [ff842010] = 1e
-00:00:03.15 interruptgic: read32 [ff84200c] = 1e
-00:00:03.16 interruptgic: write32 [ff842010] = 1e
-00:00:03.16 interruptgic: read32 [ff84200c] = 1e
-00:00:03.17 interruptgic: write32 [ff842010] = 1e
-00:00:03.17 interruptgic: read32 [ff84200c] = 1e
-00:00:03.18 interruptgic: write32 [ff842010] = 1e
-00:00:03.18 interruptgic: read32 [ff84200c] = 1e
-00:00:03.19 interruptgic: write32 [ff842010] = 1e
-00:00:03.19 interruptgic: read32 [ff84200c] = 1e
-00:00:03.20 interruptgic: write32 [ff842010] = 1e
-00:00:03.20 interruptgic: read32 [ff84200c] = 1e
-00:00:03.21 interruptgic: write32 [ff842010] = 1e
-00:00:03.21 xhcimmiospace: read32 [420] = 40000e03
-00:00:03.22 xhcicmd: Execute command 9 (control 0x2400)
-00:00:03.22 xhcimmiospace: write32 [100] = 0
-00:00:03.22 interruptgic: read32 [ff84200c] = af
-00:00:03.22 xhci: IRQ
-00:00:03.22 xhcimmiospace: read32 [24] = 8
-00:00:03.22 xhcimmiospace: write32 [24] = 8
-00:00:03.22 xhcimmiospace: read32 [220] = 3
-00:00:03.22 xhcimmiospace: write32 [220] = 3
-00:00:03.22 xhcicmd: Command 9 completed with 1 (slot 1)
-00:00:03.22 xhcimmiospace: write32 [238] = 6008b8
-00:00:03.22 xhcimmiospace: write32 [23c] = 4
-00:00:03.22 interruptgic: write32 [ff842010] = af
-00:00:03.22 interruptgic: read32 [ff84200c] = 1e
-00:00:03.23 interruptgic: write32 [ff842010] = 1e
-00:00:03.23 interruptgic: read32 [ff84200c] = 1e
-00:00:03.24 interruptgic: write32 [ff842010] = 1e
-00:00:03.24 interruptgic: read32 [ff84200c] = 1e
-00:00:03.25 interruptgic: write32 [ff842010] = 1e
-00:00:03.25 interruptgic: read32 [ff84200c] = 1e
-00:00:03.26 interruptgic: write32 [ff842010] = 1e
-00:00:03.26 interruptgic: read32 [ff84200c] = 1e
-00:00:03.27 interruptgic: write32 [ff842010] = 1e
-00:00:03.27 interruptgic: read32 [ff84200c] = 1e
-00:00:03.28 interruptgic: write32 [ff842010] = 1e
-00:00:03.28 interruptgic: read32 [ff84200c] = 1e
-00:00:03.29 interruptgic: write32 [ff842010] = 1e
-00:00:03.29 interruptgic: read32 [ff84200c] = 1e
-00:00:03.30 interruptgic: write32 [ff842010] = 1e
-00:00:03.30 interruptgic: read32 [ff84200c] = 1e
-00:00:03.31 interruptgic: write32 [ff842010] = 1e
-00:00:03.31 interruptgic: read32 [ff84200c] = 1e
-00:00:03.32 interruptgic: write32 [ff842010] = 1e
-00:00:03.32 interruptgic: read32 [ff84200c] = 1e
-00:00:03.33 interruptgic: write32 [ff842010] = 1e
-00:00:03.33 interruptgic: read32 [ff84200c] = 1e
-00:00:03.34 interruptgic: write32 [ff842010] = 1e
-00:00:03.34 interruptgic: read32 [ff84200c] = 1e
-00:00:03.35 interruptgic: write32 [ff842010] = 1e
-00:00:03.35 interruptgic: read32 [ff84200c] = 1e
-00:00:03.36 interruptgic: write32 [ff842010] = 1e
-00:00:03.36 interruptgic: read32 [ff84200c] = 1e
-00:00:03.37 interruptgic: write32 [ff842010] = 1e
-00:00:03.37 interruptgic: read32 [ff84200c] = 1e
-00:00:03.38 interruptgic: write32 [ff842010] = 1e
-00:00:03.38 interruptgic: read32 [ff84200c] = 1e
-00:00:03.39 interruptgic: write32 [ff842010] = 1e
-00:00:03.39 interruptgic: read32 [ff84200c] = 1e
-00:00:03.40 interruptgic: write32 [ff842010] = 1e
-00:00:03.40 interruptgic: read32 [ff84200c] = 1e
-00:00:03.41 interruptgic: write32 [ff842010] = 1e
-00:00:03.41 interruptgic: read32 [ff84200c] = 1e
-00:00:03.42 interruptgic: write32 [ff842010] = 1e
-00:00:03.42 interruptgic: read32 [ff84200c] = 1e
-00:00:03.43 interruptgic: write32 [ff842010] = 1e
-00:00:03.43 interruptgic: read32 [ff84200c] = 1e
-00:00:03.44 interruptgic: write32 [ff842010] = 1e
-00:00:03.44 interruptgic: read32 [ff84200c] = 1e
-00:00:03.45 interruptgic: write32 [ff842010] = 1e
-00:00:03.45 interruptgic: read32 [ff84200c] = 1e
-00:00:03.46 interruptgic: write32 [ff842010] = 1e
-00:00:03.46 interruptgic: read32 [ff84200c] = 1e
-00:00:03.47 interruptgic: write32 [ff842010] = 1e
-00:00:03.47 interruptgic: read32 [ff84200c] = 1e
-00:00:03.48 interruptgic: write32 [ff842010] = 1e
-00:00:03.48 interruptgic: read32 [ff84200c] = 1e
-00:00:03.49 interruptgic: write32 [ff842010] = 1e
-00:00:03.49 interruptgic: read32 [ff84200c] = 1e
-00:00:03.50 interruptgic: write32 [ff842010] = 1e
-00:00:03.50 interruptgic: read32 [ff84200c] = 1e
-00:00:03.51 interruptgic: write32 [ff842010] = 1e
-00:00:03.51 interruptgic: read32 [ff84200c] = 1e
-00:00:03.52 interruptgic: write32 [ff842010] = 1e
-00:00:03.52 interruptgic: read32 [ff84200c] = 1e
-00:00:03.53 interruptgic: write32 [ff842010] = 1e
-00:00:03.53 interruptgic: read32 [ff84200c] = 1e
-00:00:03.54 interruptgic: write32 [ff842010] = 1e
-00:00:03.54 xhcicmd: Execute command 11 (control 0x1002C00)
-00:00:03.55 xhcimmiospace: write32 [100] = 0
-00:00:03.55 interruptgic: read32 [ff84200c] = af
-00:00:03.55 xhci: IRQ
-00:00:03.55 xhcimmiospace: read32 [24] = 8
-00:00:03.55 xhcimmiospace: write32 [24] = 8
-00:00:03.55 xhcimmiospace: read32 [220] = 3
-00:00:03.55 xhcimmiospace: write32 [220] = 3
-00:00:03.55 xhcicmd: Command 11 completed with 1 (slot 1)
-00:00:03.55 xhcimmiospace: write32 [238] = 6008c8
-00:00:03.55 xhcimmiospace: write32 [23c] = 4
-00:00:03.55 interruptgic: write32 [ff842010] = af
-00:00:03.55 interruptgic: read32 [ff84200c] = 1e
-00:00:03.56 interruptgic: write32 [ff842010] = 1e
-00:00:03.56 interruptgic: read32 [ff84200c] = 1e
-00:00:03.57 interruptgic: write32 [ff842010] = 1e
-00:00:03.57 interruptgic: read32 [ff84200c] = 1e
-00:00:03.58 interruptgic: write32 [ff842010] = 1e
-00:00:03.58 interruptgic: read32 [ff84200c] = 1e
-00:00:03.59 interruptgic: write32 [ff842010] = 1e
-00:00:03.59 interruptgic: read32 [ff84200c] = 1e
-00:00:03.60 interruptgic: write32 [ff842010] = 1e
-00:00:03.60 interruptgic: read32 [ff84200c] = 1e
-00:00:03.61 interruptgic: write32 [ff842010] = 1e
-00:00:03.61 interruptgic: read32 [ff84200c] = 1e
-00:00:03.62 interruptgic: write32 [ff842010] = 1e
-00:00:03.62 interruptgic: read32 [ff84200c] = 1e
-00:00:03.63 interruptgic: write32 [ff842010] = 1e
-00:00:03.63 interruptgic: read32 [ff84200c] = 1e
-00:00:03.64 interruptgic: write32 [ff842010] = 1e
-00:00:03.64 interruptgic: read32 [ff84200c] = 1e
-00:00:03.65 interruptgic: write32 [ff842010] = 1e
-00:00:03.65 interruptgic: read32 [ff84200c] = 1e
-00:00:03.66 interruptgic: write32 [ff842010] = 1e
-00:00:03.66 interruptgic: read32 [ff84200c] = 1e
-00:00:03.67 interruptgic: write32 [ff842010] = 1e
-00:00:03.67 interruptgic: read32 [ff84200c] = 1e
-00:00:03.68 interruptgic: write32 [ff842010] = 1e
-00:00:03.68 interruptgic: read32 [ff84200c] = 1e
-00:00:03.69 interruptgic: write32 [ff842010] = 1e
-00:00:03.69 interruptgic: read32 [ff84200c] = 1e
-00:00:03.70 interruptgic: write32 [ff842010] = 1e
-00:00:03.70 interruptgic: read32 [ff84200c] = 1e
-00:00:03.71 interruptgic: write32 [ff842010] = 1e
-00:00:03.71 interruptgic: read32 [ff84200c] = 1e
-00:00:03.72 interruptgic: write32 [ff842010] = 1e
-00:00:03.72 interruptgic: read32 [ff84200c] = 1e
-00:00:03.73 interruptgic: write32 [ff842010] = 1e
-00:00:03.73 interruptgic: read32 [ff84200c] = 1e
-00:00:03.74 interruptgic: write32 [ff842010] = 1e
-00:00:03.74 interruptgic: read32 [ff84200c] = 1e
-00:00:03.75 interruptgic: write32 [ff842010] = 1e
-00:00:03.75 interruptgic: read32 [ff84200c] = 1e
-00:00:03.76 interruptgic: write32 [ff842010] = 1e
-00:00:03.76 interruptgic: read32 [ff84200c] = 1e
-00:00:03.77 interruptgic: write32 [ff842010] = 1e
-00:00:03.77 interruptgic: read32 [ff84200c] = 1e
-00:00:03.78 interruptgic: write32 [ff842010] = 1e
-00:00:03.78 interruptgic: read32 [ff84200c] = 1e
-00:00:03.79 interruptgic: write32 [ff842010] = 1e
-00:00:03.79 interruptgic: read32 [ff84200c] = 1e
-00:00:03.80 interruptgic: write32 [ff842010] = 1e
-00:00:03.80 interruptgic: read32 [ff84200c] = 1e
-00:00:03.81 interruptgic: write32 [ff842010] = 1e
-00:00:03.81 interruptgic: read32 [ff84200c] = 1e
-00:00:03.82 interruptgic: write32 [ff842010] = 1e
-00:00:03.82 interruptgic: read32 [ff84200c] = 1e
-00:00:03.83 interruptgic: write32 [ff842010] = 1e
-00:00:03.83 interruptgic: read32 [ff84200c] = 1e
-00:00:03.84 interruptgic: write32 [ff842010] = 1e
-00:00:03.84 interruptgic: read32 [ff84200c] = 1e
-00:00:03.85 interruptgic: write32 [ff842010] = 1e
-00:00:03.85 interruptgic: read32 [ff84200c] = 1e
-00:00:03.86 interruptgic: write32 [ff842010] = 1e
-00:00:03.86 interruptgic: read32 [ff84200c] = 1e
-00:00:03.87 interruptgic: write32 [ff842010] = 1e
-00:00:03.87 interruptgic: read32 [ff84200c] = 1e
-00:00:03.88 interruptgic: write32 [ff842010] = 1e
-00:00:03.88 interruptgic: read32 [ff84200c] = 1e
-00:00:03.89 interruptgic: write32 [ff842010] = 1e
-00:00:03.89 interruptgic: read32 [ff84200c] = 1e
-00:00:03.90 interruptgic: write32 [ff842010] = 1e
-00:00:03.90 interruptgic: read32 [ff84200c] = 1e
-00:00:03.91 interruptgic: write32 [ff842010] = 1e
-00:00:03.91 interruptgic: read32 [ff84200c] = 1e
-00:00:03.92 interruptgic: write32 [ff842010] = 1e
-00:00:03.92 xhcimmiospace: write32 [104] = 1
-00:00:03.93 interruptgic: read32 [ff84200c] = af
-00:00:03.93 xhci: IRQ
-00:00:03.93 xhcimmiospace: read32 [24] = 8
-00:00:03.93 xhcimmiospace: write32 [24] = 8
-00:00:03.93 xhcimmiospace: read32 [220] = 3
-00:00:03.93 xhcimmiospace: write32 [220] = 3
-00:00:03.93 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:03.93 xhcimmiospace: write32 [238] = 6008d8
-00:00:03.93 xhcimmiospace: write32 [23c] = 4
-00:00:03.93 interruptgic: write32 [ff842010] = af
-00:00:03.93 interruptgic: read32 [ff84200c] = 1e
-00:00:03.94 interruptgic: write32 [ff842010] = 1e
-00:00:03.94 interruptgic: read32 [ff84200c] = 1e
-00:00:03.95 interruptgic: write32 [ff842010] = 1e
-00:00:03.95 interruptgic: read32 [ff84200c] = 1e
-00:00:03.96 interruptgic: write32 [ff842010] = 1e
-00:00:03.96 interruptgic: read32 [ff84200c] = 1e
-00:00:03.97 interruptgic: write32 [ff842010] = 1e
-00:00:03.97 interruptgic: read32 [ff84200c] = 1e
-00:00:03.98 interruptgic: write32 [ff842010] = 1e
-00:00:03.98 interruptgic: read32 [ff84200c] = 1e
-00:00:03.99 interruptgic: write32 [ff842010] = 1e
-00:00:03.99 interruptgic: read32 [ff84200c] = 1e
-00:00:04.00 interruptgic: write32 [ff842010] = 1e
-00:00:04.00 interruptgic: read32 [ff84200c] = 1e
-00:00:04.01 interruptgic: write32 [ff842010] = 1e
-00:00:04.01 interruptgic: read32 [ff84200c] = 1e
-00:00:04.02 interruptgic: write32 [ff842010] = 1e
-00:00:04.02 interruptgic: read32 [ff84200c] = 1e
-00:00:04.03 interruptgic: write32 [ff842010] = 1e
-00:00:04.03 interruptgic: read32 [ff84200c] = 1e
-00:00:04.04 interruptgic: write32 [ff842010] = 1e
-00:00:04.04 interruptgic: read32 [ff84200c] = 1e
-00:00:04.05 interruptgic: write32 [ff842010] = 1e
-00:00:04.05 interruptgic: read32 [ff84200c] = 1e
-00:00:04.06 interruptgic: write32 [ff842010] = 1e
-00:00:04.06 interruptgic: read32 [ff84200c] = 1e
-00:00:04.07 interruptgic: write32 [ff842010] = 1e
-00:00:04.07 interruptgic: read32 [ff84200c] = 1e
-00:00:04.08 interruptgic: write32 [ff842010] = 1e
-00:00:04.08 interruptgic: read32 [ff84200c] = 1e
-00:00:04.09 interruptgic: write32 [ff842010] = 1e
-00:00:04.09 interruptgic: read32 [ff84200c] = 1e
-00:00:04.10 interruptgic: write32 [ff842010] = 1e
-00:00:04.10 interruptgic: read32 [ff84200c] = 1e
-00:00:04.11 interruptgic: write32 [ff842010] = 1e
-00:00:04.11 interruptgic: read32 [ff84200c] = 1e
-00:00:04.12 interruptgic: write32 [ff842010] = 1e
-00:00:04.12 interruptgic: read32 [ff84200c] = 1e
-00:00:04.13 interruptgic: write32 [ff842010] = 1e
-00:00:04.13 interruptgic: read32 [ff84200c] = 1e
-00:00:04.14 interruptgic: write32 [ff842010] = 1e
-00:00:04.14 interruptgic: read32 [ff84200c] = 1e
-00:00:04.15 interruptgic: write32 [ff842010] = 1e
-00:00:04.15 interruptgic: read32 [ff84200c] = 1e
-00:00:04.16 interruptgic: write32 [ff842010] = 1e
-00:00:04.16 interruptgic: read32 [ff84200c] = 1e
-00:00:04.17 interruptgic: write32 [ff842010] = 1e
-00:00:04.17 interruptgic: read32 [ff84200c] = 1e
-00:00:04.18 interruptgic: write32 [ff842010] = 1e
-00:00:04.18 interruptgic: read32 [ff84200c] = 1e
-00:00:04.19 interruptgic: write32 [ff842010] = 1e
-00:00:04.19 interruptgic: read32 [ff84200c] = 1e
-00:00:04.20 interruptgic: write32 [ff842010] = 1e
-00:00:04.20 xhcimmiospace: write32 [104] = 1
-00:00:04.21 interruptgic: read32 [ff84200c] = af
-00:00:04.21 xhci: IRQ
-00:00:04.21 xhcimmiospace: read32 [24] = 8
-00:00:04.21 xhcimmiospace: write32 [24] = 8
-00:00:04.21 xhcimmiospace: read32 [220] = 3
-00:00:04.21 xhcimmiospace: write32 [220] = 3
-00:00:04.21 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:04.21 xhcimmiospace: write32 [238] = 6008e8
-00:00:04.21 xhcimmiospace: write32 [23c] = 4
-00:00:04.21 interruptgic: write32 [ff842010] = af
-00:00:04.21 interruptgic: read32 [ff84200c] = 1e
-00:00:04.22 interruptgic: write32 [ff842010] = 1e
-00:00:04.22 interruptgic: read32 [ff84200c] = 1e
-00:00:04.23 interruptgic: write32 [ff842010] = 1e
-00:00:04.23 interruptgic: read32 [ff84200c] = 1e
-00:00:04.24 interruptgic: write32 [ff842010] = 1e
-00:00:04.24 interruptgic: read32 [ff84200c] = 1e
-00:00:04.25 interruptgic: write32 [ff842010] = 1e
-00:00:04.25 interruptgic: read32 [ff84200c] = 1e
-00:00:04.26 interruptgic: write32 [ff842010] = 1e
-00:00:04.26 interruptgic: read32 [ff84200c] = 1e
-00:00:04.27 interruptgic: write32 [ff842010] = 1e
-00:00:04.27 interruptgic: read32 [ff84200c] = 1e
-00:00:04.28 interruptgic: write32 [ff842010] = 1e
-00:00:04.28 interruptgic: read32 [ff84200c] = 1e
-00:00:04.29 interruptgic: write32 [ff842010] = 1e
-00:00:04.29 interruptgic: read32 [ff84200c] = 1e
-00:00:04.30 interruptgic: write32 [ff842010] = 1e
-00:00:04.30 interruptgic: read32 [ff84200c] = 1e
-00:00:04.31 interruptgic: write32 [ff842010] = 1e
-00:00:04.31 interruptgic: read32 [ff84200c] = 1e
-00:00:04.32 interruptgic: write32 [ff842010] = 1e
-00:00:04.32 interruptgic: read32 [ff84200c] = 1e
-00:00:04.33 interruptgic: write32 [ff842010] = 1e
-00:00:04.33 interruptgic: read32 [ff84200c] = 1e
-00:00:04.34 interruptgic: write32 [ff842010] = 1e
-00:00:04.34 interruptgic: read32 [ff84200c] = 1e
-00:00:04.35 interruptgic: write32 [ff842010] = 1e
-00:00:04.35 interruptgic: read32 [ff84200c] = 1e
-00:00:04.36 interruptgic: write32 [ff842010] = 1e
-00:00:04.36 interruptgic: read32 [ff84200c] = 1e
-00:00:04.37 interruptgic: write32 [ff842010] = 1e
-00:00:04.37 interruptgic: read32 [ff84200c] = 1e
-00:00:04.38 interruptgic: write32 [ff842010] = 1e
-00:00:04.38 interruptgic: read32 [ff84200c] = 1e
-00:00:04.39 interruptgic: write32 [ff842010] = 1e
-00:00:04.39 interruptgic: read32 [ff84200c] = 1e
-00:00:04.40 interruptgic: write32 [ff842010] = 1e
-00:00:04.40 interruptgic: read32 [ff84200c] = 1e
-00:00:04.41 interruptgic: write32 [ff842010] = 1e
-00:00:04.41 interruptgic: read32 [ff84200c] = 1e
-00:00:04.42 interruptgic: write32 [ff842010] = 1e
-00:00:04.42 interruptgic: read32 [ff84200c] = 1e
-00:00:04.43 interruptgic: write32 [ff842010] = 1e
-00:00:04.43 interruptgic: read32 [ff84200c] = 1e
-00:00:04.44 interruptgic: write32 [ff842010] = 1e
-00:00:04.44 interruptgic: read32 [ff84200c] = 1e
-00:00:04.45 interruptgic: write32 [ff842010] = 1e
-00:00:04.45 interruptgic: read32 [ff84200c] = 1e
-00:00:04.46 interruptgic: write32 [ff842010] = 1e
-00:00:04.46 interruptgic: read32 [ff84200c] = 1e
-00:00:04.47 interruptgic: write32 [ff842010] = 1e
-00:00:04.47 interruptgic: read32 [ff84200c] = 1e
-00:00:04.48 interruptgic: write32 [ff842010] = 1e
-00:00:04.48 interruptgic: read32 [ff84200c] = 1e
-00:00:04.49 interruptgic: write32 [ff842010] = 1e
-00:00:04.49 xhcimmiospace: write32 [104] = 1
-00:00:04.50 interruptgic: read32 [ff84200c] = af
-00:00:04.50 xhci: IRQ
-00:00:04.50 xhcimmiospace: read32 [24] = 8
-00:00:04.50 xhcimmiospace: write32 [24] = 8
-00:00:04.50 xhcimmiospace: read32 [220] = 3
-00:00:04.50 xhcimmiospace: write32 [220] = 3
-00:00:04.50 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
-00:00:04.50 xhcimmiospace: write32 [238] = 6008f8
-00:00:04.50 xhcimmiospace: write32 [23c] = 4
-00:00:04.50 interruptgic: write32 [ff842010] = af
-00:00:04.50 interruptgic: read32 [ff84200c] = 1e
-00:00:04.51 interruptgic: write32 [ff842010] = 1e
-00:00:04.51 interruptgic: read32 [ff84200c] = 1e
-00:00:04.52 interruptgic: write32 [ff842010] = 1e
-00:00:04.52 interruptgic: read32 [ff84200c] = 1e
-00:00:04.53 interruptgic: write32 [ff842010] = 1e
-00:00:04.53 interruptgic: read32 [ff84200c] = 1e
-00:00:04.54 interruptgic: write32 [ff842010] = 1e
-00:00:04.54 interruptgic: read32 [ff84200c] = 1e
-00:00:04.55 interruptgic: write32 [ff842010] = 1e
-00:00:04.55 interruptgic: read32 [ff84200c] = 1e
-00:00:04.56 interruptgic: write32 [ff842010] = 1e
-00:00:04.56 interruptgic: read32 [ff84200c] = 1e
-00:00:04.57 interruptgic: write32 [ff842010] = 1e
-00:00:04.57 interruptgic: read32 [ff84200c] = 1e
+00:00:02.11 bcmmailbox: read32 [fe00b898] = 40000000
+00:00:02.12 bcmmailbox: read32 [fe00b898] = 40000000
+00:00:02.12 bcmmailbox: read32 [fe00b898] = 40000000
+00:00:02.13 bcmmailbox: read32 [fe00b898] = 40000000
+00:00:02.13 bcmmailbox: read32 [fe00b898] = 40000000
+00:00:02.14 bcmmailbox: read32 [fe00b898] = 1
+00:00:02.14 bcmmailbox: read32 [fe00b880] = c0500008
+00:00:02.14 bcm-tags: Copied back 16 bytes to pTags at address 0x29bd90:
+00:00:02.15 bcm-tags: pTags[0x0] = 0x00030058 (after VC modifications)
+00:00:02.16 bcm-tags: pTags[0x4] = 0x00000004 (after VC modifications)
+00:00:02.16 bcm-tags: pTags[0x8] = 0x80000004 (after VC modifications)
+00:00:02.17 bcm-tags: pTags[0xc] = 0x00000000 (after VC modifications)
+00:00:02.18 bcmpciehostbridge: write32 [fd509000] = 100000
+00:00:02.18 bcmpciehostbridge: read32 [fd508008] = c033001
+00:00:02.19 bcmpciehostbridge: read8 [fd50800e] = 0
+00:00:02.19 bcmpciehostbridge: write8 [fd50800c] = 10
+00:00:02.20 bcmpciehostbridge: write32 [fd508010] = c0000004
+00:00:02.20 bcmpciehostbridge: write32 [fd508014] = 0
+00:00:02.21 bcmpciehostbridge: read8 [fd50803d] = 1
+00:00:02.21 bcmpciehostbridge: write16 [fd508004] = 146
+00:00:02.21 xhci: read16 [2] = 100
+00:00:02.22 xhcimmiospace: read8 [0] = 20
+00:00:02.22 xhcimmiospace: read32 [14] = 100
+00:00:02.23 xhcimmiospace: read32 [18] = 200
+00:00:02.23 xhcimmiospace: read32 [4] = 5000420
+00:00:02.23 xhcimmiospace: read32 [8] = fc000031
+00:00:02.24 xhcimmiospace: read32 [c] = e70004
+00:00:02.24 xhcimmiospace: read32 [10] = 2841eb
+00:00:02.25 xhci: 32 slots, 5 ports, 31 scratchpad bufs
+00:00:02.25 xhcimmiospace: read32 [24] = 1
+00:00:02.26 xhcimmiospace: read32 [20] = 0
+00:00:02.26 xhcimmiospace: write32 [20] = 2
+00:00:02.26 xhcimmiospace: read32 [20] = 2
+00:00:02.27 xhcimmiospace: read32 [20] = 0
+00:00:02.27 xhcimmiospace: read32 [24] = 11
+00:00:02.27 xhcimmiospace: read32 [28] = 1
+00:00:02.28 xhcimmiospace: read32 [58] = 0
+00:00:02.28 xhcimmiospace: write32 [58] = 20
+00:00:02.29 xhcimmiospace: write32 [50] = 600040
+00:00:02.29 xhcimmiospace: write32 [54] = 4
+00:00:02.29 xhcimmiospace: write32 [228] = 1
+00:00:02.30 xhcimmiospace: write32 [230] = 6018c0
+00:00:02.30 xhcimmiospace: write32 [234] = 4
+00:00:02.31 xhcimmiospace: write32 [238] = 600880
+00:00:02.31 xhcimmiospace: write32 [23c] = 4
+00:00:02.32 xhcimmiospace: write32 [224] = 1f4
+00:00:02.32 xhcimmiospace: read32 [220] = 0
+00:00:02.32 xhcimmiospace: write32 [220] = 2
+00:00:02.33 xhcimmiospace: write32 [38] = 602101
+00:00:02.33 xhcimmiospace: write32 [3c] = 4
+00:00:02.34 xhci-log-prefix: Scratchpad Buffer base address: 0x0000000000603000
+00:00:02.34 xhci-log-prefix: DMA offset (XHCI_TO_DMA(0)):     0x0000000400000000
+00:00:02.35 xhci-log-prefix: DMA base address:                0x0000000400603000
+00:00:02.36 xhci-log-prefix: Scratchpad buffer 0 DMA addr: 0x0000000400603000
+00:00:02.36 xhci-log-prefix: Scratchpad buffer 1 DMA addr: 0x0000000400604000
+00:00:02.37 xhci-log-prefix: Scratchpad buffer 2 DMA addr: 0x0000000400605000
+00:00:02.38 xhci-log-prefix: Scratchpad buffer 3 DMA addr: 0x0000000400606000
+00:00:02.38 xhci-log-prefix: Scratchpad buffer 4 DMA addr: 0x0000000400607000
+00:00:02.39 xhci-log-prefix: Scratchpad buffer 5 DMA addr: 0x0000000400608000
+00:00:02.40 xhci-log-prefix: Scratchpad buffer 6 DMA addr: 0x0000000400609000
+00:00:02.40 xhci-log-prefix: Scratchpad buffer 7 DMA addr: 0x000000040060A000
+00:00:02.41 xhci-log-prefix: Scratchpad buffer 8 DMA addr: 0x000000040060B000
+00:00:02.42 xhci-log-prefix: Scratchpad buffer 9 DMA addr: 0x000000040060C000
+00:00:02.43 xhci-log-prefix: Scratchpad buffer 10 DMA addr: 0x000000040060D000
+00:00:02.43 xhci-log-prefix: Scratchpad buffer 11 DMA addr: 0x000000040060E000
+00:00:02.44 xhci-log-prefix: Scratchpad buffer 12 DMA addr: 0x000000040060F000
+00:00:02.45 xhci-log-prefix: Scratchpad buffer 13 DMA addr: 0x0000000400610000
+00:00:02.45 xhci-log-prefix: Scratchpad buffer 14 DMA addr: 0x0000000400611000
+00:00:02.46 xhci-log-prefix: Scratchpad buffer 15 DMA addr: 0x0000000400612000
+00:00:02.47 xhci-log-prefix: Scratchpad buffer 16 DMA addr: 0x0000000400613000
+00:00:02.47 xhci-log-prefix: Scratchpad buffer 17 DMA addr: 0x0000000400614000
+00:00:02.48 xhci-log-prefix: Scratchpad buffer 18 DMA addr: 0x0000000400615000
+00:00:02.49 xhci-log-prefix: Scratchpad buffer 19 DMA addr: 0x0000000400616000
+00:00:02.50 xhci-log-prefix: Scratchpad buffer 20 DMA addr: 0x0000000400617000
+00:00:02.50 xhci-log-prefix: Scratchpad buffer 21 DMA addr: 0x0000000400618000
+00:00:02.51 xhci-log-prefix: Scratchpad buffer 22 DMA addr: 0x0000000400619000
+00:00:02.52 xhci-log-prefix: Scratchpad buffer 23 DMA addr: 0x000000040061A000
+00:00:02.52 xhci-log-prefix: Scratchpad buffer 24 DMA addr: 0x000000040061B000
+00:00:02.53 xhci-log-prefix: Scratchpad buffer 25 DMA addr: 0x000000040061C000
+00:00:02.54 xhci-log-prefix: Scratchpad buffer 26 DMA addr: 0x000000040061D000
+00:00:02.54 xhci-log-prefix: Scratchpad buffer 27 DMA addr: 0x000000040061E000
+00:00:02.55 xhci-log-prefix: Scratchpad buffer 28 DMA addr: 0x000000040061F000
+00:00:02.56 xhci-log-prefix: Scratchpad buffer 29 DMA addr: 0x0000000400620000
+00:00:02.56 xhci-log-prefix: Scratchpad buffer 30 DMA addr: 0x0000000400621000
+00:00:02.58 xhcimmiospace: read32 [20] = 0
+00:00:02.58 xhcimmiospace: write32 [20] = 4
+00:00:02.58 xhcimmiospace: read32 [20] = 4
+00:00:02.59 xhcimmiospace: write32 [20] = 5
+00:00:02.59 xhci: IRQ
+00:00:02.59 xhcimmiospace: read32 [24] = 18
+00:00:02.59 xhcimmiospace: write32 [24] = 18
+00:00:02.59 xhcimmiospace: read32 [220] = 3
+00:00:02.59 xhcimmiospace: write32 [220] = 3
+00:00:02.59 xhcimmiospace: read32 [420] = 400202e1
+00:00:02.59 xhciroot: Port 1 status is 0x400202E1
+00:00:02.59 xhcimmiospace: write32 [420] = 400202e1
+00:00:02.59 xhcimmiospace: write32 [238] = 600898
+00:00:02.59 xhcimmiospace: write32 [23c] = 4
+00:00:02.96 xhcimmiospace: read32 [420] = 400002e1
+00:00:02.97 xhcimmiospace: read32 [420] = 400002e1
+00:00:02.97 xhcimmiospace: write32 [420] = 400002f1
+00:00:03.00 xhci: IRQ
+00:00:03.00 xhcimmiospace: read32 [24] = 18
+00:00:03.00 xhcimmiospace: write32 [24] = 18
+00:00:03.00 xhcimmiospace: read32 [220] = 3
+00:00:03.00 xhcimmiospace: write32 [220] = 3
+00:00:03.00 xhcimmiospace: read32 [420] = 40200e03
+00:00:03.00 xhciroot: Port 1 status is 0x40200E03
+00:00:03.00 xhcimmiospace: write32 [420] = 40200e01
+00:00:03.00 xhcimmiospace: write32 [238] = 6008a8
+00:00:03.00 xhcimmiospace: write32 [23c] = 4
+00:00:03.39 xhcimmiospace: read32 [420] = 40000e03
+00:00:03.50 xhcimmiospace: read32 [420] = 40000e03
+00:00:03.51 xhcicmd: Execute command 9 (control 0x2400)
+00:00:03.51 xhcicommand: Dumping 0x10 bytes starting at 0x602100
+00:00:03.52 xhcicommand: 2100: 00 00 00 00 00 00 00 00-00 00 00 00 01 24 00 00
+00:00:03.52 xhcimmiospace: write32 [100] = 0
+00:00:03.53 xhci: IRQ
+00:00:03.53 xhcimmiospace: read32 [24] = 8
+00:00:03.53 xhcimmiospace: write32 [24] = 8
+00:00:03.53 xhcimmiospace: read32 [220] = 3
+00:00:03.53 xhcimmiospace: write32 [220] = 3
+00:00:03.53 xhcicmd: Command 9 completed with 1 (slot 1)
+00:00:03.53 xhcimmiospace: write32 [238] = 6008b8
+00:00:03.53 xhcimmiospace: write32 [23c] = 4
+00:00:03.79 inputcontext: Dumping 0x420 bytes starting at 0xDEA000
+00:00:03.80 inputcontext: A000: 00 00 00 00 03 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.81 inputcontext: A010: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.81 inputcontext: A020: 00 00 30 08 00 00 01 00-00 00 00 00 00 00 00 00
+00:00:03.82 inputcontext: A030: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.83 inputcontext: A040: 00 00 00 00 26 00 40 00-81 28 62 00 04 00 00 00
+00:00:03.84 inputcontext: A050: 08 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.84 inputcontext: A060: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.85 inputcontext: A070: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.86 inputcontext: A080: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.86 inputcontext: A090: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.87 inputcontext: A0A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.88 inputcontext: A0B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.89 inputcontext: A0C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.89 inputcontext: A0D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.90 inputcontext: A0E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.91 inputcontext: A0F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.91 inputcontext: A100: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.92 inputcontext: A110: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.93 inputcontext: A120: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.93 inputcontext: A130: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.94 inputcontext: A140: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.95 inputcontext: A150: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.96 inputcontext: A160: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.96 inputcontext: A170: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.97 inputcontext: A180: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.98 inputcontext: A190: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.98 inputcontext: A1A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:03.99 inputcontext: A1B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.00 inputcontext: A1C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.00 inputcontext: A1D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.01 inputcontext: A1E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.02 inputcontext: A1F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.03 inputcontext: A200: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.03 inputcontext: A210: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.04 inputcontext: A220: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.05 inputcontext: A230: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.05 inputcontext: A240: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.06 inputcontext: A250: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.07 inputcontext: A260: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.08 inputcontext: A270: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.08 inputcontext: A280: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.09 inputcontext: A290: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.10 inputcontext: A2A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.10 inputcontext: A2B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.11 inputcontext: A2C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.12 inputcontext: A2D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.12 inputcontext: A2E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.13 inputcontext: A2F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.14 inputcontext: A300: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.15 inputcontext: A310: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.15 inputcontext: A320: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.16 inputcontext: A330: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.17 inputcontext: A340: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.17 inputcontext: A350: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.18 inputcontext: A360: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.19 inputcontext: A370: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.19 inputcontext: A380: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.20 inputcontext: A390: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.21 inputcontext: A3A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.22 inputcontext: A3B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.22 inputcontext: A3C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.23 inputcontext: A3D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.24 inputcontext: A3E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.24 inputcontext: A3F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.25 inputcontext: A400: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.26 inputcontext: A410: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:04.26 xhcicmd: Execute command 11 (control 0x1002C00)
+00:00:04.27 xhcicommand: Dumping 0x10 bytes starting at 0x602110
+00:00:04.28 xhcicommand: 2110: 00 A0 DE 00 04 00 00 00-00 00 00 00 01 2C 00 01
+00:00:04.28 xhcimmiospace: write32 [100] = 0
+00:00:04.29 xhci: IRQ
+00:00:04.29 xhcimmiospace: read32 [24] = 8
+00:00:04.29 xhcimmiospace: write32 [24] = 8
+00:00:04.29 xhcimmiospace: read32 [220] = 3
+00:00:04.29 xhcimmiospace: write32 [220] = 3
+00:00:04.29 xhcicmd: Command 11 completed with 1 (slot 1)
+00:00:04.29 xhcimmiospace: write32 [238] = 6008c8
+00:00:04.29 xhcimmiospace: write32 [23c] = 4
+00:00:04.60 xhcimmiospace: write32 [104] = 1
+00:00:04.61 xhci: IRQ
+00:00:04.61 xhcimmiospace: read32 [24] = 8
+00:00:04.61 xhcimmiospace: write32 [24] = 8
+00:00:04.61 xhcimmiospace: read32 [220] = 3
+00:00:04.61 xhcimmiospace: write32 [220] = 3
+00:00:04.61 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:04.61 xhcimmiospace: write32 [238] = 6008d8
+00:00:04.61 xhcimmiospace: write32 [23c] = 4
+00:00:04.88 xhcimmiospace: write32 [104] = 1
+00:00:04.89 xhci: IRQ
+00:00:04.89 xhcimmiospace: read32 [24] = 8
+00:00:04.89 xhcimmiospace: write32 [24] = 8
+00:00:04.89 xhcimmiospace: read32 [220] = 3
+00:00:04.89 xhcimmiospace: write32 [220] = 3
+00:00:04.89 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:04.89 xhcimmiospace: write32 [238] = 6008e8
+00:00:04.89 xhcimmiospace: write32 [23c] = 4
+00:00:05.17 xhcimmiospace: write32 [104] = 1
+00:00:05.18 xhci: IRQ
+00:00:05.18 xhcimmiospace: read32 [24] = 8
+00:00:05.18 xhcimmiospace: write32 [24] = 8
+00:00:05.18 xhcimmiospace: read32 [220] = 3
+00:00:05.18 xhcimmiospace: write32 [220] = 3
+00:00:05.18 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:05.18 xhcimmiospace: write32 [238] = 6008f8
+00:00:05.18 xhcimmiospace: write32 [23c] = 4
+00:00:05.47 xhcimmiospace: write32 [104] = 1
+00:00:05.48 xhci: IRQ
+00:00:05.48 xhcimmiospace: read32 [24] = 8
+00:00:05.48 xhcimmiospace: write32 [24] = 8
+00:00:05.48 xhcimmiospace: read32 [220] = 3
+00:00:05.48 xhcimmiospace: write32 [220] = 3
+00:00:05.48 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:05.48 xhcimmiospace: write32 [238] = 600908
+00:00:05.48 xhcimmiospace: write32 [23c] = 4
+00:00:05.77 usbdev1: Device ven2109-3431, dev9-0-1 found (HS)
+00:00:05.78 xhcimmiospace: write32 [104] = 1
+00:00:05.78 xhci: IRQ
+00:00:05.78 xhcimmiospace: read32 [24] = 8
+00:00:05.78 xhcimmiospace: write32 [24] = 8
+00:00:05.78 xhcimmiospace: read32 [220] = 3
+00:00:05.78 xhcimmiospace: write32 [220] = 3
+00:00:05.78 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:05.78 xhcimmiospace: write32 [238] = 600918
+00:00:05.78 xhcimmiospace: write32 [23c] = 4
+00:00:06.11 xhcimmiospace: write32 [104] = 1
+00:00:06.12 xhci: IRQ
+00:00:06.12 xhcimmiospace: read32 [24] = 8
+00:00:06.12 xhcimmiospace: write32 [24] = 8
+00:00:06.12 xhcimmiospace: read32 [220] = 3
+00:00:06.12 xhcimmiospace: write32 [220] = 3
+00:00:06.12 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:06.12 xhcimmiospace: write32 [238] = 600928
+00:00:06.12 xhcimmiospace: write32 [23c] = 4
+00:00:06.41 xhcimmiospace: write32 [104] = 1
+00:00:06.42 xhci: IRQ
+00:00:06.42 xhcimmiospace: read32 [24] = 8
+00:00:06.42 xhcimmiospace: write32 [24] = 8
+00:00:06.42 xhcimmiospace: read32 [220] = 3
+00:00:06.42 xhcimmiospace: write32 [220] = 3
+00:00:06.42 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:06.42 xhcimmiospace: write32 [238] = 600938
+00:00:06.42 xhcimmiospace: write32 [23c] = 4
+00:00:06.70 usbdev1: Product: USB2.0 Hub
+00:00:06.71 xhcimmiospace: write32 [104] = 1
+00:00:06.71 xhci: IRQ
+00:00:06.71 xhcimmiospace: read32 [24] = 8
+00:00:06.71 xhcimmiospace: write32 [24] = 8
+00:00:06.71 xhcimmiospace: read32 [220] = 3
+00:00:06.71 xhcimmiospace: write32 [220] = 3
+00:00:06.71 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:06.71 xhcimmiospace: write32 [238] = 600948
+00:00:06.71 xhcimmiospace: write32 [23c] = 4
+00:00:07.08 usbdev1: Interface int9-0-0 found
+00:00:07.09 usbdev1: Using device/interface int9-0-0
+00:00:07.09 xhcimmiospace: write32 [104] = 1
+00:00:07.09 xhci: IRQ
+00:00:07.09 xhcimmiospace: read32 [24] = 8
+00:00:07.09 xhcimmiospace: write32 [24] = 8
+00:00:07.09 xhcimmiospace: read32 [220] = 3
+00:00:07.09 xhcimmiospace: write32 [220] = 3
+00:00:07.09 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:07.09 xhcimmiospace: write32 [238] = 600958
+00:00:07.09 xhcimmiospace: write32 [23c] = 4
+00:00:07.43 xhcicmd: Execute command 13 (control 0x1003400)
+00:00:07.44 xhcicommand: Dumping 0x10 bytes starting at 0x602120
+00:00:07.44 xhcicommand: 2120: 00 A0 DE 00 04 00 00 00-00 00 00 00 01 34 00 01
+00:00:07.45 xhcimmiospace: write32 [100] = 0
+00:00:07.46 xhci: IRQ
+00:00:07.46 xhcimmiospace: read32 [24] = 8
+00:00:07.46 xhcimmiospace: write32 [24] = 8
+00:00:07.46 xhcimmiospace: read32 [220] = 3
+00:00:07.46 xhcimmiospace: write32 [220] = 3
+00:00:07.46 xhcicmd: Command 13 completed with 1 (slot 1)
+00:00:07.46 xhcimmiospace: write32 [238] = 600968
+00:00:07.46 xhcimmiospace: write32 [23c] = 4
+00:00:07.72 xhcimmiospace: read32 [420] = 40000e03
+00:00:07.75 xhciroot: Port 1: Device initialized
+00:00:07.76 xhcimmiospace: read32 [430] = 2a0
+00:00:07.76 xhcimmiospace: read32 [440] = 2a0
+00:00:07.77 xhcimmiospace: read32 [450] = 2a0
+00:00:07.77 xhcimmiospace: read32 [460] = 2a0
+00:00:07.78 xhcicmd: Execute command 12 (control 0x1003000)
+00:00:07.78 xhcicommand: Dumping 0x10 bytes starting at 0x602130
+00:00:07.79 xhcicommand: 2130: 00 A0 DE 00 04 00 00 00-00 00 00 00 01 30 00 01
+00:00:07.79 xhcimmiospace: write32 [100] = 0
+00:00:07.80 xhci: IRQ
+00:00:07.80 xhcimmiospace: read32 [24] = 8
+00:00:07.80 xhcimmiospace: write32 [24] = 8
+00:00:07.80 xhcimmiospace: read32 [220] = 3
+00:00:07.80 xhcimmiospace: write32 [220] = 3
+00:00:07.80 xhcicmd: Command 12 completed with 1 (slot 1)
+00:00:07.80 xhcimmiospace: write32 [238] = 600978
+00:00:07.80 xhcimmiospace: write32 [23c] = 4
+00:00:08.07 xhcimmiospace: write32 [104] = 1
+00:00:08.08 xhci: IRQ
+00:00:08.08 xhcimmiospace: read32 [24] = 8
+00:00:08.08 xhcimmiospace: write32 [24] = 8
+00:00:08.08 xhcimmiospace: read32 [220] = 3
+00:00:08.08 xhcimmiospace: write32 [220] = 3
+00:00:08.08 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:08.08 xhcimmiospace: write32 [238] = 600988
+00:00:08.08 xhcimmiospace: write32 [23c] = 4
+00:00:08.36 xhcimmiospace: write32 [104] = 1
+00:00:08.37 xhci: IRQ
+00:00:08.37 xhcimmiospace: read32 [24] = 8
+00:00:08.37 xhcimmiospace: write32 [24] = 8
+00:00:08.37 xhcimmiospace: read32 [220] = 3
+00:00:08.37 xhcimmiospace: write32 [220] = 3
+00:00:08.37 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:08.37 xhcimmiospace: write32 [238] = 600998
+00:00:08.37 xhcimmiospace: write32 [23c] = 4
+00:00:08.66 xhcimmiospace: write32 [104] = 1
+00:00:08.67 xhci: IRQ
+00:00:08.67 xhcimmiospace: read32 [24] = 8
+00:00:08.67 xhcimmiospace: write32 [24] = 8
+00:00:08.67 xhcimmiospace: read32 [220] = 3
+00:00:08.67 xhcimmiospace: write32 [220] = 3
+00:00:08.67 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:08.67 xhcimmiospace: write32 [238] = 6009a8
+00:00:08.67 xhcimmiospace: write32 [23c] = 4
+00:00:08.96 xhcimmiospace: write32 [104] = 1
+00:00:08.97 xhci: IRQ
+00:00:08.97 xhcimmiospace: read32 [24] = 8
+00:00:08.97 xhcimmiospace: write32 [24] = 8
+00:00:08.97 xhcimmiospace: read32 [220] = 3
+00:00:08.97 xhcimmiospace: write32 [220] = 3
+00:00:08.97 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:08.97 xhcimmiospace: write32 [238] = 6009b8
+00:00:08.97 xhcimmiospace: write32 [23c] = 4
+00:00:09.76 xhcimmiospace: write32 [104] = 1
+00:00:09.77 xhci: IRQ
+00:00:09.77 xhcimmiospace: read32 [24] = 8
+00:00:09.77 xhcimmiospace: write32 [24] = 8
+00:00:09.77 xhcimmiospace: read32 [220] = 3
+00:00:09.77 xhcimmiospace: write32 [220] = 3
+00:00:09.77 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:09.77 xhcimmiospace: write32 [238] = 6009c8
+00:00:09.77 xhcimmiospace: write32 [23c] = 4
+00:00:10.04 xhcimmiospace: write32 [104] = 1
+00:00:10.05 xhci: IRQ
+00:00:10.05 xhcimmiospace: read32 [24] = 8
+00:00:10.05 xhcimmiospace: write32 [24] = 8
+00:00:10.05 xhcimmiospace: read32 [220] = 3
+00:00:10.05 xhcimmiospace: write32 [220] = 3
+00:00:10.05 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:10.05 xhcimmiospace: write32 [238] = 6009d8
+00:00:10.05 xhcimmiospace: write32 [23c] = 4
+00:00:10.44 xhcimmiospace: write32 [104] = 1
+00:00:10.45 xhci: IRQ
+00:00:10.45 xhcimmiospace: read32 [24] = 8
+00:00:10.45 xhcimmiospace: write32 [24] = 8
+00:00:10.45 xhcimmiospace: read32 [220] = 3
+00:00:10.45 xhcimmiospace: write32 [220] = 3
+00:00:10.45 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:10.45 xhcimmiospace: write32 [238] = 6009e8
+00:00:10.45 xhcimmiospace: write32 [23c] = 4
+00:00:10.78 xhcicmd: Execute command 9 (control 0x2400)
+00:00:10.79 xhcicommand: Dumping 0x10 bytes starting at 0x602140
+00:00:10.80 xhcicommand: 2140: 00 00 00 00 00 00 00 00-00 00 00 00 01 24 00 00
+00:00:10.80 xhcimmiospace: write32 [100] = 0
+00:00:10.81 xhci: IRQ
+00:00:10.81 xhcimmiospace: read32 [24] = 8
+00:00:10.81 xhcimmiospace: write32 [24] = 8
+00:00:10.81 xhcimmiospace: read32 [220] = 3
+00:00:10.81 xhcimmiospace: write32 [220] = 3
+00:00:10.81 xhcicmd: Command 9 completed with 1 (slot 2)
+00:00:10.81 xhcimmiospace: write32 [238] = 6009f8
+00:00:10.81 xhcimmiospace: write32 [23c] = 4
+00:00:11.07 inputcontext: Dumping 0x420 bytes starting at 0xDEA000
+00:00:11.08 inputcontext: A000: 00 00 00 00 03 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.09 inputcontext: A010: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.09 inputcontext: A020: 01 00 20 08 00 00 01 00-01 01 00 00 00 00 00 00
+00:00:11.10 inputcontext: A030: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.11 inputcontext: A040: 00 00 00 00 26 00 08 00-41 41 62 00 04 00 00 00
+00:00:11.11 inputcontext: A050: 08 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.12 inputcontext: A060: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.13 inputcontext: A070: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.14 inputcontext: A080: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.14 inputcontext: A090: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.15 inputcontext: A0A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.16 inputcontext: A0B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.16 inputcontext: A0C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.17 inputcontext: A0D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.18 inputcontext: A0E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.19 inputcontext: A0F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.19 inputcontext: A100: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.20 inputcontext: A110: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.21 inputcontext: A120: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.21 inputcontext: A130: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.22 inputcontext: A140: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.23 inputcontext: A150: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.23 inputcontext: A160: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.24 inputcontext: A170: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.25 inputcontext: A180: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.26 inputcontext: A190: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.26 inputcontext: A1A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.27 inputcontext: A1B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.28 inputcontext: A1C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.28 inputcontext: A1D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.29 inputcontext: A1E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.30 inputcontext: A1F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.30 inputcontext: A200: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.31 inputcontext: A210: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.32 inputcontext: A220: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.33 inputcontext: A230: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.33 inputcontext: A240: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.34 inputcontext: A250: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.35 inputcontext: A260: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.35 inputcontext: A270: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.36 inputcontext: A280: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.37 inputcontext: A290: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.38 inputcontext: A2A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.38 inputcontext: A2B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.39 inputcontext: A2C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.40 inputcontext: A2D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.40 inputcontext: A2E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.41 inputcontext: A2F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.42 inputcontext: A300: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.42 inputcontext: A310: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.43 inputcontext: A320: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.44 inputcontext: A330: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.45 inputcontext: A340: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.45 inputcontext: A350: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.46 inputcontext: A360: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.47 inputcontext: A370: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.47 inputcontext: A380: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.48 inputcontext: A390: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.49 inputcontext: A3A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.49 inputcontext: A3B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.50 inputcontext: A3C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.51 inputcontext: A3D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.52 inputcontext: A3E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.52 inputcontext: A3F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.53 inputcontext: A400: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.54 inputcontext: A410: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:11.54 xhcicmd: Execute command 11 (control 0x2002C00)
+00:00:11.55 xhcicommand: Dumping 0x10 bytes starting at 0x602150
+00:00:11.55 xhcicommand: 2150: 00 A0 DE 00 04 00 00 00-00 00 00 00 01 2C 00 02
+00:00:11.56 xhcimmiospace: write32 [100] = 0
+00:00:11.57 xhci: IRQ
+00:00:11.57 xhcimmiospace: read32 [24] = 8
+00:00:11.57 xhcimmiospace: write32 [24] = 8
+00:00:11.57 xhcimmiospace: read32 [220] = 3
+00:00:11.57 xhcimmiospace: write32 [220] = 3
+00:00:11.57 xhcicmd: Command 11 completed with 1 (slot 2)
+00:00:11.57 xhcimmiospace: write32 [238] = 600a08
+00:00:11.57 xhcimmiospace: write32 [23c] = 4
+00:00:11.88 xhcimmiospace: write32 [108] = 1
+00:00:11.89 xhci: IRQ
+00:00:11.89 xhcimmiospace: read32 [24] = 8
+00:00:11.89 xhcimmiospace: write32 [24] = 8
+00:00:11.89 xhcimmiospace: read32 [220] = 3
+00:00:11.89 xhcimmiospace: write32 [220] = 3
+00:00:11.89 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:11.89 xhcimmiospace: write32 [238] = 600a18
+00:00:11.89 xhcimmiospace: write32 [23c] = 4
+00:00:12.22 xhcimmiospace: write32 [108] = 1
+00:00:12.23 xhci: IRQ
+00:00:12.23 xhcimmiospace: read32 [24] = 8
+00:00:12.23 xhcimmiospace: write32 [24] = 8
+00:00:12.23 xhcimmiospace: read32 [220] = 3
+00:00:12.23 xhcimmiospace: write32 [220] = 3
+00:00:12.23 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:12.23 xhcimmiospace: write32 [238] = 600a28
+00:00:12.23 xhcimmiospace: write32 [23c] = 4
+00:00:12.52 xhcimmiospace: write32 [108] = 1
+00:00:12.53 xhci: IRQ
+00:00:12.53 xhcimmiospace: read32 [24] = 8
+00:00:12.53 xhcimmiospace: write32 [24] = 8
+00:00:12.53 xhcimmiospace: read32 [220] = 3
+00:00:12.53 xhcimmiospace: write32 [220] = 3
+00:00:12.53 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:12.53 xhcimmiospace: write32 [238] = 600a38
+00:00:12.53 xhcimmiospace: write32 [23c] = 4
+00:00:12.81 xhcimmiospace: write32 [108] = 1
+00:00:12.82 xhci: IRQ
+00:00:12.82 xhcimmiospace: read32 [24] = 8
+00:00:12.82 xhcimmiospace: write32 [24] = 8
+00:00:12.82 xhcimmiospace: read32 [220] = 3
+00:00:12.82 xhcimmiospace: write32 [220] = 3
+00:00:12.82 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:12.82 xhcimmiospace: write32 [238] = 600a48
+00:00:12.82 xhcimmiospace: write32 [23c] = 4
+00:00:13.11 usbdev1-1: Device ven93a-2510 found (LS)
+00:00:13.12 xhcimmiospace: write32 [108] = 1
+00:00:13.12 xhci: IRQ
+00:00:13.12 xhcimmiospace: read32 [24] = 8
+00:00:13.12 xhcimmiospace: write32 [24] = 8
+00:00:13.12 xhcimmiospace: read32 [220] = 3
+00:00:13.12 xhcimmiospace: write32 [220] = 3
+00:00:13.12 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:13.12 xhcimmiospace: write32 [238] = 600a58
+00:00:13.12 xhcimmiospace: write32 [23c] = 4
+00:00:13.45 xhcimmiospace: write32 [108] = 1
+00:00:13.46 xhci: IRQ
+00:00:13.46 xhcimmiospace: read32 [24] = 8
+00:00:13.46 xhcimmiospace: write32 [24] = 8
+00:00:13.46 xhcimmiospace: read32 [220] = 3
+00:00:13.46 xhcimmiospace: write32 [220] = 3
+00:00:13.46 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:13.46 xhcimmiospace: write32 [238] = 600a68
+00:00:13.46 xhcimmiospace: write32 [23c] = 4
+00:00:13.74 xhcimmiospace: write32 [108] = 1
+00:00:13.75 xhci: IRQ
+00:00:13.75 xhcimmiospace: read32 [24] = 8
+00:00:13.75 xhcimmiospace: write32 [24] = 8
+00:00:13.75 xhcimmiospace: read32 [220] = 3
+00:00:13.75 xhcimmiospace: write32 [220] = 3
+00:00:13.75 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:13.75 xhcimmiospace: write32 [238] = 600a78
+00:00:13.75 xhcimmiospace: write32 [23c] = 4
+00:00:14.04 xhcimmiospace: write32 [108] = 1
+00:00:14.05 xhci: IRQ
+00:00:14.05 xhcimmiospace: read32 [24] = 8
+00:00:14.05 xhcimmiospace: write32 [24] = 8
+00:00:14.05 xhcimmiospace: read32 [220] = 3
+00:00:14.05 xhcimmiospace: write32 [220] = 3
+00:00:14.05 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:14.05 xhcimmiospace: write32 [238] = 600a88
+00:00:14.05 xhcimmiospace: write32 [23c] = 4
+00:00:14.34 xhcimmiospace: write32 [108] = 1
+00:00:14.35 xhci: IRQ
+00:00:14.35 xhcimmiospace: read32 [24] = 8
+00:00:14.35 xhcimmiospace: write32 [24] = 8
+00:00:14.35 xhcimmiospace: read32 [220] = 3
+00:00:14.35 xhcimmiospace: write32 [220] = 3
+00:00:14.35 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:14.35 xhcimmiospace: write32 [238] = 600a98
+00:00:14.35 xhcimmiospace: write32 [23c] = 4
+00:00:14.64 xhcimmiospace: write32 [108] = 1
+00:00:14.65 xhci: IRQ
+00:00:14.65 xhcimmiospace: read32 [24] = 8
+00:00:14.65 xhcimmiospace: write32 [24] = 8
+00:00:14.65 xhcimmiospace: read32 [220] = 3
+00:00:14.65 xhcimmiospace: write32 [220] = 3
+00:00:14.65 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:14.65 xhcimmiospace: write32 [238] = 600aa8
+00:00:14.65 xhcimmiospace: write32 [23c] = 4
+00:00:14.93 usbdev1-1: Product: PixArt USB Optical Mouse
+00:00:14.94 xhcimmiospace: write32 [108] = 1
+00:00:14.94 xhci: IRQ
+00:00:14.94 xhcimmiospace: read32 [24] = 8
+00:00:14.94 xhcimmiospace: write32 [24] = 8
+00:00:14.94 xhcimmiospace: read32 [220] = 3
+00:00:14.94 xhcimmiospace: write32 [220] = 3
+00:00:14.94 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:14.94 xhcimmiospace: write32 [238] = 600ab8
+00:00:14.94 xhcimmiospace: write32 [23c] = 4
+00:00:15.32 usbdev1-1: Interface int3-1-2 found
+00:00:15.33 usbdev1-1: Using device/interface int3-1-2
+00:00:15.33 xhcimmiospace: write32 [104] = 1
+00:00:15.33 xhci: IRQ
+00:00:15.33 xhcimmiospace: read32 [24] = 8
+00:00:15.33 xhcimmiospace: write32 [24] = 8
+00:00:15.33 xhcimmiospace: read32 [220] = 3
+00:00:15.33 xhcimmiospace: write32 [220] = 3
+00:00:15.33 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:15.33 xhcimmiospace: write32 [238] = 600ac8
+00:00:15.33 xhcimmiospace: write32 [23c] = 4
+00:00:15.67 xhcimmiospace: write32 [104] = 1
+00:00:15.68 xhci: IRQ
+00:00:15.68 xhcimmiospace: read32 [24] = 8
+00:00:15.68 xhcimmiospace: write32 [24] = 8
+00:00:15.68 xhcimmiospace: read32 [220] = 3
+00:00:15.68 xhcimmiospace: write32 [220] = 3
+00:00:15.68 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:15.68 xhcimmiospace: write32 [238] = 600ad8
+00:00:15.68 xhcimmiospace: write32 [23c] = 4
+00:00:15.97 xhcimmiospace: write32 [104] = 1
+00:00:15.98 xhci: IRQ
+00:00:15.98 xhcimmiospace: read32 [24] = 8
+00:00:15.98 xhcimmiospace: write32 [24] = 8
+00:00:15.98 xhcimmiospace: read32 [220] = 3
+00:00:15.98 xhcimmiospace: write32 [220] = 3
+00:00:15.98 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:15.98 xhcimmiospace: write32 [238] = 600ae8
+00:00:15.98 xhcimmiospace: write32 [23c] = 4
+00:00:16.26 xhcimmiospace: write32 [104] = 1
+00:00:16.27 xhci: IRQ
+00:00:16.27 xhcimmiospace: read32 [24] = 8
+00:00:16.27 xhcimmiospace: write32 [24] = 8
+00:00:16.27 xhcimmiospace: read32 [220] = 3
+00:00:16.27 xhcimmiospace: write32 [220] = 3
+00:00:16.27 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:16.27 xhcimmiospace: write32 [238] = 600af8
+00:00:16.27 xhcimmiospace: write32 [23c] = 4
+00:00:16.66 xhcimmiospace: write32 [104] = 1
+00:00:16.67 xhci: IRQ
+00:00:16.67 xhcimmiospace: read32 [24] = 8
+00:00:16.67 xhcimmiospace: write32 [24] = 8
+00:00:16.67 xhcimmiospace: read32 [220] = 3
+00:00:16.67 xhcimmiospace: write32 [220] = 3
+00:00:16.67 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:16.67 xhcimmiospace: write32 [238] = 600b08
+00:00:16.67 xhcimmiospace: write32 [23c] = 4
+00:00:16.93 xhcicmd: Execute command 9 (control 0x2400)
+00:00:16.94 xhcicommand: Dumping 0x10 bytes starting at 0x602160
+00:00:16.95 xhcicommand: 2160: 00 00 00 00 00 00 00 00-00 00 00 00 01 24 00 00
+00:00:16.95 xhcimmiospace: write32 [100] = 0
+00:00:16.96 xhci: IRQ
+00:00:16.96 xhcimmiospace: read32 [24] = 8
+00:00:16.96 xhcimmiospace: write32 [24] = 8
+00:00:16.96 xhcimmiospace: read32 [220] = 3
+00:00:16.96 xhcimmiospace: write32 [220] = 3
+00:00:16.96 xhcicmd: Command 9 completed with 1 (slot 3)
+00:00:16.96 xhcimmiospace: write32 [238] = 600b18
+00:00:16.96 xhcimmiospace: write32 [23c] = 4
+00:00:17.22 inputcontext: Dumping 0x420 bytes starting at 0xDEA000
+00:00:17.23 inputcontext: A000: 00 00 00 00 03 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.24 inputcontext: A010: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.24 inputcontext: A020: 04 00 20 08 00 00 01 00-01 04 00 00 00 00 00 00
+00:00:17.25 inputcontext: A030: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.26 inputcontext: A040: 00 00 00 00 26 00 08 00-C1 51 62 00 04 00 00 00
+00:00:17.27 inputcontext: A050: 08 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.27 inputcontext: A060: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.28 inputcontext: A070: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.29 inputcontext: A080: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.29 inputcontext: A090: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.30 inputcontext: A0A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.31 inputcontext: A0B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.31 inputcontext: A0C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.32 inputcontext: A0D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.33 inputcontext: A0E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.34 inputcontext: A0F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.34 inputcontext: A100: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.35 inputcontext: A110: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.36 inputcontext: A120: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.36 inputcontext: A130: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.37 inputcontext: A140: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.38 inputcontext: A150: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.38 inputcontext: A160: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.39 inputcontext: A170: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.40 inputcontext: A180: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.41 inputcontext: A190: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.41 inputcontext: A1A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.42 inputcontext: A1B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.43 inputcontext: A1C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.43 inputcontext: A1D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.44 inputcontext: A1E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.45 inputcontext: A1F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.46 inputcontext: A200: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.46 inputcontext: A210: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.47 inputcontext: A220: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.48 inputcontext: A230: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.48 inputcontext: A240: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.49 inputcontext: A250: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.50 inputcontext: A260: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.50 inputcontext: A270: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.51 inputcontext: A280: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.52 inputcontext: A290: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.53 inputcontext: A2A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.53 inputcontext: A2B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.54 inputcontext: A2C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.55 inputcontext: A2D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.55 inputcontext: A2E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.56 inputcontext: A2F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.57 inputcontext: A300: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.57 inputcontext: A310: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.58 inputcontext: A320: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.59 inputcontext: A330: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.60 inputcontext: A340: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.60 inputcontext: A350: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.61 inputcontext: A360: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.62 inputcontext: A370: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.62 inputcontext: A380: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.63 inputcontext: A390: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.64 inputcontext: A3A0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.65 inputcontext: A3B0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.65 inputcontext: A3C0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.66 inputcontext: A3D0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.67 inputcontext: A3E0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.67 inputcontext: A3F0: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.68 inputcontext: A400: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.69 inputcontext: A410: 00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00
+00:00:17.69 xhcicmd: Execute command 11 (control 0x3002C00)
+00:00:17.70 xhcicommand: Dumping 0x10 bytes starting at 0x602170
+00:00:17.71 xhcicommand: 2170: 00 A0 DE 00 04 00 00 00-00 00 00 00 01 2C 00 03
+00:00:17.71 xhcimmiospace: write32 [100] = 0
+00:00:17.72 xhci: IRQ
+00:00:17.72 xhcimmiospace: read32 [24] = 8
+00:00:17.72 xhcimmiospace: write32 [24] = 8
+00:00:17.72 xhcimmiospace: read32 [220] = 3
+00:00:17.72 xhcimmiospace: write32 [220] = 3
+00:00:17.72 xhcicmd: Command 11 completed with 1 (slot 3)
+00:00:17.72 xhcimmiospace: write32 [238] = 600b28
+00:00:17.72 xhcimmiospace: write32 [23c] = 4
+00:00:18.03 xhcimmiospace: write32 [10c] = 1
+00:00:18.04 xhci: IRQ
+00:00:18.04 xhcimmiospace: read32 [24] = 8
+00:00:18.04 xhcimmiospace: write32 [24] = 8
+00:00:18.04 xhcimmiospace: read32 [220] = 3
+00:00:18.04 xhcimmiospace: write32 [220] = 3
+00:00:18.04 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:18.04 xhcimmiospace: write32 [238] = 600b38
+00:00:18.04 xhcimmiospace: write32 [23c] = 4
+00:00:18.30 xhcimmiospace: write32 [10c] = 1
+00:00:18.32 xhci: IRQ
+00:00:18.32 xhcimmiospace: read32 [24] = 8
+00:00:18.32 xhcimmiospace: write32 [24] = 8
+00:00:18.32 xhcimmiospace: read32 [220] = 3
+00:00:18.32 xhcimmiospace: write32 [220] = 3
+00:00:18.32 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:18.32 xhcimmiospace: write32 [238] = 600b48
+00:00:18.32 xhcimmiospace: write32 [23c] = 4
+00:00:18.63 xhcimmiospace: write32 [10c] = 1
+00:00:18.64 xhci: IRQ
+00:00:18.64 xhcimmiospace: read32 [24] = 8
+00:00:18.64 xhcimmiospace: write32 [24] = 8
+00:00:18.64 xhcimmiospace: read32 [220] = 3
+00:00:18.64 xhcimmiospace: write32 [220] = 3
+00:00:18.64 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:18.64 xhcimmiospace: write32 [238] = 600b58
+00:00:18.64 xhcimmiospace: write32 [23c] = 4
+00:00:18.94 xhcimmiospace: write32 [10c] = 1
+00:00:18.97 xhci: IRQ
+00:00:18.97 xhcimmiospace: read32 [24] = 8
+00:00:18.97 xhcimmiospace: write32 [24] = 8
+00:00:18.97 xhcimmiospace: read32 [220] = 3
+00:00:18.97 xhcimmiospace: write32 [220] = 3
+00:00:18.97 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:18.97 xhcimmiospace: write32 [238] = 600b68
+00:00:18.97 xhcimmiospace: write32 [23c] = 4
+00:00:19.28 usbdev1-4: Device ven4d9-7 found (LS)
+00:00:19.29 xhcimmiospace: write32 [10c] = 1
+00:00:19.30 xhci: IRQ
+00:00:19.30 xhcimmiospace: read32 [24] = 8
+00:00:19.30 xhcimmiospace: write32 [24] = 8
+00:00:19.30 xhcimmiospace: read32 [220] = 3
+00:00:19.30 xhcimmiospace: write32 [220] = 3
+00:00:19.30 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:19.30 xhcimmiospace: write32 [238] = 600b78
+00:00:19.30 xhcimmiospace: write32 [23c] = 4
+00:00:19.61 xhcimmiospace: write32 [10c] = 1
+00:00:19.62 xhci: IRQ
+00:00:19.62 xhcimmiospace: read32 [24] = 8
+00:00:19.62 xhcimmiospace: write32 [24] = 8
+00:00:19.62 xhcimmiospace: read32 [220] = 3
+00:00:19.62 xhcimmiospace: write32 [220] = 3
+00:00:19.62 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:19.62 xhcimmiospace: write32 [238] = 600b88
+00:00:19.62 xhcimmiospace: write32 [23c] = 4
+00:00:19.92 xhcimmiospace: write32 [10c] = 1
+00:00:19.93 xhci: IRQ
+00:00:19.93 xhcimmiospace: read32 [24] = 8
+00:00:19.93 xhcimmiospace: write32 [24] = 8
+00:00:19.93 xhcimmiospace: read32 [220] = 3
+00:00:19.93 xhcimmiospace: write32 [220] = 3
+00:00:19.93 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:19.93 xhcimmiospace: write32 [238] = 600b98
+00:00:19.93 xhcimmiospace: write32 [23c] = 4
+00:00:20.22 xhcimmiospace: write32 [10c] = 1
+00:00:20.23 xhci: IRQ
+00:00:20.23 xhcimmiospace: read32 [24] = 8
+00:00:20.23 xhcimmiospace: write32 [24] = 8
+00:00:20.23 xhcimmiospace: read32 [220] = 3
+00:00:20.23 xhcimmiospace: write32 [220] = 3
+00:00:20.23 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:20.23 xhcimmiospace: write32 [238] = 600ba8
+00:00:20.23 xhcimmiospace: write32 [23c] = 4
+00:00:20.52 xhcimmiospace: write32 [10c] = 1
+00:00:20.55 xhci: IRQ
+00:00:20.55 xhcimmiospace: read32 [24] = 8
+00:00:20.55 xhcimmiospace: write32 [24] = 8
+00:00:20.55 xhcimmiospace: read32 [220] = 3
+00:00:20.55 xhcimmiospace: write32 [220] = 3
+00:00:20.55 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:20.55 xhcimmiospace: write32 [238] = 600bb8
+00:00:20.55 xhcimmiospace: write32 [23c] = 4
+00:00:20.86 usbdev1-4: Product:   Raspberry Pi Internal Keyboard
+00:00:20.87 xhcimmiospace: write32 [10c] = 1
+00:00:20.88 xhci: IRQ
+00:00:20.88 xhcimmiospace: read32 [24] = 8
+00:00:20.88 xhcimmiospace: write32 [24] = 8
+00:00:20.88 xhcimmiospace: read32 [220] = 3
+00:00:20.88 xhcimmiospace: write32 [220] = 3
+00:00:20.88 xhciep: Transfer event on endpoint 1 (
