@@ -133,3 +133,53 @@ Circle logs:
 00:00:04.61 xhcimmiospace: read32 [220] = 3
 00:00:04.61 xhcimmiospace: write32 [220] = 3
 ```
+
+```
+00:00:04.60 xhciep: Enqueue TRB control 0x30840 status 0x8 param1 0x1000680 param2 0x80000
+00:00:04.61 xhciep: TRB enqueued:
+00:00:04.61 xhciep: Dumping 0x10 bytes starting at 0x622880
+00:00:04.62 xhciep: 2880: 80 06 00 01 00 00 08 00-08 00 00 00 41 08 03 00
+00:00:04.62 xhciep: Enqueue TRB control 0x10c00 status 0x8 param1 0xde9280 param2 0x4
+00:00:04.63 xhciep: TRB enqueued:
+00:00:04.64 xhciep: Dumping 0x10 bytes starting at 0x622890
+00:00:04.64 xhciep: 2890: 80 92 DE 00 04 00 00 00-08 00 00 00 01 0C 01 00
+00:00:04.65 xhciep: Enqueue TRB control 0x1020 status 0x0 param1 0x0 param2 0x0
+00:00:04.65 xhciep: TRB enqueued:
+00:00:04.66 xhciep: Dumping 0x10 bytes starting at 0x6228A0
+00:00:04.66 xhciep: 28A0: 00 00 00 00 00 00 00 00-00 00 00 00 21 10 00 00
+00:00:04.67 xhcimmiospace: write32 [104] = 1
+00:00:04.67 interruptgic: read32 [ff84200c] = af
+00:00:04.67 xhci: IRQ
+00:00:04.67 xhcimmiospace: read32 [24] = 8
+00:00:04.67 xhcimmiospace: write32 [24] = 8
+00:00:04.67 xhcimmiospace: read32 [220] = 3
+00:00:04.67 xhcimmiospace: write32 [220] = 3
+00:00:04.67 xhciep: Transfer event on endpoint 1 (completion 1, length 0)
+00:00:04.67 xhcimmiospace: write32 [238] = 6008d8
+00:00:04.67 xhcimmiospace: write32 [23c] = 4
+
+
+SETUP STAGE
+
+0x01000680 0b0000000100000000 00000110 10000000; wValue 0x100 (256) => Descriptor Type 1 (DEVICE) and Descriptor Index 0; bRequest 0x6 => GET_DESCRIPTOR (page 251 and sectio 9.4.3 on page 253); bmRequestType 128 (0x80) => device to host, standard type, device recipient (page 248)
+0x00080000 0b0000000000001000 0000000000000000;  wLength 8 => descriptor length 8 bytes; wIndex 0 => Zero or Language ID
+0x00000008 0b0000000000 00000 00000000000001000; interruptor target 0; TRB Transfer Length 8 (always 8)
+0x00030841 0b00000000000000 11 000010 000 1 0 0000 1; TRT 3 (IN data stage); TRB Type 2; IDT 1; IOC 0; C 1 => cycle bit 1
+
+
+DATA STAGE
+
+0x00000004          DMA address of data buffer (hi)
+0x00de9280          DMA address of data buffer (lo)
+0x00000008 0b0000000000 00000 00000000000001000  interruptor target 0; TD size 0; TRB transfer length = 8 bytes
+0x00010c01 0b000000000000000 1 000011 000 0 0 0 0 0 0 1  DIR = 1; TRB Type = 3; IDT = 0; IOC = 0; CH = 0; NS = 0; ISP = 0; ENT = 0; C = 1
+
+
+STATUS STAGE
+
+0x00000000          RsvdZ
+0x00000000          RsvdZ
+0x00000000 0b0000000000 0000000000000000000000  Interruptor target 0; RsvdZ
+0x00001021 0b000000000000000 0 000100 0000 1 0 00 0 1  RsvdZ; DIR = 0; TRB Type = 4; RsvdZ, IOC = 1; CH = 0; RsvdZ, ENT = 0; C = 1
+
+```
