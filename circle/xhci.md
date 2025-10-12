@@ -160,26 +160,81 @@ Circle logs:
 
 
 SETUP STAGE
+xHCI spec page 468
 
-0x01000680 0b0000000100000000 00000110 10000000; wValue 0x100 (256) => Descriptor Type 1 (DEVICE) and Descriptor Index 0; bRequest 0x6 => GET_DESCRIPTOR (page 251 and sectio 9.4.3 on page 253); bmRequestType 128 (0x80) => device to host, standard type, device recipient (page 248)
-0x00080000 0b0000000000001000 0000000000000000;  wLength 8 => descriptor length 8 bytes; wIndex 0 => Zero or Language ID
-0x00000008 0b0000000000 00000 00000000000001000; interruptor target 0; TRB Transfer Length 8 (always 8)
-0x00030841 0b00000000000000 11 000010 000 1 0 0000 1; TRT 3 (IN data stage); TRB Type 2; IDT 1; IOC 0; C 1 => cycle bit 1
+0x01000680 0b0000000100000000 00000110 10000000
+    wValue 0x100 (256) => Descriptor Type 1 (DEVICE - page 251) and Descriptor Index 0.
+      The descriptor index is used to select a specific descriptor (only for configuration and
+      string descriptors) when several descriptors of the same type are implemented in a device. For example, a
+      device can implement several configuration descriptors. For other standard descriptors that can be retrieved
+      via a GetDescriptor() request, a descriptor index of zero must be used. The range of values used for a
+      descriptor index is from 0 to one less than the number of descriptors of that type implemented by the device.
+    bRequest 0x6 => GET_DESCRIPTOR (page 251 and sectio 9.4.3 on page 253)
+    bmRequestType 128 (0x80) => device to host, standard type, device recipient (page 248)
+
+0x00080000 0b0000000000001000 0000000000000000
+    wLength = 8 => descriptor length 8 bytes (duplicate of TRB transfer length in DATA STAGE?)
+    wIndex = 0 => Zero or Language ID
+
+0x00000008 0b0000000000 00000 00000000000001000
+    interruptor target = 0
+    TRB Transfer Length = 8. Always 8 according to xHCI page 469.
+
+0x00030841 0b00000000000000 11 000010 000 1 0 0000 1
+    TRT (Transfer Type) = 3 (IN data stage) (p469 xHCI)
+    TRB Type = 2 (Setup Stage) (p511 xHCI)
+    IDT = 1 (required for setup stage - p469 xHCI)
+    IOC = 0 (interrupt on completion not enabled - not sure why)
+    C = 1 => cycle bit 1
 
 
 DATA STAGE
+xHCI spec page 470
 
-0x00000004          DMA address of data buffer (hi)
-0x00de9280          DMA address of data buffer (lo)
-0x00000008 0b0000000000 00000 00000000000001000  interruptor target 0; TD size 0; TRB transfer length = 8 bytes
-0x00010c01 0b000000000000000 1 000011 000 0 0 0 0 0 0 1  DIR = 1; TRB Type = 3; IDT = 0; IOC = 0; CH = 0; NS = 0; ISP = 0; ENT = 0; C = 1
+0x00000004
+    DMA address of data buffer (hi)
+
+0x00de9280
+    DMA address of data buffer (lo)
+
+0x00000008 0b0000000000 00000 00000000000001000
+    interruptor target = 0
+    TD size = 0. The spec is very complicated here, and I don't understand it. xHCI spec page 218.
+    TRB transfer length = 8 bytes. Looks like the host is free to set this to preferred value? p470.
+
+0x00010c01 0b000000000000000 1 000011 000 0 0 0 0 0 0 1
+    DIR = 1. IN direction. p471.
+    TRB Type = 3 (Data stage) (p511)
+    IDT = 0 (immediate data: false, i.e. data is referenced via pointer)
+    IOC = 0 (no interrupt on completion)
+    CH = 0 (end of chain, i.e. DATA STAGE is a single TRB)
+    NS = 0 (no snoop - don't understand - see https://linux-usb.vger.kernel.narkive.com/2ODz0UCV/why-use-pci-express-no-snoop-option-for-xhci)
+    ISP = 0 (interrupt on short packet disabled)
+    ENT = 0 (evaluate next TRB disabled - see page 250, also not allowed since chain bit = 0)
+    C = 1 (cycle bit)
 
 
 STATUS STAGE
+xHCI spec page 472
 
-0x00000000          RsvdZ
-0x00000000          RsvdZ
-0x00000000 0b0000000000 0000000000000000000000  Interruptor target 0; RsvdZ
-0x00001021 0b000000000000000 0 000100 0000 1 0 00 0 1  RsvdZ; DIR = 0; TRB Type = 4; RsvdZ, IOC = 1; CH = 0; RsvdZ, ENT = 0; C = 1
+0x00000000
+    RsvdZ
 
+0x00000000
+    RsvdZ
+
+0x00000000 0b0000000000 0000000000000000000000
+    Interruptor target = 0
+    RsvdZ
+
+0x00001021 0b000000000000000 0 000100 0000 1 0 00 0 1
+    RsvdZ
+    DIR = 0
+    TRB Type = 4 (Status Stage) (p511)
+    RsvdZ
+    IOC = 1
+    CH = 0
+    RsvdZ
+    ENT = 0
+    C = 1
 ```

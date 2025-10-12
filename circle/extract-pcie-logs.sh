@@ -14,6 +14,9 @@ cat circle.log | grep '\(read\|write\)' | sed 's/\r//g' | sed 's/\[/[0x/' | sed 
    	| sed -E 's/(.*write)8(.*)=0x0*(.{2})$/\1\2=0x\3/' \
 	| sed 's/.*read/read/' | sed 's/.*write/write/' > circle_pcie.log
 
-cat spectrum4.log | sed 's/\r//g' | sed 's/\[0xfffffff/[0x0000000/' | sed -n -E '/^(read|write)/p' | sed 's/\[0x00000000/[0x/' > spectrum4_pcie.log
+cat ../screenlog.0 | sed 's/\r//g' | sed 's/\[0xfffffff/[0x0000000/' | sed -n -E '/^(read|write)/p' | sed 's/\[0x00000000/[0x/' > spectrum4_pcie.log
+cat circle_pcie.log  | grep -vF '[0xfd5' | grep -vF '[0xfe' | more | sed 's/\[0x\(...\]\)/[0x600000\1/g' | sed 's/\[0x\(..\]\)/[0x6000000\1/g' | sed 's/\[0x\(.\]\)/[0x60000000\1/g' > circle_xhci.log
+cat spectrum4_pcie.log | sed 's/\[0x00000006/[0x6/g' | grep '\[0x60000....\]' > spectrum4_xhci.log
 
 vim -d spectrum4_pcie.log circle_pcie.log
+vim -d spectrum4_xhci.log circle_xhci.log
