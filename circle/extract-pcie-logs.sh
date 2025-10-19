@@ -31,6 +31,8 @@ for file in circle_xhci.log spectrum4_xhci.log; do
     | sed 's/.*\[0x600000058\].*/& XHCI_REG_OP_CONFIG/' \
     | sed 's/.*\[0x600000100\].*/& host controller doorbell/' \
     | sed 's/.*\[0x600000104\].*/& slot 1 doorbell/' \
+    | sed 's/.*\[0x600000108\].*/& slot 2 doorbell/' \
+    | sed 's/.*\[0x60000010c\].*/& slot 3 doorbell/' \
     | sed 's/.*\[0x600000220\].*/& IMAN/' \
     | sed 's/.*\[0x600000224\].*/& IMOD/' \
     | sed 's/.*\[0x600000228\].*/& ERSTSZ/' \
@@ -39,6 +41,7 @@ for file in circle_xhci.log spectrum4_xhci.log; do
 	| sed 's/.*\[0x600000238\].*/& ERDP (lo)/' \
 	| sed 's/.*\[0x60000023c\].*/& ERDP (hi)/' \
 	| sed 's/.*\[0x600000420\].*/& PORTSC (port 1)/' \
+	| sed 's/.*\[0x600000430\].*/& PORTSC (port 2)/' \
       > "${file}"
   rm x
 done
