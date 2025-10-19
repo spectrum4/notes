@@ -30,6 +30,7 @@ for file in circle_xhci.log spectrum4_xhci.log; do
     | sed 's/.*\[0x600000054\].*/& XHCI_REG_OP_DCBAAP_HI/' \
     | sed 's/.*\[0x600000058\].*/& XHCI_REG_OP_CONFIG/' \
     | sed 's/.*\[0x600000100\].*/& host controller doorbell/' \
+    | sed 's/.*\[0x600000104\].*/& slot 1 doorbell/' \
     | sed 's/.*\[0x600000220\].*/& IMAN/' \
     | sed 's/.*\[0x600000224\].*/& IMOD/' \
     | sed 's/.*\[0x600000228\].*/& ERSTSZ/' \
