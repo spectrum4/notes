@@ -42,6 +42,9 @@ for file in circle_xhci.log spectrum4_xhci.log; do
 	| sed 's/.*\[0x60000023c\].*/& ERDP (hi)/' \
 	| sed 's/.*\[0x600000420\].*/& PORTSC (port 1)/' \
 	| sed 's/.*\[0x600000430\].*/& PORTSC (port 2)/' \
+	| sed 's/.*\[0x600000440\].*/& PORTSC (port 3)/' \
+	| sed 's/.*\[0x600000450\].*/& PORTSC (port 4)/' \
+	| sed 's/.*\[0x600000460\].*/& PORTSC (port 5)/' \
       > "${file}"
   rm x
 done
