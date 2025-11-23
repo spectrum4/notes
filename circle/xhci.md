@@ -191,11 +191,12 @@ xHCI spec page 468
 DATA STAGE
 xHCI spec page 470
 
-0x00000004
-    DMA address of data buffer (hi)
 
 0x00de9280
     DMA address of data buffer (lo)
+
+0x00000004
+    DMA address of data buffer (hi)
 
 0x00000008 0b0000000000 00000 00000000000001000
     interruptor target = 0
